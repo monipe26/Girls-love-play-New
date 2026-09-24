@@ -3,69 +3,119 @@ title: Inicio
 description: Series, noticias, OST y todo sobre el mundo Girls Love (GL).
 layout: base.njk
 ---
-<section class="carrusel" aria-label="Destacados">
-  <div class="carrusel-track">
-    {% for banner in banners %}
-    <a href="{{ banner.enlace }}" class="carrusel-slide {% if loop.first %}activo{% endif %}">
-      <img src="{{ banner.imagen }}" alt="{{ banner.alt }}" width="1200" height="400" {% if not loop.first %}loading="lazy"{% endif %}>
-    </a>
-    {% endfor %}
+<section class="hero" aria-label="Última noticia destacada">
+  <span class="badge badge-rosa hero-badge">Última noticia</span>
+  <img src="/assets/placeholder/hero.jpg" alt="" width="1200" height="500">
+  <div class="hero-texto">
+    <h1>Nuevo drama GL tailandés ya tiene a sus protagonistas</h1>
+    <p>La esperada serie "El mismo cielo, diferentes caminos" presenta a sus dos protagonistas principales.</p>
+    <div class="hero-pie">
+      <time datetime="2026-09-24">24 SEP 2026</time>
+      <a href="#" class="btn-primario">Leer más →</a>
+    </div>
   </div>
   <button class="carrusel-btn prev" aria-label="Anterior">‹</button>
   <button class="carrusel-btn next" aria-label="Siguiente">›</button>
 </section>
 
-<section class="seccion" aria-labelledby="tit-series">
-  <h2 id="tit-series">📺 Series GL</h2>
-  <p class="seccion-sub">Las mejores series GL</p>
-  <div class="grid-tarjetas">
-    {% for serie in collections.series | reverse | limit(6) %}
-      {% include "tarjeta-serie.njk" %}
-    {% endfor %}
-  </div>
-  <a href="/series/" class="ver-mas">Ver todas →</a>
-</section>
+{% include "iconos-nav.njk" %}
 
-<section class="seccion" aria-labelledby="tit-noticias">
-  <h2 id="tit-noticias">📰 Noticias GL</h2>
-  <p class="seccion-sub">Estrenos, fechas y novedades</p>
-  <div class="grid-tarjetas grid-2">
-    {% for nota in collections.noticias | limit(4) %}
-      {% include "tarjeta-noticia.njk" %}
-    {% endfor %}
-  </div>
-  <a href="/noticias/" class="ver-mas">Ver todas →</a>
-</section>
+<div class="layout-home">
+  <div class="columna-principal">
 
-<section class="seccion" aria-labelledby="tit-mundo">
-  <h2 id="tit-mundo">🌐 Mundo GL</h2>
-  <p class="seccion-sub">Guías, curiosidades y todo sobre el mundo GL</p>
-  <div class="grid-tarjetas grid-2">
-    {% for nota in collections.mundoGl | limit(4) %}
-      {% include "tarjeta-noticia.njk" %}
-    {% endfor %}
-  </div>
-  <a href="/mundo-gl/" class="ver-mas">Ver más →</a>
-</section>
+    <section class="seccion seccion-ultima-noticia" aria-labelledby="tit-ultima">
+      <div class="seccion-cabecera">
+        <h2 id="tit-ultima">📰 Última noticia</h2>
+        <a href="/noticias/" class="ver-mas">Ver todo →</a>
+      </div>
+      <a href="#" class="tarjeta-grande">
+        <img src="/assets/placeholder/ultima-noticia.jpg" alt="" width="800" height="420" loading="lazy">
+        <div class="tarjeta-grande-info">
+          <span class="badge badge-rosa">GL</span>
+          <h3>Nuevo drama GL tailandés ya tiene a sus protagonistas</h3>
+          <p>La esperada serie "El mismo cielo", diferentes caminos, presenta a sus dos protagonistas principales.</p>
+          <time datetime="2026-09-24">24 SEP 2026</time>
+          <span class="btn-primario">Leer más →</span>
+        </div>
+      </a>
+    </section>
 
-<section class="seccion" aria-labelledby="tit-ost">
-  <h2 id="tit-ost">🎵 OSTs GL</h2>
-  <p class="seccion-sub">Música y bandas sonoras</p>
-  <div class="grid-tarjetas grid-2">
-    {% for video in ostGl | limit(4) %}
-      {% include "tarjeta-video.njk" %}
-    {% endfor %}
-  </div>
-  <a href="/ost/" class="ver-mas">Ver más →</a>
-</section>
+    <section class="seccion seccion-noticias-destacadas" aria-labelledby="tit-noticias">
+      <div class="seccion-cabecera">
+        <h2 id="tit-noticias">📰 Últimas noticias</h2>
+        <a href="/noticias/" class="ver-mas">Ver todo →</a>
+      </div>
+      <div class="noticias-destacadas">
+        <ul class="noticias-lista">
+          <li>
+            <img src="/assets/placeholder/noticia-1.jpg" alt="" width="90" height="70" loading="lazy">
+            <div>
+              <span class="noticia-fecha">24 SEP 2026 · <span class="badge-texto">Series GL</span></span>
+              <p>Faye confirma nuevo proyecto junto a una reconocida actriz</p>
+            </div>
+          </li>
+          <li>
+            <img src="/assets/placeholder/noticia-2.jpg" alt="" width="90" height="70" loading="lazy">
+            <div>
+              <span class="noticia-fecha">23 SEP 2026 · <span class="badge-texto">Noticias</span></span>
+              <p>GagaQOLala presenta sus estrenos de octubre</p>
+            </div>
+          </li>
+          <li>
+            <img src="/assets/placeholder/noticia-3.jpg" alt="" width="90" height="70" loading="lazy">
+            <div>
+              <span class="noticia-fecha">22 SEP 2026 · <span class="badge-texto">Mundo GL</span></span>
+              <p>El fandom GL se reúne en Bangkok por un evento especial</p>
+            </div>
+          </li>
+          <li>
+            <img src="/assets/placeholder/noticia-4.jpg" alt="" width="90" height="70" loading="lazy">
+            <div>
+              <span class="noticia-fecha">21 SEP 2026 · <span class="badge-texto">Chips</span></span>
+              <p>Ya disponible el soundtrack de "Love in the Fast Lane"</p>
+            </div>
+          </li>
+        </ul>
 
-<section class="seccion" aria-labelledby="tit-comunidad">
-  <h2 id="tit-comunidad">💬 Comunidad GL</h2>
-  <p class="seccion-sub">Entrevistas, rankings y videos de youtubers GL</p>
-  <div class="grid-tarjetas grid-2">
-    {% for video in comunidadGl | limit(4) %}
-      {% include "tarjeta-video.njk" %}
-    {% endfor %}
+        <a href="#" class="tarjeta-destacada">
+          <img src="/assets/placeholder/serie-destacada.jpg" alt="" width="420" height="500" loading="lazy">
+          <div class="tarjeta-destacada-info">
+            <span class="badge badge-rosa">Series GL</span>
+            <h3>Blank: The Series</h3>
+            <p>La serie que todos están esperando.</p>
+            <span class="btn-primario">Ver serie →</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="seccion seccion-mundo-comunidad">
+      <div class="mundo-gl-bloque">
+        <div class="seccion-cabecera">
+          <h2>🌐 Mundo GL</h2>
+          <a href="/mundo-gl/" class="ver-mas">Ver todo →</a>
+        </div>
+        <div class="mundo-gl-grid">
+          <img src="/assets/placeholder/mundo-1.jpg" alt="" width="200" height="200" loading="lazy">
+          <img src="/assets/placeholder/mundo-2.jpg" alt="" width="200" height="200" loading="lazy">
+          <img src="/assets/placeholder/mundo-3.jpg" alt="" width="200" height="200" loading="lazy">
+          <img src="/assets/placeholder/mundo-4.jpg" alt="" width="200" height="200" loading="lazy">
+        </div>
+      </div>
+
+      <div class="comunidad-bloque">
+        <div class="seccion-cabecera">
+          <h2>👥 Comunidad</h2>
+          <a href="/comunidad/" class="ver-mas">Ver más →</a>
+        </div>
+        <div class="comunidad-card">
+          <p>Unite a nuestra comunidad. Comparte, comenta, conoce amigas.</p>
+          <a href="/comunidad/" class="btn-primario">Ir al foro →</a>
+        </div>
+      </div>
+    </section>
+
   </div>
-  <a href="/comunidad/" class="ver-mas">Ver más →</a>
-</section>
+
+  {% include "sidebar.njk" %}
+</div>
