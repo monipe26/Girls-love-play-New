@@ -5,17 +5,20 @@
   align-items: center;
   gap: var(--espacio-sm);
   padding: var(--espacio-sm);
-  background: linear-gradient(90deg, #2a1548, #4a1a5c, #7b1f5c);
+  background: var(--color-fondo);
+  box-shadow: var(--sombra-header);
   position: sticky;
   top: 0;
   z-index: 50;
 }
 
 .logo { order: 1; }
-.menu-principal { order: 2; }
-.search-form { order: 3; margin-left: auto; }
+.menu-toggle { order: 2; margin-left: auto; }
+.header-acciones { order: 3; display: flex; align-items: center; gap: var(--espacio-xs); }
+.menu-principal { order: 4; }
+.search-form { order: 5; }
 
-.logo img { height: 36px; width: auto; }
+.logo img { height: 34px; width: auto; }
 
 .menu-toggle {
   width: 32px; height: 24px;
@@ -26,19 +29,33 @@
   height: 3px; background: var(--color-texto); border-radius: 2px;
 }
 
-.search-form {
-  margin-left: auto;
+.btn-buscar,
+.btn-icono {
   display: flex;
   align-items: center;
-  background: var(--color-superficie);
-  border-radius: 999px;
-  padding: 6px 12px;
+  justify-content: center;
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  color: var(--color-primario);
+  transition: background 0.2s ease;
 }
-.search-form input {
-  background: none; border: none; color: var(--color-texto);
-  width: 140px;
+.btn-buscar:hover,
+.btn-icono:hover { background: var(--color-fondo-alt); }
+.btn-icono[aria-label="YouTube"] { color: #ff0000; }
+
+.search-form {
+  flex-basis: 100%;
+  display: flex;
+  align-items: center;
+  background: var(--color-fondo-alt);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-pill);
+  padding: 6px 14px;
+  margin-top: var(--espacio-xs);
 }
-.search-form button { color: var(--color-primario-hover); }
+.search-form[hidden] { display: none; }
+.search-form input { background: none; border: none; color: var(--color-texto); flex: 1; }
+.search-form button { color: var(--color-primario); }
 
 /* ===== MENÚ ===== */
 .menu-principal {
@@ -52,7 +69,7 @@
 .menu-principal.abierto { max-height: 600px; }
 
 .menu-principal ul { padding: var(--espacio-sm); }
-.menu-principal li { border-bottom: 1px solid rgba(255,255,255,0.06); }
+.menu-principal li { border-bottom: 1px solid var(--color-borde); }
 .menu-principal a {
   display: block;
   padding: var(--espacio-sm) 0;
@@ -60,7 +77,9 @@
   font-weight: 600;
   font-size: 0.95rem;
   letter-spacing: 0.02em;
+  color: var(--color-texto);
 }
+.menu-principal a:hover { color: var(--color-primario); }
 
 .tiene-submenu .submenu {
   padding-left: var(--espacio-md);
@@ -80,7 +99,7 @@
 .tiene-submenu:hover > a::after,
 .tiene-submenu:focus-within > a::after {
   transform: rotate(180deg);
-  color: var(--color-primario-hover);
+  color: var(--color-primario);
 }
 
 /* ===== CARRUSEL (3 banners) ===== */
