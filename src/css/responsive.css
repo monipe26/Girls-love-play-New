@@ -74,6 +74,14 @@
     box-shadow: var(--sombra-tarjeta);
     border: 1px solid var(--color-borde);
   }
+
+  .layout-home {
+    grid-template-columns: 1fr 340px;
+    align-items: start;
+    padding: var(--espacio-lg);
+  }
+  .noticias-destacadas { grid-template-columns: 1.3fr 1fr; }
+  .seccion-mundo-comunidad { grid-template-columns: 1.4fr 1fr; }
 }
 
 @media (min-width: 1200px) {
