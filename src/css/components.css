@@ -41,7 +41,6 @@
 }
 .btn-buscar:hover,
 .btn-icono:hover { background: var(--color-fondo-alt); }
-.btn-icono[aria-label="YouTube"] { color: #ff0000; }
 
 .search-form {
   flex-basis: 100%;
@@ -144,6 +143,7 @@
   scroll-behavior: smooth;
   list-style: none;
   flex: 1;
+  min-width: 0;
   scrollbar-width: none;
 }
 .ticker-lista::-webkit-scrollbar { display: none; }

@@ -97,6 +97,12 @@
     max-width: 1300px;
     margin: 0 auto;
   }
+
+  /* Buscador + redes sociales: van después del menú, pegados a la derecha */
+  .header-acciones {
+    order: 6;
+    margin-left: auto;
+  }
 }
 
 @media (min-width: 1200px) {
