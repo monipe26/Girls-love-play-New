@@ -45,6 +45,9 @@
 
   .grid-tarjetas { grid-template-columns: repeat(6, 1fr); }
 
+  .carrusel { max-width: 900px; margin: 0 auto; }
+  .reproductor-principal { max-width: 700px; margin: 0 auto; }
+
   .seccion { padding: var(--espacio-xl) var(--espacio-lg); }
   .site-footer { grid-template-columns: repeat(3, 1fr); }
 }
