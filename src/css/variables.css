@@ -1,17 +1,25 @@
 :root {
-  /* Colores base */
-  --color-fondo: #180c29;
-  --color-fondo-alt: #23113d;
-  --color-superficie: #2a1548;
-  --color-texto: #f4eefc;
-  --color-texto-sec: #c9b8e0;
+  /* Fondos (tema claro, como en la imagen) */
+  --color-fondo: #ffffff;
+  --color-fondo-alt: #fdf1f7;       /* rosa muy suave para secciones/sidebar */
+  --color-superficie: #ffffff;      /* tarjetas */
+  --color-borde: #f3d9e8;
+
+  /* Texto */
+  --color-texto: #241236;           /* violeta muy oscuro, no negro puro */
+  --color-texto-sec: #7a6b8c;       /* gris violáceo para subtítulos */
 
   /* Rosa/violeta de marca */
-  --color-primario: #ec2f8f;
+  --color-primario: #ec1f7f;
   --color-primario-hover: #ff4fa8;
-  --color-degradado: linear-gradient(135deg, #ec2f8f, #7b2ff7);
+  --color-secundario: #7b2ff7;
+  --color-degradado: linear-gradient(135deg, #ec1f8f, #7b2ff7);
 
-  /* Tipografía */
+  /* Footer / zonas oscuras puntuales */
+  --color-fondo-oscuro: #1a0e2e;
+  --color-texto-sobre-oscuro: #f4eefc;
+
+  /* Tipografía (se mantiene) */
   --fuente-base: "Quicksand", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --fuente-titulos: "Baloo 2", "Quicksand", system-ui, sans-serif;
 
@@ -23,9 +31,11 @@
   --espacio-xl: 4rem;
 
   /* Bordes */
-  --radio: 12px;
+  --radio: 14px;
   --radio-chico: 8px;
+  --radio-pill: 999px;              /* para badges y botones tipo píldora */
 
   /* Sombras */
-  --sombra-tarjeta: 0 4px 14px rgba(0, 0, 0, 0.4);
+  --sombra-tarjeta: 0 4px 16px rgba(122, 43, 190, 0.08);
+  --sombra-header: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
