@@ -89,6 +89,14 @@
     aspect-ratio: auto;
     height: 380px;
   }
+
+  /* Barra de íconos: centrada en escritorio, ya no pegada a la izquierda */
+  .iconos-nav {
+    justify-content: center;
+    overflow-x: visible;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
 }
 
 @media (min-width: 1200px) {
