@@ -6,30 +6,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const prevBtn = ticker.querySelector('.ticker-prev');
   const nextBtn = ticker.querySelector('.ticker-next');
 
-  // Duplicamos los items una vez para poder hacer un loop continuo sin salto brusco.
-  const originales = Array.from(lista.children);
-  originales.forEach((li) => {
-    const clon = li.cloneNode(true);
-    clon.setAttribute('aria-hidden', 'true');
-    clon.querySelectorAll('a').forEach((a) => a.setAttribute('tabindex', '-1'));
-    lista.appendChild(clon);
-  });
+  // Ancho de UNA sola tanda de noticias (antes de duplicar nada).
+  const original = Array.from(lista.children);
+  const anchoSet = lista.scrollWidth;
+
+  // Vamos agregando copias hasta tener contenido de sobra: así el navegador
+  // siempre tiene margen real para scrollear un ciclo completo, sin importar
+  // qué tan angosto sea el texto o qué tan ancha la pantalla.
+  let seguridad = 0;
+  while (lista.scrollWidth < anchoSet + lista.clientWidth + 100 && seguridad < 15) {
+    original.forEach((li) => {
+      const clon = li.cloneNode(true);
+      clon.setAttribute('aria-hidden', 'true');
+      clon.querySelectorAll('a').forEach((a) => a.setAttribute('tabindex', '-1'));
+      lista.appendChild(clon);
+    });
+    seguridad++;
+  }
 
   const VELOCIDAD = 0.4; // píxeles por frame
-  let mitad = lista.scrollWidth / 2;
   let pausado = false;
   let temporizadorPausa = null;
 
-  function medir() {
-    mitad = lista.scrollWidth / 2;
-  }
-  window.addEventListener('resize', medir);
-
   function animar() {
-    if (!pausado && mitad > 0) {
+    if (!pausado && anchoSet > 0) {
       lista.scrollLeft += VELOCIDAD;
-      if (lista.scrollLeft >= mitad) {
-        lista.scrollLeft -= mitad;
+      if (lista.scrollLeft >= anchoSet) {
+        lista.scrollLeft -= anchoSet;
       }
     }
     requestAnimationFrame(animar);
@@ -49,12 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   prevBtn?.addEventListener('click', () => {
     lista.scrollLeft -= 200;
-    if (lista.scrollLeft < 0) lista.scrollLeft += mitad;
+    if (lista.scrollLeft < 0) lista.scrollLeft += anchoSet;
     pausarUnMomento();
   });
   nextBtn?.addEventListener('click', () => {
     lista.scrollLeft += 200;
-    if (lista.scrollLeft >= mitad) lista.scrollLeft -= mitad;
+    if (lista.scrollLeft >= anchoSet) lista.scrollLeft -= anchoSet;
     pausarUnMomento();
   });
 });
