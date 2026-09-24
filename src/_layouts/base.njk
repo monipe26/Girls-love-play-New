@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }} · Girls Love Play</title>
+  <meta name="description" content="{{ description or 'Series, noticias y todo sobre el mundo Girls Love (GL).' }}">
+  <link rel="canonical" href="https://girlsloveplay.com{{ page.url }}">
+
+  <meta property="og:title" content="{{ title }} · Girls Love Play">
+  <meta property="og:description" content="{{ description or 'Series, noticias y todo sobre el mundo Girls Love (GL).' }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://girlsloveplay.com{{ page.url }}">
+  {% if imagen %}<meta property="og:image" content="{{ imagen }}">{% endif %}
+
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#1a0e2e">
+  <link rel="icon" href="/assets/icons/favicon.png">
+</head>
+<body>
+  {% include "header.njk" %}
+
+  <main id="contenido">
+    {{ content | safe }}
+  </main>
+
+  {% include "footer.njk" %}
+
+  <script src="/js/menu.js" defer></script>
+  <script src="/js/carousel.js" defer></script>
+  <script src="/js/player.js" defer></script>
+  <script src="/js/pwa.js" defer></script>
+</body>
+</html>
