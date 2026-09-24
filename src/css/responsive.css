@@ -83,6 +83,12 @@
   }
   .noticias-destacadas { grid-template-columns: 1.3fr 1fr; }
   .seccion-mundo-comunidad { grid-template-columns: 1.4fr 1fr; }
+
+  /* Hero más bajo en pantallas grandes (en mobile ya está bien con aspect-ratio) */
+  .hero img {
+    aspect-ratio: auto;
+    height: 380px;
+  }
 }
 
 @media (min-width: 1200px) {
