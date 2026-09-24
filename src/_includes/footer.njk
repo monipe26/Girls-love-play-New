@@ -4,51 +4,65 @@
       <a href="/" class="footer-logo">
         <img src="/assets/logo/logo.png" alt="Girls Love Play" width="140" height="36" loading="lazy">
       </a>
-      <p class="footer-tagline">Tu espacio GL favorito 💖</p>
+      <p class="footer-tagline">El Girl Love también tiene su lugar 💖</p>
     </div>
 
     <div class="footer-col">
-      <h2>Explorar</h2>
-      <ul>
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/series/">Series GL</a></li>
-        <li><a href="/noticias/">Noticias GL</a></li>
-        <li><a href="/mundo-gl/">🌐 Mundo GL</a></li>
-        <li><a href="/actrices/">👑 Actrices GL</a></li>
-        <li><a href="/ships/">💕 Ships GL</a></li>
-        <li><a href="/ost/">OSTs GL</a></li>
-        <li><a href="/proximamente/">Próximamente</a></li>
-        <li><a href="/extra/">🎁 GL Extras</a></li>
-        <li><a href="/novelas/">📖 Novelas GL</a></li>
-        <li><a href="/minijuegos/">🎮 Mini Juegos GL</a></li>
-        <li><a href="/comunidad/">Comunidad GL</a></li>
-      </ul>
+      <h2>Enlaces rápidos</h2>
+      <div class="footer-enlaces-grid">
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/series/">Series GL</a></li>
+          <li><a href="/noticias/">Noticias</a></li>
+          <li><a href="/mundo-gl/">Mundo GL</a></li>
+          <li><a href="/extra/">Chips</a></li>
+          <li><a href="/comunidad/">Comunidad</a></li>
+        </ul>
+        <ul>
+          <li><a href="/ost/">OST</a></li>
+          <li><a href="/novelas/">Novelas GL</a></li>
+          <li><a href="/extra/">Extras GL</a></li>
+          <li><a href="/proximamente/">Próximamente GL</a></li>
+          <li><a href="/minijuegos/">Juegos</a></li>
+        </ul>
+      </div>
     </div>
 
     <div class="footer-col">
-      <h2>Legal</h2>
-      <p class="footer-aviso">Este sitio no almacena videos ni archivos propios. Todo el contenido proviene de fuentes externas. Los derechos pertenecen a sus respectivos autores.</p>
-      <ul>
-        <li><a href="/aviso-legal/">Aviso Legal</a></li>
-        <li><a href="/privacidad/">Política de Privacidad</a></li>
-        <li><a href="/cookies/">Política de Cookies</a></li>
-      </ul>
+      <h2>Síguenos</h2>
+      <div class="footer-social">
+        <a href="https://instagram.com/" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
+        <a href="https://youtube.com/" aria-label="YouTube" target="_blank" rel="noopener">YT</a>
+        <a href="https://tiktok.com/" aria-label="TikTok" target="_blank" rel="noopener">TT</a>
+        <a href="https://x.com/" aria-label="X / Twitter" target="_blank" rel="noopener">X</a>
+      </div>
+      <h2 class="footer-newsletter-titulo">Suscríbete a nuestro boletín</h2>
+      <form class="footer-newsletter" action="#" method="post">
+        <label for="footer-email" class="sr-only">Tu correo electrónico</label>
+        <input type="email" id="footer-email" name="email" placeholder="Tu correo electrónico" required>
+        <button type="submit" aria-label="Suscribirme">➤</button>
+      </form>
     </div>
 
     <div class="footer-col">
       <h2>Contacto</h2>
-      <p><a href="mailto:contacto@girlsloveplay.com">contacto@girlsloveplay.com</a></p>
-      <a href="#" class="btn-apoyar">💖 Apoyar proyecto</a>
-      <div class="footer-social">
-        <a href="#" aria-label="Facebook">FB</a>
-        <a href="#" aria-label="Instagram">IG</a>
-        <a href="#" aria-label="X / Twitter">X</a>
-        <a href="#" aria-label="Telegram">TG</a>
-      </div>
+      <p>Escríbenos a:<br><a href="mailto:info@girlsloveplay.com">info@girlsloveplay.com</a></p>
+      <p class="footer-redes-aviso">💖 Estamos en todas las redes sociales</p>
     </div>
   </div>
 
-  <p class="footer-copy">© {{ site.anioActual }} Girls Love Play - Argentina 🇦🇷 - Todos los derechos reservados</p>
+  <div class="footer-bottom">
+    <div class="footer-bottom-izq">
+      <a href="/cookies/">🍪 Cookies</a>
+      <a href="/sobre-nosotras/">Sobre nosotras</a>
+      <a href="/aviso-legal/">Aviso legal</a>
+    </div>
+    <p class="footer-copy">🇦🇷 Argentina · © {{ site.anioActual }} Girl Love Play. Todos los derechos reservados.</p>
+    <div class="footer-bottom-der">
+      <a href="/terminos/">Términos y condiciones</a>
+      <a href="/privacidad/">Privacidad</a>
+    </div>
+  </div>
 </footer>
 
 <button id="btn-arriba" class="btn-arriba" aria-label="Volver arriba">↑</button>
