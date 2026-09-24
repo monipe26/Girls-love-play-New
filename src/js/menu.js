@@ -29,3 +29,19 @@ if (btnLeerMas) {
     btnLeerMas.textContent = expandida ? "Leer menos" : "Leer más";
   });
 }
+
+// Buscador desplegable
+const botonBuscar = document.querySelector(".btn-buscar");
+const formBuscar = document.querySelector("#form-buscar");
+if (botonBuscar && formBuscar) {
+  botonBuscar.addEventListener("click", () => {
+    const abierto = formBuscar.hasAttribute("hidden");
+    if (abierto) {
+      formBuscar.removeAttribute("hidden");
+      formBuscar.querySelector("input").focus();
+    } else {
+      formBuscar.setAttribute("hidden", "");
+    }
+    botonBuscar.setAttribute("aria-expanded", String(abierto));
+  });
+}
