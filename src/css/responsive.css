@@ -13,7 +13,8 @@
   .menu-principal {
     max-height: none;
     overflow: visible;
-    margin-left: var(--espacio-lg);
+    background: #3a1550;
+    padding: 0 var(--espacio-lg);
   }
   .menu-principal ul {
     display: flex;

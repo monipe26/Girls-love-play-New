@@ -12,8 +12,8 @@
   --color-degradado: linear-gradient(135deg, #ec2f8f, #7b2ff7);
 
   /* Tipografía */
-  --fuente-base: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --fuente-logo: Georgia, serif;
+  --fuente-base: "Quicksand", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fuente-titulos: "Baloo 2", "Quicksand", system-ui, sans-serif;
 
   /* Espaciados */
   --espacio-xs: 0.5rem;

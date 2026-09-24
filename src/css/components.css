@@ -4,7 +4,7 @@
   align-items: center;
   gap: var(--espacio-sm);
   padding: var(--espacio-sm);
-  background: var(--color-fondo-alt);
+  background: linear-gradient(90deg, #2a1548, #4a1a5c, #7b1f5c);
   position: sticky;
   top: 0;
   z-index: 50;
@@ -46,7 +46,14 @@
 
 .menu-principal ul { padding: var(--espacio-sm); }
 .menu-principal li { border-bottom: 1px solid rgba(255,255,255,0.06); }
-.menu-principal a { display: block; padding: var(--espacio-sm) 0; }
+.menu-principal a {
+  display: block;
+  padding: var(--espacio-sm) 0;
+  font-family: var(--fuente-titulos);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
 
 .tiene-submenu .submenu {
   padding-left: var(--espacio-md);
