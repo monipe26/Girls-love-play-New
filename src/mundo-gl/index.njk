@@ -1,0 +1,30 @@
+---
+title: Mundo GL
+description: Guías, curiosidades y todo sobre el mundo GL.
+layout: base.njk
+pagination:
+  data: collections.mundoGl
+  size: 8
+  alias: mundoPagina
+permalink: "{{ '/mundo-gl/' if pagination.pageNumber == 0 else '/mundo-gl/' + (pagination.pageNumber + 1) + '/' }}"
+---
+<section class="seccion">
+  <h1>🌐 Mundo GL</h1>
+  <p class="seccion-sub">Guías, curiosidades y todo sobre el mundo GL</p>
+
+  <div class="grid-tarjetas grid-2">
+    {% for nota in mundoPagina %}
+      {% include "tarjeta-noticia.njk" %}
+    {% endfor %}
+  </div>
+
+  <nav class="paginacion" aria-label="Paginación de Mundo GL">
+    {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">‹ Anterior</a>{% endif %}
+    {% for pageEntry in pagination.pages %}
+      {% set numero = loop.index %}
+      <a href="{{ pagination.hrefs[loop.index0] }}"
+         class="{% if numero == pagination.pageNumber + 1 %}activo{% endif %}">{{ numero }}</a>
+    {% endfor %}
+    {% if pagination.href.next %}<a href="{{ pagination.href.next }}">Siguiente ›</a>{% endif %}
+  </nav>
+</section>

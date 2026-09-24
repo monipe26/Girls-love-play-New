@@ -1,0 +1,50 @@
+/* Mobile-first: los estilos base ya son para móvil. Acá ampliamos para pantallas mayores. */
+
+@media (min-width: 640px) {
+  .grid-tarjetas { grid-template-columns: repeat(4, 1fr); }
+  .ficha-serie-cabecera { flex-direction: row; }
+}
+
+@media (min-width: 900px) {
+  .site-header { padding: var(--espacio-sm) var(--espacio-lg); }
+
+  .menu-toggle { display: none; }
+
+  .menu-principal {
+    max-height: none;
+    overflow: visible;
+    margin-left: var(--espacio-lg);
+  }
+  .menu-principal ul {
+    display: flex;
+    gap: var(--espacio-md);
+    padding: 0;
+  }
+  .menu-principal li { border: none; position: relative; }
+  .menu-principal a { padding: 8px 0; }
+
+  .tiene-submenu .submenu {
+    display: none;
+    position: absolute;
+    top: 100%; left: 0;
+    background: var(--color-fondo-alt);
+    padding: var(--espacio-xs);
+    border-radius: var(--radio-chico);
+    min-width: 160px;
+    z-index: 60;
+  }
+  .tiene-submenu:hover .submenu,
+  .tiene-submenu:focus-within .submenu {
+    display: block;
+  }
+
+  .grid-tarjetas { grid-template-columns: repeat(6, 1fr); }
+  .grid-tarjetas.grid-2 { grid-template-columns: repeat(3, 1fr); }
+
+  .seccion { padding: var(--espacio-xl) var(--espacio-lg); }
+  .site-footer { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1200px) {
+  .grid-tarjetas.grid-2 { grid-template-columns: repeat(4, 1fr); }
+}

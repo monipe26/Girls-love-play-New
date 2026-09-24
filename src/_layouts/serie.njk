@@ -1,0 +1,49 @@
+---
+layout: base.njk
+---
+<article class="ficha-serie">
+  <div class="ficha-serie-cabecera">
+    <img src="{{ portada }}" alt="Portada de {{ titulo }}" width="300" height="450" class="ficha-portada">
+    <div class="ficha-info">
+      <h1>{{ titulo }} <span class="ficha-anio">({{ anio }})</span></h1>
+      <p class="ficha-sinopsis" data-expandible>{{ sinopsis }}</p>
+      <button type="button" class="btn-leer-mas" data-toggle-sinopsis>Leer más</button>
+    </div>
+  </div>
+
+  <section class="ficha-reproductor" aria-label="Episodios">
+    {% if tipoReproduccion == "video" %}
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/{{ youtubeId }}" title="{{ titulo }}" loading="lazy" allowfullscreen></iframe>
+      </div>
+
+    {% elif tipoReproduccion == "playlist" %}
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/videoseries?list={{ playlistId }}" title="{{ titulo }}" loading="lazy" allowfullscreen></iframe>
+      </div>
+
+    {% elif tipoReproduccion == "partes" %}
+      <div class="lista-partes">
+        {% for parte in partes %}
+        <button type="button" class="btn-parte" data-youtube-id="{{ parte.youtubeId }}">{{ parte.nombre }}</button>
+        {% endfor %}
+      </div>
+      <div class="video-wrapper" data-reproductor-partes></div>
+
+    {% elif tipoReproduccion == "episodios" %}
+      <div class="lista-episodios">
+        {% for episodio in episodios %}
+        <div class="episodio-bloque">
+          <h3>{{ episodio.nombre }}</h3>
+          <div class="lista-partes">
+            {% for parte in episodio.partes %}
+            <button type="button" class="btn-parte" data-youtube-id="{{ parte.youtubeId }}">{{ parte.nombre }}</button>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="video-wrapper" data-reproductor-partes></div>
+    {% endif %}
+  </section>
+</article>

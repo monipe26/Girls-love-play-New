@@ -1,0 +1,17 @@
+[
+  {
+    "imagen": "/assets/images/banner-1.jpg",
+    "alt": "Girls Love Play - Comunidad",
+    "enlace": "/comunidad/"
+  },
+  {
+    "imagen": "/assets/images/banner-2.jpg",
+    "alt": "Nuevas series GL",
+    "enlace": "/series/"
+  },
+  {
+    "imagen": "/assets/images/banner-3.jpg",
+    "alt": "Últimas noticias GL",
+    "enlace": "/noticias/"
+  }
+]

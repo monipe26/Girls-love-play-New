@@ -1,0 +1,81 @@
+---
+title: Inicio
+description: Series, noticias, OST y todo sobre el mundo Girls Love (GL).
+layout: base.njk
+---
+<section class="carrusel" aria-label="Destacados">
+  <div class="carrusel-track">
+    {% for banner in banners %}
+    <a href="{{ banner.enlace }}" class="carrusel-slide {% if loop.first %}activo{% endif %}">
+      <img src="{{ banner.imagen }}" alt="{{ banner.alt }}" width="1200" height="400" {% if not loop.first %}loading="lazy"{% endif %}>
+    </a>
+    {% endfor %}
+  </div>
+  <button class="carrusel-btn prev" aria-label="Anterior">‹</button>
+  <button class="carrusel-btn next" aria-label="Siguiente">›</button>
+</section>
+
+<section class="reproductor-principal" aria-label="Reproduciendo ahora">
+  {% if destacado %}
+  <div class="video-wrapper">
+    <iframe src="https://www.youtube.com/embed/{{ destacado.youtubeId }}"
+      title="{{ destacado.titulo }}" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <p class="reproductor-titulo">{{ destacado.titulo }}</p>
+  {% endif %}
+</section>
+
+<section class="seccion" aria-labelledby="tit-series">
+  <h2 id="tit-series">📺 Series GL</h2>
+  <p class="seccion-sub">Las mejores series GL</p>
+  <div class="grid-tarjetas">
+    {% for serie in collections.series | reverse | limit(6) %}
+      {% include "tarjeta-serie.njk" %}
+    {% endfor %}
+  </div>
+  <a href="/series/" class="ver-mas">Ver todas →</a>
+</section>
+
+<section class="seccion" aria-labelledby="tit-noticias">
+  <h2 id="tit-noticias">📰 Noticias GL</h2>
+  <p class="seccion-sub">Estrenos, fechas y novedades</p>
+  <div class="grid-tarjetas grid-2">
+    {% for nota in collections.noticias | limit(4) %}
+      {% include "tarjeta-noticia.njk" %}
+    {% endfor %}
+  </div>
+  <a href="/noticias/" class="ver-mas">Ver todas →</a>
+</section>
+
+<section class="seccion" aria-labelledby="tit-mundo">
+  <h2 id="tit-mundo">🌐 Mundo GL</h2>
+  <p class="seccion-sub">Guías, curiosidades y todo sobre el mundo GL</p>
+  <div class="grid-tarjetas grid-2">
+    {% for nota in collections.mundoGl | limit(4) %}
+      {% include "tarjeta-noticia.njk" %}
+    {% endfor %}
+  </div>
+  <a href="/mundo-gl/" class="ver-mas">Ver más →</a>
+</section>
+
+<section class="seccion" aria-labelledby="tit-ost">
+  <h2 id="tit-ost">🎵 OSTs GL</h2>
+  <p class="seccion-sub">Música y bandas sonoras</p>
+  <div class="grid-tarjetas grid-2">
+    {% for video in ostGl | limit(4) %}
+      {% include "tarjeta-video.njk" %}
+    {% endfor %}
+  </div>
+  <a href="/ost/" class="ver-mas">Ver más →</a>
+</section>
+
+<section class="seccion" aria-labelledby="tit-comunidad">
+  <h2 id="tit-comunidad">💬 Comunidad GL</h2>
+  <p class="seccion-sub">Entrevistas, rankings y videos de youtubers GL</p>
+  <div class="grid-tarjetas grid-2">
+    {% for video in comunidadGl | limit(4) %}
+      {% include "tarjeta-video.njk" %}
+    {% endfor %}
+  </div>
+  <a href="/comunidad/" class="ver-mas">Ver más →</a>
+</section>

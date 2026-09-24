@@ -1,0 +1,11 @@
+---
+layout: base.njk
+---
+<article class="articulo">
+  <img src="{{ imagen }}" alt="{{ title }}" width="800" height="450" class="articulo-imagen">
+  <time class="articulo-fecha" datetime="{{ page.date }}">📅 {{ page.date | readableDate }}</time>
+  <h1>{{ title }}</h1>
+  <div class="articulo-cuerpo">
+    {{ content | safe }}
+  </div>
+</article>

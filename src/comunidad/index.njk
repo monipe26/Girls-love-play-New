@@ -1,0 +1,14 @@
+---
+title: Comunidad GL
+description: Entrevistas, rankings y videos de youtubers GL.
+layout: base.njk
+---
+<section class="seccion">
+  <h1>💬 Comunidad GL</h1>
+  <p class="seccion-sub">Entrevistas, rankings y videos de youtubers GL</p>
+  <div class="grid-tarjetas grid-2">
+    {% for video in comunidadGl %}
+      {% include "tarjeta-video.njk" %}
+    {% endfor %}
+  </div>
+</section>

@@ -1,0 +1,8 @@
+<article class="tarjeta-noticia">
+  <a href="{{ nota.url }}">
+    <img src="{{ nota.data.imagen }}" alt="{{ nota.data.title }}" width="340" height="200" loading="lazy" decoding="async">
+    <time class="tarjeta-fecha" datetime="{{ nota.date }}">📅 {{ nota.date | readableDate }}</time>
+    <h3>{{ nota.data.title }}</h3>
+    <p>{{ nota.data.resumen }}</p>
+  </a>
+</article>

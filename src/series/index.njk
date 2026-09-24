@@ -1,0 +1,31 @@
+---
+title: Series GL
+description: Todas las series Girls Love (GL) disponibles en Girls Love Play.
+layout: base.njk
+pagination:
+  data: collections.series
+  size: 12
+  alias: seriesPagina
+  reverse: true
+permalink: "{{ '/series/' if pagination.pageNumber == 0 else '/series/' + (pagination.pageNumber + 1) + '/' }}"
+---
+<section class="seccion">
+  <h1>📺 Series GL</h1>
+  <p class="seccion-sub">Las mejores series GL</p>
+
+  <div class="grid-tarjetas">
+    {% for serie in seriesPagina %}
+      {% include "tarjeta-serie.njk" %}
+    {% endfor %}
+  </div>
+
+  <nav class="paginacion" aria-label="Paginación de series">
+    {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">‹ Anterior</a>{% endif %}
+    {% for pageEntry in pagination.pages %}
+      {% set numero = loop.index %}
+      <a href="{{ pagination.hrefs[loop.index0] }}"
+         class="{% if numero == pagination.pageNumber + 1 %}activo{% endif %}">{{ numero }}</a>
+    {% endfor %}
+    {% if pagination.href.next %}<a href="{{ pagination.href.next }}">Siguiente ›</a>{% endif %}
+  </nav>
+</section>

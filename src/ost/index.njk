@@ -1,0 +1,14 @@
+---
+title: OSTs GL
+description: Música y bandas sonoras del mundo GL.
+layout: base.njk
+---
+<section class="seccion">
+  <h1>🎵 OSTs GL</h1>
+  <p class="seccion-sub">Música y bandas sonoras</p>
+  <div class="grid-tarjetas grid-2">
+    {% for video in ostGl %}
+      {% include "tarjeta-video.njk" %}
+    {% endfor %}
+  </div>
+</section>

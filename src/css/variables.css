@@ -1,0 +1,31 @@
+:root {
+  /* Colores base */
+  --color-fondo: #180c29;
+  --color-fondo-alt: #23113d;
+  --color-superficie: #2a1548;
+  --color-texto: #f4eefc;
+  --color-texto-sec: #c9b8e0;
+
+  /* Rosa/violeta de marca */
+  --color-primario: #ec2f8f;
+  --color-primario-hover: #ff4fa8;
+  --color-degradado: linear-gradient(135deg, #ec2f8f, #7b2ff7);
+
+  /* Tipografía */
+  --fuente-base: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fuente-logo: Georgia, serif;
+
+  /* Espaciados */
+  --espacio-xs: 0.5rem;
+  --espacio-sm: 1rem;
+  --espacio-md: 1.5rem;
+  --espacio-lg: 2.5rem;
+  --espacio-xl: 4rem;
+
+  /* Bordes */
+  --radio: 12px;
+  --radio-chico: 8px;
+
+  /* Sombras */
+  --sombra-tarjeta: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
