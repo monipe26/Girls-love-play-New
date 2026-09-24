@@ -15,16 +15,6 @@ layout: base.njk
   <button class="carrusel-btn next" aria-label="Siguiente">›</button>
 </section>
 
-<section class="reproductor-principal" aria-label="Reproduciendo ahora">
-  {% if destacado %}
-  <div class="video-wrapper">
-    <iframe src="https://www.youtube.com/embed/{{ destacado.youtubeId }}"
-      title="{{ destacado.titulo }}" loading="lazy" allowfullscreen></iframe>
-  </div>
-  <p class="reproductor-titulo">{{ destacado.titulo }}</p>
-  {% endif %}
-</section>
-
 <section class="seccion" aria-labelledby="tit-series">
   <h2 id="tit-series">📺 Series GL</h2>
   <p class="seccion-sub">Las mejores series GL</p>
