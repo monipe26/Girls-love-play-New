@@ -9,6 +9,17 @@ if (botonMenu && menu) {
   });
 }
 
+// Acordeón de submenús en el menú móvil (Series, Actrices): colapsados por
+// defecto, se abren al tocar la flechita, sin navegar.
+document.querySelectorAll(".submenu-toggle").forEach((boton) => {
+  boton.addEventListener("click", () => {
+    const item = boton.closest(".tiene-submenu");
+    if (!item) return;
+    const abierto = item.classList.toggle("abierto");
+    boton.setAttribute("aria-expanded", abierto);
+  });
+});
+
 // Botón "volver arriba"
 const btnArriba = document.querySelector("#btn-arriba");
 if (btnArriba) {
