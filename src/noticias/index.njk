@@ -18,12 +18,21 @@ permalink: "{{ '/noticias/' if pagination.pageNumber == 0 else '/noticias/' + (p
     {% endfor %}
   </div>
 
+  {% set totalPaginas = pagination.pages.length %}
+  {% set paginaActual = pagination.pageNumber + 1 %}
+  {% set rango = namespace(ultimoMostrado=0) %}
   <nav class="paginacion" aria-label="Paginación de noticias">
     {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">‹ Anterior</a>{% endif %}
     {% for pageEntry in pagination.pages %}
       {% set numero = loop.index %}
-      <a href="{{ pagination.hrefs[loop.index0] }}"
-         class="{% if numero == pagination.pageNumber + 1 %}activo{% endif %}">{{ numero }}</a>
+      {% if numero == 1 or numero == totalPaginas or (numero >= paginaActual - 2 and numero <= paginaActual + 2) %}
+        {% if rango.ultimoMostrado != 0 and numero - rango.ultimoMostrado > 1 %}
+          <span class="paginacion-puntos">…</span>
+        {% endif %}
+        <a href="{{ pagination.hrefs[loop.index0] }}"
+           class="{% if numero == paginaActual %}activo{% endif %}">{{ numero }}</a>
+        {% set rango.ultimoMostrado = numero %}
+      {% endif %}
     {% endfor %}
     {% if pagination.href.next %}<a href="{{ pagination.href.next }}">Siguiente ›</a>{% endif %}
   </nav>
