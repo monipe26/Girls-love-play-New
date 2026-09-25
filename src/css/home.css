@@ -35,7 +35,7 @@
    debajo de la otra sin nada en el medio, así que se les achica el padding
    vertical propio para que no se sume un espacio en blanco doble entre las
    dos (el padding de ".seccion" de abajo de una + el de arriba de la otra). */
-.seccion-ultima-noticia { padding-bottom: var(--espacio-xs); }
+.seccion-ultima-noticia { padding-top: var(--espacio-xs); padding-bottom: var(--espacio-xs); }
 .seccion-noticias-destacadas { padding-top: var(--espacio-xs); }
 
 /* ===== HERO ===== */
@@ -205,12 +205,11 @@
    6 artículos de Mundo GL), así que su título va un poco más chico para
    que no quede pegado al link "Ver más →". */
 .comunidad-bloque .seccion-cabecera h2 { font-size: 1.15rem; }
-/* Comunidad: videos en una sola columna, grandes (parecido en ancho/alto
-   a la tarjeta de "Series GL" de más arriba), para que la columna
-   acompañe en tamaño a los 6 artículos de Mundo GL de al lado. */
+/* Comunidad: 4 videos grandes en grilla 2x2 (no en columna, y no se agrega
+   nada más abajo de esos 4). */
 .comunidad-lista {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--espacio-sm);
 }
 .comunidad-video {

@@ -93,6 +93,13 @@
 
   .seccion { padding: var(--espacio-xl) var(--espacio-lg); }
 
+  /* "Última noticia" y "Últimas noticias" van pegadas sin nada en el medio:
+     se les achica el padding vertical acá (después de la regla general de
+     arriba, para que no se la pise) para que no se sume el espacio de las
+     dos y no quede ese bloque en blanco entre una sección y la otra. */
+  .seccion-ultima-noticia { padding-top: var(--espacio-xs); padding-bottom: var(--espacio-xs); }
+  .seccion-noticias-destacadas { padding-top: var(--espacio-xs); }
+
   .footer-top {
     grid-template-columns: 1.1fr 1.3fr 1fr 1fr;
     text-align: left;
@@ -125,9 +132,9 @@
      eso necesita más espacio que Comunidad; el bloque de Comunidad se
      achica y se corre hacia la derecha de su columna para que el conjunto
      quede más parejo/armónico. */
-  .seccion-mundo-comunidad { grid-template-columns: 1.3fr 1fr; }
+  .seccion-mundo-comunidad { grid-template-columns: 1fr 1.05fr; }
   .mundo-gl-grid { grid-template-columns: repeat(2, 1fr); gap: var(--espacio-md) var(--espacio-md); }
-  .comunidad-bloque { max-width: 420px; width: 100%; margin-left: auto; }
+  .comunidad-bloque { width: 100%; }
 
   /* Hero más bajo en pantallas grandes (en mobile ya está bien con aspect-ratio) */
   .hero img {
