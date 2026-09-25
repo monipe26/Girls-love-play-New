@@ -6,6 +6,28 @@ layout: base.njk
     <img src="{{ portada }}" alt="Portada de {{ titulo }}" width="300" height="450" class="ficha-portada">
     <div class="ficha-info">
       <h1>{{ titulo }} <span class="ficha-anio">({{ anio }})</span></h1>
+
+      <dl class="ficha-datos">
+        {% if genero %}
+        <div class="ficha-dato">
+          <dt>Género</dt>
+          <dd>{{ genero }}</dd>
+        </div>
+        {% endif %}
+        {% if actrices and actrices.length %}
+        <div class="ficha-dato">
+          <dt>Actrices</dt>
+          <dd>{{ actrices | join(", ") }}</dd>
+        </div>
+        {% endif %}
+        {% if puntaje %}
+        <div class="ficha-dato">
+          <dt>Puntaje</dt>
+          <dd>⭐ {{ puntaje }}/10</dd>
+        </div>
+        {% endif %}
+      </dl>
+
       <p class="ficha-sinopsis" data-expandible>{{ sinopsis }}</p>
       <button type="button" class="btn-leer-mas" data-toggle-sinopsis>Leer más</button>
     </div>
