@@ -1,10 +1,31 @@
 ---
 title: "Series TV"
-description: "Series TV con temática GL."
+description: "Series TV con temática GL: mirá el capítulo y elegí la próxima serie sin salir de la página."
 layout: base.njk
 ---
 <section class="seccion">
   <h1>📺 Series TV</h1>
-  <p class="seccion-sub">Series de TV con temática GL</p>
-  <p class="proximamente-aviso">Esta sección se está preparando. Muy pronto vas a encontrar contenido acá.</p>
+  <p class="seccion-sub">Elegí una serie de la grilla y se reproduce acá arriba</p>
+
+  <section class="reproductor-principal" data-reproductor-series-tv aria-label="Reproductor de Series TV">
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/{{ seriesTv[0].youtubeId }}" title="{{ seriesTv[0].titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+    <p class="reproductor-titulo">Reproduciendo ahora: {{ seriesTv[0].titulo }} ({{ seriesTv[0].anio }})</p>
+
+    <div class="reproductor-nav" data-nav-series-tv>
+      <button type="button" class="btn-nav-episodio" data-nav="prev" disabled>‹ Episodio anterior</button>
+      <span class="reproductor-corazon" aria-hidden="true">
+        <!-- TODO: reemplazar por <img src="/assets/icons/corazon.png" alt=""> (favorito) cuando se suba la imagen -->
+        ♥
+      </span>
+      <button type="button" class="btn-nav-episodio" data-nav="next">Episodio siguiente ›</button>
+    </div>
+  </section>
+
+  <div class="grid-tarjetas grid-series-tv">
+    {% for serie in seriesTv %}
+      {% include "tarjeta-serie-tv.njk" %}
+    {% endfor %}
+  </div>
 </section>
