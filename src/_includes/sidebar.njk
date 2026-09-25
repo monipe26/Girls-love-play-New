@@ -55,4 +55,40 @@
     </a>
   </section>
 
+  <div class="comunidad-bloque">
+    <div class="seccion-cabecera">
+      <h2>⭐ Extras GL</h2>
+      <a href="/extra/" class="ver-mas">Ver más →</a>
+    </div>
+    <ul class="comunidad-lista">
+      {% for video in comunidadGl | limit(1) %}
+      <li>
+        <button type="button" class="comunidad-video" data-youtube-id="{{ video.youtubeId }}" aria-label="Reproducir {{ video.titulo }}">
+          <!-- TODO Paso 6: reemplazar por los videos reales de la comunidad cuando los tengan -->
+          <img src="https://i.ytimg.com/vi/{{ video.youtubeId }}/hqdefault.jpg" alt="" width="200" height="112" loading="lazy">
+          <span class="comunidad-video-play" aria-hidden="true">▶</span>
+        </button>
+        <p class="comunidad-video-titulo">{{ video.titulo | truncar(80) }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="comunidad-bloque">
+    <div class="seccion-cabecera">
+      <h2>💬 Comunidad</h2>
+      <a href="/comunidad/" class="ver-mas">Ver más →</a>
+    </div>
+    <ul class="comunidad-lista">
+      <li>
+        <button type="button" class="comunidad-video" data-youtube-id="{{ comunidadGl[1].youtubeId }}" aria-label="Reproducir {{ comunidadGl[1].titulo }}">
+          <!-- TODO Paso 6: reemplazar por los videos reales de la comunidad cuando los tengan -->
+          <img src="https://i.ytimg.com/vi/{{ comunidadGl[1].youtubeId }}/hqdefault.jpg" alt="" width="200" height="112" loading="lazy">
+          <span class="comunidad-video-play" aria-hidden="true">▶</span>
+        </button>
+        <p class="comunidad-video-titulo">{{ comunidadGl[1].titulo | truncar(80) }}</p>
+      </li>
+    </ul>
+  </div>
+
 </aside>
