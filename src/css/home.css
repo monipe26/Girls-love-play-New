@@ -156,10 +156,14 @@
 .tarjeta-destacada-info p { color: rgba(255,255,255,0.8); font-size: 0.85rem; margin-bottom: var(--espacio-sm); }
 
 /* ===== MUNDO GL + COMUNIDAD ===== */
+/* padding-top chico: la sección de arriba ya deja su propio padding-bottom,
+   así que si acá dejamos el padding-top grande por defecto de .seccion
+   quedaba doble espacio en blanco antes de "Mundo GL". */
 .seccion-mundo-comunidad {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--espacio-md);
+  gap: var(--espacio-lg);
+  padding-top: var(--espacio-xs);
 }
 .mundo-gl-grid { display: grid; grid-template-columns: 1fr; gap: var(--espacio-sm); }
 .mundo-gl-grid li a {
@@ -204,17 +208,28 @@
 .comunidad-card p { margin-bottom: var(--espacio-sm); }
 .comunidad-card .btn-primario { background: #fff; color: var(--color-primario); }
 
-.comunidad-bloque { display: flex; flex-direction: column; }
+/* Panel propio (fondo + borde + padding), igual criterio que los widgets
+   del sidebar, para que "Extras GL" se vea como un bloque estructurado y
+   no como elementos sueltos apilados. */
+.comunidad-bloque {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-fondo-alt);
+  border-radius: var(--radio);
+  padding: var(--espacio-md);
+}
+.comunidad-bloque .seccion-cabecera { margin-bottom: var(--espacio-sm); }
 /* La columna de Comunidad quedó más angosta (para dejarle más lugar a los
    6 artículos de Mundo GL), así que su título va un poco más chico para
    que no quede pegado al link "Ver más →". */
 .comunidad-bloque .seccion-cabecera h2 { font-size: 1.15rem; }
-/* Comunidad: 4 videos grandes en grilla 2x2 (no en columna, y no se agrega
-   nada más abajo de esos 4). */
+/* Extras GL: 2 videos, uno debajo del otro en mobile, lado a lado en
+   escritorio (ver responsive.css) — con más aire entre uno y otro que
+   antes para que no se vean pegados. */
 .comunidad-lista {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--espacio-sm);
+  grid-template-columns: 1fr;
+  gap: var(--espacio-md);
 }
 .comunidad-video {
   position: relative;

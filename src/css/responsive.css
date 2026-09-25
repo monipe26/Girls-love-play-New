@@ -98,6 +98,10 @@
      arriba, para que no se la pise) para que no se sume el espacio de las
      dos y no quede ese bloque en blanco entre una sección y la otra. */
   .seccion-ultima-noticia { padding-top: var(--espacio-xs); padding-bottom: var(--espacio-xs); }
+  /* Mismo criterio para "Mundo GL": sin esto, la regla general de arriba le
+     vuelve a poner un padding-top grande y queda otra vez el bloque en
+     blanco de más antes de esta sección. */
+  .seccion-mundo-comunidad { padding-top: var(--espacio-xs); }
   .seccion-noticias-destacadas { padding-top: var(--espacio-xs); }
 
   .footer-top {
@@ -149,8 +153,10 @@
   }
   .mundo-gl-grid li a { height: 100%; align-items: center; }
   .mundo-gl-grid img { width: 120px; height: 120px; }
-  /* Extra GL: los 4 videos más grandes, ocupando toda la columna ancha. */
-  .comunidad-lista { gap: var(--espacio-md); }
+  /* Extras GL: los 2 videos lado a lado, ocupando todo el ancho de la
+     columna (de punta a punta, alineado con el borde del sidebar). */
+  .comunidad-lista { grid-template-columns: repeat(2, 1fr); gap: var(--espacio-md); }
+  .comunidad-video { height: 100%; }
 
   /* Hero más bajo en pantallas grandes (en mobile ya está bien con aspect-ratio) */
   .hero img {
