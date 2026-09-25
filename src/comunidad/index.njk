@@ -19,7 +19,7 @@ permalink: "{{ '/comunidad/' if pagination.pageNumber == 0 else '/comunidad/' + 
     <p class="reproductor-titulo">Reproduciendo ahora: {{ comunidadGl[0].titulo }}</p>
   </section>
 
-  <div class="grid-tarjetas">
+  <div class="grid-tarjetas grid-2">
     {% for video in comunidadPagina %}
       {% include "tarjeta-video.njk" %}
     {% endfor %}
