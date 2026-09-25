@@ -261,6 +261,79 @@
   font-weight: 600;
 }
 
+/* Tarjeta de cover para Series TV: al pasar el mouse (o tocar en mobile)
+   se ve la sinopsis, el año y el género encima de la portada. Al hacer
+   clic, carga el video en el reproductor principal de arriba. */
+.grid-series-tv { grid-template-columns: repeat(3, 1fr); }
+.tarjeta-serie-tv {
+  display: block;
+  text-align: left;
+  border-radius: var(--radio-chico);
+  overflow: hidden;
+  background: var(--color-superficie);
+  box-shadow: var(--sombra-tarjeta);
+  transition: transform 0.2s ease;
+}
+.tarjeta-serie-tv:hover,
+.tarjeta-serie-tv:focus-visible { transform: translateY(-4px); }
+.tarjeta-serie-tv.activo { outline: 2px solid var(--color-primario); }
+.tarjeta-serie-tv-portada { position: relative; display: block; }
+.tarjeta-serie-tv-portada img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; display: block; }
+.tarjeta-serie-tv-play {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--color-primario);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.tarjeta-serie-tv-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: var(--espacio-sm);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.55) 55%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.tarjeta-serie-tv:hover .tarjeta-serie-tv-play,
+.tarjeta-serie-tv:focus-visible .tarjeta-serie-tv-play,
+.tarjeta-serie-tv:hover .tarjeta-serie-tv-overlay,
+.tarjeta-serie-tv:focus-visible .tarjeta-serie-tv-overlay {
+  opacity: 1;
+}
+.tarjeta-serie-tv-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #fff;
+}
+.tarjeta-serie-tv-genero { color: var(--color-primario-hover); }
+.tarjeta-serie-tv-sinopsis {
+  font-size: 0.75rem;
+  line-height: 1.3;
+  color: #fff;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.tarjeta-serie-tv-titulo {
+  display: block;
+  padding: var(--espacio-xs) var(--espacio-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
 /* Tarjeta de noticia/artículo */
 .tarjeta-noticia {
   background: var(--color-superficie);
