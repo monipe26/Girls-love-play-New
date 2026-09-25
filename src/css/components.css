@@ -80,15 +80,46 @@
 }
 .menu-principal a:hover { color: var(--color-primario); }
 
+.tiene-submenu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.tiene-submenu > a { flex: 1; }
+
+.submenu-toggle {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-texto-sec);
+  font-size: 0.75rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.tiene-submenu.abierto .submenu-toggle {
+  transform: rotate(180deg);
+  color: var(--color-primario);
+}
+
 .tiene-submenu .submenu {
+  flex-basis: 100%;
   padding-left: var(--espacio-md);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+.tiene-submenu.abierto .submenu {
+  max-height: 300px;
 }
 .tiene-submenu .submenu a { color: var(--color-texto-sec); font-size: 0.95rem; }
 
-/* Indicador visual de que el ítem tiene un submenú desplegable */
+/* Indicador visual de que el ítem tiene un submenú (solo escritorio; en móvil
+   se usa el botón .submenu-toggle en su lugar, ver responsive.css) */
 .tiene-submenu > a::after {
   content: "▾";
-  display: inline-block;
+  display: none;
   margin-left: 6px;
   font-size: 0.65em;
   color: var(--color-texto-sec);

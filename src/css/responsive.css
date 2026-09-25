@@ -28,6 +28,12 @@
   .menu-principal li { border: none; position: relative; }
   .menu-principal a { padding: 8px 0; white-space: nowrap; }
 
+  /* En escritorio el submenú se abre con hover, no con el botón de acordeón
+     de móvil: el ítem vuelve a su layout normal (no flex) y el botón se oculta. */
+  .tiene-submenu { display: block; }
+  .submenu-toggle { display: none; }
+  .tiene-submenu > a::after { display: inline-block; }
+
   .tiene-submenu .submenu {
     display: none;
     position: absolute;
@@ -101,16 +107,13 @@
   /* Buscador + redes sociales: van después del menú, pegados a la derecha */
   .header-acciones {
     order: 6;
-    margin-left: auto;
   }
 
-  /* El header entero centrado dentro de un ancho máximo, para que en pantallas
-     muy anchas el menú y la botonera (buscador+redes) no queden pegados cada
-     uno a un extremo con un espacio enorme vacío en el medio. */
+  /* El header no debe partirse en dos líneas: si no entra todo en el ancho
+     de la pantalla, que se acomode en una sola fila (logo pegado a la
+     izquierda del todo, botonera pegada a la derecha del todo). */
   .site-header {
-    max-width: 1300px;
-    margin-left: auto;
-    margin-right: auto;
+    flex-wrap: nowrap;
   }
 }
 
