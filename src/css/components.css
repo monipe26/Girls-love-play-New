@@ -74,7 +74,7 @@
   padding: 12px 0;
   font-family: var(--fuente-titulos);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   letter-spacing: 0.02em;
   color: var(--color-texto);
 }
@@ -117,7 +117,7 @@
   max-height: 300px;
 }
 .tiene-submenu .submenu li { border-bottom: none; }
-.tiene-submenu .submenu a { color: var(--color-texto-sec); font-size: 0.9rem; padding: 8px 0; }
+.tiene-submenu .submenu a { color: var(--color-texto-sec); font-size: 1rem; padding: 8px 0; }
 
 /* Indicador visual de que el ítem tiene un submenú (solo escritorio; en móvil
    se usa el botón .submenu-toggle en su lugar, ver responsive.css) */
