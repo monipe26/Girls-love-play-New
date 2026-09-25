@@ -2,13 +2,36 @@
 title: Comunidad GL
 description: Entrevistas, rankings y videos de youtubers GL.
 layout: base.njk
+pagination:
+  data: comunidadGl
+  size: 9
+  alias: comunidadPagina
+permalink: "{{ '/comunidad/' if pagination.pageNumber == 0 else '/comunidad/' + (pagination.pageNumber + 1) + '/' }}"
 ---
 <section class="seccion">
   <h1>💬 Comunidad GL</h1>
   <p class="seccion-sub">Entrevistas, rankings y videos de youtubers GL</p>
-  <div class="grid-tarjetas grid-2">
-    {% for video in comunidadGl %}
+
+  <section class="reproductor-principal" aria-label="Reproductor de Comunidad GL">
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/{{ comunidadGl[0].youtubeId }}" title="{{ comunidadGl[0].titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+    <p class="reproductor-titulo">Reproduciendo ahora: {{ comunidadGl[0].titulo }}</p>
+  </section>
+
+  <div class="grid-tarjetas">
+    {% for video in comunidadPagina %}
       {% include "tarjeta-video.njk" %}
     {% endfor %}
   </div>
+
+  <nav class="paginacion" aria-label="Paginación de Comunidad GL">
+    {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">‹ Anterior</a>{% endif %}
+    {% for pageEntry in pagination.pages %}
+      {% set numero = loop.index %}
+      <a href="{{ pagination.hrefs[loop.index0] }}"
+         class="{% if numero == pagination.pageNumber + 1 %}activo{% endif %}">{{ numero }}</a>
+    {% endfor %}
+    {% if pagination.href.next %}<a href="{{ pagination.href.next }}">Siguiente ›</a>{% endif %}
+  </nav>
 </section>
