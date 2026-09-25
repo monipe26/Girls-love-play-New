@@ -184,7 +184,7 @@ layout: base.njk
               <img src="https://i.ytimg.com/vi/{{ video.youtubeId }}/hqdefault.jpg" alt="" width="200" height="112" loading="lazy">
               <span class="comunidad-video-play" aria-hidden="true">▶</span>
             </button>
-            <p class="comunidad-video-titulo">{{ video.titulo | truncar(50) }}</p>
+            <p class="comunidad-video-titulo">{{ video.titulo | truncar(80) }}</p>
           </li>
           {% endfor %}
         </ul>
