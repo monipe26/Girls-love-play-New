@@ -53,14 +53,35 @@
 .hero-texto {
   position: absolute;
   left: 0; right: 0; bottom: 0;
-  padding: var(--espacio-lg) var(--espacio-md) var(--espacio-md);
+  padding: var(--espacio-sm) var(--espacio-md) var(--espacio-xs);
   background: linear-gradient(0deg, rgba(0,0,0,0.75), rgba(0,0,0,0));
   color: #fff;
 }
-.hero-texto h1 { color: #fff; font-size: 1.6rem; margin-bottom: 6px; }
-.hero-texto p { color: rgba(255,255,255,0.85); max-width: 560px; margin-bottom: var(--espacio-sm); }
-.hero-pie { display: flex; align-items: center; gap: var(--espacio-md); }
-.hero-pie time { color: rgba(255,255,255,0.75); font-size: 0.8rem; }
+/* En mobile la imagen del hero es baja (aspect-ratio 16/7), así que el título,
+   la bajada y el botón se achican para que el bloque no supere la altura de la
+   imagen y termine tapándola entera. A partir de 640px (ver responsive.css) se
+   restauran los tamaños completos, porque ahí la imagen ya es mucho más alta. */
+.hero-texto h1 {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hero-texto p {
+  color: rgba(255,255,255,0.85);
+  max-width: 560px;
+  margin-bottom: var(--espacio-xs);
+  font-size: 0.8rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.hero-pie { display: flex; align-items: center; gap: var(--espacio-sm); }
+.hero-pie time { color: rgba(255,255,255,0.75); font-size: 0.7rem; }
+.hero-pie .btn-primario { padding: 4px 10px; font-size: 0.7rem; }
 
 /* ===== BARRA DE ICONOS ===== */
 .iconos-nav {

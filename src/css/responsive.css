@@ -3,6 +3,19 @@
 @media (min-width: 640px) {
   .grid-tarjetas { grid-template-columns: repeat(4, 1fr); }
   .ficha-serie-cabecera { flex-direction: row; }
+
+  /* A partir de acá la imagen del hero ya es bastante más alta, así que el
+     bloque de texto vuelve a su tamaño completo (ver el achique en home.css). */
+  .hero-texto { padding: var(--espacio-lg) var(--espacio-md) var(--espacio-md); }
+  .hero-texto h1 { font-size: 1.6rem; margin-bottom: 6px; white-space: normal; }
+  .hero-texto p {
+    font-size: 1rem;
+    margin-bottom: var(--espacio-sm);
+    -webkit-line-clamp: unset;
+  }
+  .hero-pie { gap: var(--espacio-md); }
+  .hero-pie time { font-size: 0.8rem; }
+  .hero-pie .btn-primario { padding: 8px 18px; font-size: 0.85rem; }
 }
 
 @media (min-width: 900px) {
