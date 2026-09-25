@@ -2,9 +2,36 @@
 title: "Extra GL"
 description: "Contenido extra de la comunidad."
 layout: base.njk
+pagination:
+  data: extraGl
+  size: 9
+  alias: extraPagina
+permalink: "{{ '/extra/' if pagination.pageNumber == 0 else '/extra/' + (pagination.pageNumber + 1) + '/' }}"
 ---
 <section class="seccion">
   <h1>✨ Extra GL</h1>
   <p class="seccion-sub">Contenido extra de la comunidad</p>
-  <p class="proximamente-aviso">Esta sección se está preparando. Muy pronto vas a encontrar contenido acá.</p>
+
+  <section class="reproductor-principal" aria-label="Reproductor de Extra GL">
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/{{ extraGl[0].youtubeId }}" title="{{ extraGl[0].titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+    <p class="reproductor-titulo">Reproduciendo ahora: {{ extraGl[0].titulo }}</p>
+  </section>
+
+  <div class="grid-tarjetas">
+    {% for video in extraPagina %}
+      {% include "tarjeta-video.njk" %}
+    {% endfor %}
+  </div>
+
+  <nav class="paginacion" aria-label="Paginación de Extra GL">
+    {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">‹ Anterior</a>{% endif %}
+    {% for pageEntry in pagination.pages %}
+      {% set numero = loop.index %}
+      <a href="{{ pagination.hrefs[loop.index0] }}"
+         class="{% if numero == pagination.pageNumber + 1 %}activo{% endif %}">{{ numero }}</a>
+    {% endfor %}
+    {% if pagination.href.next %}<a href="{{ pagination.href.next }}">Siguiente ›</a>{% endif %}
+  </nav>
 </section>
