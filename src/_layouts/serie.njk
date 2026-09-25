@@ -33,64 +33,10 @@ layout: base.njk
     </div>
   </div>
 
-  <section class="ficha-reproductor" aria-label="Episodios">
-    {% if tipoReproduccion == "video" %}
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/{{ youtubeId }}" title="{{ titulo }}" loading="lazy" allowfullscreen></iframe>
-      </div>
-
-    {% elif tipoReproduccion == "playlist" %}
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/videoseries?list={{ playlistId }}" title="{{ titulo }}" loading="lazy" allowfullscreen></iframe>
-      </div>
-
-    {% elif tipoReproduccion == "partes" %}
-      <div class="video-wrapper" data-reproductor-partes>
-        <iframe src="https://www.youtube.com/embed/{{ partes[0].youtubeId }}" title="{{ titulo }} - {{ partes[0].nombre }}" loading="lazy" allowfullscreen></iframe>
-      </div>
-
-      <div class="reproductor-nav" data-nav-episodios>
-        <button type="button" class="btn-nav-episodio" data-nav="prev" disabled>‹ Episodio anterior</button>
-        <span class="reproductor-corazon" aria-hidden="true">
-          <!-- TODO: reemplazar por <img src="/assets/icons/corazon.png" alt=""> cuando se suba la imagen -->
-          ♥
-        </span>
-        <button type="button" class="btn-nav-episodio" data-nav="next">Episodio siguiente ›</button>
-      </div>
-
-      <div class="lista-partes">
-        {% for parte in partes %}
-        <button type="button" class="btn-parte {% if loop.first %}activo{% endif %}" data-youtube-id="{{ parte.youtubeId }}">{{ parte.nombre }}</button>
-        {% endfor %}
-      </div>
-
-    {% elif tipoReproduccion == "episodios" %}
-      <div class="video-wrapper" data-reproductor-partes>
-        <iframe src="https://www.youtube.com/embed/{{ episodios[0].partes[0].youtubeId }}" title="{{ titulo }} - {{ episodios[0].partes[0].nombre }}" loading="lazy" allowfullscreen></iframe>
-      </div>
-
-      <div class="reproductor-nav" data-nav-episodios>
-        <button type="button" class="btn-nav-episodio" data-nav="prev" disabled>‹ Episodio anterior</button>
-        <span class="reproductor-corazon" aria-hidden="true">
-          <!-- TODO: reemplazar por <img src="/assets/icons/corazon.png" alt=""> cuando se suba la imagen -->
-          ♥
-        </span>
-        <button type="button" class="btn-nav-episodio" data-nav="next">Episodio siguiente ›</button>
-      </div>
-
-      <div class="lista-episodios">
-        {% for episodio in episodios %}
-        {% set esPrimerEpisodio = loop.first %}
-        <div class="episodio-bloque">
-          <h3>{{ episodio.nombre }}</h3>
-          <div class="lista-partes">
-            {% for parte in episodio.partes %}
-            <button type="button" class="btn-parte {% if esPrimerEpisodio and loop.first %}activo{% endif %}" data-youtube-id="{{ parte.youtubeId }}">{{ parte.nombre }}</button>
-            {% endfor %}
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    {% endif %}
+  <section class="ficha-reproductor" aria-label="Tráiler">
+    <p class="ficha-reproductor-titulo">Tráiler</p>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/{{ youtubeId }}" title="Tráiler de {{ titulo }}" loading="lazy" allowfullscreen></iframe>
+    </div>
   </section>
 </article>
