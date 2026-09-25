@@ -1,37 +1,24 @@
-// En celular, al elegir un video ponemos el reproductor en pantalla
-// completa y forzamos la orientación horizontal (landscape), para que
-// no quede chico y apaisado dentro de la pantalla vertical del teléfono.
+// En celular, cuando el video entra en pantalla completa (al tocar el
+// cuadradito de pantalla completa DENTRO del propio reproductor de
+// YouTube, como ya lo hacías en la versión vieja) forzamos la rotación
+// a horizontal (landscape). No hace falta que nosotros abramos la
+// pantalla completa por código: el botón de YouTube ya la abre solo,
+// nosotros sólo escuchamos ese cambio y giramos.
 // Nota: la API de rotación (screen.orientation.lock) sólo la soportan
 // navegadores basados en Chromium (Android); en iOS Safari no existe
-// esa API todavía, así que ahí sólo se hace el pantalla completa y el
-// usuario gira el teléfono manualmente.
-const esMovil = () => window.matchMedia("(max-width: 900px)").matches;
-
-function ponerVideoEnPantallaCompleta(wrapper) {
-  if (!wrapper || !esMovil()) return;
-
-  const pedirFullscreen = wrapper.requestFullscreen || wrapper.webkitRequestFullscreen;
-  if (!pedirFullscreen) return;
-
-  pedirFullscreen
-    .call(wrapper)
-    .then(() => {
-      if (screen.orientation && screen.orientation.lock) {
-        screen.orientation.lock("landscape").catch(() => {});
-      }
-    })
-    .catch(() => {
-      // El navegador puede rechazar el pantalla completa automático
-      // (por ejemplo si no lo considera un gesto directo del usuario);
-      // en ese caso el video igual se reproduce, solo que sin rotar.
-    });
-}
-
-document.addEventListener("fullscreenchange", () => {
-  if (!document.fullscreenElement && screen.orientation && screen.orientation.unlock) {
+// esa API todavía, así que ahí la pantalla completa funciona pero el
+// usuario tiene que girar el teléfono con la mano.
+function alEntrarOSalirDePantallaCompleta() {
+  if (document.fullscreenElement) {
+    if (screen.orientation && screen.orientation.lock) {
+      screen.orientation.lock("landscape").catch(() => {});
+    }
+  } else if (screen.orientation && screen.orientation.unlock) {
     screen.orientation.unlock();
   }
-});
+}
+document.addEventListener("fullscreenchange", alEntrarOSalirDePantallaCompleta);
+document.addEventListener("webkitfullscreenchange", alEntrarOSalirDePantallaCompleta);
 
 // Tarjetas de video (OST / Comunidad): si la página tiene un reproductor
 // principal arriba (home), el video se carga ahí y se hace scroll suave
@@ -55,7 +42,6 @@ document.querySelectorAll(".tarjeta-video").forEach((tarjeta) => {
       reproductorPrincipalWrapper.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" title="${titulo}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
       if (reproductorPrincipalTitulo) reproductorPrincipalTitulo.textContent = titulo;
       reproductorPrincipalSeccion.scrollIntoView({ behavior: "smooth", block: "start" });
-      ponerVideoEnPantallaCompleta(reproductorPrincipalWrapper);
       return;
     }
 
@@ -63,7 +49,6 @@ document.querySelectorAll(".tarjeta-video").forEach((tarjeta) => {
     wrapper.className = "video-wrapper";
     wrapper.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" title="${titulo}" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
     tarjeta.replaceWith(wrapper);
-    ponerVideoEnPantallaCompleta(wrapper);
   });
 });
 
@@ -79,7 +64,6 @@ document.querySelectorAll(".comunidad-video").forEach((boton) => {
     wrapper.className = "video-wrapper comunidad-video-wrapper";
     wrapper.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" title="${titulo}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
     boton.replaceWith(wrapper);
-    ponerVideoEnPantallaCompleta(wrapper);
   });
 });
 
@@ -113,7 +97,6 @@ if (reproductorSeriesTv) {
     tarjeta.classList.add("activo");
     actualizarNavSeriesTv();
     reproductorSeriesTv.scrollIntoView({ behavior: "smooth", block: "start" });
-    ponerVideoEnPantallaCompleta(wrapper);
   };
 
   tarjetas.forEach((tarjeta) => {
@@ -159,7 +142,6 @@ if (reproductorPartes) {
     boton.classList.add("activo");
     actualizarNav();
     boton.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-    ponerVideoEnPantallaCompleta(reproductorPartes);
   };
 
   botones.forEach((boton) => {
