@@ -56,6 +56,7 @@ const reproductorSeriesTv = document.querySelector("[data-reproductor-series-tv]
 if (reproductorSeriesTv) {
   const wrapper = reproductorSeriesTv.querySelector(".video-wrapper");
   const tituloEl = reproductorSeriesTv.querySelector(".reproductor-titulo");
+  const sinopsisEl = reproductorSeriesTv.querySelector(".reproductor-sinopsis");
   const tarjetas = Array.from(document.querySelectorAll(".tarjeta-serie-tv"));
   const nav = document.querySelector("[data-nav-series-tv]");
 
@@ -64,9 +65,11 @@ if (reproductorSeriesTv) {
   const cargarSerieTv = (tarjeta) => {
     const id = tarjeta.dataset.youtubeId;
     const titulo = tarjeta.dataset.titulo;
+    const sinopsis = tarjeta.dataset.sinopsis;
 
     wrapper.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" title="${titulo}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
     if (tituloEl) tituloEl.textContent = `Reproduciendo ahora: ${titulo}`;
+    if (sinopsisEl) sinopsisEl.textContent = sinopsis || "";
 
     tarjetas.forEach((t) => t.classList.remove("activo"));
     tarjeta.classList.add("activo");
