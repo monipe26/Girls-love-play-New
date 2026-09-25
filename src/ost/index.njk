@@ -6,6 +6,14 @@ layout: base.njk
 <section class="seccion">
   <h1>🎵 OSTs GL</h1>
   <p class="seccion-sub">Música y bandas sonoras</p>
+
+  <section class="reproductor-principal" aria-label="Reproductor de OSTs GL">
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/{{ ostGl[0].youtubeId }}" title="{{ ostGl[0].titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+    <p class="reproductor-titulo">Reproduciendo ahora: {{ ostGl[0].titulo }}</p>
+  </section>
+
   <div class="grid-tarjetas grid-2">
     {% for video in ostGl %}
       {% include "tarjeta-video.njk" %}
