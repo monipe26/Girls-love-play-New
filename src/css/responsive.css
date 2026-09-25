@@ -128,13 +128,18 @@
   }
   .noticias-destacadas { grid-template-columns: 1.3fr 1fr; }
 
-  /* Mundo GL ahora muestra 6 artículos (foto + texto) en 2 columnas, por
-     eso necesita más espacio que Comunidad; el bloque de Comunidad se
-     achica y se corre hacia la derecha de su columna para que el conjunto
-     quede más parejo/armónico. */
-  .seccion-mundo-comunidad { grid-template-columns: 1fr 1.05fr; }
+  /* Comunidad primero (izquierda) y Mundo GL después (derecha) SOLO en
+     escritorio, usando "order" en vez de reordenar el HTML: así en mobile
+     el orden de las secciones queda igual que antes (Mundo GL primero).
+     Mundo GL muestra 6 artículos (foto + texto) en 2 columnas, por eso
+     necesita más espacio que Comunidad (4 videos en 2x2); se le da más
+     columna y más separación entre ambos bloques para que no se pisen ni
+     se corte el texto. */
+  .seccion-mundo-comunidad { grid-template-columns: 1fr 1.2fr; gap: var(--espacio-xl); }
+  .comunidad-bloque { order: 1; width: 100%; }
+  .mundo-gl-bloque { order: 2; }
   .mundo-gl-grid { grid-template-columns: repeat(2, 1fr); gap: var(--espacio-md) var(--espacio-md); }
-  .comunidad-bloque { width: 100%; }
+  .comunidad-lista { gap: var(--espacio-md); }
 
   /* Hero más bajo en pantallas grandes (en mobile ya está bien con aspect-ratio) */
   .hero img {

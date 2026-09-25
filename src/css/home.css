@@ -93,7 +93,10 @@
   gap: var(--espacio-lg);
   max-width: 1300px;
   margin: 0 auto;
-  padding: var(--espacio-md);
+  /* Padding de arriba más chico que el resto: la sección "Última noticia"
+     quedaba con un salto de línea en blanco de más entre la barra de
+     íconos y el título, así queda más pegado hacia arriba. */
+  padding: var(--espacio-xs) var(--espacio-md) var(--espacio-md) var(--espacio-md);
 }
 
 /* ===== TARJETA GRANDE (última noticia) ===== */
@@ -247,7 +250,7 @@
   line-height: 1.35;
   color: var(--color-texto-sec);
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
