@@ -19,7 +19,7 @@ permalink: "{{ '/extra/' if pagination.pageNumber == 0 else '/extra/' + (paginat
     <p class="reproductor-titulo">Reproduciendo ahora: {{ extraGl[0].titulo }}</p>
   </section>
 
-  <div class="grid-tarjetas">
+  <div class="grid-tarjetas grid-2">
     {% for video in extraPagina %}
       {% include "tarjeta-video.njk" %}
     {% endfor %}
