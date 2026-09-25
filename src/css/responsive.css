@@ -67,6 +67,13 @@
     border-radius: var(--radio-chico);
     min-width: 160px;
     z-index: 60;
+    /* En mobile ".submenu" usa max-height:0 + overflow:hidden para el
+       acordeón (ver components.css). En escritorio eso queda "pegado" y
+       el desplegable se ve vacío/en blanco apenas se le pasa el mouse
+       (el display:block lo muestra pero el contenido queda tapado hasta
+       que el clic agrega .abierto). Se resetea acá para escritorio. */
+    max-height: none;
+    overflow: visible;
   }
   .tiene-submenu:hover .submenu,
   .tiene-submenu:focus-within .submenu,

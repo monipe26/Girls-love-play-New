@@ -115,19 +115,31 @@
 .noticia-fecha { display: block; font-size: 0.72rem; color: var(--color-texto-sec); margin-bottom: 2px; }
 .noticias-lista p { font-size: 0.9rem; font-weight: 600; line-height: 1.3; }
 
+/* Ahora arriba va el video (embebido de YouTube al hacer clic) y abajo,
+   en un panel aparte, el resto de la info (badge, título, sinopsis, botón). */
 .tarjeta-destacada {
-  display: block;
-  position: relative;
+  display: flex;
+  flex-direction: column;
   border-radius: var(--radio);
   overflow: hidden;
   box-shadow: var(--sombra-tarjeta);
 }
-.tarjeta-destacada img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.tarjeta-destacada-video {
+  position: relative;
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 0;
+  aspect-ratio: 16 / 9;
+  cursor: pointer;
+}
+.tarjeta-destacada-video img { width: 100%; height: 100%; object-fit: cover; }
+.tarjeta-destacada-video .comunidad-video-play { width: 56px; height: 56px; font-size: 1.3rem; }
+.tarjeta-destacada .video-wrapper { aspect-ratio: 16 / 9; }
+.tarjeta-destacada .video-wrapper iframe { width: 100%; height: 100%; }
 .tarjeta-destacada-info {
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
   padding: var(--espacio-md);
-  background: linear-gradient(0deg, rgba(0,0,0,0.8), rgba(0,0,0,0));
+  background: var(--color-fondo-oscuro);
   color: #fff;
 }
 .tarjeta-destacada-info h3 { color: #fff; margin: 6px 0 2px; }
@@ -146,14 +158,14 @@
   align-items: flex-start;
 }
 .mundo-gl-grid img {
-  width: 96px;
-  height: 72px;
+  width: 120px;
+  height: 90px;
   flex-shrink: 0;
   border-radius: var(--radio-chico);
   object-fit: cover;
 }
 .mundo-gl-grid h3 {
-  font-size: 0.88rem;
+  font-size: 0.96rem;
   line-height: 1.3;
   margin-bottom: 4px;
   display: -webkit-box;
@@ -163,11 +175,11 @@
 }
 .mundo-gl-grid li a:hover h3 { color: var(--color-primario); }
 .mundo-gl-grid p {
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   color: var(--color-texto-sec);
-  line-height: 1.35;
+  line-height: 1.4;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -186,24 +198,35 @@
    6 artículos de Mundo GL), así que su título va un poco más chico para
    que no quede pegado al link "Ver más →". */
 .comunidad-bloque .seccion-cabecera h2 { font-size: 1.15rem; }
+/* Comunidad: 4 videos en grilla 2x2 (antes era uno solo), para que la
+   columna acompañe en altura a los 6 artículos de Mundo GL de al lado. */
+.comunidad-lista {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--espacio-sm);
+}
 .comunidad-video {
   position: relative;
   display: block;
-  border-radius: var(--radio);
+  width: 100%;
+  border: none;
+  padding: 0;
+  border-radius: var(--radio-chico);
   overflow: hidden;
   aspect-ratio: 16 / 9;
+  cursor: pointer;
 }
 .comunidad-video img { width: 100%; height: 100%; object-fit: cover; }
 .comunidad-video-play {
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 56px; height: 56px;
+  width: 40px; height: 40px;
   display: flex; align-items: center; justify-content: center;
   background: rgba(0, 0, 0, 0.6);
   color: #fff;
   border-radius: 50%;
-  font-size: 1.3rem;
+  font-size: 1rem;
   transition: background 0.2s ease, transform 0.2s ease;
 }
 .comunidad-video:hover .comunidad-video-play,
@@ -211,6 +234,18 @@
   background: var(--color-primario);
   transform: translate(-50%, -50%) scale(1.08);
 }
+.comunidad-video-titulo {
+  margin-top: 6px;
+  font-size: 0.78rem;
+  line-height: 1.3;
+  color: var(--color-texto-sec);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.comunidad-video-wrapper { aspect-ratio: 16 / 9; border-radius: var(--radio-chico); overflow: hidden; }
+.comunidad-video-wrapper iframe { width: 100%; height: 100%; }
 
 /* ===== SIDEBAR ===== */
 .sidebar { display: flex; flex-direction: column; gap: var(--espacio-lg); }
