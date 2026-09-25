@@ -259,6 +259,9 @@
 /* Achica el espacio entre el subtítulo y el reproductor de Series TV
    (el margin-bottom grande de ".seccion-sub" quedaba como un hueco
    vacío antes de que arranque el video). */
+/* Menos separación con el ticker en Series TV (el padding-top grande
+   por defecto de .seccion dejaba demasiado aire debajo de la franja). */
+.seccion-series-tv { padding-top: var(--espacio-sm); }
 .seccion-sub-reproductor { margin-bottom: var(--espacio-xs); }
 .reproductor-principal .video-wrapper { border-radius: 0; }
 .reproductor-principal .reproductor-titulo,
@@ -503,7 +506,9 @@
   white-space: nowrap;
   transition: background 0.2s ease, color 0.2s ease, opacity 0.2s ease;
 }
-.btn-nav-episodio:hover:not(:disabled) { background: var(--color-primario); color: #fff; }
+.btn-nav-episodio:hover:not(:disabled),
+.btn-nav-episodio:active:not(:disabled),
+.btn-nav-episodio:focus-visible:not(:disabled) { background: var(--color-primario); color: #fff; }
 .btn-nav-episodio:disabled { opacity: 0.4; cursor: default; }
 
 /* Corazón central: placeholder hasta subir la imagen definitiva */
