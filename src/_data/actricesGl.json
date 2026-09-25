@@ -1,0 +1,10 @@
+[
+  { "nombre": "Actriz Ejemplo Uno", "apodo": "Apodo1", "foto": "/assets/placeholder/actriz-1.jpg" },
+  { "nombre": "Actriz Ejemplo Dos", "apodo": "Apodo2", "foto": "/assets/placeholder/actriz-2.jpg" },
+  { "nombre": "Betiana Ejemplo", "apodo": "Apodo3", "foto": "/assets/placeholder/actriz-3.jpg" },
+  { "nombre": "Camila Ejemplo", "apodo": "Apodo4", "foto": "/assets/placeholder/actriz-4.jpg" },
+  { "nombre": "Daniela Ejemplo", "apodo": "Apodo5", "foto": "/assets/placeholder/actriz-5.jpg" },
+  { "nombre": "Emilia Ejemplo", "apodo": "Apodo6", "foto": "/assets/placeholder/actriz-6.jpg" },
+  { "nombre": "Florencia Ejemplo", "apodo": "Apodo7", "foto": "/assets/placeholder/actriz-7.jpg" },
+  { "nombre": "Georgina Ejemplo", "apodo": "Apodo8", "foto": "/assets/placeholder/actriz-8.jpg" }
+]
