@@ -10,6 +10,8 @@
 
   .menu-toggle { display: none; }
 
+  .logo { flex-basis: auto; justify-content: flex-start; }
+
   .menu-principal {
     max-height: none;
     overflow: visible;
@@ -17,11 +19,13 @@
     padding: 0;
     width: auto;
     flex-basis: auto;
+    flex: 1;
     margin-left: var(--espacio-md);
   }
   .menu-principal ul {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: var(--espacio-md);
     padding: 0;
   }
@@ -107,6 +111,8 @@
   /* Buscador + redes sociales: van después del menú, pegados a la derecha */
   .header-acciones {
     order: 6;
+    flex-basis: auto;
+    margin-left: var(--espacio-lg);
   }
 
   /* El header no debe partirse en dos líneas: si no entra todo en el ancho
