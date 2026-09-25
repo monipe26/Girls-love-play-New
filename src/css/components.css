@@ -235,6 +235,24 @@
   font-size: 0.9rem;
 }
 
+/* Reproductor de Series TV: de punta a punta de la pantalla (mobile y
+   escritorio), aunque esté dentro de ".seccion" (que tiene max-width y
+   padding). Se lo "saca" del contenedor centrado con el truco de ancho
+   de viewport, y se le deja el padding solo al título/nav para que el
+   texto y los botones no queden pegados al borde. */
+.reproductor-principal {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+.reproductor-principal .video-wrapper { border-radius: 0; }
+.reproductor-principal .reproductor-titulo,
+.reproductor-principal .reproductor-nav {
+  padding-left: var(--espacio-sm);
+  padding-right: var(--espacio-sm);
+}
+
 /* ===== GRID DE TARJETAS ===== */
 .grid-tarjetas {
   display: grid;

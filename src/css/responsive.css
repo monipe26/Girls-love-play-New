@@ -96,9 +96,11 @@
 
   .grid-tarjetas { grid-template-columns: repeat(6, 1fr); }
 
-  /* Banner y reproductor principal: ocupan todo el ancho de la pantalla, pegados entre sí */
+  /* Banner: ocupa todo el ancho de la pantalla.
+     El reproductor de Series TV ya es "de punta a punta" desde mobile
+     (ver .reproductor-principal en components.css), así que acá no hace
+     falta tocarlo. */
   .carrusel { max-width: none; width: 100%; margin: 0; }
-  .reproductor-principal { max-width: none; width: 100%; margin: 0; }
   .ficha-reproductor { max-width: 1400px; }
 
   /* El reproductor abarca todo el ancho pero no crece demasiado en alto */
