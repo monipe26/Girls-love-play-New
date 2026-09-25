@@ -14,10 +14,10 @@ layout: base.njk
           <dd>{{ genero }}</dd>
         </div>
         {% endif %}
-        {% if actrices and actrices.length %}
+        {% if reparto and reparto.length %}
         <div class="ficha-dato">
-          <dt>Actrices</dt>
-          <dd>{{ actrices | join(", ") }}</dd>
+          <dt>Reparto</dt>
+          <dd>{{ reparto | join(", ") }}</dd>
         </div>
         {% endif %}
         {% if puntaje %}
