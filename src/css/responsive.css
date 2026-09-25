@@ -135,28 +135,20 @@
   /* Mundo GL a la izquierda, Extras GL a la derecha, SOLO en escritorio,
      usando "order" en vez de reordenar el HTML: así en mobile el orden de
      las secciones queda igual que antes.
-     Antes esta sección tenía "align-items: stretch", que fuerza a las dos
-     columnas a tener la MISMA altura exacta. Como Mundo GL (6 notas con
-     foto) necesita más alto que Extras GL (2 videos), esa altura forzada
-     le quedaba corta y el contenido se desbordaba, pisando y pegándose con
-     Extras GL. Con "align-items: start" cada columna toma su alto natural
-     y no hay desborde. */
-  .seccion-mundo-comunidad { grid-template-columns: 1fr 1.2fr; gap: var(--espacio-xl); align-items: start; }
+     Mismo criterio de ancho que "Últimas noticias" (1.3fr / 1fr): la lista
+     de Mundo GL usa TODO el ancho de su columna en filas largas (una nota
+     por fila, foto + texto lado a lado), en vez de encajonarse en 2
+     columnas angostas como antes. Extras GL queda con un solo video, más
+     grande, ocupando su columna de punta a punta. */
+  .seccion-mundo-comunidad { grid-template-columns: 1.3fr 1fr; gap: var(--espacio-xl); align-items: start; }
   .mundo-gl-bloque { order: 1; }
   .comunidad-bloque { order: 2; width: 100%; }
-  /* Mundo GL: 2 columnas, tantas filas como hagan falta, cada una con su
-     alto natural (antes "repeat(3, 1fr)" + "flex:1" forzaba una altura
-     fija que no le alcanzaba al contenido real). */
-  .mundo-gl-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: auto;
-    gap: var(--espacio-lg) var(--espacio-md);
-  }
-  .mundo-gl-grid li a { align-items: center; }
-  .mundo-gl-grid img { width: 96px; height: 96px; }
-  /* Extras GL: los 2 videos lado a lado, ocupando todo el ancho de la
-     columna (de punta a punta, alineado con el borde del sidebar). */
-  .comunidad-lista { grid-template-columns: repeat(2, 1fr); gap: var(--espacio-md); }
+  /* Antes esta grilla se partía en 2 columnas (repeat(2, 1fr)), lo que
+     dejaba cada nota apretada en la mitad del ancho. Ahora queda en una
+     sola columna, como la lista de "Últimas noticias": cada nota ocupa
+     todo el ancho disponible. */
+  .mundo-gl-grid { gap: var(--espacio-md); }
+  .mundo-gl-grid img { width: 120px; height: 120px; }
 
   /* Hero más bajo en pantallas grandes (en mobile ya está bien con aspect-ratio) */
   .hero img {
