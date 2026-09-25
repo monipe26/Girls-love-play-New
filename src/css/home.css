@@ -172,6 +172,9 @@
   padding: var(--espacio-md);
   background: var(--color-fondo-oscuro);
   color: #fff;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 .tarjeta-destacada-info h3 { color: #fff; margin: 6px 0 2px; }
 .tarjeta-destacada-info p { color: rgba(255,255,255,0.8); font-size: 0.85rem; margin-bottom: var(--espacio-sm); }
