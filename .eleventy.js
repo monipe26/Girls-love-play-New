@@ -43,6 +43,16 @@ module.exports = function (eleventyConfig) {
     return texto.slice(0, cantidad).trim() + "…";
   });
 
+  // Filtro para sacar las primeras letras (iniciales) de una lista de actrices,
+  // sin repetidas y ordenadas alfabéticamente. Usado en el filtro A-Z de Actrices GL.
+  eleventyConfig.addFilter("primerasLetras", function (lista) {
+    if (!lista) return [];
+    const letras = lista
+      .map((item) => (item.nombre || "").trim().charAt(0).toUpperCase())
+      .filter(Boolean);
+    return [...new Set(letras)].sort();
+  });
+
   return {
     dir: {
       input: "src",
