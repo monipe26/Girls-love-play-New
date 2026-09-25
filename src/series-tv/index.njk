@@ -11,7 +11,6 @@ layout: base.njk
     <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/{{ seriesTv[0].youtubeId }}" title="{{ seriesTv[0].titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>
-    <p class="reproductor-titulo">Reproduciendo ahora: {{ seriesTv[0].titulo }} ({{ seriesTv[0].anio }})</p>
 
     <div class="reproductor-nav" data-nav-series-tv>
       <button type="button" class="btn-nav-episodio" data-nav="prev" disabled>‹ Episodio anterior</button>
@@ -21,6 +20,9 @@ layout: base.njk
       </span>
       <button type="button" class="btn-nav-episodio" data-nav="next">Episodio siguiente ›</button>
     </div>
+
+    <p class="reproductor-titulo">Reproduciendo ahora: {{ seriesTv[0].titulo }} ({{ seriesTv[0].anio }})</p>
+    <p class="reproductor-sinopsis">{{ seriesTv[0].sinopsis }}</p>
   </section>
 
   <div class="grid-tarjetas grid-series-tv">
