@@ -140,15 +140,15 @@
      por fila, foto + texto lado a lado), en vez de encajonarse en 2
      columnas angostas como antes. Extras GL queda con un solo video, más
      grande, ocupando su columna de punta a punta. */
-  .seccion-mundo-comunidad { grid-template-columns: 1.3fr 1fr; gap: var(--espacio-xl); align-items: start; }
+  .seccion-mundo-comunidad { grid-template-columns: 1.5fr 1fr; gap: var(--espacio-xl); align-items: start; }
   .mundo-gl-bloque { order: 1; }
   .comunidad-bloque { order: 2; width: 100%; }
-  /* Antes esta grilla se partía en 2 columnas (repeat(2, 1fr)), lo que
-     dejaba cada nota apretada en la mitad del ancho. Ahora queda en una
-     sola columna, como la lista de "Últimas noticias": cada nota ocupa
-     todo el ancho disponible. */
-  .mundo-gl-grid { gap: var(--espacio-md); }
-  .mundo-gl-grid img { width: 120px; height: 120px; }
+  /* Mundo GL en 2 columnas x 3 filas (las 6 notas), para que el bloque
+     quede más compacto en alto y a la par de Extras GL, que queda en su
+     propia columna más a la derecha. */
+  .mundo-gl-grid { grid-template-columns: repeat(2, 1fr); gap: var(--espacio-md) var(--espacio-lg); }
+  .mundo-gl-grid li a { flex-direction: column; align-items: flex-start; }
+  .mundo-gl-grid img { width: 100%; height: 140px; aspect-ratio: auto; object-fit: cover; }
 
   /* Hero más bajo en pantallas grandes (en mobile ya está bien con aspect-ratio) */
   .hero img {
