@@ -101,7 +101,7 @@
      (ver .reproductor-principal en components.css), así que acá no hace
      falta tocarlo. */
   .carrusel { max-width: none; width: 100%; margin: 0; }
-  .ficha-reproductor { max-width: 1400px; }
+  .ficha-reproductor { max-width: 560px; }
 
   /* El reproductor abarca todo el ancho pero no crece demasiado en alto */
   .video-wrapper { max-height: 640px; }

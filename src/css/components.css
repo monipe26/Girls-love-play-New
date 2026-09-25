@@ -269,6 +269,7 @@
   padding-left: var(--espacio-sm);
   padding-right: var(--espacio-sm);
 }
+.reproductor-principal + .grid-tarjetas { margin-top: var(--espacio-lg); }
 
 /* ===== GRID DE TARJETAS ===== */
 .grid-tarjetas {
@@ -493,7 +494,7 @@
   margin-top: var(--espacio-xs);
 }
 
-.ficha-reproductor { max-width: 900px; margin: 0 auto; padding: 0 var(--espacio-sm) var(--espacio-lg); }
+.ficha-reproductor { max-width: 480px; margin: 0 auto; padding: 0 var(--espacio-sm) var(--espacio-lg); }
 .lista-partes { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: var(--espacio-sm); }
 .btn-parte {
   background: var(--color-superficie);
