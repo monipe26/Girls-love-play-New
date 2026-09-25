@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     seguridad++;
   }
 
-  const VELOCIDAD = 0.4; // píxeles por frame
+  const VELOCIDAD = 0.9; // píxeles por frame
   let pausado = false;
   let temporizadorPausa = null;
 
