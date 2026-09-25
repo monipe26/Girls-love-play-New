@@ -19,7 +19,7 @@ permalink: "{{ '/proximamente/' if pagination.pageNumber == 0 else '/proximament
     <p class="reproductor-titulo">Reproduciendo ahora: {{ proximamenteGl[0].titulo }}</p>
   </section>
 
-  <div class="grid-tarjetas">
+  <div class="grid-tarjetas grid-2">
     {% for video in proximamentePagina %}
       {% include "tarjeta-video.njk" %}
     {% endfor %}
