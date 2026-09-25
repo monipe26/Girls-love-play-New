@@ -461,6 +461,26 @@
 }
 .ficha-portada { border-radius: var(--radio); box-shadow: var(--sombra-tarjeta); max-width: 220px; }
 .ficha-anio { color: var(--color-texto-sec); font-weight: 400; }
+.ficha-datos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-xs) var(--espacio-md);
+  margin: var(--espacio-xs) 0 var(--espacio-sm);
+}
+.ficha-dato {
+  display: flex;
+  gap: 4px;
+  font-size: 0.9rem;
+  margin: 0;
+}
+.ficha-dato dt {
+  font-weight: 700;
+  color: var(--color-primario-hover);
+}
+.ficha-dato dd {
+  margin: 0;
+  color: var(--color-texto);
+}
 .ficha-sinopsis {
   max-height: 4.5em;
   overflow: hidden;
