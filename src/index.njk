@@ -177,7 +177,7 @@ layout: base.njk
           <a href="/extra/" class="ver-mas">Ver más →</a>
         </div>
         <ul class="comunidad-lista">
-          {% for video in comunidadGl | limit(2) %}
+          {% for video in comunidadGl | limit(1) %}
           <li>
             <button type="button" class="comunidad-video" data-youtube-id="{{ video.youtubeId }}" aria-label="Reproducir {{ video.titulo }}">
               <!-- TODO Paso 6: reemplazar por los videos reales de la comunidad cuando los tengan -->
