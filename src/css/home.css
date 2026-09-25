@@ -328,3 +328,21 @@
 .proximamente-card { display: block; }
 .proximamente-card img { width: 100%; border-radius: var(--radio-chico); aspect-ratio: 16/9; object-fit: cover; margin-bottom: var(--espacio-xs); }
 .proximamente-card p { font-size: 0.85rem; color: var(--color-texto-sec); }
+
+/* Widget de publicidad: por ahora un placeholder, listo para reemplazar
+   por el código real del anuncio (banner, script del ad network, etc). */
+.widget-publicidad { text-align: center; }
+.anuncio-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 200px;
+  border: 1px dashed var(--color-texto-sec);
+  border-radius: var(--radio-chico);
+  background: var(--color-superficie);
+  color: var(--color-texto-sec);
+  font-size: 0.85rem;
+}
+.anuncio-medida { font-size: 0.75rem; opacity: 0.75; }
