@@ -45,20 +45,9 @@ document.querySelectorAll(".comunidad-video").forEach((boton) => {
   });
 });
 
-// Video de la tarjeta destacada (ej. "Blank: The Series" en el home): al
-// hacer clic se reproduce arriba, y el panel de info de abajo no se toca.
-document.querySelectorAll(".tarjeta-destacada-video").forEach((boton) => {
-  boton.addEventListener("click", () => {
-    const id = boton.dataset.youtubeId;
-    const tituloEl = boton.parentElement.querySelector(".tarjeta-destacada-info h3");
-    const titulo = tituloEl ? tituloEl.textContent : "Video";
-
-    const wrapper = document.createElement("div");
-    wrapper.className = "video-wrapper";
-    wrapper.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" title="${titulo}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
-    boton.replaceWith(wrapper);
-  });
-});
+// Nota: la tarjeta destacada (ej. "Blank: The Series" en el home) ya no se
+// reproduce acá adentro — ahora es un link directo a /series-tv/, así que
+// no necesita JS.
 
 // Página "Series TV": reproductor principal arriba + grilla de covers abajo.
 // Clic en un cover carga ese video arriba (sin recargar la página) y los
