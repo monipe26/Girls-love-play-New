@@ -9,15 +9,34 @@ if (botonMenu && menu) {
   });
 }
 
-// Acordeón de submenús en el menú móvil (Series, Actrices): colapsados por
-// defecto, se abren al tocar la flechita, sin navegar.
+// Submenús con flechita (Series, Actrices): colapsados por defecto, se
+// abren al tocar/clickear la flechita, sin navegar. Funciona igual en
+// móvil (acordeón) y en escritorio (además del hover, por si el dispositivo
+// no tiene hover real, como notebooks táctiles).
+function cerrarSubmenus(exceptoEsteItem) {
+  document.querySelectorAll(".tiene-submenu.abierto").forEach((item) => {
+    if (item === exceptoEsteItem) return;
+    item.classList.remove("abierto");
+    const boton = item.querySelector(".submenu-toggle");
+    if (boton) boton.setAttribute("aria-expanded", "false");
+  });
+}
+
 document.querySelectorAll(".submenu-toggle").forEach((boton) => {
-  boton.addEventListener("click", () => {
+  boton.addEventListener("click", (evento) => {
+    evento.preventDefault();
     const item = boton.closest(".tiene-submenu");
     if (!item) return;
     const abierto = item.classList.toggle("abierto");
     boton.setAttribute("aria-expanded", abierto);
+    cerrarSubmenus(abierto ? item : null);
   });
+});
+
+// Clickear fuera de un submenú abierto lo cierra (relevante sobre todo en
+// escritorio, donde el hover ya no aplica una vez que se abrió con click).
+document.addEventListener("click", (evento) => {
+  if (!evento.target.closest(".tiene-submenu")) cerrarSubmenus(null);
 });
 
 // Botón "volver arriba"
