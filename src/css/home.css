@@ -170,7 +170,9 @@
   display: flex;
   gap: var(--espacio-sm);
   align-items: center;
+  min-width: 0;
 }
+.mundo-gl-grid li a > div { min-width: 0; }
 .mundo-gl-grid img {
   width: 110px;
   height: 110px;

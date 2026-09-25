@@ -132,31 +132,31 @@
   }
   .noticias-destacadas { grid-template-columns: 1.3fr 1fr; }
 
-  /* Comunidad primero (izquierda) y Mundo GL después (derecha) SOLO en
-     escritorio, usando "order" en vez de reordenar el HTML: así en mobile
-     el orden de las secciones queda igual que antes (Mundo GL primero).
-     Mundo GL muestra 6 artículos (foto + texto) en 2 columnas, por eso
-     necesita más espacio que Comunidad (4 videos en 2x2); se le da más
-     columna y más separación entre ambos bloques para que no se pisen ni
-     se corte el texto. */
-  .seccion-mundo-comunidad { grid-template-columns: 1fr 1.2fr; gap: var(--espacio-xl); align-items: stretch; }
-  .mundo-gl-bloque { order: 1; display: flex; flex-direction: column; }
+  /* Mundo GL a la izquierda, Extras GL a la derecha, SOLO en escritorio,
+     usando "order" en vez de reordenar el HTML: así en mobile el orden de
+     las secciones queda igual que antes.
+     Antes esta sección tenía "align-items: stretch", que fuerza a las dos
+     columnas a tener la MISMA altura exacta. Como Mundo GL (6 notas con
+     foto) necesita más alto que Extras GL (2 videos), esa altura forzada
+     le quedaba corta y el contenido se desbordaba, pisando y pegándose con
+     Extras GL. Con "align-items: start" cada columna toma su alto natural
+     y no hay desborde. */
+  .seccion-mundo-comunidad { grid-template-columns: 1fr 1.2fr; gap: var(--espacio-xl); align-items: start; }
+  .mundo-gl-bloque { order: 1; }
   .comunidad-bloque { order: 2; width: 100%; }
-  /* Mundo GL: 2 columnas x 3 filas (6 notas), todas estiradas para ocupar
-     la misma altura total que la columna de Extra GL (gracias al
-     "align-items: stretch" de arriba). */
+  /* Mundo GL: 2 columnas, tantas filas como hagan falta, cada una con su
+     alto natural (antes "repeat(3, 1fr)" + "flex:1" forzaba una altura
+     fija que no le alcanzaba al contenido real). */
   .mundo-gl-grid {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    flex: 1;
-    gap: var(--espacio-md);
+    grid-auto-rows: auto;
+    gap: var(--espacio-lg) var(--espacio-md);
   }
-  .mundo-gl-grid li a { height: 100%; align-items: center; }
-  .mundo-gl-grid img { width: 120px; height: 120px; }
+  .mundo-gl-grid li a { align-items: center; }
+  .mundo-gl-grid img { width: 96px; height: 96px; }
   /* Extras GL: los 2 videos lado a lado, ocupando todo el ancho de la
      columna (de punta a punta, alineado con el borde del sidebar). */
   .comunidad-lista { grid-template-columns: repeat(2, 1fr); gap: var(--espacio-md); }
-  .comunidad-video { height: 100%; }
 
   /* Hero más bajo en pantallas grandes (en mobile ya está bien con aspect-ratio) */
   .hero img {
