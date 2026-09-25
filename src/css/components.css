@@ -401,6 +401,7 @@
 .footer-marca { display: flex; flex-direction: column; align-items: center; gap: 6px; }
 .footer-logo img { height: 32px; width: auto; }
 .footer-tagline { color: var(--color-texto-sobre-oscuro); font-size: 0.85rem; }
+.footer-apoyar { margin-top: var(--espacio-sm); }
 
 .footer-col h2 {
   font-family: var(--fuente-titulos);

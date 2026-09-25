@@ -27,6 +27,23 @@ h2 { font-size: 1.4rem; }
   margin-bottom: var(--espacio-md);
 }
 
+/* Páginas de texto largo (legal, institucionales) */
+.contenido-legal {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.contenido-legal h2 {
+  font-size: 1.1rem;
+  margin-top: var(--espacio-lg);
+  margin-bottom: var(--espacio-sm);
+  color: var(--color-primario-hover);
+}
+.contenido-legal p {
+  margin-bottom: var(--espacio-md);
+  color: var(--color-texto);
+}
+.contenido-legal a { color: var(--color-primario-hover); text-decoration: underline; }
+
 .ver-mas {
   display: inline-block;
   margin-top: var(--espacio-sm);
