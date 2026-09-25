@@ -103,6 +103,15 @@
     order: 6;
     margin-left: auto;
   }
+
+  /* El header entero centrado dentro de un ancho máximo, para que en pantallas
+     muy anchas el menú y la botonera (buscador+redes) no queden pegados cada
+     uno a un extremo con un espacio enorme vacío en el medio. */
+  .site-header {
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 @media (min-width: 1200px) {
