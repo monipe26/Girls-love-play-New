@@ -104,7 +104,11 @@
 }
 
 .tiene-submenu .submenu {
-  padding-left: var(--espacio-md);
+  /* padding explícito (no solo padding-left): sin esto, el padding vertical
+     que heredaba de ".menu-principal ul" (arriba/abajo) queda "atrapado" y
+     no lo puede tapar max-height:0, dejando un espacio vacío fantasma
+     debajo de Series/Actrices en el menú móvil aunque esté cerrado. */
+  padding: 0 0 0 var(--espacio-md);
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.25s ease;

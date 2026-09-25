@@ -26,17 +26,37 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: var(--espacio-md);
+    gap: 0.7rem;
     padding: 0;
   }
   .menu-principal li { border: none; position: relative; }
-  .menu-principal a { padding: 8px 0; white-space: nowrap; }
+  .menu-principal a {
+    padding: 8px 0;
+    white-space: nowrap;
+    font-size: 0.85rem;
+  }
 
-  /* En escritorio el submenú se abre con hover, no con el botón de acordeón
-     de móvil: el ítem vuelve a su layout normal (no flex) y el botón se oculta. */
-  .tiene-submenu { display: block; }
-  .submenu-toggle { display: none; }
-  .tiene-submenu > a::after { display: inline-block; }
+  /* En escritorio el submenú se abre al pasar el mouse (hover), y también
+     al hacer click en la flechita — necesario para notebooks/trackpads
+     donde el click navega antes de que el hover llegue a "activarse". El
+     texto del link (ej. "Series") sigue navegando normal a su sección; la
+     flechita, aparte, solo abre/cierra el desplegable. Se la mantiene bien
+     chica para no obligar a "Juegos"/"Próximamente GL" a una segunda línea. */
+  .tiene-submenu {
+    display: flex;
+    align-items: center;
+  }
+  .tiene-submenu > a { padding-right: 0; }
+  .tiene-submenu > a::after { display: none; }
+
+  .submenu-toggle {
+    position: static;
+    width: 14px;
+    height: 14px;
+    font-size: 0.6rem;
+    color: var(--color-texto-sec);
+  }
+  .submenu-toggle:hover { color: var(--color-primario); }
 
   .tiene-submenu .submenu {
     display: none;
@@ -49,7 +69,8 @@
     z-index: 60;
   }
   .tiene-submenu:hover .submenu,
-  .tiene-submenu:focus-within .submenu {
+  .tiene-submenu:focus-within .submenu,
+  .tiene-submenu.abierto .submenu {
     display: block;
   }
 
@@ -92,7 +113,14 @@
     padding: var(--espacio-lg);
   }
   .noticias-destacadas { grid-template-columns: 1.3fr 1fr; }
-  .seccion-mundo-comunidad { grid-template-columns: 1.4fr 1fr; }
+
+  /* Mundo GL ahora muestra 6 artículos (foto + texto) en 2 columnas, por
+     eso necesita más espacio que Comunidad; el bloque de Comunidad se
+     achica y se corre hacia la derecha de su columna para que el conjunto
+     quede más parejo/armónico. */
+  .seccion-mundo-comunidad { grid-template-columns: 1.7fr 1fr; }
+  .mundo-gl-grid { grid-template-columns: repeat(2, 1fr); gap: var(--espacio-md) var(--espacio-md); }
+  .comunidad-bloque { max-width: 320px; width: 100%; margin-left: auto; }
 
   /* Hero más bajo en pantallas grandes (en mobile ya está bien con aspect-ratio) */
   .hero img {
