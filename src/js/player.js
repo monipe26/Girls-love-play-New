@@ -30,6 +30,36 @@ document.querySelectorAll(".tarjeta-video").forEach((tarjeta) => {
   });
 });
 
+// Videos de la Comunidad en el home (4 miniaturas): al hacer clic, cada una
+// se reproduce en el lugar, sin afectar a las demás ni salir de la página.
+document.querySelectorAll(".comunidad-video").forEach((boton) => {
+  boton.addEventListener("click", () => {
+    const id = boton.dataset.youtubeId;
+    const tituloEl = boton.parentElement.querySelector(".comunidad-video-titulo");
+    const titulo = tituloEl ? tituloEl.textContent : "Video";
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "video-wrapper comunidad-video-wrapper";
+    wrapper.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" title="${titulo}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+    boton.replaceWith(wrapper);
+  });
+});
+
+// Video de la tarjeta destacada (ej. "Blank: The Series" en el home): al
+// hacer clic se reproduce arriba, y el panel de info de abajo no se toca.
+document.querySelectorAll(".tarjeta-destacada-video").forEach((boton) => {
+  boton.addEventListener("click", () => {
+    const id = boton.dataset.youtubeId;
+    const tituloEl = boton.parentElement.querySelector(".tarjeta-destacada-info h3");
+    const titulo = tituloEl ? tituloEl.textContent : "Video";
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "video-wrapper";
+    wrapper.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" title="${titulo}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+    boton.replaceWith(wrapper);
+  });
+});
+
 // Fichas de serie con varias partes/episodios: cambia el video activo sin recargar la página
 const reproductorPartes = document.querySelector("[data-reproductor-partes]");
 if (reproductorPartes) {
