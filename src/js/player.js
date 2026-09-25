@@ -20,10 +20,10 @@ function alEntrarOSalirDePantallaCompleta() {
 document.addEventListener("fullscreenchange", alEntrarOSalirDePantallaCompleta);
 document.addEventListener("webkitfullscreenchange", alEntrarOSalirDePantallaCompleta);
 
-// Tarjetas de video (OST / Comunidad): si la página tiene un reproductor
-// principal arriba (home), el video se carga ahí y se hace scroll suave
-// hasta él. Si no existe (páginas /ost/ o /comunidad/ sin reproductor
-// principal), se reproduce dentro de la propia tarjeta, como antes.
+// Tarjetas de video (OST / Extra GL / Comunidad): si la página tiene un
+// reproductor principal arriba (home u otras), el video se carga ahí y se
+// hace scroll suave hasta él. Si no existe (poco probable hoy), se
+// reproduce dentro de la propia tarjeta, como antes.
 const reproductorPrincipalSeccion = document.querySelector(".reproductor-principal");
 const reproductorPrincipalWrapper = reproductorPrincipalSeccion
   ? reproductorPrincipalSeccion.querySelector(".video-wrapper")
@@ -32,6 +32,114 @@ const reproductorPrincipalTitulo = reproductorPrincipalSeccion
   ? reproductorPrincipalSeccion.querySelector(".reproductor-titulo")
   : null;
 
+// ===== Avance aleatorio al terminar el video (OST / Extra GL / Comunidad) =====
+// Cuando el video que está sonando en el reproductor principal termina, se
+// elige otro al azar de entre los que ya están cargados en la grilla de esa
+// misma sección y se reproduce solo, sin cortar, hasta que el usuario entra
+// a otra página. Usa la API de YouTube (YT.Player) para poder "escuchar"
+// cuándo termina un video.
+let ytApiListo = false;
+let ytApiPendientes = [];
+function alEstarListaLaApiDeYoutube(callback) {
+  if (ytApiListo) {
+    callback();
+  } else {
+    ytApiPendientes.push(callback);
+  }
+}
+window.onYouTubeIframeAPIReady = function () {
+  ytApiListo = true;
+  ytApiPendientes.forEach((callback) => callback());
+  ytApiPendientes = [];
+};
+
+let reproductorYtActivo = null;
+
+function obtenerListaVideosDeLaGrilla() {
+  return Array.from(document.querySelectorAll(".tarjeta-video")).map((tarjeta) => {
+    const tituloEl = tarjeta.querySelector(".tarjeta-video-titulo");
+    return {
+      id: tarjeta.dataset.youtubeId,
+      titulo: tituloEl ? tituloEl.textContent : "Video",
+    };
+  });
+}
+
+function elegirVideoAlAzar(lista, idActual) {
+  if (!lista.length) return null;
+  if (lista.length === 1) return lista[0];
+  let intentos = 0;
+  let elegido;
+  do {
+    elegido = lista[Math.floor(Math.random() * lista.length)];
+    intentos++;
+  } while (elegido.id === idActual && intentos < 10);
+  return elegido;
+}
+
+function alTerminarElVideo(idQueTermino) {
+  const siguiente = elegirVideoAlAzar(obtenerListaVideosDeLaGrilla(), idQueTermino);
+  if (!siguiente || !reproductorYtActivo) return;
+  reproductorYtActivo.loadVideoById(siguiente.id);
+  if (reproductorPrincipalTitulo) {
+    reproductorPrincipalTitulo.textContent = `Reproduciendo ahora: ${siguiente.titulo}`;
+  }
+}
+
+// Carga un video en el reproductor principal. Si la sección tiene grilla de
+// videos (OST / Extra GL / Comunidad), queda conectado a la API de YouTube
+// para poder avanzar solo al azar cuando termine. Si no hay grilla, se
+// mantiene el comportamiento simple de siempre.
+function cargarVideoPrincipal(id, titulo, conAutoplay) {
+  if (!reproductorPrincipalWrapper) return;
+
+  const hayGrilla = document.querySelectorAll(".tarjeta-video").length > 1;
+  const autoplayParam = conAutoplay ? "&autoplay=1" : "";
+
+  if (!hayGrilla) {
+    reproductorPrincipalWrapper.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?rel=0${autoplayParam}" title="${titulo}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+    return;
+  }
+
+  reproductorPrincipalWrapper.innerHTML = `<iframe id="reproductor-yt-iframe" src="https://www.youtube.com/embed/${id}?enablejsapi=1&playsinline=1${autoplayParam}" title="${titulo}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+
+  if (!document.querySelector('script[src="https://www.youtube.com/iframe_api"]')) {
+    const script = document.createElement("script");
+    script.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(script);
+  }
+
+  alEstarListaLaApiDeYoutube(() => {
+    const iframe = document.getElementById("reproductor-yt-iframe");
+    if (!iframe) return;
+    reproductorYtActivo = new YT.Player(iframe, {
+      events: {
+        onStateChange: function (evento) {
+          if (evento.data === YT.PlayerState.ENDED) {
+            alTerminarElVideo(id);
+          }
+        },
+      },
+    });
+  });
+}
+
+// Al entrar a la página (ej. /ost/, /extra/, /comunidad/), el primer video
+// ya viene armado del lado del servidor. Si hay grilla, lo "re-conectamos"
+// a la API de YouTube (sin forzar autoplay: el usuario no pidió reproducir
+// nada todavía) para que el avance aleatorio funcione también con este
+// primer video.
+if (reproductorPrincipalWrapper && document.querySelectorAll(".tarjeta-video").length > 1) {
+  const iframeInicial = reproductorPrincipalWrapper.querySelector("iframe");
+  if (iframeInicial) {
+    const coincidencia = iframeInicial.src.match(/embed\/([^?&]+)/);
+    const idInicial = coincidencia ? coincidencia[1] : null;
+    if (idInicial) {
+      cargarVideoPrincipal(idInicial, iframeInicial.title || "Video", false);
+    }
+  }
+}
+
 document.querySelectorAll(".tarjeta-video").forEach((tarjeta) => {
   tarjeta.addEventListener("click", () => {
     const id = tarjeta.dataset.youtubeId;
@@ -39,8 +147,8 @@ document.querySelectorAll(".tarjeta-video").forEach((tarjeta) => {
     const titulo = tituloEl ? tituloEl.textContent : "Video";
 
     if (reproductorPrincipalWrapper) {
-      reproductorPrincipalWrapper.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" title="${titulo}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
-      if (reproductorPrincipalTitulo) reproductorPrincipalTitulo.textContent = titulo;
+      cargarVideoPrincipal(id, titulo, true);
+      if (reproductorPrincipalTitulo) reproductorPrincipalTitulo.textContent = `Reproduciendo ahora: ${titulo}`;
       reproductorPrincipalSeccion.scrollIntoView({ behavior: "smooth", block: "start" });
       return;
     }
