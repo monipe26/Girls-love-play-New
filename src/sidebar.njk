@@ -1,0 +1,103 @@
+<aside class="sidebar" aria-label="Barra lateral">
+
+  <section class="widget-radar">
+    <h2>❤️ En el radar</h2>
+    <a href="#" class="radar-item">
+      <img src="/assets/placeholder/radar-1.jpg" alt="" width="72" height="72" loading="lazy">
+      <div>
+        <span class="badge badge-rosa">Más comentado</span>
+        <p>La química de estas protagonistas conquista las redes</p>
+      </div>
+    </a>
+    <a href="#" class="radar-item">
+      <img src="/assets/placeholder/radar-2.jpg" alt="" width="72" height="72" loading="lazy">
+      <div>
+        <span class="badge badge-violeta">Próximo estreno</span>
+        <p>Todo sobre la nueva serie de GMMTV</p>
+      </div>
+    </a>
+    <a href="#" class="radar-item">
+      <img src="/assets/placeholder/radar-3.jpg" alt="" width="72" height="72" loading="lazy">
+      <div>
+        <span class="badge badge-rosa">Actriz de la semana</span>
+        <p>Mint Ranchrawee, la estrella del momento</p>
+      </div>
+    </a>
+  </section>
+
+  <section class="widget-calendario">
+    <h2>🗓️ Calendario de estrenos</h2>
+    <ul>
+      <li>
+        <span class="fecha-caja"><strong>03</strong>OCT</span>
+        <div><p>The Secret of Us</p><span>Serie</span></div>
+      </li>
+      <li>
+        <span class="fecha-caja"><strong>10</strong>OCT</span>
+        <div><p>Blank: The Series</p><span>Serie</span></div>
+      </li>
+      <li>
+        <span class="fecha-caja"><strong>17</strong>OCT</span>
+        <div><p>Love in the Fast Lane</p><span>Serie</span></div>
+      </li>
+      <li>
+        <span class="fecha-caja"><strong>24</strong>OCT</span>
+        <div><p>My Dear, My Rival</p><span>Serie</span></div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="widget-publicidad">
+    <h2>Publicidad</h2>
+    <!-- TODO: reemplazar por el anuncio real (banner/ad-code) cuando lo tengan -->
+    <div class="anuncio-placeholder">
+      <span>Espacio publicitario</span>
+      <span class="anuncio-medida">300 × 250</span>
+    </div>
+  </section>
+
+  <div class="comunidad-bloque">
+    <div class="seccion-cabecera">
+      <h2>⭐ Extras GL</h2>
+      <a href="/extra/" class="ver-mas">Ver más →</a>
+    </div>
+    <ul class="comunidad-lista">
+      {% for video in comunidadGl | limit(1) %}
+      <li>
+        <button type="button" class="comunidad-video" data-youtube-id="{{ video.youtubeId }}" aria-label="Reproducir {{ video.titulo }}">
+          <!-- TODO Paso 6: reemplazar por los videos reales de la comunidad cuando los tengan -->
+          <img src="https://i.ytimg.com/vi/{{ video.youtubeId }}/hqdefault.jpg" alt="" width="200" height="112" loading="lazy">
+          <span class="comunidad-video-play" aria-hidden="true">▶</span>
+        </button>
+        <p class="comunidad-video-titulo">{{ video.titulo | truncar(80) }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <section class="widget-proximamente">
+    <h2>✨ Próximamente GL</h2>
+    <a href="/proximamente/" class="proximamente-card">
+      <img src="/assets/placeholder/proximamente.jpg" alt="" width="320" height="180" loading="lazy">
+      <p>Nuevos proyectos, estrenos y más…</p>
+    </a>
+  </section>
+
+  <div class="comunidad-bloque">
+    <div class="seccion-cabecera">
+      <h2>💬 Comunidad</h2>
+      <a href="/comunidad/" class="ver-mas">Ver más →</a>
+    </div>
+    <ul class="comunidad-lista">
+      <li>
+        <button type="button" class="comunidad-video" data-youtube-id="{{ comunidadGl[1].youtubeId }}" aria-label="Reproducir {{ comunidadGl[1].titulo }}">
+          <!-- TODO Paso 6: reemplazar por los videos reales de la comunidad cuando los tengan -->
+          <img src="https://i.ytimg.com/vi/{{ comunidadGl[1].youtubeId }}/hqdefault.jpg" alt="" width="200" height="112" loading="lazy">
+          <span class="comunidad-video-play" aria-hidden="true">▶</span>
+        </button>
+        <p class="comunidad-video-titulo">{{ comunidadGl[1].titulo | truncar(80) }}</p>
+      </li>
+    </ul>
+  </div>
+
+</aside>
