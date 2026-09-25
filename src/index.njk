@@ -77,15 +77,19 @@ layout: base.njk
           </li>
         </ul>
 
-        <a href="#" class="tarjeta-destacada">
-          <img src="/assets/placeholder/serie-destacada.jpg" alt="" width="420" height="500" loading="lazy">
+        <div class="tarjeta-destacada">
+          <!-- TODO Paso 6: reemplazar por el video real (tráiler o primer episodio) de la serie que se elija -->
+          <button type="button" class="tarjeta-destacada-video" data-youtube-id="dQw4w9WgXcQ" aria-label="Reproducir video de Blank: The Series">
+            <img src="https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="" width="420" height="236" loading="lazy">
+            <span class="comunidad-video-play" aria-hidden="true">▶</span>
+          </button>
           <div class="tarjeta-destacada-info">
             <span class="badge badge-rosa">Series GL</span>
             <h3>Blank: The Series</h3>
             <p>La serie que todos están esperando.</p>
-            <span class="btn-primario">Ver serie →</span>
+            <a href="#" class="btn-primario">Ver serie →</a>
           </div>
-        </a>
+        </div>
       </div>
     </section>
 
@@ -158,11 +162,18 @@ layout: base.njk
           <h2>👥 Comunidad</h2>
           <a href="/comunidad/" class="ver-mas">Ver más →</a>
         </div>
-        <a href="/comunidad/" class="comunidad-video">
-          <!-- TODO Paso 6: reemplazar por el video real de la comunidad cuando lo tengan -->
-          <img src="https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="" width="400" height="225" loading="lazy">
-          <span class="comunidad-video-play" aria-hidden="true">▶</span>
-        </a>
+        <ul class="comunidad-lista">
+          {% for video in comunidadGl | limit(4) %}
+          <li>
+            <button type="button" class="comunidad-video" data-youtube-id="{{ video.youtubeId }}" aria-label="Reproducir {{ video.titulo }}">
+              <!-- TODO Paso 6: reemplazar por los videos reales de la comunidad cuando los tengan -->
+              <img src="https://i.ytimg.com/vi/{{ video.youtubeId }}/hqdefault.jpg" alt="" width="200" height="112" loading="lazy">
+              <span class="comunidad-video-play" aria-hidden="true">▶</span>
+            </button>
+            <p class="comunidad-video-titulo">{{ video.titulo | truncar(50) }}</p>
+          </li>
+          {% endfor %}
+        </ul>
       </div>
     </section>
 
