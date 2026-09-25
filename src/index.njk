@@ -3,16 +3,25 @@ title: Inicio
 description: Series, noticias, OST y todo sobre el mundo Girls Love (GL).
 layout: base.njk
 ---
-<section class="hero" aria-label="Última noticia destacada">
-  <span class="badge badge-rosa hero-badge">Última noticia</span>
-  <img src="/assets/placeholder/hero.jpg" alt="" width="1200" height="500">
-  <div class="hero-texto">
-    <h1>Nuevo drama GL tailandés ya tiene a sus protagonistas</h1>
-    <p>La esperada serie "El mismo cielo, diferentes caminos" presenta a sus dos protagonistas principales.</p>
-    <div class="hero-pie">
-      <time datetime="2026-09-24">24 SEP 2026</time>
-      <a href="#" class="btn-primario">Leer más →</a>
+<section class="hero carrusel" aria-label="Última noticia destacada">
+  <div class="carrusel-track">
+    <div class="carrusel-slide">
+      <span class="badge badge-rosa hero-badge">Última noticia</span>
+      <img src="/assets/placeholder/hero.jpg" alt="" width="1200" height="500">
+      <div class="hero-texto">
+        <h1>Nuevo drama GL tailandés ya tiene a sus protagonistas</h1>
+        <p>La esperada serie "El mismo cielo, diferentes caminos" presenta a sus dos protagonistas principales.</p>
+        <div class="hero-pie">
+          <time datetime="2026-09-24">24 SEP 2026</time>
+          <a href="#" class="btn-primario">Leer más →</a>
+        </div>
+      </div>
     </div>
+    {% for banner in banners %}
+    <a href="{{ banner.enlace }}" class="carrusel-slide">
+      <img src="{{ banner.imagen }}" alt="{{ banner.alt }}" width="1200" height="500">
+    </a>
+    {% endfor %}
   </div>
   <button class="carrusel-btn prev" aria-label="Anterior">‹</button>
   <button class="carrusel-btn next" aria-label="Siguiente">›</button>
@@ -168,25 +177,6 @@ layout: base.njk
               </div>
             </a>
           </li>
-        </ul>
-      </div>
-
-      <div class="comunidad-bloque">
-        <div class="seccion-cabecera">
-          <h2>⭐ Extras GL</h2>
-          <a href="/extra/" class="ver-mas">Ver más →</a>
-        </div>
-        <ul class="comunidad-lista">
-          {% for video in comunidadGl | limit(1) %}
-          <li>
-            <button type="button" class="comunidad-video" data-youtube-id="{{ video.youtubeId }}" aria-label="Reproducir {{ video.titulo }}">
-              <!-- TODO Paso 6: reemplazar por los videos reales de la comunidad cuando los tengan -->
-              <img src="https://i.ytimg.com/vi/{{ video.youtubeId }}/hqdefault.jpg" alt="" width="200" height="112" loading="lazy">
-              <span class="comunidad-video-play" aria-hidden="true">▶</span>
-            </button>
-            <p class="comunidad-video-titulo">{{ video.titulo | truncar(80) }}</p>
-          </li>
-          {% endfor %}
         </ul>
       </div>
     </section>
