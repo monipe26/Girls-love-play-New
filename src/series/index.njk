@@ -19,12 +19,21 @@ permalink: "{{ '/series/' if pagination.pageNumber == 0 else '/series/' + (pagin
     {% endfor %}
   </div>
 
+  {% set totalPaginas = pagination.pages.length %}
+  {% set paginaActual = pagination.pageNumber + 1 %}
   <nav class="paginacion" aria-label="Paginación de series">
     {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">‹ Anterior</a>{% endif %}
     {% for pageEntry in pagination.pages %}
       {% set numero = loop.index %}
-      <a href="{{ pagination.hrefs[loop.index0] }}"
-         class="{% if numero == pagination.pageNumber + 1 %}activo{% endif %}">{{ numero }}</a>
+      {% set seMuestra = (numero == 1 or numero == totalPaginas or (numero >= paginaActual - 2 and numero <= paginaActual + 2)) %}
+      {% if seMuestra %}
+        {% set anteriorSeMuestra = (numero - 1 == 1 or numero - 1 == totalPaginas or (numero - 1 >= paginaActual - 2 and numero - 1 <= paginaActual + 2)) %}
+        {% if numero > 1 and not anteriorSeMuestra %}
+          <span class="paginacion-puntos">…</span>
+        {% endif %}
+        <a href="{{ pagination.hrefs[loop.index0] }}"
+           class="{% if numero == paginaActual %}activo{% endif %}">{{ numero }}</a>
+      {% endif %}
     {% endfor %}
     {% if pagination.href.next %}<a href="{{ pagination.href.next }}">Siguiente ›</a>{% endif %}
   </nav>
