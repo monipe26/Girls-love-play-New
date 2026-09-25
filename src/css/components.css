@@ -495,6 +495,11 @@
 }
 
 .ficha-reproductor { max-width: 480px; margin: 0 auto; padding: 0 var(--espacio-sm) var(--espacio-lg); }
+.ficha-reproductor-titulo {
+  font-weight: 700;
+  color: var(--color-primario-hover);
+  margin-bottom: var(--espacio-xs);
+}
 .lista-partes { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: var(--espacio-sm); }
 .btn-parte {
   background: var(--color-superficie);
@@ -668,3 +673,61 @@
 .btn-arriba.visible { display: block; }
 
 .proximamente-aviso { color: var(--color-texto-sec); margin-top: var(--espacio-sm); }
+
+/* ===== ACTRICES GL ===== */
+.letras-filtro {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: var(--espacio-md);
+}
+.letra-pill {
+  min-width: 32px;
+  height: 32px;
+  padding: 0 10px;
+  border-radius: var(--radio-pill);
+  border: 1px solid var(--color-borde);
+  background: var(--color-superficie);
+  color: var(--color-texto);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.letra-pill.activo {
+  background: var(--color-degradado);
+  border-color: transparent;
+  color: white;
+}
+
+.grid-actrices {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--espacio-sm);
+}
+.tarjeta-actriz {
+  position: relative;
+  display: block;
+  border-radius: var(--radio-chico);
+  overflow: hidden;
+  box-shadow: var(--sombra-tarjeta);
+  background: var(--color-fondo-oscuro);
+}
+.tarjeta-actriz img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; }
+.tarjeta-actriz-overlay {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: var(--espacio-sm) var(--espacio-xs) var(--espacio-xs);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+  display: flex;
+  flex-direction: column;
+}
+.tarjeta-actriz-nombre {
+  color: var(--color-texto-sobre-oscuro);
+  font-weight: 700;
+  font-size: 0.85rem;
+  line-height: 1.2;
+}
+.tarjeta-actriz-apodo {
+  color: var(--color-primario-hover);
+  font-size: 0.78rem;
+  font-weight: 600;
+}

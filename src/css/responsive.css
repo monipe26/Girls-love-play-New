@@ -2,6 +2,7 @@
 
 @media (min-width: 640px) {
   .grid-tarjetas { grid-template-columns: repeat(4, 1fr); }
+  .grid-actrices { grid-template-columns: repeat(3, 1fr); }
   .ficha-serie-cabecera { flex-direction: row; }
 
   /* A partir de acá la imagen del hero ya es bastante más alta, así que el
@@ -95,6 +96,7 @@
   }
 
   .grid-tarjetas { grid-template-columns: repeat(6, 1fr); }
+  .grid-actrices { grid-template-columns: repeat(4, 1fr); }
 
   /* Banner: ocupa todo el ancho de la pantalla.
      El reproductor de Series TV ya es "de punta a punta" desde mobile
