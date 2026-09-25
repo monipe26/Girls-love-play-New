@@ -125,9 +125,9 @@
      eso necesita más espacio que Comunidad; el bloque de Comunidad se
      achica y se corre hacia la derecha de su columna para que el conjunto
      quede más parejo/armónico. */
-  .seccion-mundo-comunidad { grid-template-columns: 1.7fr 1fr; }
+  .seccion-mundo-comunidad { grid-template-columns: 1.3fr 1fr; }
   .mundo-gl-grid { grid-template-columns: repeat(2, 1fr); gap: var(--espacio-md) var(--espacio-md); }
-  .comunidad-bloque { max-width: 320px; width: 100%; margin-left: auto; }
+  .comunidad-bloque { max-width: 420px; width: 100%; margin-left: auto; }
 
   /* Hero más bajo en pantallas grandes (en mobile ya está bien con aspect-ratio) */
   .hero img {
