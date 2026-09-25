@@ -60,6 +60,62 @@ document.querySelectorAll(".tarjeta-destacada-video").forEach((boton) => {
   });
 });
 
+// Página "Series TV": reproductor principal arriba + grilla de covers abajo.
+// Clic en un cover carga ese video arriba (sin recargar la página) y los
+// botones "Episodio anterior" / "Episodio siguiente" recorren la grilla.
+const reproductorSeriesTv = document.querySelector("[data-reproductor-series-tv]");
+if (reproductorSeriesTv) {
+  const wrapper = reproductorSeriesTv.querySelector(".video-wrapper");
+  const tituloEl = reproductorSeriesTv.querySelector(".reproductor-titulo");
+  const tarjetas = Array.from(document.querySelectorAll(".tarjeta-serie-tv"));
+  const nav = document.querySelector("[data-nav-series-tv]");
+
+  let actualizarNavSeriesTv = () => {};
+
+  const cargarSerieTv = (tarjeta) => {
+    const id = tarjeta.dataset.youtubeId;
+    const titulo = tarjeta.dataset.titulo;
+
+    wrapper.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" title="${titulo}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+    if (tituloEl) tituloEl.textContent = `Reproduciendo ahora: ${titulo}`;
+
+    tarjetas.forEach((t) => t.classList.remove("activo"));
+    tarjeta.classList.add("activo");
+    actualizarNavSeriesTv();
+    reproductorSeriesTv.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  tarjetas.forEach((tarjeta) => {
+    tarjeta.addEventListener("click", () => cargarSerieTv(tarjeta));
+  });
+
+  if (nav) {
+    const btnPrev = nav.querySelector('[data-nav="prev"]');
+    const btnNext = nav.querySelector('[data-nav="next"]');
+
+    actualizarNavSeriesTv = () => {
+      const indiceActivo = tarjetas.findIndex((t) => t.classList.contains("activo"));
+      if (btnPrev) btnPrev.disabled = indiceActivo <= 0;
+      if (btnNext) btnNext.disabled = indiceActivo === -1 || indiceActivo >= tarjetas.length - 1;
+    };
+
+    if (btnPrev) {
+      btnPrev.addEventListener("click", () => {
+        const indiceActivo = tarjetas.findIndex((t) => t.classList.contains("activo"));
+        if (indiceActivo > 0) cargarSerieTv(tarjetas[indiceActivo - 1]);
+      });
+    }
+    if (btnNext) {
+      btnNext.addEventListener("click", () => {
+        const indiceActivo = tarjetas.findIndex((t) => t.classList.contains("activo"));
+        if (indiceActivo !== -1 && indiceActivo < tarjetas.length - 1) cargarSerieTv(tarjetas[indiceActivo + 1]);
+      });
+    }
+
+    actualizarNavSeriesTv();
+  }
+}
+
 // Fichas de serie con varias partes/episodios: cambia el video activo sin recargar la página
 const reproductorPartes = document.querySelector("[data-reproductor-partes]");
 if (reproductorPartes) {
