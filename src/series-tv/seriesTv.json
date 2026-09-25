@@ -1,0 +1,50 @@
+[
+  {
+    "titulo": "Hello, Stranger",
+    "anio": 2025,
+    "genero": "Drama · Romance",
+    "sinopsis": "Dos desconocidas que se cruzan por accidente descubren que el destino tenía otros planes para ellas.",
+    "portada": "/assets/placeholder/serie-tv-1.jpg",
+    "youtubeId": "dQw4w9WgXcQ"
+  },
+  {
+    "titulo": "Don't Say No",
+    "anio": 2025,
+    "genero": "Comedia · Romance",
+    "sinopsis": "Una cafetería, dos rivales de toda la vida y una apuesta que se les va de las manos.",
+    "portada": "/assets/placeholder/serie-tv-2.jpg",
+    "youtubeId": "dQw4w9WgXcQ"
+  },
+  {
+    "titulo": "Third Person",
+    "anio": 2026,
+    "genero": "Misterio · Romance",
+    "sinopsis": "ถ้อยรัก...คำลวง. Tras dos episodios, el fandom ya tiene sus teorías sobre quién dice la verdad.",
+    "portada": "/assets/images/series/third-person.jpg",
+    "youtubeId": "dQw4w9WgXcQ"
+  },
+  {
+    "titulo": "Never Fade",
+    "anio": 2026,
+    "genero": "Drama",
+    "sinopsis": "Si va a doler, que duela. Una historia sobre marcas permanentes y miedos temporales.",
+    "portada": "/assets/images/series/never-fade.jpg",
+    "youtubeId": "dQw4w9WgXcQ"
+  },
+  {
+    "titulo": "Floating Alert",
+    "anio": 2025,
+    "genero": "Comedia · Slice of life",
+    "sinopsis": "Una app de citas, un match inesperado y una amistad que se convierte en otra cosa.",
+    "portada": "/assets/placeholder/serie-tv-5.jpg",
+    "youtubeId": "dQw4w9WgXcQ"
+  },
+  {
+    "titulo": "That Moment, It Was Love",
+    "anio": 2025,
+    "genero": "Romance",
+    "sinopsis": "A veces el amor llega sin avisar, justo cuando menos lo estás esperando.",
+    "portada": "/assets/placeholder/serie-tv-6.jpg",
+    "youtubeId": "dQw4w9WgXcQ"
+  }
+]

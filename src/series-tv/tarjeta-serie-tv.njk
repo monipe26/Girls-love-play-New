@@ -1,0 +1,20 @@
+<button
+  type="button"
+  class="tarjeta-serie-tv {% if loop.first %}activo{% endif %}"
+  data-youtube-id="{{ serie.youtubeId }}"
+  data-titulo="{{ serie.titulo }} ({{ serie.anio }})"
+  aria-label="Reproducir {{ serie.titulo }}"
+>
+  <span class="tarjeta-serie-tv-portada">
+    <img src="{{ serie.portada }}" alt="Portada de {{ serie.titulo }}" width="300" height="450" loading="lazy" decoding="async">
+    <span class="tarjeta-serie-tv-play" aria-hidden="true">▶</span>
+    <span class="tarjeta-serie-tv-overlay">
+      <span class="tarjeta-serie-tv-meta">
+        <span class="tarjeta-serie-tv-anio">{{ serie.anio }}</span>
+        <span class="tarjeta-serie-tv-genero">{{ serie.genero }}</span>
+      </span>
+      <span class="tarjeta-serie-tv-sinopsis">{{ serie.sinopsis | truncar(110) }}</span>
+    </span>
+  </span>
+  <span class="tarjeta-serie-tv-titulo">{{ serie.titulo }}</span>
+</button>
