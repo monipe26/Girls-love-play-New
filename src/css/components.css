@@ -42,6 +42,63 @@
 .btn-buscar:hover,
 .btn-icono:hover { background: var(--color-fondo-alt); }
 
+/* Selector de idioma (Google Translate): botón propio + desplegable con
+   los idiomas; el widget real de Google queda oculto y este botón lo
+   maneja por atrás (ver /js/idioma.js). */
+.selector-idioma { position: relative; }
+
+.menu-idiomas {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background: var(--color-fondo-alt);
+  border-radius: var(--radio-chico);
+  padding: var(--espacio-xs);
+  min-width: 130px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  z-index: 70;
+}
+.menu-idiomas[hidden] { display: none; }
+.menu-idiomas li + li { margin-top: 2px; }
+.menu-idiomas button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 10px;
+  border: none;
+  border-radius: var(--radio-chico);
+  background: none;
+  color: var(--color-texto);
+  font-size: 0.9rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+.menu-idiomas button:hover,
+.menu-idiomas button:focus-visible {
+  background: var(--color-primario);
+  color: #fff;
+}
+
+/* El widget real de Google Translate: se mantiene en el DOM (Google lo
+   necesita para inicializarse) pero oculto visualmente, "clip" en vez de
+   display:none para no arriesgar a que Google no lo inicialice bien. */
+.google-translate-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Google agrega, cuando hay una traducción activa, una barra gris arriba
+   de todo el sitio y resalta el texto traducido con un subrayado azul
+   feo. Se tapan las dos cosas para que no rompan el diseño. */
+.goog-te-banner-frame.skiptranslate { display: none !important; }
+body { top: 0 !important; }
+.goog-text-highlight { background: none !important; box-shadow: none !important; }
+
 /* Botón de modo oscuro: se ve el sol en modo claro y la luna en modo
    oscuro (el cambio de atributo lo hace menu.js, esto solo alterna cuál
    de los dos íconos se muestra). */

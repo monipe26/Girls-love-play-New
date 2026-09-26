@@ -1,5 +1,5 @@
 ---
-title: "Extra GL"
+title: "Extra"
 description: "Contenido extra de la comunidad."
 layout: base.njk
 pagination:
@@ -9,10 +9,10 @@ pagination:
 permalink: "{{ '/extra/' if pagination.pageNumber == 0 else '/extra/' + (pagination.pageNumber + 1) + '/' }}"
 ---
 <section class="seccion">
-  <h1>✨ Extra GL</h1>
+  <h1>✨ Extra</h1>
   <p class="seccion-sub">Contenido extra de la comunidad</p>
 
-  <section class="reproductor-principal" aria-label="Reproductor de Extra GL">
+  <section class="reproductor-principal" aria-label="Reproductor de Extra">
     <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/{{ extraGl[0].youtubeId }}" title="{{ extraGl[0].titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>
@@ -25,7 +25,7 @@ permalink: "{{ '/extra/' if pagination.pageNumber == 0 else '/extra/' + (paginat
     {% endfor %}
   </div>
 
-  <nav class="paginacion" aria-label="Paginación de Extra GL">
+  <nav class="paginacion" aria-label="Paginación de Extra">
     {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">‹ Anterior</a>{% endif %}
     {% for pageEntry in pagination.pages %}
       {% set numero = loop.index %}

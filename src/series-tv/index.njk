@@ -1,13 +1,13 @@
 ---
-title: "Series TV"
-description: "Series TV con temática GL: mirá el capítulo y elegí la próxima serie sin salir de la página."
+title: "Series"
+description: "Series con temática GL: mirá el capítulo y elegí la próxima serie sin salir de la página."
 layout: base.njk
 ---
 <section class="seccion seccion-series-tv">
-  <h1>📺 Series TV</h1>
+  <h1>📺 Series</h1>
   <p class="seccion-sub seccion-sub-reproductor">Elegí una serie de la grilla y se reproduce acá arriba</p>
 
-  <section class="reproductor-principal" data-reproductor-series-tv aria-label="Reproductor de Series TV">
+  <section class="reproductor-principal" data-reproductor-series-tv aria-label="Reproductor de Series">
     <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/{{ seriesTv[0].youtubeId }}" title="{{ seriesTv[0].titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>

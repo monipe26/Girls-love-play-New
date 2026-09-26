@@ -1,5 +1,5 @@
 ---
-title: "Próximamente GL"
+title: "Próximamente"
 description: "Series y contenido que se viene."
 layout: base.njk
 pagination:
@@ -9,10 +9,10 @@ pagination:
 permalink: "{{ '/proximamente/' if pagination.pageNumber == 0 else '/proximamente/' + (pagination.pageNumber + 1) + '/' }}"
 ---
 <section class="seccion">
-  <h1>🎬 Próximamente GL</h1>
+  <h1>🎬 Próximamente</h1>
   <p class="seccion-sub">Series y contenido que se viene</p>
 
-  <section class="reproductor-principal" aria-label="Reproductor de Próximamente GL">
+  <section class="reproductor-principal" aria-label="Reproductor de Próximamente">
     <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/{{ proximamenteGl[0].youtubeId }}" title="{{ proximamenteGl[0].titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>
@@ -25,7 +25,7 @@ permalink: "{{ '/proximamente/' if pagination.pageNumber == 0 else '/proximament
     {% endfor %}
   </div>
 
-  <nav class="paginacion" aria-label="Paginación de Próximamente GL">
+  <nav class="paginacion" aria-label="Paginación de Próximamente">
     {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">‹ Anterior</a>{% endif %}
     {% for pageEntry in pagination.pages %}
       {% set numero = loop.index %}

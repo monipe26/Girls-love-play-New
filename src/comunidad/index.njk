@@ -1,5 +1,5 @@
 ---
-title: Comunidad GL
+title: Comunidad
 description: Entrevistas, rankings y videos de youtubers GL.
 layout: base.njk
 pagination:
@@ -9,10 +9,10 @@ pagination:
 permalink: "{{ '/comunidad/' if pagination.pageNumber == 0 else '/comunidad/' + (pagination.pageNumber + 1) + '/' }}"
 ---
 <section class="seccion">
-  <h1>💬 Comunidad GL</h1>
+  <h1>💬 Comunidad</h1>
   <p class="seccion-sub">Entrevistas, rankings y videos de youtubers GL</p>
 
-  <section class="reproductor-principal" aria-label="Reproductor de Comunidad GL">
+  <section class="reproductor-principal" aria-label="Reproductor de Comunidad">
     <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/{{ comunidadGl[0].youtubeId }}" title="{{ comunidadGl[0].titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>
@@ -25,7 +25,7 @@ permalink: "{{ '/comunidad/' if pagination.pageNumber == 0 else '/comunidad/' + 
     {% endfor %}
   </div>
 
-  <nav class="paginacion" aria-label="Paginación de Comunidad GL">
+  <nav class="paginacion" aria-label="Paginación de Comunidad">
     {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">‹ Anterior</a>{% endif %}
     {% for pageEntry in pagination.pages %}
       {% set numero = loop.index %}
