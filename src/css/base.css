@@ -44,6 +44,14 @@ h2 { font-size: 1.4rem; }
 }
 .contenido-legal a { color: var(--color-primario-hover); text-decoration: underline; }
 
+/* Botones tipo .btn-primario dentro de .contenido-legal (ej. "Volver al
+   inicio"): sin esto, la regla ".contenido-legal a" de arriba le gana al
+   "color: #fff" de .btn-primario por especificidad, y el texto queda rosa
+   sobre fondo rosa (invisible). */
+.contenido-legal a.btn-primario { color: #fff; text-decoration: none; }
+
+.contenido-legal .volver-inicio { text-align: center; margin-top: var(--espacio-lg); }
+
 .ver-mas {
   display: inline-block;
   margin-top: var(--espacio-sm);
