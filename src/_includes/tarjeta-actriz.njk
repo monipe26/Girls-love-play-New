@@ -1,7 +1,55 @@
-<a href="#" class="tarjeta-actriz" data-letra="{{ actriz.nombre[0] | upper }}">
+<button type="button" class="tarjeta-actriz" data-letra="{{ actriz.nombre[0] | upper }}" data-abrir-ficha="ficha-actriz-{{ loop.index0 }}" aria-haspopup="dialog">
   <img src="{{ actriz.foto }}" alt="Foto de {{ actriz.nombre }}" width="300" height="400" loading="lazy" decoding="async">
   <span class="tarjeta-actriz-overlay">
     <span class="tarjeta-actriz-nombre">{{ actriz.nombre }}</span>
     <span class="tarjeta-actriz-apodo">💕 {{ actriz.apodo }}</span>
   </span>
-</a>
+</button>
+
+<template id="ficha-actriz-{{ loop.index0 }}">
+  <div class="ficha-actriz-cabecera">
+    <img src="{{ actriz.foto }}" alt="Foto de {{ actriz.nombre }}" class="ficha-actriz-foto">
+    <div class="ficha-actriz-texto">
+      <h2 id="modal-actriz-titulo">{{ actriz.nombre }}</h2>
+      {% if actriz.nombreOriginal %}<p class="ficha-actriz-original">{{ actriz.nombreOriginal }}</p>{% endif %}
+      <ul class="ficha-actriz-datos">
+        {% if actriz.nacimiento %}<li>🎂 {{ actriz.nacimiento | fechaLarga }}</li>{% endif %}
+        {% if actriz.nacimiento %}<li>🎈 {{ actriz.nacimiento | edad }} años</li>{% endif %}
+        {% if actriz.signo %}<li>♈ {{ actriz.signo }}</li>{% endif %}
+        {% if actriz.nacionalidad %}<li>🌏 {{ actriz.nacionalidad }}</li>{% endif %}
+      </ul>
+    </div>
+  </div>
+
+  {% if actriz.biografia %}
+  <div class="ficha-actriz-seccion">
+    <h3>📝 Biografía</h3>
+    <p>{{ actriz.biografia }}</p>
+  </div>
+  {% endif %}
+
+  {% if actriz.series and actriz.series.length %}
+  <div class="ficha-actriz-seccion">
+    <h3>🎬 Series</h3>
+    <div class="ficha-actriz-badges">
+      {% for serie in actriz.series %}
+      <span class="badge-serie">🎬 {{ serie.titulo }} ({{ serie.anio }})</span>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if actriz.apodo %}
+  <div class="ficha-actriz-seccion">
+    <h3>💕 Ship</h3>
+    <span class="badge-ship">💕 {{ actriz.apodo }}</span>
+  </div>
+  {% endif %}
+
+  {% if actriz.instagram %}
+  <div class="ficha-actriz-seccion">
+    <h3>📷 Instagram</h3>
+    <a href="{{ actriz.instagram }}" class="btn-primario" target="_blank" rel="noopener">📷 Ver perfil</a>
+  </div>
+  {% endif %}
+</template>
