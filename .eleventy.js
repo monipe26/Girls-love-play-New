@@ -53,6 +53,30 @@ module.exports = function (eleventyConfig) {
     return [...new Set(letras)].sort();
   });
 
+  // Calcula la edad actual a partir de una fecha de nacimiento (así no queda
+  // una edad fija "pegada" en el JSON que se desactualiza con el tiempo).
+  // Usa UTC en los dos lados de la resta para que no cambie según el huso
+  // horario del servidor donde corre el build.
+  eleventyConfig.addFilter("edad", function (fechaNacimiento) {
+    if (!fechaNacimiento) return "";
+    const nacimiento = new Date(fechaNacimiento);
+    const hoy = new Date();
+    let edad = hoy.getUTCFullYear() - nacimiento.getUTCFullYear();
+    const noCumplioAunEsteAnio =
+      hoy.getUTCMonth() < nacimiento.getUTCMonth() ||
+      (hoy.getUTCMonth() === nacimiento.getUTCMonth() && hoy.getUTCDate() < nacimiento.getUTCDate());
+    if (noCumplioAunEsteAnio) edad--;
+    return edad;
+  });
+
+  // Muestra una fecha de nacimiento en formato "10 de abril de 1998"
+  eleventyConfig.addFilter("fechaLarga", function (fecha) {
+    if (!fecha) return "";
+    const meses = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+    const d = new Date(fecha);
+    return `${d.getUTCDate()} de ${meses[d.getUTCMonth()]} de ${d.getUTCFullYear()}`;
+  });
+
   return {
     dir: {
       input: "src",
