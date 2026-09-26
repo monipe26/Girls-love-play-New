@@ -39,6 +39,44 @@ document.addEventListener("click", (evento) => {
   if (!evento.target.closest(".tiene-submenu")) cerrarSubmenus(null);
 });
 
+// Modo oscuro: alterna data-tema="oscuro" en <html> (los colores de ese
+// modo están definidos en variables.css) y recuerda la elección del
+// usuario en localStorage para la próxima visita.
+const btnModoOscuro = document.querySelector("#btn-modo-oscuro");
+if (btnModoOscuro) {
+  const raiz = document.documentElement;
+
+  const aplicarTema = (tema) => {
+    if (tema === "oscuro") {
+      raiz.setAttribute("data-tema", "oscuro");
+      btnModoOscuro.setAttribute("aria-pressed", "true");
+      btnModoOscuro.setAttribute("aria-label", "Cambiar a modo claro");
+    } else {
+      raiz.removeAttribute("data-tema");
+      btnModoOscuro.setAttribute("aria-pressed", "false");
+      btnModoOscuro.setAttribute("aria-label", "Cambiar a modo oscuro");
+    }
+  };
+
+  try {
+    const temaGuardado = localStorage.getItem("gl-tema");
+    if (temaGuardado) aplicarTema(temaGuardado);
+  } catch (error) {
+    // Si el navegador bloquea localStorage (modo privado, etc.) seguimos
+    // en modo claro por defecto, sin romper nada.
+  }
+
+  btnModoOscuro.addEventListener("click", () => {
+    const nuevoTema = raiz.getAttribute("data-tema") === "oscuro" ? "claro" : "oscuro";
+    aplicarTema(nuevoTema);
+    try {
+      localStorage.setItem("gl-tema", nuevoTema);
+    } catch (error) {
+      // Sigue funcionando el toggle, solo no recuerda la preferencia.
+    }
+  });
+}
+
 // Botón "volver arriba"
 const btnArriba = document.querySelector("#btn-arriba");
 if (btnArriba) {
