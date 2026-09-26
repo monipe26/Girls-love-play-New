@@ -20,11 +20,18 @@
 }
 
 @media (min-width: 900px) {
-  .site-header { padding: var(--espacio-sm) var(--espacio-lg); }
+  .site-header { padding: var(--espacio-sm) var(--espacio-sm); }
 
   .menu-toggle { display: none; }
 
   .logo { flex-basis: auto; justify-content: flex-start; }
+
+  /* En escritorio los íconos del header (buscar, idioma, modo oscuro,
+     redes) se achican un toque para dejarle más lugar al menú, que ahora
+     va con letras más grandes, en mayúscula y más separadas. */
+  .header-acciones { gap: 4px; }
+  .btn-buscar,
+  .btn-icono { width: 30px; height: 30px; }
 
   .menu-principal {
     max-height: none;
@@ -34,20 +41,21 @@
     width: auto;
     flex-basis: auto;
     flex: 1;
-    margin-left: var(--espacio-md);
+    margin-left: var(--espacio-sm);
   }
   .menu-principal ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.45rem;
+    gap: 0.55rem;
     padding: 0;
   }
   .menu-principal li { border: none; position: relative; }
   .menu-principal a {
     padding: 8px 0;
     white-space: nowrap;
-    font-size: 0.8rem;
+    font-size: 0.82rem;
+    text-transform: uppercase;
   }
 
   /* En escritorio el submenú se abre al pasar el mouse (hover), y también
