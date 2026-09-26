@@ -43,4 +43,12 @@ permalink: "{{ '/actrices/' if pagination.pageNumber == 0 else '/actrices/' + (p
     {% endfor %}
     {% if pagination.href.next %}<a href="{{ pagination.href.next }}">Siguiente ›</a>{% endif %}
   </nav>
+
+  <div class="modal-actriz" id="modal-actriz" hidden>
+    <div class="modal-actriz-fondo" data-cerrar-ficha></div>
+    <div class="modal-actriz-caja" role="dialog" aria-modal="true" aria-labelledby="modal-actriz-titulo" tabindex="-1">
+      <button type="button" class="modal-actriz-cerrar" data-cerrar-ficha aria-label="Cerrar ficha">✕</button>
+      <div class="modal-actriz-contenido"></div>
+    </div>
+  </div>
 </section>
