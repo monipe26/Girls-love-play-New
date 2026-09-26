@@ -42,6 +42,13 @@
 .btn-buscar:hover,
 .btn-icono:hover { background: var(--color-fondo-alt); }
 
+/* Botón de modo oscuro: se ve el sol en modo claro y la luna en modo
+   oscuro (el cambio de atributo lo hace menu.js, esto solo alterna cuál
+   de los dos íconos se muestra). */
+.btn-modo-oscuro .icono-luna { display: none; }
+html[data-tema="oscuro"] .btn-modo-oscuro .icono-sol { display: none; }
+html[data-tema="oscuro"] .btn-modo-oscuro .icono-luna { display: block; }
+
 .search-form {
   flex-basis: 100%;
   display: flex;

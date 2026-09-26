@@ -39,3 +39,20 @@
   --sombra-tarjeta: 0 4px 16px rgba(122, 43, 190, 0.08);
   --sombra-header: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
+
+/* ===== MODO OSCURO ===== */
+/* Se activa agregando data-tema="oscuro" en <html> (ver menu.js, botón
+   #btn-modo-oscuro). El rosa/violeta de marca se mantiene igual; solo
+   cambian fondos, superficies y texto para que se vean bien sobre oscuro. */
+html[data-tema="oscuro"] {
+  --color-fondo: #1a0e2e;
+  --color-fondo-alt: #241a38;
+  --color-superficie: #2a1f40;
+  --color-borde: #3d2b55;
+
+  --color-texto: #f4eefc;
+  --color-texto-sec: #b8a8cc;
+
+  --sombra-tarjeta: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --sombra-header: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
