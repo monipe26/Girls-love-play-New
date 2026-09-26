@@ -719,6 +719,14 @@ html[data-tema="oscuro"] .btn-modo-oscuro .icono-luna { display: block; }
 .tarjeta-actriz {
   position: relative;
   display: block;
+  width: 100%;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
   border-radius: var(--radio-chico);
   overflow: hidden;
   box-shadow: var(--sombra-tarjeta);
@@ -744,3 +752,104 @@ html[data-tema="oscuro"] .btn-modo-oscuro .icono-luna { display: block; }
   font-size: 0.78rem;
   font-weight: 600;
 }
+
+/* ===== FICHA TÉCNICA DE ACTRIZ (modal) ===== */
+.modal-actriz {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--espacio-sm);
+}
+.modal-actriz[hidden] { display: none; }
+body.modal-actriz-abierto { overflow: hidden; }
+
+.modal-actriz-fondo {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-actriz-caja {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--color-superficie);
+  color: var(--color-texto);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-tarjeta);
+  padding: var(--espacio-md);
+}
+.modal-actriz-caja:focus { outline: none; }
+
+.modal-actriz-cerrar {
+  position: absolute;
+  top: var(--espacio-xs);
+  right: var(--espacio-xs);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--color-primario);
+  font-size: 1rem;
+  background: transparent;
+}
+.modal-actriz-cerrar:hover { background: var(--color-fondo-alt); }
+
+.ficha-actriz-cabecera {
+  display: flex;
+  gap: var(--espacio-sm);
+  align-items: flex-start;
+  padding-right: var(--espacio-lg);
+}
+.ficha-actriz-foto {
+  width: 90px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--radio-chico);
+  flex-shrink: 0;
+}
+.ficha-actriz-texto h2 { margin: 0 0 2px; font-size: 1.15rem; }
+.ficha-actriz-original { color: var(--color-primario-hover); font-size: 0.85rem; margin: 0 0 6px; }
+.ficha-actriz-datos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.82rem;
+  color: var(--color-texto-sec);
+}
+
+.ficha-actriz-seccion { margin-top: var(--espacio-md); }
+.ficha-actriz-seccion h3 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-primario);
+  margin: 0 0 var(--espacio-xs);
+}
+.ficha-actriz-seccion p { margin: 0; font-size: 0.9rem; line-height: 1.5; }
+
+.ficha-actriz-badges { display: flex; flex-wrap: wrap; gap: 6px; }
+.badge-serie,
+.badge-ship {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: var(--radio-pill);
+  background: var(--color-fondo-alt);
+  color: var(--color-texto);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.badge-ship { background: var(--color-degradado); color: #fff; }
