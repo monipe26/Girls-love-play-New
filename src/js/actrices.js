@@ -21,3 +21,52 @@
     });
   });
 })();
+
+// Ficha técnica de cada actriz: se abre en un modal al clickear su tarjeta.
+// El contenido de cada ficha vive en un <template> al lado de la tarjeta
+// (ver tarjeta-actriz.njk), así que acá solo lo clonamos adentro del modal.
+(function () {
+  const modal = document.querySelector("#modal-actriz");
+  if (!modal) return;
+
+  const contenido = modal.querySelector(".modal-actriz-contenido");
+  const caja = modal.querySelector(".modal-actriz-caja");
+  let disparador = null;
+
+  function abrirFicha(tarjeta) {
+    const plantilla = document.querySelector("#" + tarjeta.dataset.abrirFicha);
+    if (!plantilla) return;
+
+    contenido.innerHTML = "";
+    contenido.appendChild(plantilla.content.cloneNode(true));
+
+    disparador = tarjeta;
+    modal.hidden = false;
+    document.body.classList.add("modal-actriz-abierto");
+    caja.focus();
+  }
+
+  function cerrarFicha() {
+    modal.hidden = true;
+    document.body.classList.remove("modal-actriz-abierto");
+    contenido.innerHTML = "";
+    if (disparador) {
+      disparador.focus();
+      disparador = null;
+    }
+  }
+
+  document.querySelectorAll(".tarjeta-actriz").forEach(function (tarjeta) {
+    tarjeta.addEventListener("click", function () {
+      abrirFicha(tarjeta);
+    });
+  });
+
+  modal.querySelectorAll("[data-cerrar-ficha]").forEach(function (el) {
+    el.addEventListener("click", cerrarFicha);
+  });
+
+  document.addEventListener("keydown", function (evento) {
+    if (evento.key === "Escape" && !modal.hidden) cerrarFicha();
+  });
+})();
