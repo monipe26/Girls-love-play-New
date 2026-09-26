@@ -1,10 +1,114 @@
 [
-  { "nombre": "Actriz Ejemplo Uno", "apodo": "Apodo1", "foto": "/assets/placeholder/actriz-1.jpg" },
-  { "nombre": "Actriz Ejemplo Dos", "apodo": "Apodo2", "foto": "/assets/placeholder/actriz-2.jpg" },
-  { "nombre": "Betiana Ejemplo", "apodo": "Apodo3", "foto": "/assets/placeholder/actriz-3.jpg" },
-  { "nombre": "Camila Ejemplo", "apodo": "Apodo4", "foto": "/assets/placeholder/actriz-4.jpg" },
-  { "nombre": "Daniela Ejemplo", "apodo": "Apodo5", "foto": "/assets/placeholder/actriz-5.jpg" },
-  { "nombre": "Emilia Ejemplo", "apodo": "Apodo6", "foto": "/assets/placeholder/actriz-6.jpg" },
-  { "nombre": "Florencia Ejemplo", "apodo": "Apodo7", "foto": "/assets/placeholder/actriz-7.jpg" },
-  { "nombre": "Georgina Ejemplo", "apodo": "Apodo8", "foto": "/assets/placeholder/actriz-8.jpg" }
+  {
+    "nombre": "Actriz Ejemplo Uno",
+    "nombreOriginal": "[Nombre en tailandés]",
+    "apodo": "Apodo1",
+    "foto": "/assets/placeholder/actriz-1.jpg",
+    "nacimiento": "1998-04-10",
+    "signo": "Aries",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      { "titulo": "Serie Ejemplo Uno", "anio": 2023 },
+      { "titulo": "Serie Ejemplo Dos", "anio": 2026 }
+    ],
+    "instagram": "https://instagram.com/",
+    "biografia": "Biografía de ejemplo: acá va una breve reseña de la carrera de la actriz, sus inicios y sus series más conocidas. [Reemplazar por el texto real]."
+  },
+  {
+    "nombre": "Actriz Ejemplo Dos",
+    "nombreOriginal": "[Nombre en tailandés]",
+    "apodo": "Apodo2",
+    "foto": "/assets/placeholder/actriz-2.jpg",
+    "nacimiento": "1996-11-23",
+    "signo": "Sagitario",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      { "titulo": "Serie Ejemplo Tres", "anio": 2024 }
+    ],
+    "instagram": "https://instagram.com/",
+    "biografia": "Biografía de ejemplo: acá va una breve reseña de la carrera de la actriz. [Reemplazar por el texto real]."
+  },
+  {
+    "nombre": "Betiana Ejemplo",
+    "nombreOriginal": "[Nombre en tailandés]",
+    "apodo": "Apodo3",
+    "foto": "/assets/placeholder/actriz-3.jpg",
+    "nacimiento": "2000-02-14",
+    "signo": "Acuario",
+    "nacionalidad": "Coreana",
+    "series": [
+      { "titulo": "Serie Ejemplo Cuatro", "anio": 2025 }
+    ],
+    "instagram": "https://instagram.com/"
+  },
+  {
+    "nombre": "Camila Ejemplo",
+    "nombreOriginal": "[Nombre en tailandés]",
+    "apodo": "Apodo4",
+    "foto": "/assets/placeholder/actriz-4.jpg",
+    "nacimiento": "1999-07-30",
+    "signo": "Leo",
+    "nacionalidad": "Japonesa",
+    "series": [
+      { "titulo": "Serie Ejemplo Cinco", "anio": 2023 },
+      { "titulo": "Serie Ejemplo Seis", "anio": 2024 }
+    ],
+    "instagram": "https://instagram.com/",
+    "biografia": "Biografía de ejemplo: acá va una breve reseña de la carrera de la actriz. [Reemplazar por el texto real]."
+  },
+  {
+    "nombre": "Daniela Ejemplo",
+    "nombreOriginal": "[Nombre en tailandés]",
+    "apodo": "Apodo5",
+    "foto": "/assets/placeholder/actriz-5.jpg",
+    "nacimiento": "1997-01-05",
+    "signo": "Capricornio",
+    "nacionalidad": "Filipina",
+    "series": [
+      { "titulo": "Serie Ejemplo Siete", "anio": 2026 }
+    ],
+    "instagram": "https://instagram.com/"
+  },
+  {
+    "nombre": "Emilia Ejemplo",
+    "nombreOriginal": "[Nombre en tailandés]",
+    "apodo": "Apodo6",
+    "foto": "/assets/placeholder/actriz-6.jpg",
+    "nacimiento": "2001-09-18",
+    "signo": "Virgo",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      { "titulo": "Serie Ejemplo Ocho", "anio": 2025 }
+    ],
+    "instagram": "https://instagram.com/",
+    "biografia": "Biografía de ejemplo: acá va una breve reseña de la carrera de la actriz. [Reemplazar por el texto real]."
+  },
+  {
+    "nombre": "Florencia Ejemplo",
+    "nombreOriginal": "[Nombre en tailandés]",
+    "apodo": "Apodo7",
+    "foto": "/assets/placeholder/actriz-7.jpg",
+    "nacimiento": "1995-06-02",
+    "signo": "Géminis",
+    "nacionalidad": "China",
+    "series": [
+      { "titulo": "Serie Ejemplo Nueve", "anio": 2024 }
+    ],
+    "instagram": "https://instagram.com/"
+  },
+  {
+    "nombre": "Georgina Ejemplo",
+    "nombreOriginal": "[Nombre en tailandés]",
+    "apodo": "Apodo8",
+    "foto": "/assets/placeholder/actriz-8.jpg",
+    "nacimiento": "2002-12-25",
+    "signo": "Capricornio",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      { "titulo": "Serie Ejemplo Diez", "anio": 2026 },
+      { "titulo": "Serie Ejemplo Once", "anio": 2026 }
+    ],
+    "instagram": "https://instagram.com/",
+    "biografia": "Biografía de ejemplo: acá va una breve reseña de la carrera de la actriz. [Reemplazar por el texto real]."
+  }
 ]
