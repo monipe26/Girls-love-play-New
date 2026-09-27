@@ -643,8 +643,9 @@ html[data-tema="oscuro"] .btn-modo-oscuro .icono-luna { display: block; }
 .articulo-fecha { color: var(--color-primario-hover); font-size: 0.85rem; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .articulo-separador { opacity: 0.5; }
 .articulo-tiempo-lectura { color: var(--color-texto-sec); }
-.articulo-cuerpo { margin-top: var(--espacio-md); color: var(--color-texto-sec); }
+.articulo-cuerpo { margin-top: var(--espacio-md); margin-bottom: var(--espacio-lg); color: var(--color-texto-sec); }
 .articulo-cuerpo p { margin-bottom: var(--espacio-sm); }
+.articulo-volver { text-align: center; padding-top: var(--espacio-sm); border-top: 1px solid var(--color-borde); }
 
 /* ===== FOOTER ===== */
 .site-footer {
