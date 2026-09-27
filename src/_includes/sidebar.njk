@@ -62,10 +62,9 @@
       <a href="/extra/" class="ver-mas">Ver más →</a>
     </div>
     <ul class="comunidad-lista">
-      {% for video in comunidadGl | limit(1) %}
+      {% for video in extraGl | limit(1) %}
       <li>
         <button type="button" class="comunidad-video" data-youtube-id="{{ video.youtubeId }}" aria-label="Reproducir {{ video.titulo }}">
-          <!-- TODO Paso 6: reemplazar por los videos reales de la comunidad cuando los tengan -->
           <img src="https://i.ytimg.com/vi/{{ video.youtubeId }}/hqdefault.jpg" alt="" width="200" height="112" loading="lazy">
           <span class="comunidad-video-play" aria-hidden="true">▶</span>
         </button>
