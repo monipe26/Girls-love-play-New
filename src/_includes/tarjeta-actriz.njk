@@ -33,7 +33,7 @@
     <h3>🎬 Series</h3>
     <div class="ficha-actriz-badges">
       {% for serie in actriz.series %}
-      <span class="badge-serie">🎬 {{ serie.titulo }} ({{ serie.anio }})</span>
+      <span class="badge-serie">🎬 {{ serie.titulo }}{% if serie.anio %} ({{ serie.anio }}){% endif %}</span>
       {% endfor %}
     </div>
   </div>

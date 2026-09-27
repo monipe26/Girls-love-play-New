@@ -1,114 +1,2113 @@
 [
   {
-    "nombre": "Actriz Ejemplo Uno",
-    "nombreOriginal": "[Nombre en tailandés]",
-    "apodo": "Apodo1",
-    "foto": "/assets/placeholder/actriz-1.jpg",
+    "nombre": "Alisa Khemnak",
+    "slug": "alisa-khemnak-gl-actriz",
+    "nombreOriginal": "อลิสา เขมนาค",
+    "apodo": "NamoAmee",
+    "foto": "/assets/images/actrices/alisa-khemnak.jpg",
+    "nacimiento": "1996-07-17",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Ice Break, Heart Melt",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/nm.alisa"
+  },
+  {
+    "nombre": "Anda Anunta Teavirat",
+    "slug": "anda-anunta-teavirat-gl-actriz",
+    "nombreOriginal": "อันดา อนันตา เตียวิรัตน์",
+    "apodo": "AndaLookkaew",
+    "foto": "/assets/images/actrices/anda-anunta-teavirat.jpg",
     "nacimiento": "1998-04-10",
-    "signo": "Aries",
     "nacionalidad": "Tailandesa",
     "series": [
-      { "titulo": "Serie Ejemplo Uno", "anio": 2023 },
-      { "titulo": "Serie Ejemplo Dos", "anio": 2026 }
+      {
+        "titulo": "Love Senior",
+        "anio": "2023"
+      },
+      {
+        "titulo": "Khom Khlang",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Remain",
+        "anio": "2026"
+      }
     ],
-    "instagram": "https://instagram.com/",
-    "biografia": "Biografía de ejemplo: acá va una breve reseña de la carrera de la actriz, sus inicios y sus series más conocidas. [Reemplazar por el texto real]."
+    "instagram": "https://www.instagram.com/anda_anunta",
+    "shipSlug": "andalookkaew-gl-ship"
   },
   {
-    "nombre": "Actriz Ejemplo Dos",
-    "nombreOriginal": "[Nombre en tailandés]",
-    "apodo": "Apodo2",
-    "foto": "/assets/placeholder/actriz-2.jpg",
-    "nacimiento": "1996-11-23",
-    "signo": "Sagitario",
+    "nombre": "Aom Pundao Panyabaramee",
+    "slug": "aom-pundao-panyabaramee-gl-actriz",
+    "nombreOriginal": "ออม พันดาว ปัญญาบารมี",
+    "apodo": "ShellyPundao",
+    "foto": "/assets/images/actrices/aom-pundao-panyabaramee.jpg",
+    "nacimiento": "1999-06-18",
     "nacionalidad": "Tailandesa",
     "series": [
-      { "titulo": "Serie Ejemplo Tres", "anio": 2024 }
+      {
+        "titulo": "Roller Coaster The Series",
+        "anio": "2025"
+      },
+      {
+        "titulo": "By Your Side",
+        "anio": "2026"
+      }
     ],
-    "instagram": "https://instagram.com/",
-    "biografia": "Biografía de ejemplo: acá va una breve reseña de la carrera de la actriz. [Reemplazar por el texto real]."
+    "instagram": "https://www.instagram.com/_pundao",
+    "shipSlug": "shellypundao-gl-ship"
   },
   {
-    "nombre": "Betiana Ejemplo",
-    "nombreOriginal": "[Nombre en tailandés]",
-    "apodo": "Apodo3",
-    "foto": "/assets/placeholder/actriz-3.jpg",
-    "nacimiento": "2000-02-14",
-    "signo": "Acuario",
-    "nacionalidad": "Coreana",
-    "series": [
-      { "titulo": "Serie Ejemplo Cuatro", "anio": 2025 }
-    ],
-    "instagram": "https://instagram.com/"
-  },
-  {
-    "nombre": "Camila Ejemplo",
-    "nombreOriginal": "[Nombre en tailandés]",
-    "apodo": "Apodo4",
-    "foto": "/assets/placeholder/actriz-4.jpg",
-    "nacimiento": "1999-07-30",
-    "signo": "Leo",
-    "nacionalidad": "Japonesa",
-    "series": [
-      { "titulo": "Serie Ejemplo Cinco", "anio": 2023 },
-      { "titulo": "Serie Ejemplo Seis", "anio": 2024 }
-    ],
-    "instagram": "https://instagram.com/",
-    "biografia": "Biografía de ejemplo: acá va una breve reseña de la carrera de la actriz. [Reemplazar por el texto real]."
-  },
-  {
-    "nombre": "Daniela Ejemplo",
-    "nombreOriginal": "[Nombre en tailandés]",
-    "apodo": "Apodo5",
-    "foto": "/assets/placeholder/actriz-5.jpg",
-    "nacimiento": "1997-01-05",
-    "signo": "Capricornio",
-    "nacionalidad": "Filipina",
-    "series": [
-      { "titulo": "Serie Ejemplo Siete", "anio": 2026 }
-    ],
-    "instagram": "https://instagram.com/"
-  },
-  {
-    "nombre": "Emilia Ejemplo",
-    "nombreOriginal": "[Nombre en tailandés]",
-    "apodo": "Apodo6",
-    "foto": "/assets/placeholder/actriz-6.jpg",
-    "nacimiento": "2001-09-18",
-    "signo": "Virgo",
+    "nombre": "Aoom Thaweeporn Phingchamrat",
+    "slug": "aoom-thaweeporn-phingchamrat-gl-actriz",
+    "nombreOriginal": "อุ้ม ทวีพร พริ้งจำรัส",
+    "apodo": "MeenBabe",
+    "foto": "/assets/images/actrices/aoom-thaweeporn-phingchamrat.jpg",
+    "nacimiento": "1996-03-17",
     "nacionalidad": "Tailandesa",
     "series": [
-      { "titulo": "Serie Ejemplo Ocho", "anio": 2025 }
+      {
+        "titulo": "Delete Your Past",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Under Her Rules",
+        "anio": "2025"
+      },
+      {
+        "titulo": "About Galaxy",
+        "anio": "2026"
+      }
     ],
-    "instagram": "https://instagram.com/",
-    "biografia": "Biografía de ejemplo: acá va una breve reseña de la carrera de la actriz. [Reemplazar por el texto real]."
+    "instagram": "https://www.instagram.com/aoomtwp",
+    "shipSlug": "meenbabe-gl-ship"
   },
   {
-    "nombre": "Florencia Ejemplo",
-    "nombreOriginal": "[Nombre en tailandés]",
-    "apodo": "Apodo7",
-    "foto": "/assets/placeholder/actriz-7.jpg",
-    "nacimiento": "1995-06-02",
-    "signo": "Géminis",
-    "nacionalidad": "China",
-    "series": [
-      { "titulo": "Serie Ejemplo Nueve", "anio": 2024 }
-    ],
-    "instagram": "https://instagram.com/"
-  },
-  {
-    "nombre": "Georgina Ejemplo",
-    "nombreOriginal": "[Nombre en tailandés]",
-    "apodo": "Apodo8",
-    "foto": "/assets/placeholder/actriz-8.jpg",
-    "nacimiento": "2002-12-25",
-    "signo": "Capricornio",
+    "nombre": "Apple Lapisara Intarasut",
+    "slug": "apple-lapisara-intarasut-gl-actriz",
+    "nombreOriginal": "แอปเปิ้ล ลาภิสรา อินทรสูต",
+    "apodo": "AppleMim",
+    "foto": "/assets/images/actrices/apple-lapisara-intarasut.jpg",
+    "nacimiento": "1994-09-01",
     "nacionalidad": "Tailandesa",
     "series": [
-      { "titulo": "Serie Ejemplo Diez", "anio": 2026 },
-      { "titulo": "Serie Ejemplo Once", "anio": 2026 }
+      {
+        "titulo": "4 Elements: The Earth (2026), 4 Elements: The Fire (2026), 4 Elements: The Water (2026), 4 Elements: The Air",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Somewhere Somehow",
+        "anio": "2025"
+      }
     ],
-    "instagram": "https://instagram.com/",
-    "biografia": "Biografía de ejemplo: acá va una breve reseña de la carrera de la actriz. [Reemplazar por el texto real]."
+    "instagram": "https://www.instagram.com/applelapisara",
+    "shipSlug": "applemim-gl-ship"
+  },
+  {
+    "nombre": "Arhoung Nattawadee Pipobpornchai",
+    "slug": "arhoung-nattawadee-pipobpornchai-gl-actriz",
+    "nombreOriginal": " อาฮ๋วง ณัฐวดี พิภพพรชัย",
+    "apodo": "PamArhoung",
+    "foto": "/assets/images/actrices/arhoung-nattawadee-pipobpornchai.jpg",
+    "nacimiento": "2004-09-05",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Love of Secret",
+        "anio": "2022"
+      },
+      {
+        "titulo": "Queendom",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/arhoungg",
+    "shipSlug": "Pamy-Arhoung-gl-ship"
+  },
+  {
+    "nombre": "Arling Angsumalee Inchai",
+    "slug": "arling-angsumalee-inchai-gl-actriz",
+    "nombreOriginal": "อาหลิง อังศุมาลี อินทร์ฉาย",
+    "apodo": "ArlingKitty",
+    "foto": "/assets/images/actrices/arling-angsumalee-inchai.jpg",
+    "nacimiento": "2004-01-15",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Why Even Try",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Beloved Frangipani",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Love Beyond the Fence",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Can I Love You, Ms. Cold?",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Doctor Love Edition",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Heart Rule",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Killer Heart",
+        "anio": "2025"
+      },
+      {
+        "titulo": "My Dear Ghost",
+        "anio": "2025"
+      },
+      {
+        "titulo": "L.L.L. Project",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/_axling"
+  },
+  {
+    "nombre": "Atom Aphichaya Kamnoetsirikun",
+    "slug": "atom-aphichaya-kamnoetsirikun-gl-actriz",
+    "nombreOriginal": "อะตอม อภิชญา กำเนิดศิริกุล",
+    "apodo": "AtomMer",
+    "foto": "/assets/images/actrices/atom-aphichaya-kamnoetsirikun.jpg",
+    "nacimiento": "1997-11-20",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Love Senior",
+        "anio": "2023"
+      },
+      {
+        "titulo": "My Only Sunshine",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/atomapcy_",
+    "shipSlug": "atommer-gl-ship"
+  },
+  {
+    "nombre": "Atom Pariya Piyapanopas",
+    "slug": "atom-pariya-piyapanopas-gl-actriz",
+    "nombreOriginal": "อะตอม ปริยะ ปิยะพันธ์โอภาส",
+    "apodo": "FayeAtom",
+    "foto": "/assets/images/actrices/atom-pariya-piyapanopas.jpg",
+    "nacimiento": "2001-11-13",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Broken of Love",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/atomprys",
+    "shipSlug": "fayeatom-gl-ship"
+  },
+  {
+    "nombre": "Aya Orapan Phongmaykin",
+    "slug": "aya-orapan-phongmaykin-gl-actriz",
+    "nombreOriginal": "เอญ่า อรพรรณ ผ่องเมฆินทร์",
+    "apodo": "MieAya",
+    "foto": "/assets/images/actrices/aya-orapan-phongmaykin.jpg",
+    "nacimiento": "2000-02-21",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Love Beyond Dreams",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/ayaorapan",
+    "shipSlug": "MieAya-gl-ship"
+  },
+  {
+    "nombre": "Azura Belva Emma Denise",
+    "slug": "azura-belva-emma-denise-gl-actriz",
+    "apodo": "AizeBella",
+    "foto": "/assets/images/actrices/azura-belva-emma-denise.jpg",
+    "series": [
+      {
+        "titulo": "Teach Me Softly",
+        "anio": "2025"
+      },
+      {
+        "titulo": "The Girl Who Meow",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/bxellaq"
+  },
+  {
+    "nombre": "Becky Rebecca Patricia Armstrong",
+    "slug": "becky-gl-actriz",
+    "nombreOriginal": "เบคกี้ รีเบคก้า แพทรีเซีย อาร์มสตรอง",
+    "apodo": "FreenBecky",
+    "foto": "/assets/images/actrices/becky.jpg",
+    "nacimiento": "2002-12-05",
+    "nacionalidad": "Tailandesa-británica",
+    "series": [
+      {
+        "titulo": "GAP: The Series",
+        "anio": "2022"
+      },
+      {
+        "titulo": "Uranus 2324",
+        "anio": "2024"
+      },
+      {
+        "titulo": "The Loyal Pin",
+        "anio": "2024"
+      },
+      {
+        "titulo": "4 Elements: The Air",
+        "anio": "2026"
+      },
+      {
+        "titulo": "4 Elements: The Fire",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/beccca",
+    "shipSlug": "freenbecky-gl-ship"
+  },
+  {
+    "nombre": "Belle Jiratchaya Kittavornsakul",
+    "slug": "belle-jiratchaya-kittavornsakul-gl-actriz",
+    "nombreOriginal": "เบลเล่ จิรัชญา กิจถาวรสกุล",
+    "apodo": "LillyBelle",
+    "foto": "/assets/images/actrices/belle-jiratchaya-kittavornsakul.jpg",
+    "nacimiento": "2005-05-01",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Harmony Secret",
+        "anio": "2025"
+      },
+      {
+        "titulo": "I Wanna Be Sup'tar",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/bellejirat",
+    "shipSlug": "lillybelle-gl-ship"
+  },
+  {
+    "nombre": "Bonnie Pattraphus Borattasuwan",
+    "slug": "bonnie-pattraphus-borattasuwan-gl-actriz",
+    "nombreOriginal": "บอนนี่ ภัทราภัสร์ โบรัชตะสุวรรณ์",
+    "apodo": "EmiBonnie",
+    "foto": "/assets/images/actrices/bonnie-pattraphus-borattasuwan.jpg",
+    "nacimiento": "2004-01-27",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Us",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Girl Rules",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Moonshadow",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/beonnnie",
+    "shipSlug": "emibonnie-gl-ship"
+  },
+  {
+    "nombre": "Chanya Amarit Duval",
+    "slug": "chanya-amarit-duval-gl-actriz",
+    "nombreOriginal": "ชัญญา อมฤต ดูวาล์",
+    "apodo": "MyChan",
+    "foto": "/assets/images/actrices/chanya-amarit-duval.jpg",
+    "nacimiento": "1996-08-11",
+    "nacionalidad": "Tailandesa-francesa",
+    "series": [
+      {
+        "titulo": "AI Girl",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/chanyaduval"
+  },
+  {
+    "nombre": "Charlotte Austin",
+    "slug": "charlotte-austin-gl-actriz",
+    "nombreOriginal": "ชาล็อต ออสติน",
+    "apodo": "EngLot",
+    "foto": "/assets/images/actrices/charlotte-austin.jpg",
+    "nacimiento": "1998-12-21",
+    "nacionalidad": "Tailandesa-británica",
+    "series": [
+      {
+        "titulo": "Show Me Love",
+        "anio": "2023"
+      },
+      {
+        "titulo": "Love Bully",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Petrichor",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Unlimited Love",
+        "anio": "2025"
+      },
+      {
+        "titulo": "4 Elements: The Water",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/itscharlotty",
+    "shipSlug": "englot-gl-ship"
+  },
+  {
+    "nombre": "Chayissara Wattananawin",
+    "slug": "chayissara-wattananawin-gl-actriz",
+    "nombreOriginal": "เจนนี่ ชยิสรา วัฒนะนาวิน",
+    "foto": "/assets/images/actrices/chayissara-wattananawin.jpg",
+    "nacimiento": "1998-04-02",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "When Love Returns",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/jennychayissara"
+  },
+  {
+    "nombre": "Christine Gulasatree Michalsky",
+    "slug": "christine-gulasatree-michalsky-gl-actriz",
+    "nombreOriginal": "คริสติน กุลสตรี มิชารัลสกี้",
+    "apodo": "ChristineMae",
+    "foto": "/assets/images/actrices/christine-gulasatree-michalsky.jpg",
+    "nacimiento": "1995-09-10",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Reverse 4 You",
+        "anio": "2024"
+      }
+    ],
+    "instagram": "https://www.instagram.com/gulasatree",
+    "shipSlug": "christinemae-gl-ship"
+  },
+  {
+    "nombre": "Chutikan Siangdee",
+    "slug": "chutikan-siangdee-gl-actriz",
+    "nombreOriginal": "ไอซ์ ชุติกาญจน์ เสียง",
+    "foto": "/assets/images/actrices/chutikan-siangdee.jpg",
+    "nacimiento": "2001",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Fate's Whispers",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Love From Another Star",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Hate You Love You",
+        "anio": "2025"
+      },
+      {
+        "titulo": "L.L.L. Project",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Dear Diary",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Taste of Her",
+        "anio": "2025"
+      },
+      {
+        "titulo": "The End",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/ice_chu_"
+  },
+  {
+    "nombre": "Ciize Rutricha Phapakithi",
+    "slug": "ciize-rutricha-phapakithi-gl-actriz",
+    "nombreOriginal": "ไซซี รัตท์ริชา ประภากิติ",
+    "apodo": "KapookCiize / EarnCiize",
+    "foto": "/assets/images/actrices/ciize-rutricha-phapakithi.jpg",
+    "nacimiento": "1999-09-23",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "23.5",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Pluto",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Girl Rules",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Enemies with Benefits",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Ditto",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/ciizezphr",
+    "shipSlug": "kapook-ciize-gl-ship"
+  },
+  {
+    "nombre": "Darran Zeththinich Chanavarasutthisiri",
+    "slug": "darran-zeththinich-chanavarasutthisiri-gl-actriz",
+    "nombreOriginal": "ดารัณ เศรษฐิณิช ชนวราสุทธิศิริ",
+    "apodo": "JaraJennie",
+    "foto": "/assets/images/actrices/darran-zeththinich-chanavarasutthisiri.jpg",
+    "nacimiento": "1993-09-22",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Dream Mind"
+      }
+    ],
+    "instagram": "https://www.instagram.com/darranzeth"
+  },
+  {
+    "nombre": "Eang Ganchutikan Pytanagul",
+    "slug": "ganchutikan-pytanagul-gl-actriz",
+    "nombreOriginal": "เอิง กัญชุติกาญจน์ พีร์ธนัทกุล",
+    "foto": "/assets/images/actrices/ganchutikan-pytanagul.jpg",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Stay with Me",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Stay with Me Season 2",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Stay with Me Season 3",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Stay with Me Season 4",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/ganchu_erng"
+  },
+  {
+    "nombre": "Earn Preeyaphat Lawsuwansiri",
+    "slug": "earn-preeyaphat-lawsuwansiri-gl-actriz",
+    "nombreOriginal": "เอิร์น ปรียาภัทย์ หล่อสุวรรณศิริ",
+    "apodo": "EarnCiize",
+    "foto": "/assets/images/actrices/earn-preeyaphat-lawsuwansiri.jpg",
+    "nacimiento": "2001-12-30",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "23.5",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Pluto",
+        "anio": "2024"
+      }
+    ],
+    "instagram": "https://www.instagram.com/earnpypp_"
+  },
+  {
+    "nombre": "Ella Neelasha Dorling",
+    "slug": "ella-neelasha-gl-actriz",
+    "nombreOriginal": "เอล่า นีรชา ดอร์ลิ่ง",
+    "foto": "/assets/images/actrices/ella-neelasha.jpg",
+    "nacimiento": "2003-08-07",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "When Love Returns",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/niirchaa_46"
+  },
+  {
+    "nombre": "Emi Thasorn Klinnium",
+    "slug": "emi-thasorn-klinnium-gl-actriz",
+    "nombreOriginal": "เอมี่ ทสร กลิ่นเนียม",
+    "apodo": "EmiBonnie",
+    "foto": "/assets/images/actrices/emi-thasorn-klinnium.jpg",
+    "nacimiento": "1998-04-25",
+    "nacionalidad": "Tailandesa,China",
+    "series": [
+      {
+        "titulo": "Us",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Girls Rules",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Moonshadow",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/emiamily",
+    "shipSlug": "emibonnie-gl-ship"
+  },
+  {
+    "nombre": "Engfa Waraha",
+    "slug": "engfa-waraha-gl-actriz",
+    "nombreOriginal": "อิงฟ้า วราหะ",
+    "apodo": "EngLot",
+    "foto": "/assets/images/actrices/engfa-waraha.jpg",
+    "nacimiento": "1995-02-15",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Show Me Love",
+        "anio": "2023"
+      },
+      {
+        "titulo": "Love Bully",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Petrichor",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Unlimited Love",
+        "anio": "2025"
+      },
+      {
+        "titulo": "4 Elements: The Earth",
+        "anio": "2026"
+      },
+      {
+        "titulo": "4 Elements: The Water",
+        "anio": "2026"
+      },
+      {
+        "titulo": "4 Elements: The Air",
+        "anio": "2026"
+      },
+      {
+        "titulo": "4 Elements: The Fire",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Under Her Rules",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/fa_engfa8",
+    "shipSlug": "englot-gl-ship"
+  },
+  {
+    "nombre": "England Ladamanee Rattanapornvareesakul",
+    "slug": "england-ladamanee-rattanapornvareesakul-gl-actriz",
+    "nombreOriginal": "อิ๊งแลนด์ ลดามณี รัตนพรวารีสกุล",
+    "apodo": "NikyEngland",
+    "foto": "/assets/images/actrices/england-ladamanee-rattanapornvareesakul.jpg",
+    "nacimiento": "2004-08-04",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Shades",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/eng_lr39",
+    "shipSlug": "nikyengland-gl-ship"
+  },
+  {
+    "nombre": "Enjoy Thidarat Puerthong",
+    "slug": "enjoy-thidarat-puerthong-gl-actriz",
+    "nombreOriginal": "เอ็นจอย ธิดารัตน์ ปรือทอง",
+    "apodo": "EnjoyJune",
+    "foto": "/assets/images/actrices/enjoy-thidarat-puerthong.jpg",
+    "nacimiento": "1997-10-13",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Denied Love",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/enjoyyotdr",
+    "shipSlug": "enjoyjune-gl-ship"
+  },
+  {
+    "nombre": "Fahsai Minyada Boonsup",
+    "slug": "fahsai-minyada-boonsup-gl-actriz",
+    "nombreOriginal": "ฟ้าใส มิญญาดา บุญทรัพย์",
+    "apodo": "Fern & Fahsai",
+    "foto": "/assets/images/actrices/fahsai-minyada-boonsup.jpg",
+    "nacimiento": "1995-08-19",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Be Mine: Prologue Day",
+        "anio": "2023"
+      }
+    ],
+    "instagram": "https://www.instagram.com/fahsai.myd"
+  },
+  {
+    "nombre": "Fahsai Paweensuda Drouin",
+    "slug": "fahsai-paweensuda-drouin-gl-actriz",
+    "nombreOriginal": "ฟ้าใส ปวีณสุดา ดรูอิ้น",
+    "foto": "/assets/images/actrices/fahsai-paweensuda-drouin.jpg",
+    "nacimiento": "1993-10-12",
+    "nacionalidad": "Tailandesa-canadiense",
+    "series": [
+      {
+        "titulo": "The Hidden Blood",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/paweensuda"
+  },
+  {
+    "nombre": "Fairy Kirana Pipityakorn",
+    "slug": "kirana-pipityakorn-gl-actriz",
+    "nombreOriginal": "แฟร์รี่ กิรณา พิพิธยากร",
+    "apodo": "EarnFairy",
+    "foto": "/assets/images/actrices/kirana-pipityakorn.jpg",
+    "nacimiento": "2004-11-03",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Flat Girls",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/kiranaa.q",
+    "biografia": "Acreditada como Jane en Flat Girls."
+  },
+  {
+    "nombre": "Fay Apisara Lertwisettheerakul",
+    "slug": "fay-apisara-lertwisettheerakul-gl-actriz",
+    "nombreOriginal": "เฟย์ อภิสรา เลิศวิเศษธีรกุล",
+    "apodo": "FayGene",
+    "foto": "/assets/images/actrices/fay-apisara-lertwisettheerakul.jpg",
+    "nacimiento": "1999-12-08",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "I Wanna Be Sup'tar",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Chasing Love",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/fayapis.l"
+  },
+  {
+    "nombre": "Faye Peraya Malisorn",
+    "slug": "faye-peraya-malisorn-gl-actriz",
+    "nombreOriginal": "ฝ้าย พีรญา มะลิซ้อน",
+    "apodo": "FayeAtom / FayeYoko",
+    "foto": "/assets/images/actrices/faye-peraya-malisorn.jpg",
+    "nacimiento": "1994-10-14",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Blank The Series",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Blank The Series Season 2",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Broken of Love",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/faye",
+    "shipSlug": "fayeatom-gl-ship"
+  },
+  {
+    "nombre": "FayFay Thitayaporn Prasertsom",
+    "slug": "fayfay-thitayaporn-prasertsom-gl-actriz",
+    "nombreOriginal": "เฟย์เฟย์ ฑิตยาพร ประเสริฐสม",
+    "apodo": "FayFay",
+    "foto": "/assets/images/actrices/fayfay-thitayaporn-prasertsom.jpg",
+    "nacimiento": "¿?-01-12",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "B•Friend",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/f.fayfayy"
+  },
+  {
+    "nombre": "Ferin Weerin Kaewpuk",
+    "slug": "ferin-weerin-kaewpuk-gl-actriz",
+    "nombreOriginal": "เฟริน วีรินท์ แก้วปุก",
+    "apodo": "FerinPuiFai / Feringreat",
+    "foto": "/assets/images/actrices/ferin-weerin-kaewpuk.jpg",
+    "nacimiento": "1994-12-07",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Same Place, New Pace",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Hidden Heat",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Catch Cat Crush",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Sassy Season",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Hidden Half",
+        "anio": "2025"
+      },
+      {
+        "titulo": "I Don't Remember the Feeling",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Girl Rules",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/ferinweerin"
+  },
+  {
+    "nombre": "Fern Jeerawan Kumjina",
+    "slug": "fern-jeerawan-kumjina-gl-actriz",
+    "nombreOriginal": "เฟิร์น จีรวรรณ คำจินะ",
+    "apodo": "Fern & Fahsai",
+    "foto": "/assets/images/actrices/fern-jeerawan-kumjina.jpg",
+    "nacimiento": "1996-11-27",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Be Mine: Prologue Day",
+        "anio": "2023"
+      }
+    ],
+    "instagram": "https://www.instagram.com/fjerawan"
+  },
+  {
+    "nombre": "Film Rachanun Mahawan",
+    "slug": "film-rachanun-mahawan-gl-actriz",
+    "nombreOriginal": "ฟิล์ม รชานันท์ มหาวรรณ์",
+    "apodo": "NamtanFilm",
+    "foto": "/assets/images/actrices/film-rachanun-mahawan.jpg",
+    "nacimiento": "2000-07-14",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Pluto",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Girl Rules",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Moonshadow",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Her",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/fr.racha",
+    "shipSlug": "namtanfilm-gl-ship"
+  },
+  {
+    "nombre": "Folk Sutima Kokiatwanit",
+    "slug": "folk-sutima-korkiatvanich-gl-actriz",
+    "nombreOriginal": "โฟล์ค สุธิมา ก่อเกียรติวนิช",
+    "apodo": "OrmFolk",
+    "foto": "/assets/images/actrices/folk-sutima-korkiatvanich.jpg",
+    "nacimiento": "2000-05-16",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Be Mine: Prologue Day",
+        "anio": "2023"
+      },
+      {
+        "titulo": "Apple My Love",
+        "anio": "2024"
+      },
+      {
+        "titulo": "(Your) Apple",
+        "anio": "2025"
+      },
+      {
+        "titulo": "My Lady's Bodyguard",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Love Bound",
+        "anio": "2026"
+      },
+      {
+        "titulo": "CRUSH",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/ffolky",
+    "shipSlug": "ormfolk-gl-ship"
+  },
+  {
+    "nombre": "Fond Natticha Chantaravareelekha",
+    "slug": "fond-natticha-chantaravareelekha-gl-actriz",
+    "nombreOriginal": "ฟ้อนด์ ณัฐทิชา จันทรวารีเลขา",
+    "apodo": "PahnFond",
+    "foto": "/assets/images/actrices/fond-natticha-chantaravareelekha.jpg",
+    "nacimiento": "2002-12-03",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "The Cheese Sisters",
+        "anio": "2022"
+      },
+      {
+        "titulo": "Wish Upon a Star",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/fondnatticha"
+  },
+  {
+    "nombre": "Freen Sarocha Chankimha",
+    "slug": "freen-sarocha-chankimha-gl-actriz",
+    "nombreOriginal": "ฟรีน สโรชา จันทร์กิมฮะ",
+    "apodo": "FreenBecky",
+    "foto": "/assets/images/actrices/freen-sarocha-chankimha.jpg",
+    "nacimiento": "1998-08-08",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "GAP: The Series",
+        "anio": "2022"
+      },
+      {
+        "titulo": "Uranus 2324",
+        "anio": "2024"
+      },
+      {
+        "titulo": "The Loyal Pin",
+        "anio": "2024"
+      },
+      {
+        "titulo": "4 Elements: The Earth",
+        "anio": "2026"
+      },
+      {
+        "titulo": "4 Elements: The Water",
+        "anio": "2026"
+      },
+      {
+        "titulo": "4 Elements: The Air",
+        "anio": "2026"
+      },
+      {
+        "titulo": "4 Elements: The Fire",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Cranium",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/srchafreen",
+    "shipSlug": "freenbecky-gl-ship"
+  },
+  {
+    "nombre": "Gene Ornalin Leelaburanathanakul",
+    "slug": "gene-ornalin-leelaburanathanakul-gl-actriz",
+    "nombreOriginal": "จีนี่ อรนลิน ลีลาบูรณธนกูร",
+    "apodo": "FayGene",
+    "foto": "/assets/images/actrices/gene-ornalin-leelaburanathanakul.jpg",
+    "nacimiento": "2002-03-10",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "I Wanna Be Sup'tar",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Chasing Love",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/ornalin_gene"
+  },
+  {
+    "nombre": "Gift Sirinart Sugandharat",
+    "slug": "gift-sirinart-sugandharat-gl-actriz",
+    "nombreOriginal": "กิ๊ฟ สิรินาถ สุคันธรัต",
+    "apodo": "GiftAomsin",
+    "foto": "/assets/images/actrices/gift-sirinart-sugandharat.jpg",
+    "nacimiento": "1995-10-10",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Love Bully",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Chasing Love",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/siin.41"
+  },
+  {
+    "nombre": "Ginny Natnicha Pratipnatsiri",
+    "slug": "ginny-natnicha-pratipnatsiri-gl-actriz",
+    "nombreOriginal": "จินนี่ ณัฐณิชา ประทีปนาฏศิริ",
+    "apodo": "GinnyJayna",
+    "foto": "/assets/images/actrices/ginny-natnicha-pratipnatsiri.jpg",
+    "nacimiento": "2000-12-17",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Poisonous Love",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Lunar Secret",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/ginnynatnicha",
+    "shipSlug": "ginnyjayna-gl-ship"
+  },
+  {
+    "nombre": "Grace Budsarin Wonglelanont",
+    "slug": "grace-budsarin-wonglelanont-gl-actriz",
+    "nombreOriginal": "เกรซ บุศรินทร์ วงศ์ลีลนนท์",
+    "apodo": "GraceOaey",
+    "foto": "/assets/images/actrices/grace-budsarin-wonglelanont.jpg",
+    "nacimiento": "1997-09-23",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Mate",
+        "anio": "2024"
+      }
+    ],
+    "instagram": "https://www.instagram.com/gracebudsarin"
+  },
+  {
+    "nombre": "Grace Harper",
+    "slug": "grace-harper-gl-actriz",
+    "nombreOriginal": "เกรซ ฮาร์เปอร์",
+    "foto": "/assets/images/actrices/grace-harper.jpg",
+    "nacimiento": "1998-04-20",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Player",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/thegraceharperr"
+  },
+  {
+    "nombre": "Gunya Sirigunya Khamkoon",
+    "slug": "gunya-sirigunya-khamkoon-gl-actriz",
+    "nombreOriginal": "กัญญา สิริกัญญา ค้ำคูณ",
+    "apodo": "GunyaJennie",
+    "foto": "/assets/images/actrices/gunya-sirigunya-khamkoon.jpg",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "My Little Miss",
+        "anio": "2025"
+      },
+      {
+        "titulo": "My Stepsister",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Friends",
+        "anio": "2025"
+      },
+      {
+        "titulo": "You're My Gift",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Kiss of Yesterday",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/Gunya_sirigunya"
+  },
+  {
+    "nombre": "Ice Papichaya Pattaralikitsakul",
+    "slug": "ice-papichaya-pattaralikitsakul-gl-actriz",
+    "nombreOriginal": "ไอซ์ ปพิชญา ภัทรลิขิตสกุล",
+    "foto": "/assets/images/actrices/ice-papichaya-pattaralikitsakul.jpg",
+    "nacimiento": "1993-07-05",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Falling for My Hater",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/izelands.ize"
+  },
+  {
+    "nombre": "Idea Natnapin Soontornjirakarn",
+    "slug": "idea-natnapin-soontornjirakarn-gl-actriz",
+    "nombreOriginal": "ไอเดีย ณัฐนพิน สุนทรจิรกาล",
+    "foto": "/assets/images/actrices/idea-natnapin-soontornjirakarn.jpg",
+    "nacimiento": "2001-10-12",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Trial Love",
+        "anio": "próximamente"
+      }
+    ],
+    "instagram": "https://www.instagram.com/iideapinnz/"
+  },
+  {
+    "nombre": "Jamie Juthapich Indrajundra",
+    "slug": "jamie-juthapich-indrajundra-gl-actriz",
+    "nombreOriginal": "เจมี่ จุฑาพิชญ์ อินทร์จันทร์",
+    "foto": "/assets/images/actrices/jamie-juthapich-indrajundra.jpg",
+    "nacimiento": "1997-12-12",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Pluto",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Enemies with Benefits",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Moonshadow",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/jamiejuthapich/"
+  },
+  {
+    "nombre": "Jan Ployshompoo Supasap",
+    "slug": "jan-ployshompoo-supasap-gl-actriz",
+    "nombreOriginal": "แจน พลอยชมพู ศุภทรัพย์",
+    "apodo": "JanJingJing",
+    "foto": "/assets/images/actrices/jan-ployshompoo-supasap.jpg",
+    "nacimiento": "1995-01-05",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "MuTe / Luv: Hello, Is This Luck?",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Enemies with Benefits",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Bake Love Feeling",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/janhae"
+  },
+  {
+    "nombre": "Janeyeh Methika Jiranorraphat",
+    "slug": "jane-methika-jiranorraphat-gl-actriz",
+    "nombreOriginal": "แจน พลอยชมพู ศุภทรัพย์",
+    "apodo": "KaoJane",
+    "foto": "/assets/images/actrices/jane-methika-jiranorraphat.jpg",
+    "nacimiento": "1999-06-19",
+    "nacionalidad": "Tailandesa-taiwanesa",
+    "series": [
+      {
+        "titulo": "Love Design",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/janeeyeh"
+  },
+  {
+    "nombre": "Jayna Angelina Stevens",
+    "slug": "jayna-angelina-stevens-gl-actriz",
+    "nombreOriginal": "เจน่า แองเจลิน่า สตีเวนส์",
+    "apodo": "GinnyJayna",
+    "foto": "/assets/images/actrices/jayna-angelina-stevens.jpg",
+    "nacimiento": "2006-02-17",
+    "nacionalidad": "Tailandesa-estadounidense",
+    "series": [
+      {
+        "titulo": "Poisonous Love",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Lunar Secret",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/aangelinaa.ss",
+    "shipSlug": "ginnyjayna-gl-ship"
+  },
+  {
+    "nombre": "Jessie Natsiya Prommart",
+    "slug": "jessie-natsiya-prommart-gl-actriz",
+    "nombreOriginal": "เจสซี่ ณัฐศิญา พรหมมาตร",
+    "apodo": "TungPangJessie",
+    "foto": "/assets/images/actrices/jessie-natsiya-prommart.jpg",
+    "nacimiento": "2001-03-30",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Heart Code",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Love in Bloom",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/jessienatsiya.p"
+  },
+  {
+    "nombre": "JingJing Prariyapit Yu",
+    "slug": "jingjing-prariyapit-yu-gl-actriz",
+    "nombreOriginal": "จิงจิง ปริยพิชญ์ ยู",
+    "apodo": "JanJingJing",
+    "foto": "/assets/images/actrices/jingjing-prariyapit-yu.jpg",
+    "nacimiento": "1997-03-31",
+    "nacionalidad": "Tailandesa-China",
+    "series": [
+      {
+        "titulo": "Whale Store xoxo",
+        "anio": "2025"
+      },
+      {
+        "titulo": "MuTe / Luv: Hello, Is This Luck?",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Enemies with Benefits",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Bake Love Feeling",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/jingjingyu36"
+  },
+  {
+    "nombre": "Jiratchaya Komontut",
+    "slug": "jiratchaya-komontut-gl-actriz",
+    "nombreOriginal": "บีมาย จิรัชญา โกมลทัต",
+    "apodo": "BmineNear",
+    "foto": "/assets/images/actrices/jiratchaya-komontut.jpg",
+    "nacimiento": "2003-07-23",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Lucky My Love",
+        "anio": "2023"
+      },
+      {
+        "titulo": "Unlock Your Love",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Music Story: Losing Control",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Rental Love Lab",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/maybebmine"
+  },
+  {
+    "nombre": "June Lalida Ngamsomchat",
+    "slug": "june-lalida-ngamsomchat-gl-actriz",
+    "nombreOriginal": "จูน ลลิดา งามสมชาติ",
+    "foto": "/assets/images/actrices/june-lalida-ngamsomchat.jpg",
+    "nacimiento": "2001-01-14",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Love Moment",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/npjunne"
+  },
+  {
+    "nombre": "June Nannirin Varokornwatcharakool",
+    "slug": "june-nannirin-varokornwatcharakool-gl-actriz",
+    "nombreOriginal": "นันท์นรินทร์ วโรกอร์นวชรกุล",
+    "apodo": "EnjoyJune",
+    "foto": "/assets/images/actrices/june-nannirin-varokornwatcharakool.jpg",
+    "nacimiento": "1995-08-17",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Denied Love",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/june_nannirin",
+    "shipSlug": "enjoyjune-gl-ship"
+  },
+  {
+    "nombre": "June Wanwimol Jaenasavamethee",
+    "slug": "june-wanwimol-jaenasavamethee-gl-actriz",
+    "nombreOriginal": "จูน วรรณวิมล เจนอัศวเมธี",
+    "foto": "/assets/images/actrices/june-wanwimol-jaenasavamethee.jpg",
+    "nacimiento": "2000-04-19",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "23.5",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Whale Store xoxo",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Love's Echoes",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/junewanwimol19",
+    "biografia": "Extensa trayectoria en TV tailandesa, incluyendo The Gifted y F4 Thailand: Boys Over Flowers."
+  },
+  {
+    "nombre": "Kanyakorn Namboonruang",
+    "slug": "kanyakorn-namboonruang-gl-actriz",
+    "nombreOriginal": "หมิงหมิง กันยากร นามบุญเรือง",
+    "apodo": "Kanyakorn–Nepjune",
+    "foto": "/assets/images/actrices/kanyakorn-namboonruang.jpg",
+    "nacimiento": "2006-12-27",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Juliet & Juliet",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/mingkanyas"
+  },
+  {
+    "nombre": "Kao Supassrathip Akkrathaweepatch",
+    "slug": "kao-supassrathip-akkrathaweepatch-gl-actriz",
+    "nombreOriginal": "เก้า สุภัสสราทิพ อัครทวีพัชร์",
+    "apodo": "KaoJane",
+    "foto": "/assets/images/actrices/kao-supassrathip-akkrathaweepatch.jpg",
+    "nacimiento": "1995-04-29",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Love Design",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/supassra_sp",
+    "shipSlug": "kaojane-gl-ship"
+  },
+  {
+    "nombre": "Kapook Ploynira Hiruntaveesin",
+    "slug": "kapook-ploynira-hiruntaveesin-gl-actriz",
+    "nombreOriginal": "กระปุก พลอยนิรา หิรัญทวีศิลป์",
+    "apodo": "KapookCiize",
+    "foto": "/assets/images/actrices/kapook-ploynira-hiruntaveesin.jpg",
+    "nacimiento": "1994-10-29",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Pluto",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Enemies with Benefits",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Girl Rules",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/kapookphat",
+    "shipSlug": "kapook-ciize-gl-ship"
+  },
+  {
+    "nombre": "Ketkramut Phuttima",
+    "slug": "puifai-ketkramut-phuttima-gl-actriz",
+    "nombreOriginal": "ปุยฝ้าย เกตุกระมุท พุทธิมา",
+    "apodo": "FerinPuiFai",
+    "foto": "/assets/images/actrices/puifai-ketkramut-phuttima.jpg",
+    "nacimiento": "2001-05-09",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Hidden Heat",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Catch Cat Crush",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Hidden Half",
+        "anio": "2025"
+      },
+      {
+        "titulo": "I Don't Remember the Feeling",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Until Once Again",
+        "anio": "2025"
+      },
+      {
+        "titulo": "10 Rules Before I Fell for You",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/mikiipu_i"
+  },
+  {
+    "nombre": "Khemmapat Nenchoo",
+    "slug": "khemmapat-nenchoo-gl-actriz",
+    "nombreOriginal": "มิกกี้ เขมพัชร์ เณรชู",
+    "apodo": "GanchuKhemmapat",
+    "foto": "/assets/images/actrices/khemmapat-nenchoo.jpg",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Stay With Me",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Stay With Me Season 2",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Stay With Me Season 3",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Stay With Me Season 4",
+        "anio": "2025"
+      }
+    ]
+  },
+  {
+    "nombre": "Kitty Punnaray Eamsaart",
+    "slug": "kitty-punnaray-gl-actriz",
+    "nombreOriginal": "คิตตี้ พรรณราย เอี่ยมสอาด",
+    "apodo": "ArlingKitty",
+    "foto": "/assets/images/actrices/kitty-punnaray.jpg",
+    "nacimiento": "1999-06-14",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Doctor Love Edition",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Heart Rule",
+        "anio": "2025"
+      },
+      {
+        "titulo": "My Dear Ghost",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/kitty.punnaray"
+  },
+  {
+    "nombre": "Kunyaphat Na Nakorn",
+    "slug": "fay-kunyaphat-na-nakorn-gl-actriz",
+    "nombreOriginal": "เฟย์ กัญญาพัชร ณ นคร",
+    "apodo": "FayMay",
+    "foto": "/assets/images/actrices/fay-kunyaphat-na-nakorn.jpg",
+    "nacimiento": "2001-12-02",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "My Marvellous Dream Is You",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Somewhere Somehow",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/fay_riezz",
+    "shipSlug": "faymay-gl-ship"
+  },
+  {
+    "nombre": "Lena Lorena Schuett",
+    "slug": "lena-lorena-schuett-gl-actriz",
+    "nombreOriginal": "ลีน่า ลลินา ชูเอ็ทท์",
+    "apodo": "LenaMiu",
+    "foto": "/assets/images/actrices/lena-lorena-schuett.jpg",
+    "nacimiento": "1999-11-25",
+    "nacionalidad": "Tailandesa-canadiense",
+    "series": [
+      {
+        "titulo": "My Safe Zone",
+        "anio": "2025"
+      },
+      {
+        "titulo": "PLS Love",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/lalinalena",
+    "shipSlug": "lenamiu-gl-ship"
+  },
+  {
+    "nombre": "Lilly Apichaya Thongkham",
+    "slug": "lilly-apichaya-thongkham-gl-actriz",
+    "nombreOriginal": "ลิลลี่ ลฎาภา ทองคำ",
+    "apodo": "LillyBelle",
+    "foto": "/assets/images/actrices/lilly-apichaya-thongkham.jpg",
+    "nacimiento": "2002-05-23",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Harmony Secret",
+        "anio": "2025"
+      },
+      {
+        "titulo": "I Wanna Be Sup'Tar",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/lilly_nicha",
+    "shipSlug": "lillybelle-gl-ship"
+  },
+  {
+    "nombre": "Lingling Sirilak Kwong",
+    "slug": "lingling-sirilak-kwong-gl-actriz",
+    "nombreOriginal": "หลิงหลิง ศิริลักษณ์ คอง",
+    "apodo": "LingOrm",
+    "foto": "/assets/images/actrices/lingling-sirilak-kwong.jpg",
+    "nacimiento": "1995-05-11",
+    "nacionalidad": "Tailandesa / hongkonesa",
+    "series": [
+      {
+        "titulo": "The Secret of Us",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Only You",
+        "anio": "2025"
+      },
+      {
+        "titulo": "My Safe Zone",
+        "anio": "2025"
+      },
+      {
+        "titulo": "In Love Forever",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/linglingkwong",
+    "shipSlug": "lingorm-gl-ship"
+  },
+  {
+    "nombre": "Lookkaew Kamollak Sangsubsin",
+    "slug": "lookkaew-kamollak-sangsubsin-gl-actriz",
+    "nombreOriginal": "ลูกแก้ว กมลลักษณ์ แสงทรัพย์สิน",
+    "apodo": "AndaLookkaew",
+    "foto": "/assets/images/actrices/lookkaew-kamollak-sangsubsin.jpg",
+    "nacimiento": "2000-04-27",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Love Senior",
+        "anio": "2023–2024"
+      },
+      {
+        "titulo": "Khom Khlang",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Remain",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/lookkaeww_k",
+    "shipSlug": "andalookkaew-gl-ship"
+  },
+  {
+    "nombre": "Lookmhee Punyapat Wangpongsathaporn",
+    "slug": "lookmhee-punyapat-wangpongsathaporn-gl-actriz",
+    "nombreOriginal": "ลูกหมี ปัญญาพัชร วังพงศ์สถาพร",
+    "apodo": "LMSY",
+    "foto": "/assets/images/actrices/lookmhee-punyapat-wangpongsathaporn.jpg",
+    "nacimiento": "1999-02-18",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Affair",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Harmony Secret",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Hometown Romance",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/lmlookmhee",
+    "shipSlug": "lmsy-gl-ship"
+  },
+  {
+    "nombre": "Looknam Orntara Poolsak",
+    "slug": "looknam-orntara-poolsak-gl-actriz",
+    "nombreOriginal": "ลูกน้ำ อรธารา พูลศักดิ์",
+    "foto": "/assets/images/actrices/looknam-orntara-poolsak.jpg",
+    "nacimiento": "1996-05-25",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "GAP The Series",
+        "anio": "2022"
+      },
+      {
+        "titulo": "My Marvellous Dream Is You",
+        "anio": "2024"
+      },
+      {
+        "titulo": "The Loyal Pin",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Somewhere Somehow",
+        "anio": "2025"
+      },
+      {
+        "titulo": "4 Elements: The Air",
+        "anio": "2026"
+      },
+      {
+        "titulo": "4 Elements: The Fire",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/namorntaraaa"
+  },
+  {
+    "nombre": "Love Pattranite Limpatiyakorn",
+    "slug": "love-pattranite-limpatiyakorn-gl-actriz",
+    "nombreOriginal": "เลิฟ ภัทรานิษฐ์ ลิ้มปติยากร",
+    "apodo": "MilkLove",
+    "foto": "/assets/images/actrices/love-pattranite-limpatiyakorn.jpg",
+    "nacimiento": "2000-05-23",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Magic of Zero: Zero Photography",
+        "anio": "2022"
+      },
+      {
+        "titulo": "23.5",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Whale Store xoxo",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Girl Rules",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Ditto",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/loverrukk",
+    "shipSlug": "milklove-gl-ship"
+  },
+  {
+    "nombre": "Mable Siriwalee Siriwibool",
+    "slug": "mable-siriwalee-siriwibool-gl-actriz",
+    "nombreOriginal": "เมเบิ้ล สิริวลี สิริวิบูลย์",
+    "apodo": "Blejie",
+    "foto": "/assets/images/actrices/mable-siriwalee-siriwibool.jpg",
+    "nacimiento": "1997-04-23",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "ClaireBell",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/mable_siriwalee"
+  },
+  {
+    "nombre": "Mae Methakarn Anektanasuwan",
+    "slug": "mae-methakarn-anektanasuwan-gl-actriz",
+    "nombreOriginal": "เม เมธกานต์ เอนกธนะสุวรรณ",
+    "apodo": "ChristineMae",
+    "foto": "/assets/images/actrices/mae-methakarn-anektanasuwan.jpg",
+    "nacimiento": "1999-04-05",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Reverse 4 You",
+        "anio": "2024"
+      }
+    ],
+    "instagram": "https://www.instagram.com/maetk"
+  },
+  {
+    "nombre": "Marissa Lloyd",
+    "slug": "marissa-lloyd-gl-actriz",
+    "nombreOriginal": "มาริซ่า ลลอยด์",
+    "foto": "/assets/images/actrices/marissa-lloyd.jpg",
+    "nacimiento": "2004-07-13",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Blank The Series",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Blank The Series Season 2",
+        "anio": "2024"
+      }
+    ],
+    "instagram": "https://www.instagram.com/marissa.msl"
+  },
+  {
+    "nombre": "May Yada Watcharamusik",
+    "slug": "may-yada-watcharamusik-gl-actriz",
+    "nombreOriginal": "เมษ์ ญดา วัชระมูสิก",
+    "apodo": "FayMay",
+    "foto": "/assets/images/actrices/may-yada-watcharamusik.jpg",
+    "nacimiento": "1997-10-31",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "My Marvellous Dream Is You",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Somewhere Somehow",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/maywyda"
+  },
+  {
+    "nombre": "Meena Rina Chatamonchai",
+    "slug": "meena-rina-chatamonchai-gl-actriz",
+    "nombreOriginal": "มีนา ริณา ฉัตรอมรชัย",
+    "apodo": "MeenBabe",
+    "foto": "/assets/images/actrices/meena-rina-chatamonchai.jpg",
+    "nacimiento": "1997-10-13",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Delete Your Past",
+        "anio": "2024"
+      },
+      {
+        "titulo": "About Galaxy",
+        "anio": "próximamente"
+      }
+    ],
+    "instagram": "https://www.instagram.com/meenaxrina"
+  },
+  {
+    "nombre": "Mersedes Siripath Sarakune",
+    "slug": "mersedes-siripath-sarakune-gl-actriz",
+    "nombreOriginal": "เมอซีเดส สิรภัทร สาระคุณ",
+    "apodo": "AtomMer",
+    "foto": "/assets/images/actrices/mersedes-siripath-sarakune.jpg",
+    "nacimiento": "2001-10-13",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Love Senior",
+        "anio": "2023"
+      },
+      {
+        "titulo": "My Only Sunshine",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/mmersedes"
+  },
+  {
+    "nombre": "Mew Thanthip Thaweesinthanat",
+    "slug": "mew-thanthip-thaweesinthanat-gl-actriz",
+    "nombreOriginal": "มิว ธัญทิพย์ ทวีสินธนัตย์",
+    "apodo": "MewNe",
+    "foto": "/assets/images/actrices/mew-thanthip-thaweesinthanat.jpg",
+    "nacimiento": "1998-07-13",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Poisonous Love",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/khunmewwww"
+  },
+  {
+    "nombre": "Mewnich Nannaphas Loetnamchoetsakun",
+    "slug": "mewnich-nannaphas-loetnamchoetsakun-gl-actriz",
+    "nombreOriginal": "มิวนิค นันท์นภัส เลิศนามเชิดสกุล",
+    "apodo": "JuneMewnich",
+    "foto": "/assets/images/actrices/mewnich-nannaphas-loetnamchoetsakun.jpg",
+    "nacimiento": "2002-03-11",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Whale Store xoxo",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Love's Echoes",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/mewnich.nannaphas"
+  },
+  {
+    "nombre": "Mie Phattaranan Padpai",
+    "slug": "mie-phattaranan-padpai-gl-actriz",
+    "nombreOriginal": "มี่ ภัทรนันท์ ปัดภัย",
+    "foto": "/assets/images/actrices/mie-phattaranan-padpai.jpg",
+    "nacimiento": "1999-03-01",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Love Beyond Dreams",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/miephat"
+  },
+  {
+    "nombre": "Milk Pansa Vosbein",
+    "slug": "milk-pansa-vosbein-gl-actriz",
+    "nombreOriginal": "มิ้ลค์ พรรษา วอสเบียน",
+    "apodo": "MilkLove",
+    "foto": "/assets/images/actrices/milk-pansa-vosbein.jpg",
+    "nacimiento": "1996-07-31",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Magic of Zero: Zero Photography",
+        "anio": "2022"
+      },
+      {
+        "titulo": "23.5",
+        "anio": "2024"
+      },
+      {
+        "titulo": "Whale Store xoxo",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Girl Rules",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Ditto",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/panly.v"
+  },
+  {
+    "nombre": "Mim Panthita Jencharoentham",
+    "slug": "mim-panthita-jencharoentham-gl-actriz",
+    "nombreOriginal": "มิ้ม ปัณฑิตา เจนเจริญธรรม",
+    "apodo": "AppleMim",
+    "foto": "/assets/images/actrices/mim-panthita-jencharoentham.jpg",
+    "nacimiento": "2000-07-04",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "4 Elements: The Earth",
+        "anio": "2026"
+      },
+      {
+        "titulo": "4 Elements: The Fire",
+        "anio": "2026"
+      },
+      {
+        "titulo": "4 Elements: The Water",
+        "anio": "2026"
+      },
+      {
+        "titulo": "4 Elements: The Air",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/mimu.p",
+    "shipSlug": "applemim-gl-ship"
+  },
+  {
+    "nombre": "Mim Rattanawadee Wongthong",
+    "slug": "mim-rattanawadee-wongthong-gl-actriz",
+    "nombreOriginal": "มิ้ม รัตนวดี วงศ์ทอง",
+    "apodo": "ViewMim",
+    "foto": "/assets/images/actrices/mim-rattanawadee-wongthong.jpg",
+    "nacimiento": "2004-05-22",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Us",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Enemies with Benefits",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Girl Rules",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Bake Love Feeling",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/mim.rattanawadee",
+    "shipSlug": "viewmim-gl-ship"
+  },
+  {
+    "nombre": "Minagi Warisaya Boonyatap",
+    "slug": "minagi-warisaya-boonyatap-gl-actriz",
+    "nombreOriginal": "มีน่ากิ วริศยา บุณยทรรพ",
+    "apodo": "MinagiBam",
+    "foto": "/assets/images/actrices/minagi-warisaya-boonyatap.jpg",
+    "nacimiento": "2003-09-10",
+    "nacionalidad": "Tailandesa-Japonesa",
+    "series": [
+      {
+        "titulo": "Fairway of Love",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/mina_minagi",
+    "shipSlug": "minagibam-gl-ship"
+  },
+  {
+    "nombre": "Mint Benjanee Watcharavasoontara",
+    "slug": "mint-benjanee-watcharavasoontara-gl-actriz",
+    "nombreOriginal": "มิ้นท์ เบญจณี วัชรวสุนธรา",
+    "apodo": "OpalMint",
+    "foto": "/assets/images/actrices/mint-benjanee-watcharavasoontara.jpg",
+    "nacimiento": "2001-07-06",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Shades",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/mmint.w",
+    "shipSlug": "opalmint-gl-ship"
+  },
+  {
+    "nombre": "Miu Natsha Taechamongkalapiwat",
+    "slug": "miu-natsha-taechamongkalapiwat-gl-actriz",
+    "nombreOriginal": "หมิว ณัชชา เตชะมวคลาภิวัฒน์",
+    "apodo": "LenaMiu",
+    "foto": "/assets/images/actrices/miu-natsha-taechamongkalapiwat.jpg",
+    "nacimiento": "2001-11-25",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "My Safe Zone",
+        "anio": "2025"
+      },
+      {
+        "titulo": "PLS Love",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/mmiunatshaa",
+    "shipSlug": "lenamiu-gl-ship"
+  },
+  {
+    "nombre": "Miusic Praewa Suthamphong",
+    "slug": "miusic-praewa-suthamphong-gl-actriz",
+    "nombreOriginal": "มิวสิค แพรวา สุธรรมพงษ์",
+    "foto": "/assets/images/actrices/miusic-praewa-suthamphong.jpg",
+    "nacimiento": "2001-02-24",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Runaway",
+        "anio": "2025"
+      },
+      {
+        "titulo": "Shock Me Girls",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/miu.miusic"
+  },
+  {
+    "nombre": "Monet Parita Rirermkul",
+    "slug": "monet-parita-rirermkul-gl-actriz",
+    "nombreOriginal": "โมเน่ต์ ภาริตา ริเริ่มกุล",
+    "foto": "/assets/images/actrices/monet-parita-rirermkul.jpg",
+    "nacimiento": "2008-08-04",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Shock Me Girls",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/monet.bnk48official"
+  },
+  {
+    "nombre": "Mook Worranit Thawornwong",
+    "slug": "mook-worranit-thawornwong-gl-actriz",
+    "nombreOriginal": "มุก วรนิษฐ์ ถาวรวงศ์",
+    "foto": "/assets/images/actrices/mook-worranit-thawornwong.jpg",
+    "nacimiento": "1996-10-09",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Shades",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/mookworranit"
+  },
+  {
+    "nombre": "Myyu Khawisara Singplod",
+    "slug": "myyu-khawisara-singplod-gl-actriz",
+    "nombreOriginal": "มายยู กวิสรา สิงห์ปลอด",
+    "foto": "/assets/images/actrices/myyu-khawisara-singplod.jpg",
+    "nacimiento": "1999-10-28",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Love Beyond Dreams",
+        "anio": "2026"
+      },
+      {
+        "titulo": "AI Girl",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/calledmemyyu.k"
+  },
+  {
+    "nombre": "Nur Desoraya Techapaibul",
+    "slug": "desoraya-techapaibul-gl-actriz",
+    "nombreOriginal": "เหนือ ดิสรยา เตชะไพบูลย์",
+    "foto": "/assets/images/actrices/desoraya-techapaibul.jpg",
+    "nacimiento": "2000-12-09",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Dangerous Queen",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/nurdesoraya"
+  },
+  {
+    "nombre": "Oom Eisaya Hosuwan",
+    "slug": "eisaya-hosuwan-gl-actriz",
+    "nombreOriginal": "อุ้ม อิษยา ฮอสุวรรณ",
+    "apodo": "OomBam",
+    "foto": "/assets/images/actrices/eisaya-hosuwan.jpg",
+    "nacimiento": "1996-07-04",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Play Park",
+        "anio": "2026"
+      },
+      {
+        "titulo": "Fulfill",
+        "anio": "2026"
+      }
+    ],
+    "instagram": "https://www.instagram.com/oomeisaya",
+    "shipSlug": "oombam-gl-ship"
+  },
+  {
+    "nombre": "Suvalmas Mashannoad",
+    "slug": "linn-mashannoad-suvanamas-gl-actriz",
+    "nombreOriginal": "หลิน มชณต สุวรรณมาศ",
+    "apodo": "LinnPraew",
+    "foto": "/assets/images/actrices/linn-mashannoad-suvanamas.jpg",
+    "nacimiento": "1992-08-03",
+    "nacionalidad": "Tailandesa",
+    "series": [
+      {
+        "titulo": "Queendom The Series",
+        "anio": "2025"
+      }
+    ],
+    "instagram": "https://www.instagram.com/linnmashannoad"
   }
 ]
