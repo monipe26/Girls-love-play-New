@@ -23,6 +23,15 @@ module.exports = function (eleventyConfig) {
     return collectionApi.getFilteredByGlob("src/mundo-gl/*.njk").sort((a, b) => b.date - a.date);
   });
 
+  // Colección para el ticker de arriba de todo: mezcla Noticias + Mundo GL,
+  // más nueva primero, para que el ticker siempre muestre lo último
+  // publicado en vez de un texto fijo escrito a mano.
+  eleventyConfig.addCollection("ticker", function (collectionApi) {
+    const noticias = collectionApi.getFilteredByGlob("src/noticias/*.njk");
+    const mundoGl = collectionApi.getFilteredByGlob("src/mundo-gl/*.njk");
+    return [...noticias, ...mundoGl].sort((a, b) => b.date - a.date);
+  });
+
   // Filtro para recortar una lista a N elementos (limit) - nunjucks no lo trae por defecto
   eleventyConfig.addFilter("limit", function (arreglo, cantidad) {
     if (!arreglo) return [];
