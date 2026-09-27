@@ -664,6 +664,14 @@ html[data-tema="oscuro"] .btn-modo-oscuro .icono-luna { display: block; }
   background: var(--color-fondo-oscuro);
   padding: var(--espacio-lg) var(--espacio-sm) calc(var(--espacio-lg) + 50px);
 }
+/* En modo oscuro el fondo general de la página pasa a ser prácticamente el
+   mismo color que --color-fondo-oscuro, y el footer (que siempre usa ese
+   color) se pierde contra el resto. Se lo oscurece un poco más solo en
+   modo oscuro para que se siga notando dónde empieza. */
+html[data-tema="oscuro"] .site-footer {
+  background: #100a1c;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
 .footer-top {
   display: grid;
   gap: var(--espacio-lg);
@@ -675,6 +683,10 @@ html[data-tema="oscuro"] .btn-modo-oscuro .icono-luna { display: block; }
 .footer-logo img { height: 32px; width: auto; }
 .footer-tagline { color: var(--color-texto-sobre-oscuro); font-size: 0.85rem; }
 .footer-apoyar { margin-top: var(--espacio-sm); }
+/* .footer-col a ya pone un gris violáceo a todos los links del footer (por
+   especificidad le gana a .btn-primario); este botón necesita texto blanco
+   sí o sí para leerse bien sobre el rosa de fondo. */
+.footer-col a.footer-apoyar { color: #fff; }
 
 .footer-col h2 {
   font-family: var(--fuente-titulos);
