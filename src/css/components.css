@@ -282,6 +282,7 @@ html[data-tema="oscuro"] .btn-modo-oscuro .icono-luna { display: block; }
 }
 .carrusel-slide {
   min-width: 100%;
+  position: relative;
 }
 .carrusel-btn {
   position: absolute;
@@ -498,7 +499,7 @@ html[data-tema="oscuro"] .btn-modo-oscuro .icono-luna { display: block; }
   position: relative;
   display: block;
 }
-.tarjeta-video-thumb img { aspect-ratio: 16 / 9; object-fit: cover; }
+.tarjeta-video-thumb img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
 .tarjeta-video-play {
   position: absolute;
   top: 50%; left: 50%;
