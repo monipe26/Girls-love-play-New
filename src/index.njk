@@ -77,7 +77,7 @@ layout: base.njk
       </div>
       <div class="noticias-destacadas">
         <ul class="noticias-lista">
-          {% for nota in collections.noticias | limit(9) %}
+          {% for nota in collections.noticias | limit(8) %}
           <li>
             <a href="{{ nota.url }}">
               <img src="{{ nota.data.imagen }}" alt="{{ nota.data.title }}" width="90" height="70" loading="lazy">
