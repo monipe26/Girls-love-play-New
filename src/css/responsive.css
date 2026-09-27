@@ -157,8 +157,6 @@
     align-items: start;
     padding: var(--espacio-lg);
   }
-  .noticias-destacadas { grid-template-columns: 1.3fr 1fr; }
-
   /* Mundo GL ahora ocupa todo el ancho de la columna principal (Extras GL
      se movió al sidebar, debajo de "Próximamente GL"), en 2 columnas x 3
      filas (las 6 notas) para que no quede una lista larga de una sola
