@@ -3,8 +3,6 @@
 // siendo 100% español siempre; esto solo traduce lo que ve el visitante,
 // en su navegador.
 function seleccionarIdiomaGoogle(codigo) {
-  var combo = document.querySelector(".goog-te-combo");
-
   if (codigo === "") {
     // "Español": Google Translate no tiene una forma de "deseleccionar"
     // desde el combo (la lista solo trae los idiomas destino), así que se
@@ -16,10 +14,23 @@ function seleccionarIdiomaGoogle(codigo) {
     return;
   }
 
-  if (!combo) return; // el widget de Google todavía no cargó, se ignora el click
-  combo.value = codigo;
-  combo.dispatchEvent(new Event("change"));
-  reforzarOcultamientoBanner();
+  // El widget de Google tarda un momento en armar su <select> interno
+  // (.goog-te-combo) después de que carga el script. Si el visitante hace
+  // clic en un idioma antes de que esté listo, antes no pasaba nada y
+  // parecía "roto". Ahora reintentamos por unos segundos hasta que aparezca.
+  var intentos = 0;
+  function intentarAplicar() {
+    var combo = document.querySelector(".goog-te-combo");
+    if (!combo) {
+      intentos++;
+      if (intentos < 25) setTimeout(intentarAplicar, 200); // reintenta ~5s
+      return;
+    }
+    combo.value = codigo;
+    combo.dispatchEvent(new Event("change"));
+    reforzarOcultamientoBanner();
+  }
+  intentarAplicar();
 }
 
 // Refuerzo extra (además del CSS) para la barra gris de Google: a veces la
