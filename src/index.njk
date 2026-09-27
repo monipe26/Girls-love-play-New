@@ -118,3 +118,99 @@ layout: base.njk
 
   {% include "sidebar.njk" %}
 </div>
+
+<!-- 🎂 Aviso de cumpleaños: solo en el home, no invasivo, se puede cerrar. -->
+<style>
+  #aviso-cumple-index {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 24px;
+    pointer-events: none;
+  }
+  #aviso-cumple-index:empty { display: none; }
+  #aviso-cumple-index::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.62);
+    z-index: -1;
+  }
+  .aviso-cumple-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    background: linear-gradient(160deg, #ff4fd8, #8f5cff);
+    border-radius: 20px;
+    padding: 36px 26px 26px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 79, 216, 0.4);
+    animation: aviso-cumple-entrada 0.4s ease;
+    max-width: 300px;
+    width: 100%;
+    pointer-events: auto;
+  }
+  @keyframes aviso-cumple-entrada {
+    from { opacity: 0; transform: translateY(16px) scale(0.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .aviso-cumple-foto {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 3px solid rgba(255, 255, 255, 0.7);
+    margin-bottom: 4px;
+  }
+  .aviso-cumple-texto { display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 0; }
+  .aviso-cumple-nombre { margin: 0; color: #fff; font-weight: 800; font-size: 16px; }
+  .aviso-cumple-msj { margin: 0; color: #fff; font-size: 13px; opacity: 0.95; }
+  .aviso-cumple-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 6px;
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 18px;
+    text-decoration: none;
+    width: fit-content;
+  }
+  .aviso-cumple-link:hover { background: rgba(255, 255, 255, 0.3); }
+  .aviso-cumple-cerrar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.18);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0.9;
+    line-height: 1;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .aviso-cumple-cerrar:hover { opacity: 1; background: rgba(0, 0, 0, 0.3); }
+  @media (max-width: 700px) {
+    .aviso-cumple-card { max-width: 280px; }
+  }
+</style>
+<div id="aviso-cumple-index"></div>
+<script>window.actricesCumpleData = {{ cumpleData | dump | safe }};</script>
+<script src="/js/cumpleanos.js" defer></script>
