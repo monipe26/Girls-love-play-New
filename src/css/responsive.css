@@ -172,7 +172,7 @@
   /* Hero más bajo en pantallas grandes (en mobile ya está bien con aspect-ratio) */
   .hero img {
     aspect-ratio: auto;
-    height: 350px;
+    height: 340px;
   }
 
   /* Barra de íconos: centrada en escritorio, ya no pegada a la izquierda */
