@@ -457,7 +457,7 @@ html[data-tema="oscuro"] .btn-modo-oscuro .icono-luna { display: block; }
   overflow: hidden;
   box-shadow: var(--sombra-tarjeta);
 }
-.tarjeta-noticia img { aspect-ratio: 16 / 9; object-fit: cover; }
+.tarjeta-noticia img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
 .tarjeta-noticia h3 {
   padding: 6px var(--espacio-sm) 0;
   font-size: 0.95rem;
