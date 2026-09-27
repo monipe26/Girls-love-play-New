@@ -5,15 +5,16 @@ layout: base.njk
 ---
 <section class="hero carrusel" aria-label="Última noticia destacada">
   <div class="carrusel-track">
+    {% set ultimaNoticia = collections.noticias | first %}
     <div class="carrusel-slide">
       <span class="badge badge-rosa hero-badge">Última noticia</span>
-      <img src="/assets/placeholder/hero.jpg" alt="" width="1200" height="500">
+      <img src="{{ ultimaNoticia.data.imagen }}" alt="{{ ultimaNoticia.data.title }}" width="1200" height="500">
       <div class="hero-texto">
-        <h1>Nuevo drama GL tailandés ya tiene a sus protagonistas</h1>
-        <p>La esperada serie "El mismo cielo, diferentes caminos" presenta a sus dos protagonistas principales.</p>
+        <h1>{{ ultimaNoticia.data.title }}</h1>
+        <p>{{ ultimaNoticia.data.resumen }}</p>
         <div class="hero-pie">
-          <time datetime="2026-09-24">24 SEP 2026</time>
-          <a href="#" class="btn-primario">Leer más →</a>
+          <time datetime="{{ ultimaNoticia.date }}">{{ ultimaNoticia.date | readableDate | upper }}</time>
+          <a href="{{ ultimaNoticia.url }}" class="btn-primario">Leer más →</a>
         </div>
       </div>
     </div>
@@ -37,13 +38,14 @@ layout: base.njk
         <h2 id="tit-ultima">📰 Última noticia</h2>
         <a href="/noticias/" class="ver-mas">Ver todo →</a>
       </div>
-      <a href="#" class="tarjeta-grande">
-        <img src="/assets/placeholder/ultima-noticia.jpg" alt="" width="800" height="420" loading="lazy">
+      {% set ultimaNoticia = collections.noticias | first %}
+      <a href="{{ ultimaNoticia.url }}" class="tarjeta-grande">
+        <img src="{{ ultimaNoticia.data.imagen }}" alt="{{ ultimaNoticia.data.title }}" width="800" height="420" loading="lazy">
         <div class="tarjeta-grande-info">
           <span class="badge badge-rosa">GL</span>
-          <h3>Nuevo drama GL tailandés ya tiene a sus protagonistas</h3>
-          <p>La esperada serie "El mismo cielo", diferentes caminos, presenta a sus dos protagonistas principales.</p>
-          <time datetime="2026-09-24">24 SEP 2026</time>
+          <h3>{{ ultimaNoticia.data.title }}</h3>
+          <p>{{ ultimaNoticia.data.resumen }}</p>
+          <time datetime="{{ ultimaNoticia.date }}">{{ ultimaNoticia.date | readableDate | upper }}</time>
           <span class="btn-primario">Leer más →</span>
         </div>
       </a>
@@ -56,48 +58,17 @@ layout: base.njk
       </div>
       <div class="noticias-destacadas">
         <ul class="noticias-lista">
+          {% for nota in collections.noticias | limit(6) %}
           <li>
-            <img src="/assets/placeholder/noticia-1.jpg" alt="" width="90" height="70" loading="lazy">
-            <div>
-              <span class="noticia-fecha">24 SEP 2026 · <span class="badge-texto">Catálogo</span></span>
-              <p>Faye confirma nuevo proyecto junto a una reconocida actriz</p>
-            </div>
+            <a href="{{ nota.url }}">
+              <img src="{{ nota.data.imagen }}" alt="{{ nota.data.title }}" width="90" height="70" loading="lazy">
+              <div>
+                <span class="noticia-fecha">{{ nota.date | readableDate | upper }} · <span class="badge-texto">Noticias</span></span>
+                <p>{{ nota.data.title }}</p>
+              </div>
+            </a>
           </li>
-          <li>
-            <img src="/assets/placeholder/noticia-2.jpg" alt="" width="90" height="70" loading="lazy">
-            <div>
-              <span class="noticia-fecha">23 SEP 2026 · <span class="badge-texto">Noticias</span></span>
-              <p>GagaQOLala presenta sus estrenos de octubre</p>
-            </div>
-          </li>
-          <li>
-            <img src="/assets/placeholder/noticia-3.jpg" alt="" width="90" height="70" loading="lazy">
-            <div>
-              <span class="noticia-fecha">22 SEP 2026 · <span class="badge-texto">Mundo GL</span></span>
-              <p>El fandom GL se reúne en Bangkok por un evento especial</p>
-            </div>
-          </li>
-          <li>
-            <img src="/assets/placeholder/noticia-4.jpg" alt="" width="90" height="70" loading="lazy">
-            <div>
-              <span class="noticia-fecha">21 SEP 2026 · <span class="badge-texto">Ships GL</span></span>
-              <p>Ya disponible el soundtrack de "Love in the Fast Lane"</p>
-            </div>
-          </li>
-          <li>
-            <img src="/assets/placeholder/noticia-5.jpg" alt="" width="90" height="70" loading="lazy">
-            <div>
-              <span class="noticia-fecha">20 SEP 2026 · <span class="badge-texto">Catálogo</span></span>
-              <p>My Dear, My Rival estrena tráiler oficial</p>
-            </div>
-          </li>
-          <li>
-            <img src="/assets/placeholder/noticia-6.jpg" alt="" width="90" height="70" loading="lazy">
-            <div>
-              <span class="noticia-fecha">19 SEP 2026 · <span class="badge-texto">Actrices</span></span>
-              <p>Mint Ranchrawee habla de su próximo proyecto GL</p>
-            </div>
-          </li>
+          {% endfor %}
         </ul>
 
         <div class="tarjeta-destacada">
