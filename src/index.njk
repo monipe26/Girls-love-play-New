@@ -3,8 +3,31 @@ title: Inicio
 description: Series, noticias, OST y todo sobre el mundo Girls Love (GL).
 layout: base.njk
 ---
-<section class="hero carrusel" aria-label="Última noticia destacada">
+<section class="hero carrusel" aria-label="Destacados">
   <div class="carrusel-track">
+
+    <!-- Banner 1: publicidad -->
+    <!-- TODO: reemplazar "imagen" por el banner publicitario real cuando lo tengan -->
+    <div class="carrusel-slide">
+      <img src="/assets/images/banner-1.jpg" alt="Publicidad" width="1200" height="500">
+    </div>
+
+    <!-- Banner 2: última nota de Mundo GL -->
+    {% set ultimoMundoGl = collections.mundoGl | first %}
+    <div class="carrusel-slide">
+      <span class="badge badge-rosa hero-badge">Mundo GL</span>
+      <img src="{{ ultimoMundoGl.data.imagen }}" alt="{{ ultimoMundoGl.data.title }}" width="1200" height="500">
+      <div class="hero-texto">
+        <h1>{{ ultimoMundoGl.data.title }}</h1>
+        <p>{{ ultimoMundoGl.data.resumen }}</p>
+        <div class="hero-pie">
+          <time datetime="{{ ultimoMundoGl.date }}">{{ ultimoMundoGl.date | readableDate | upper }}</time>
+          <a href="{{ ultimoMundoGl.url }}" class="btn-primario">Leer más →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Banner 3: última noticia -->
     {% set ultimaNoticia = collections.noticias | first %}
     <div class="carrusel-slide">
       <span class="badge badge-rosa hero-badge">Última noticia</span>
@@ -18,11 +41,7 @@ layout: base.njk
         </div>
       </div>
     </div>
-    {% for banner in banners %}
-    <a href="{{ banner.enlace }}" class="carrusel-slide">
-      <img src="{{ banner.imagen }}" alt="{{ banner.alt }}" width="1200" height="500">
-    </a>
-    {% endfor %}
+
   </div>
   <button class="carrusel-btn prev" aria-label="Anterior">‹</button>
   <button class="carrusel-btn next" aria-label="Siguiente">›</button>
@@ -58,7 +77,7 @@ layout: base.njk
       </div>
       <div class="noticias-destacadas">
         <ul class="noticias-lista">
-          {% for nota in collections.noticias | limit(6) %}
+          {% for nota in collections.noticias | limit(8) %}
           <li>
             <a href="{{ nota.url }}">
               <img src="{{ nota.data.imagen }}" alt="{{ nota.data.title }}" width="90" height="70" loading="lazy">
