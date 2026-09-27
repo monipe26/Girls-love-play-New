@@ -32,6 +32,7 @@
   .header-acciones { gap: 4px; }
   .btn-buscar,
   .btn-icono { width: 30px; height: 30px; }
+  .header-acciones svg { width: 16px; height: 16px; }
 
   .menu-principal {
     max-height: none;

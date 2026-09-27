@@ -19,6 +19,22 @@ function seleccionarIdiomaGoogle(codigo) {
   if (!combo) return; // el widget de Google todavía no cargó, se ignora el click
   combo.value = codigo;
   combo.dispatchEvent(new Event("change"));
+  reforzarOcultamientoBanner();
+}
+
+// Refuerzo extra (además del CSS) para la barra gris de Google: a veces la
+// agrega/reordena un instante después de disparar el cambio de idioma, así
+// que se la busca y se tapa a mano durante unos segundos por las dudas.
+function reforzarOcultamientoBanner() {
+  var intentos = 0;
+  var intervalo = setInterval(function () {
+    intentos++;
+    document.querySelectorAll(".goog-te-banner-frame, .goog-te-balloon-frame").forEach(function (el) {
+      el.style.setProperty("display", "none", "important");
+    });
+    document.body.style.setProperty("top", "0px", "important");
+    if (intentos > 15) clearInterval(intervalo); // ~3s y se deja de insistir
+  }, 200);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
