@@ -17,6 +17,8 @@
   .hero-pie { gap: var(--espacio-md); }
   .hero-pie time { font-size: 0.8rem; }
   .hero-pie .btn-primario { padding: 8px 18px; font-size: 0.85rem; }
+
+  .paginacion a { padding: 8px 14px; font-size: 1rem; }
 }
 
 @media (min-width: 900px) {

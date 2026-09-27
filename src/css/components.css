@@ -523,7 +523,8 @@ html[data-tema="oscuro"] .btn-modo-oscuro .icono-luna { display: block; }
 .paginacion a {
   background: rgba(236, 47, 143, 0.25);
   color: var(--color-texto);
-  padding: 8px 14px;
+  padding: 5px 9px;
+  font-size: 0.85rem;
   border-radius: var(--radio-chico);
   font-weight: 600;
 }
