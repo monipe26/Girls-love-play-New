@@ -6,5 +6,6 @@
   <span class="tarjeta-video-info">
     <span class="tarjeta-video-titulo">{{ video.titulo }}</span>
     <span class="tarjeta-video-autor">{{ video.canal }}</span>
+    {% if video.sinopsis %}<span class="tarjeta-video-sinopsis">{{ video.sinopsis }}</span>{% endif %}
   </span>
 </button>
