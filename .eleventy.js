@@ -77,6 +77,17 @@ module.exports = function (eleventyConfig) {
     return `${d.getUTCDate()} de ${meses[d.getUTCMonth()]} de ${d.getUTCFullYear()}`;
   });
 
+  // Calcula minutos de lectura a partir del cuerpo del artículo (cuenta
+  // palabras del HTML ya renderizado, sacando las etiquetas). Se usa en
+  // los artículos de Noticias y Mundo GL (layout articulo.njk).
+  eleventyConfig.addFilter("tiempoLectura", function (html) {
+    if (!html) return "1 min de lectura";
+    const texto = String(html).replace(/<[^>]*>/g, " ");
+    const palabras = texto.trim().split(/\s+/).filter(Boolean).length;
+    const minutos = Math.max(1, Math.round(palabras / 200));
+    return `${minutos} min de lectura`;
+  });
+
   return {
     dir: {
       input: "src",
