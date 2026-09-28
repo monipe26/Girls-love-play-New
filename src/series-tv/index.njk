@@ -2,8 +2,13 @@
 title: "Series"
 description: "Series con temática GL: mirá el capítulo y elegí la próxima serie sin salir de la página."
 layout: base.njk
+pagination:
+  data: seriesTv
+  size: 10
+  alias: seriesTvPagina
+permalink: "{{ '/series-tv/' if pagination.pageNumber == 0 else '/series-tv/' + (pagination.pageNumber + 1) + '/' }}"
 ---
-{% set primera = seriesTv[0] %}
+{% set primera = seriesTvPagina[0] %}
 {% if primera.playlist %}{% set srcInicial = "videoseries?list=" + primera.playlist %}
 {% elif primera.videos and primera.videos.length %}{% set srcInicial = primera.videos[0] %}
 {% else %}{% set srcInicial = primera.youtubeId %}{% endif %}
@@ -13,12 +18,11 @@ layout: base.njk
 
   <section class="reproductor-principal" data-reproductor-series-tv aria-label="Reproductor de Series">
     <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/{{ srcInicial }}" title="{{ seriesTv[0].titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/{{ srcInicial }}" title="{{ primera.titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>
 
-    <p class="reproductor-titulo">Reproduciendo ahora: {{ seriesTv[0].titulo }} ({{ seriesTv[0].anio }})</p>
+    <p class="reproductor-titulo">Reproduciendo ahora: {{ primera.titulo }} ({{ primera.anio }})</p>
 
-    <div class="lista-partes lista-partes-series-tv" data-partes-series-tv aria-label="Partes de la serie" hidden></div>
 
     <div class="reproductor-nav" data-nav-series-tv>
       <button type="button" class="btn-nav-episodio" data-nav="prev" disabled>‹ Episodio anterior</button>
@@ -29,12 +33,31 @@ layout: base.njk
       <button type="button" class="btn-nav-episodio" data-nav="next">Episodio siguiente ›</button>
     </div>
 
-    <p class="reproductor-sinopsis">{{ seriesTv[0].sinopsis }}</p>
+    <p class="reproductor-sinopsis">{{ primera.sinopsis }}</p>
   </section>
 
   <div class="grid-tarjetas grid-series-tv">
-    {% for serie in seriesTv %}
+    {% for serie in seriesTvPagina %}
       {% include "tarjeta-serie-tv.njk" %}
     {% endfor %}
   </div>
+
+  {% set totalPaginas = pagination.pages.length %}
+  {% set paginaActual = pagination.pageNumber + 1 %}
+  <nav class="paginacion" aria-label="Paginación de Series">
+    {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">‹ Anterior</a>{% endif %}
+    {% for pageEntry in pagination.pages %}
+      {% set numero = loop.index %}
+      {% set seMuestra = (numero == 1 or numero == totalPaginas or (numero >= paginaActual - 2 and numero <= paginaActual + 2)) %}
+      {% if seMuestra %}
+        {% set anteriorSeMuestra = (numero - 1 == 1 or numero - 1 == totalPaginas or (numero - 1 >= paginaActual - 2 and numero - 1 <= paginaActual + 2)) %}
+        {% if numero > 1 and not anteriorSeMuestra %}
+          <span class="paginacion-puntos">…</span>
+        {% endif %}
+        <a href="{{ pagination.hrefs[loop.index0] }}"
+           class="{% if numero == paginaActual %}activo{% endif %}">{{ numero }}</a>
+      {% endif %}
+    {% endfor %}
+    {% if pagination.href.next %}<a href="{{ pagination.href.next }}">Siguiente ›</a>{% endif %}
+  </nav>
 </section>
