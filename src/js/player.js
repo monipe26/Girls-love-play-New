@@ -193,11 +193,12 @@ if (reproductorSeriesTv) {
   let actualizarNavSeriesTv = () => {};
 
   const cargarSerieTv = (tarjeta) => {
-    const id = tarjeta.dataset.youtubeId;
+    const id = tarjeta.dataset.embed;
     const titulo = tarjeta.dataset.titulo;
     const sinopsis = tarjeta.dataset.sinopsis;
 
-    wrapper.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" title="${titulo}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+    const separador = id.includes("?") ? "&" : "?";
+    wrapper.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}${separador}autoplay=1" title="${titulo}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
     if (tituloEl) tituloEl.textContent = `Reproduciendo ahora: ${titulo}`;
     if (sinopsisEl) sinopsisEl.textContent = sinopsis || "";
 

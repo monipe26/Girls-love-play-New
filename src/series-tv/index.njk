@@ -9,7 +9,7 @@ layout: base.njk
 
   <section class="reproductor-principal" data-reproductor-series-tv aria-label="Reproductor de Series">
     <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/{{ seriesTv[0].youtubeId }}" title="{{ seriesTv[0].titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/{{ seriesTv[0].embed or seriesTv[0].youtubeId }}" title="{{ seriesTv[0].titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>
 
     <p class="reproductor-titulo">Reproduciendo ahora: {{ seriesTv[0].titulo }} ({{ seriesTv[0].anio }})</p>

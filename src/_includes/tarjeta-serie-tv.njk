@@ -1,7 +1,7 @@
 <button
   type="button"
   class="tarjeta-serie-tv {% if loop.first %}activo{% endif %}"
-  data-youtube-id="{{ serie.youtubeId }}"
+  data-embed="{{ serie.embed or serie.youtubeId }}"
   data-titulo="{{ serie.titulo }} ({{ serie.anio }})"
   data-sinopsis="{{ serie.sinopsis }}"
   aria-label="Reproducir {{ serie.titulo }}"
