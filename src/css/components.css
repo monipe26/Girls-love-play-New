@@ -725,6 +725,9 @@ html[data-tema="oscuro"] .site-footer {
 .footer-social a:hover { background: var(--color-primario); }
 
 .footer-newsletter-titulo { margin-bottom: var(--espacio-xs); }
+.footer-legal { margin-top: var(--espacio-md); }
+.footer-legal-titulo { margin-bottom: var(--espacio-xs); }
+.footer-legal p { margin-bottom: var(--espacio-xs); line-height: 1.5; }
 .footer-newsletter {
   display: flex;
   background: rgba(255,255,255,0.08);
@@ -971,3 +974,17 @@ body.modal-actriz-abierto { overflow: hidden; }
   font-weight: 600;
 }
 .badge-ship { background: var(--color-degradado); color: #fff; }
+
+/* ===== CATÁLOGO: aviso "Próximamente" (temporal, hasta cargar el catálogo definitivo) ===== */
+.catalogo-proximamente {
+  max-width: 560px;
+  margin: var(--espacio-lg) auto;
+  padding: var(--espacio-lg) var(--espacio-md);
+  text-align: center;
+  background: #fff;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-tarjeta);
+}
+.catalogo-proximamente-icono { display: block; font-size: 2.4rem; margin-bottom: var(--espacio-xs); }
+.catalogo-proximamente h2 { margin-bottom: var(--espacio-xs); }
+.catalogo-proximamente p { color: var(--color-texto-sec); margin-bottom: var(--espacio-xs); }
