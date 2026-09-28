@@ -39,7 +39,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("noticias", function (collectionApi) {
-    return collectionApi.getFilteredByGlob("src/noticias/*.njk").sort((a, b) => b.date - a.date);
+    return collectionApi.getFilteredByGlob("src/noticias/*.md").sort((a, b) => b.date - a.date);
   });
 
   // Colección de Mundo GL, más nueva primero
@@ -51,7 +51,7 @@ module.exports = function (eleventyConfig) {
   // más nueva primero, para que el ticker siempre muestre lo último
   // publicado en vez de un texto fijo escrito a mano.
   eleventyConfig.addCollection("ticker", function (collectionApi) {
-    const noticias = collectionApi.getFilteredByGlob("src/noticias/*.njk");
+    const noticias = collectionApi.getFilteredByGlob("src/noticias/*.md");
     const mundoGl = collectionApi.getFilteredByGlob("src/mundo-gl/*.njk");
     return [...noticias, ...mundoGl].sort((a, b) => b.date - a.date);
   });
