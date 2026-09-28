@@ -182,8 +182,9 @@ document.querySelectorAll(".comunidad-video").forEach((boton) => {
 // Página "Series": reproductor principal arriba + grilla de covers abajo.
 // Cada serie puede ser:
 //   - un solo video (data-videos con un id),
-//   - un video con VARIAS PARTES (data-videos="id1,id2,id3..."): se muestran
-//     botones "Parte 1, Parte 2..." y al terminar una parte arranca la siguiente,
+//   - un video con VARIAS PARTES (data-videos="id1,id2,id3..."): se navegan con
+//     "Episodio anterior / siguiente" (sin fila de botones, hay series con 20
+//     partes) y al terminar una parte arranca la siguiente sola,
 //   - una PLAYLIST de YouTube (data-playlist="PL..."): YouTube la va pasando solo.
 // Los botones "Episodio anterior / siguiente" recorren primero las partes (o los
 // videos de la playlist) de la serie que se está viendo y, cuando no quedan más,
@@ -193,7 +194,6 @@ if (reproductorSeriesTv) {
   const wrapper = reproductorSeriesTv.querySelector(".video-wrapper");
   const tituloEl = reproductorSeriesTv.querySelector(".reproductor-titulo");
   const sinopsisEl = reproductorSeriesTv.querySelector(".reproductor-sinopsis");
-  const listaPartesEl = reproductorSeriesTv.querySelector("[data-partes-series-tv]");
   const tarjetas = Array.from(document.querySelectorAll(".tarjeta-serie-tv"));
   const nav = document.querySelector("[data-nav-series-tv]");
   const btnPrev = nav ? nav.querySelector('[data-nav="prev"]') : null;
@@ -270,30 +270,6 @@ if (reproductorSeriesTv) {
     actualizarTitulo();
   };
 
-  const dibujarPartes = () => {
-    if (!listaPartesEl || !serieActual) return;
-    const total = serieActual.playlist ? 0 : serieActual.videos.length;
-    listaPartesEl.innerHTML = "";
-    listaPartesEl.hidden = total <= 1;
-    if (total <= 1) return;
-    for (let i = 0; i < total; i++) {
-      const boton = document.createElement("button");
-      boton.type = "button";
-      boton.className = "btn-parte" + (i === parteActual ? " activo" : "");
-      boton.textContent = total > 8 ? String(i + 1) : `Parte ${i + 1}`;
-      boton.setAttribute("aria-label", `Ver parte ${i + 1} de ${total}`);
-      boton.addEventListener("click", () => cargarParte(i));
-      listaPartesEl.appendChild(boton);
-    }
-  };
-
-  const marcarParteActiva = () => {
-    if (!listaPartesEl) return;
-    Array.from(listaPartesEl.children).forEach((b, i) => {
-      b.classList.toggle("activo", i === parteActual);
-    });
-  };
-
   const crearIframe = (serie, parte, conAutoplay) => {
     const iframe = document.createElement("iframe");
     iframe.id = "reproductor-series-tv-iframe";
@@ -356,7 +332,6 @@ if (reproductorSeriesTv) {
       ytSeries = null;
       conectarApi(crearIframe(serieActual, indice, true));
     }
-    marcarParteActiva();
     actualizarNav();
   };
 
@@ -375,7 +350,6 @@ if (reproductorSeriesTv) {
     if (sinopsisEl) sinopsisEl.textContent = serie.sinopsis;
     tarjetas.forEach((t) => t.classList.remove("activo"));
     tarjeta.classList.add("activo");
-    dibujarPartes();
     actualizarNav();
     if (conAutoplay) reproductorSeriesTv.scrollIntoView({ behavior: "smooth", block: "start" });
   };
@@ -413,7 +387,7 @@ if (reproductorSeriesTv) {
 
   // Estado inicial: la primera serie ya viene armada desde el servidor. Si es de
   // un solo video se deja tal cual; si tiene partes o es playlist se re-arma para
-  // mostrar los botones de partes y conectarla a la API (sin autoplay).
+  // conectarla a la API (para las partes / playlist), sin autoplay.
   const tarjetaInicial = tarjetas.find((t) => t.classList.contains("activo")) || tarjetas[0];
   if (tarjetaInicial) {
     const inicial = leerSerie(tarjetaInicial);
