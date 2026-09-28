@@ -463,8 +463,10 @@ if (reproductorSeriesTv) {
   const tarjetaInicial = tarjetas.find((t) => t.classList.contains("activo")) || tarjetas[0];
   if (tarjetaInicial) {
     const inicial = leerSerie(tarjetaInicial);
+    // En la página propia de una serie (data-autoplay) el video arranca solo.
+    const conAutoplayInicial = reproductorSeriesTv.hasAttribute("data-autoplay");
     if (inicial.playlist || inicial.videos.length > 1) {
-      cargarSerie(tarjetaInicial, false, false);
+      cargarSerie(tarjetaInicial, conAutoplayInicial, false);
     } else {
       serieActual = inicial;
       parteActual = 0;
