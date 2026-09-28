@@ -25,12 +25,11 @@ permalink: "{{ '/series-tv/' if pagination.pageNumber == 0 else '/series-tv/' + 
 
 
     <div class="reproductor-nav" data-nav-series-tv>
-      <button type="button" class="btn-nav-episodio" data-nav="prev" disabled>‹ Episodio anterior</button>
+      <button type="button" class="btn-nav-episodio" data-nav="prev" disabled>‹ <span class="txt-largo">Episodio </span>anterior</button>
       <span class="reproductor-corazon" aria-hidden="true">
-        <!-- TODO: reemplazar por <img src="/assets/icons/corazon.png" alt=""> (favorito) cuando se suba la imagen -->
-        ♥
+        <img src="/assets/icons/corazon.png" alt="" width="40" height="37">
       </span>
-      <button type="button" class="btn-nav-episodio" data-nav="next">Episodio siguiente ›</button>
+      <button type="button" class="btn-nav-episodio" data-nav="next"><span class="txt-largo">Episodio </span>siguiente ›</button>
     </div>
 
     <p class="reproductor-sinopsis">{{ primera.sinopsis }}</p>

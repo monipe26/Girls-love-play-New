@@ -49,8 +49,11 @@ layout: base.njk
       <iframe id="ficha-partes-iframe" src="https://www.youtube.com/embed/{{ videos[0] }}?enablejsapi=1&playsinline=1&rel=0" title="{{ titulo }} - Parte 1" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>
     <div class="reproductor-nav" data-ficha-nav>
-      <button type="button" class="btn-nav-episodio" data-nav="prev" disabled>‹ Episodio anterior</button>
-      <button type="button" class="btn-nav-episodio" data-nav="next">Episodio siguiente ›</button>
+      <button type="button" class="btn-nav-episodio" data-nav="prev" disabled>‹ <span class="txt-largo">Episodio </span>anterior</button>
+      <span class="reproductor-corazon" aria-hidden="true">
+        <img src="/assets/icons/corazon.png" alt="" width="40" height="37">
+      </span>
+      <button type="button" class="btn-nav-episodio" data-nav="next"><span class="txt-largo">Episodio </span>siguiente ›</button>
     </div>
   </section>
   {% elif videos %}
