@@ -1,0 +1,36 @@
+# ============================================================
+# Decap CMS · Girls Love Play · PASO 0 (prueba de conexión)
+# Solo tiene UN archivo de prueba (destacado.json), que no se
+# usa en ninguna página del sitio. Las secciones reales se
+# agregan en los pasos siguientes, de a una.
+# ============================================================
+
+backend:
+  name: github
+  repo: monipe26/Girls-love-play-New
+  branch: main
+  # Login propio en Cloudflare (functions/api/auth.js y callback.js)
+  base_url: https://girlsloveplay.com
+  auth_endpoint: api/auth
+
+# Cada cambio se guarda como borrador (Pull Request), se puede ver
+# una vista previa en Cloudflare y recién después se publica.
+publish_mode: editorial_workflow
+
+locale: es
+site_url: https://girlsloveplay.com
+display_url: https://girlsloveplay.com
+
+media_folder: src/assets/images/pruebas
+public_folder: /assets/images/pruebas
+
+collections:
+  - name: prueba
+    label: "🧪 Prueba de conexión"
+    files:
+      - name: destacado
+        label: "Video destacado (prueba)"
+        file: src/_data/destacado.json
+        fields:
+          - { label: "Título", name: titulo, widget: string }
+          - { label: "ID de YouTube", name: youtubeId, widget: string, hint: "Lo que va después de v= en la URL del video" }
