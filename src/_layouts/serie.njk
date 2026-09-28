@@ -33,10 +33,28 @@ layout: base.njk
     </div>
   </div>
 
+  {% if playlist %}
+  <section class="ficha-reproductor" aria-label="Ver serie">
+    <p class="ficha-reproductor-titulo">Ver serie</p>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/videoseries?list={{ playlist }}" title="{{ titulo }}" loading="lazy" allowfullscreen></iframe>
+    </div>
+  </section>
+  {% elif videos %}
+  {% for video in videos %}
+  <section class="ficha-reproductor" aria-label="Ver serie">
+    <p class="ficha-reproductor-titulo">Ver serie{% if videos.length > 1 %} · Parte {{ loop.index }}{% endif %}</p>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/{{ video }}" title="{{ titulo }}{% if videos.length > 1 %} - Parte {{ loop.index }}{% endif %}" loading="lazy" allowfullscreen></iframe>
+    </div>
+  </section>
+  {% endfor %}
+  {% else %}
   <section class="ficha-reproductor" aria-label="Tráiler">
     <p class="ficha-reproductor-titulo">Tráiler</p>
     <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/{{ youtubeId }}" title="Tráiler de {{ titulo }}" loading="lazy" allowfullscreen></iframe>
     </div>
   </section>
+  {% endif %}
 </article>
