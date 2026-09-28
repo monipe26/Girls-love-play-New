@@ -183,6 +183,11 @@ module.exports = function (eleventyConfig) {
     return elegidas;
   });
 
+  // Otros videos de la misma sección (para "Más videos" en la página de cada video)
+  eleventyConfig.addFilter("mismosVideos", function (lista, clave, slug, cantidad) {
+    return (lista || []).filter((v) => v.clave === clave && v.slug !== slug).slice(0, cantidad || 4);
+  });
+
   // ---------- SEO ----------
   // Convierte una ruta (/assets/...) en dirección completa (https://girlsloveplay.com/assets/...).
   // Codifica espacios y tildes de los nombres de archivo sin duplicar lo ya codificado.
