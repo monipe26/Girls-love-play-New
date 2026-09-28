@@ -14,6 +14,21 @@ module.exports = function (eleventyConfig) {
   });
 
   // Colección de Noticias GL, más nueva primero
+  // Datos para el Sorteo GL (/minijuegos/): una lista liviana con las series del
+  // Catálogo. Se arma sola al generar el sitio, así que cuando agregues una serie
+  // nueva al catálogo el sorteo la suma automáticamente (igual que hacía el viejo
+  // con series.json).
+  eleventyConfig.addCollection("sorteoSeries", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("src/series/*.njk")
+      .filter((serie) => serie.data.slug && serie.data.titulo)
+      .map((serie) => ({
+        titulo: serie.data.titulo,
+        genero: serie.data.genero || "GL",
+        img: serie.data.portada || "",
+        url: "/series/" + serie.data.slug + "/",
+      }));
+  });
+
   eleventyConfig.addCollection("noticias", function (collectionApi) {
     return collectionApi.getFilteredByGlob("src/noticias/*.njk").sort((a, b) => b.date - a.date);
   });
