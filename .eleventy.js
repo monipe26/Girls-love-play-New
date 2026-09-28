@@ -1,6 +1,13 @@
 const site = require("./src/_data/site.js");
 
+const optimizarImagenes = require("./optimizar-imagenes.js");
+
 module.exports = function (eleventyConfig) {
+  // Al terminar el build, optimiza automáticamente las imágenes publicadas.
+  eleventyConfig.on("eleventy.after", async ({ dir }) => {
+    await optimizarImagenes(dir.output);
+  });
+
   // Copiar archivos estáticos tal cual, sin procesarlos
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
@@ -44,7 +51,7 @@ module.exports = function (eleventyConfig) {
 
   // Colección de Mundo GL, más nueva primero
   eleventyConfig.addCollection("mundoGl", function (collectionApi) {
-    return collectionApi.getFilteredByGlob("src/mundo-gl/*.njk").sort((a, b) => b.date - a.date);
+    return collectionApi.getFilteredByGlob("src/mundo-gl/*.md").sort((a, b) => b.date - a.date);
   });
 
   // Colección para el ticker de arriba de todo: mezcla Noticias + Mundo GL,
@@ -52,7 +59,7 @@ module.exports = function (eleventyConfig) {
   // publicado en vez de un texto fijo escrito a mano.
   eleventyConfig.addCollection("ticker", function (collectionApi) {
     const noticias = collectionApi.getFilteredByGlob("src/noticias/*.md");
-    const mundoGl = collectionApi.getFilteredByGlob("src/mundo-gl/*.njk");
+    const mundoGl = collectionApi.getFilteredByGlob("src/mundo-gl/*.md");
     return [...noticias, ...mundoGl].sort((a, b) => b.date - a.date);
   });
 
@@ -129,6 +136,52 @@ module.exports = function (eleventyConfig) {
     return `${minutos} min de lectura`;
   });
 
+
+  // ---------- ARTÍCULOS (2B) ----------
+  // Ancho y alto reales de una imagen del sitio (para width/height y og:image).
+  // Se limita al ancho máximo que deja la optimización automática, con la misma proporción.
+  const fs = require("fs");
+  const path = require("path");
+  const MAX_ANCHO = 1600;
+  eleventyConfig.addFilter("imgSize", function (ruta) {
+    try {
+      if (!ruta || /^https?:/i.test(ruta)) return null;
+      const archivo = path.join("src", decodeURI(String(ruta)));
+      const b = fs.readFileSync(archivo);
+      let w, h;
+      if (b[0] === 0x89 && b.toString("ascii", 1, 4) === "PNG") { w = b.readUInt32BE(16); h = b.readUInt32BE(20); }
+      else if (b[0] === 0xff && b[1] === 0xd8) {
+        let i = 2;
+        while (i < b.length) {
+          if (b[i] !== 0xff) { i++; continue; }
+          const m = b[i + 1];
+          if (m >= 0xc0 && m <= 0xcf && m !== 0xc4 && m !== 0xc8 && m !== 0xcc) { h = b.readUInt16BE(i + 5); w = b.readUInt16BE(i + 7); break; }
+          i += 2 + b.readUInt16BE(i + 2);
+        }
+      } else if (b.toString("ascii", 0, 4) === "RIFF" && b.toString("ascii", 8, 12) === "WEBP") {
+        const t = b.toString("ascii", 12, 16);
+        if (t === "VP8X") { w = 1 + b.readUIntLE(24, 3); h = 1 + b.readUIntLE(27, 3); }
+        else if (t === "VP8 ") { w = b.readUInt16LE(26) & 0x3fff; h = b.readUInt16LE(28) & 0x3fff; }
+        else if (t === "VP8L") { const v = b.readUInt32LE(21); w = (v & 0x3fff) + 1; h = ((v >> 14) & 0x3fff) + 1; }
+      }
+      if (!w || !h) return null;
+      if (w > MAX_ANCHO) { h = Math.round((h * MAX_ANCHO) / w); w = MAX_ANCHO; }
+      return { w, h };
+    } catch (e) { return null; }
+  });
+
+  // Noticias relacionadas: primero las elegidas a mano (slugs, hasta 3) y después
+  // las últimas de la misma sección hasta completar 3. Nunca incluye la propia nota.
+  eleventyConfig.addFilter("relacionadas", function (lista, urlActual, manuales) {
+    const otras = (lista || []).filter((n) => n.url !== urlActual);
+    const elegidas = [];
+    (manuales || []).slice(0, 3).forEach((slug) => {
+      const n = otras.find((x) => x.fileSlug === slug || (x.data && x.data.slug === slug));
+      if (n && !elegidas.includes(n)) elegidas.push(n);
+    });
+    for (const n of otras) { if (elegidas.length >= 3) break; if (!elegidas.includes(n)) elegidas.push(n); }
+    return elegidas;
+  });
 
   // ---------- SEO ----------
   // Convierte una ruta (/assets/...) en dirección completa (https://girlsloveplay.com/assets/...).
