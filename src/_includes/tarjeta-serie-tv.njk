@@ -20,7 +20,7 @@
         <span class="tarjeta-serie-tv-genero">{{ serie.genero }}</span>
       </span>
       <span class="tarjeta-serie-tv-sinopsis">{{ serie.sinopsis }}</span>
-      <button type="button" class="tarjeta-serie-tv-btn">▶ Ver serie</button>
+      <a href="/series-gl/{{ (serie.slug or serie.titulo) | slugify }}/" class="tarjeta-serie-tv-btn">▶ Ver serie</a>
     </div>
   </div>
   <span class="tarjeta-serie-tv-titulo">{{ serie.titulo }}</span>

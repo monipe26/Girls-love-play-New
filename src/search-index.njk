@@ -11,9 +11,7 @@ eleventyExcludeFromCollections: true
   {%- set _ = items.push({ "t": s.data.titulo, "u": s.url, "k": "Catálogo", "i": s.data.portada, "x": s.data.sinopsis, "a": s.data.anio }) -%}
 {%- endfor -%}
 {%- for s in seriesTv -%}
-  {%- set pag = ((loop.index0 / 10) | int) -%}
-  {%- set base = "/series-tv/" if pag == 0 else "/series-tv/" + (pag + 1) + "/" -%}
-  {%- set _ = items.push({ "t": s.titulo, "u": base + "#serie-" + (s.titulo | slugify), "k": "Series", "i": s.portada, "x": s.sinopsis, "a": s.anio }) -%}
+  {%- set _ = items.push({ "t": s.titulo, "u": "/series-gl/" + ((s.slug or s.titulo) | slugify) + "/", "k": "Series", "i": s.portada, "x": s.sinopsis, "a": s.anio }) -%}
 {%- endfor -%}
 {%- for n in collections.noticias -%}
   {%- set _ = items.push({ "t": n.data.title, "u": n.url, "k": "Noticias", "i": n.data.imagen, "x": n.data.resumen }) -%}

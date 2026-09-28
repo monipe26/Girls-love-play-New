@@ -2,7 +2,7 @@
 // Usa /search-index.json (se genera solo en cada build con todo el contenido:
 // series, noticias, Mundo GL, actrices, OST, extras, etc.). Sirve para:
 //   1) la página /buscar/ (el buscador de la lupa del menú de arriba),
-//   2) el buscador de dentro de Series (/series/ y /series-tv/), que solo
+//   2) el buscador de dentro de Series (/catalogo/ y /series-gl/), que solo
 //      busca entre las series de esa sección.
 (function () {
   function normalizar(texto) {

@@ -1,0 +1,71 @@
+---
+title: "Series"
+description: "Series con temática GL: mirá el capítulo y elegí la próxima serie sin salir de la página."
+layout: base.njk
+pagination:
+  data: seriesTv
+  size: 10
+  alias: seriesTvPagina
+permalink: "{{ '/series-gl/' if pagination.pageNumber == 0 else '/series-gl/' + (pagination.pageNumber + 1) + '/' }}"
+---
+{% set primera = seriesTvPagina[0] %}
+{% if primera.playlist %}{% set srcInicial = "videoseries?list=" + primera.playlist %}
+{% elif primera.videos and primera.videos.length %}{% set srcInicial = primera.videos[0] %}
+{% else %}{% set srcInicial = primera.youtubeId %}{% endif %}
+<section class="seccion seccion-series-tv">
+  <h1>📺 Series</h1>
+  <p class="seccion-sub seccion-sub-reproductor">Elegí una serie de la grilla y se reproduce acá arriba</p>
+
+  <section class="reproductor-principal" data-reproductor-series-tv aria-label="Reproductor de Series">
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/{{ srcInicial }}" title="{{ primera.titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+
+    <p class="reproductor-titulo">Reproduciendo ahora: {{ primera.titulo }} ({{ primera.anio }})</p>
+
+
+    <div class="reproductor-nav" data-nav-series-tv>
+      <button type="button" class="btn-nav-episodio" data-nav="prev" disabled>‹ <span class="txt-largo">Episodio </span>anterior</button>
+      <span class="reproductor-corazon" aria-hidden="true">
+        <img src="/assets/icons/corazon.png" alt="" width="40" height="37">
+      </span>
+      <button type="button" class="btn-nav-episodio" data-nav="next"><span class="txt-largo">Episodio </span>siguiente ›</button>
+    </div>
+
+    <p class="reproductor-sinopsis">{{ primera.sinopsis }}</p>
+  </section>
+
+  <form class="buscador-series" role="search" data-buscador-series data-tipo="Series">
+    <label for="buscar-series" class="sr-only">Buscar una serie</label>
+    <input type="search" id="buscar-series" placeholder="🔍 Buscar una serie…" autocomplete="off">
+    <p class="buscador-series-estado" data-series-estado aria-live="polite"></p>
+  </form>
+  <div data-resultados-series hidden></div>
+
+  <div data-lista-series>
+  <div class="grid-tarjetas grid-series-tv">
+    {% for serie in seriesTvPagina %}
+      {% include "tarjeta-serie-tv.njk" %}
+    {% endfor %}
+  </div>
+
+  {% set totalPaginas = pagination.pages.length %}
+  {% set paginaActual = pagination.pageNumber + 1 %}
+  <nav class="paginacion" aria-label="Paginación de Series">
+    {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">‹ Anterior</a>{% endif %}
+    {% for pageEntry in pagination.pages %}
+      {% set numero = loop.index %}
+      {% set seMuestra = (numero == 1 or numero == totalPaginas or (numero >= paginaActual - 2 and numero <= paginaActual + 2)) %}
+      {% if seMuestra %}
+        {% set anteriorSeMuestra = (numero - 1 == 1 or numero - 1 == totalPaginas or (numero - 1 >= paginaActual - 2 and numero - 1 <= paginaActual + 2)) %}
+        {% if numero > 1 and not anteriorSeMuestra %}
+          <span class="paginacion-puntos">…</span>
+        {% endif %}
+        <a href="{{ pagination.hrefs[loop.index0] }}"
+           class="{% if numero == paginaActual %}activo{% endif %}">{{ numero }}</a>
+      {% endif %}
+    {% endfor %}
+    {% if pagination.href.next %}<a href="{{ pagination.href.next }}">Siguiente ›</a>{% endif %}
+  </nav>
+  </div>
+</section>

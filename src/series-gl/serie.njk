@@ -1,0 +1,46 @@
+---
+layout: base.njk
+pagination:
+  data: seriesTv
+  size: 1
+  alias: serie
+permalink: "/series-gl/{{ (serie.slug or serie.titulo) | slugify }}/"
+eleventyExcludeFromCollections: true
+eleventyComputed:
+  title: "{{ serie.titulo }} ({{ serie.anio }})"
+  description: "{{ serie.titulo }} ({{ serie.anio }}): {{ serie.sinopsis | truncar(140) }}"
+  imagen: "{{ serie.portada }}"
+---
+{% if serie.playlist %}{% set srcInicial = "videoseries?list=" + serie.playlist %}
+{% elif serie.videos and serie.videos.length %}{% set srcInicial = serie.videos[0] %}
+{% else %}{% set srcInicial = serie.youtubeId %}{% endif %}
+{% set _videos = serie.videos or ([serie.youtubeId] if serie.youtubeId else []) %}
+<section class="seccion seccion-series-tv">
+  <h1>📺 {{ serie.titulo }} <span class="ficha-anio">({{ serie.anio }})</span></h1>
+  {% if serie.genero %}<p class="seccion-sub seccion-sub-reproductor">{{ serie.genero }}</p>{% endif %}
+
+  <section class="reproductor-principal" data-reproductor-series-tv aria-label="Reproductor de {{ serie.titulo }}">
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/{{ srcInicial }}" title="{{ serie.titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+
+    <p class="reproductor-titulo">Reproduciendo ahora: {{ serie.titulo }} ({{ serie.anio }})</p>
+
+    <div class="reproductor-nav" data-nav-series-tv>
+      <button type="button" class="btn-nav-episodio" data-nav="prev" disabled>‹ <span class="txt-largo">Episodio </span>anterior</button>
+      <span class="reproductor-corazon" aria-hidden="true">
+        <img src="/assets/icons/corazon.png" alt="" width="40" height="37">
+      </span>
+      <button type="button" class="btn-nav-episodio" data-nav="next"><span class="txt-largo">Episodio </span>siguiente ›</button>
+    </div>
+
+    <p class="reproductor-sinopsis">{{ serie.sinopsis }}</p>
+  </section>
+
+  {# Dato interno que lee el reproductor (player.js). No se ve en pantalla. #}
+  <div class="tarjeta-serie-tv activo" style="display:none" data-videos="{{ _videos | join(',') }}" data-playlist="{{ serie.playlist or '' }}" data-titulo="{{ serie.titulo }} ({{ serie.anio }})" data-sinopsis="{{ serie.sinopsis }}"></div>
+
+  <p class="articulo-volver">
+    <a href="/series-gl/" class="btn-primario">📺 Ver todas las series</a>
+  </p>
+</section>

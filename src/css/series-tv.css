@@ -52,6 +52,7 @@
   background: var(--color-primario);
   transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 }
+a.tarjeta-serie-tv-btn { display: inline-block; text-decoration: none; }
 .tarjeta-serie-tv-btn:hover { background: var(--color-primario-hover); }
 .tarjeta-serie-tv-btn:active { transform: scale(0.96); }
 .tarjeta-serie-tv.elegida .tarjeta-serie-tv-btn {

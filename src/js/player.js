@@ -188,7 +188,7 @@ document.querySelectorAll(".comunidad-video").forEach((boton) => {
 });
 
 // Nota: la tarjeta destacada (ej. "Blank: The Series" en el home) ya no se
-// reproduce acá adentro — ahora es un link directo a /series-tv/, así que
+// reproduce acá adentro — ahora es un link directo a /series-gl/, así que
 // no necesita JS.
 
 // Página "Series": reproductor principal arriba + grilla de covers abajo.
@@ -392,19 +392,9 @@ if (reproductorSeriesTv) {
 
   tarjetas.forEach((tarjeta) => {
     tarjeta.addEventListener("click", (evento) => {
-      const boton = evento.target.closest(".tarjeta-serie-tv-btn");
-      if (boton) {
-        evento.stopPropagation();
-        if (tarjeta.classList.contains("elegida")) return; // ya se está abriendo
-        // El botón cambia de color como indicación visual y un instante después
-        // lleva al reproductor.
-        tarjeta.classList.add("abierta", "elegida");
-        setTimeout(() => {
-          cargarSerie(tarjeta, true, true);
-          setTimeout(() => resetearTarjeta(tarjeta), 900);
-        }, 380);
-        return;
-      }
+      // "Ver serie" es un enlace a la página propia de la serie: el navegador
+      // lo abre solo, acá no hay que hacer nada.
+      if (evento.target.closest(".tarjeta-serie-tv-btn")) return;
       // Toque en el resto del cover: abre / cierra la capa de sinopsis (sin reproducir)
       if (tarjeta.classList.contains("abierta")) resetearTarjeta(tarjeta);
       else abrirTarjeta(tarjeta);
@@ -430,7 +420,7 @@ if (reproductorSeriesTv) {
     if (!evento.target.closest(".tarjeta-serie-tv")) cerrarTodas();
   });
 
-  // Venir desde el buscador de Series (/series-tv/#serie-nombre): se abre esa serie
+  // Venir desde el buscador de Series (/series-gl/#serie-nombre): se abre esa serie
   const abrirDesdeHash = () => {
     const coincidencia = location.hash.match(/^#serie-(.+)$/);
     if (!coincidencia) return;
@@ -485,7 +475,7 @@ if (reproductorSeriesTv) {
   window.addEventListener("hashchange", abrirDesdeHash);
 }
 
-// Ficha de una serie con varias partes (/series/nombre-de-la-serie/): un solo
+// Ficha de una serie con varias partes (/catalogo/nombre-de-la-serie/): un solo
 // reproductor y botones "Episodio anterior / siguiente" (no se lista cada parte,
 // hay series con 20 o más). Al terminar una parte arranca la siguiente sola.
 const fichaPartes = document.querySelector("[data-ficha-partes]");

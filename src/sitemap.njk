@@ -12,4 +12,10 @@ eleventyExcludeFromCollections: true
   </url>
   {%- endif %}
 {%- endfor %}
+{#- Páginas de cada serie de Series GL (salen de seriesTv.json) #}
+{%- for s in seriesTv %}
+  <url>
+    <loc>{{ site.url }}/series-gl/{{ (s.slug or s.titulo) | slugify }}/</loc>
+  </url>
+{%- endfor %}
 </urlset>

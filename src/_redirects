@@ -1,0 +1,10 @@
+# Cloudflare Pages: redirecciones de las direcciones que cambiaron.
+# Series: /series-tv/ ahora es /series-gl/
+/series-tv /series-gl/ 301
+/series-tv/ /series-gl/ 301
+/series-tv/* /series-gl/:splat 301
+
+# Catálogo: /series/ ahora es /catalogo/
+/series /catalogo/ 301
+/series/ /catalogo/ 301
+/series/* /catalogo/:splat 301
