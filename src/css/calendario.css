@@ -10,6 +10,7 @@
   margin: var(--espacio-sm) 0 var(--espacio-md);
 }
 .cal-mes { margin: 0; min-width: 11ch; text-align: center; }
+.seccion-calendario { overflow-x: hidden; }
 .cal-nav {
   width: 40px; height: 40px;
   display: flex; align-items: center; justify-content: center;
@@ -25,8 +26,9 @@ a.cal-nav:hover, a.cal-nav:focus-visible { background: var(--color-primario); co
 
 /* --- Celular: agenda --- */
 .cal-encabezado { display: none; }
-.cal-grid { display: flex; flex-direction: column; gap: var(--espacio-xs); }
-.cal-dia--otro, .cal-dia--vacio { display: none; }
+.cal-grid { display: flex; flex-direction: column; gap: var(--espacio-xs); list-style: none; margin: 0; padding: 0; }
+.cal-grid .cal-dia--otro,
+.cal-grid .cal-dia--vacio { display: none; }
 .cal-dia {
   display: flex;
   gap: var(--espacio-sm);
@@ -74,7 +76,8 @@ a.cal-evento-titulo:hover { color: var(--color-primario); }
     grid-template-columns: repeat(7, minmax(0, 1fr));
     gap: 6px;
   }
-  .cal-dia--otro, .cal-dia--vacio { display: flex; }
+  .cal-grid .cal-dia--otro,
+  .cal-grid .cal-dia--vacio { display: flex; }
   .cal-dia {
     flex-direction: column;
     gap: 6px;
