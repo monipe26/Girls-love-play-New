@@ -40,15 +40,26 @@ layout: base.njk
       <iframe src="https://www.youtube.com/embed/videoseries?list={{ playlist }}" title="{{ titulo }}" loading="lazy" allowfullscreen></iframe>
     </div>
   </section>
-  {% elif videos %}
-  {% for video in videos %}
-  <section class="ficha-reproductor" aria-label="Ver serie">
-    <p class="ficha-reproductor-titulo">Ver serie{% if videos.length > 1 %} · Parte {{ loop.index }}{% endif %}</p>
+  {% elif videos and videos.length > 1 %}
+  {# Serie con varias partes: UN solo reproductor + "Episodio anterior / siguiente".
+     No se listan todas las partes (hay series con 20 o más). #}
+  <section class="ficha-reproductor" aria-label="Ver serie" data-ficha-partes data-videos="{{ videos | join(',') }}">
+    <p class="ficha-reproductor-titulo">Ver serie · <span data-ficha-parte-label>Parte 1 de {{ videos.length }}</span></p>
     <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/{{ video }}" title="{{ titulo }}{% if videos.length > 1 %} - Parte {{ loop.index }}{% endif %}" loading="lazy" allowfullscreen></iframe>
+      <iframe id="ficha-partes-iframe" src="https://www.youtube.com/embed/{{ videos[0] }}?enablejsapi=1&playsinline=1&rel=0" title="{{ titulo }} - Parte 1" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+    <div class="reproductor-nav" data-ficha-nav>
+      <button type="button" class="btn-nav-episodio" data-nav="prev" disabled>‹ Episodio anterior</button>
+      <button type="button" class="btn-nav-episodio" data-nav="next">Episodio siguiente ›</button>
     </div>
   </section>
-  {% endfor %}
+  {% elif videos %}
+  <section class="ficha-reproductor" aria-label="Ver serie">
+    <p class="ficha-reproductor-titulo">Ver serie</p>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/{{ videos[0] }}" title="{{ titulo }}" loading="lazy" allowfullscreen></iframe>
+    </div>
+  </section>
   {% else %}
   <section class="ficha-reproductor" aria-label="Tráiler">
     <p class="ficha-reproductor-titulo">Tráiler</p>
