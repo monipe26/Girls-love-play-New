@@ -3,13 +3,14 @@
     {
       "tipo": "Serie",
       "titulo": "Under Her Rules",
-      "fecha": "2026-11-07"
+      "fecha": "2026-11-07",
+      "portada": "/assets/images/calendario/under-her-rules-cd.jpg"
     },
     {
       "fecha": "2026-10-21",
       "titulo": "Built in Love",
       "tipo": "Serie",
-      "portada": "/assets/images/calendario/under-her-rules-cd.jpg"
+      "portada": ""
     },
     {
       "fecha": "2026-10-22",
