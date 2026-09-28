@@ -70,7 +70,7 @@ collections:
       - label: "Resumen para la tarjeta de la lista"
         name: resumen
         widget: text
-        pattern: ["^.{40,200}$", "Entre 40 y 200 caracteres (uno o dos renglones)."]
+        pattern: ["^.{40,180}$", "Entre 40 y 180 caracteres (uno o dos renglones)."]
         hint: "Uno o dos renglones. Se ve en las tarjetas y listados del sitio. NO es la descripción de Google."
       - label: "Meta descripción (SEO)"
         name: description
@@ -88,19 +88,19 @@ collections:
         name: body
         widget: markdown
         buttons: ["bold", "italic", "link", "heading-two", "heading-three", "quote", "bulleted-list", "numbered-list"]
-        editor_components: ["image"]
-        hint: "Usá Título 2 (H2) para las secciones grandes y Título 3 (H3) para subsecciones. El título de la noticia ya es el H1: no lo repitas acá."
-      - label: "SEO avanzado (opcional)"
+        editor_components: []
+        hint: "Dejá el interruptor en «Texto enriquecido». Usá Título 2 (H2) para las secciones grandes y Título 3 (H3) para subsecciones. El título de la noticia ya es el H1: no lo repitas acá."
+      - label: "Título para Google (SEO)"
         name: seoTitle
         widget: string
         required: false
-        hint: "Título para Google, si querés uno distinto al de la noticia. Si lo dejás vacío se usa el título + el nombre del sitio."
-      - label: "Imagen para redes (opcional)"
+        hint: "Es el título azul que Google muestra en los resultados. Si lo dejás vacío se usa el título de la noticia + el nombre del sitio, y está bien así."
+      - label: "Imagen para compartir en redes"
         name: ogImage
         widget: image
         required: false
         choose_url: false
-        hint: "Solo si querés una imagen distinta a la destacada para WhatsApp, Facebook, X. Ideal: 1200×630."
+        hint: "Es la imagen que se ve cuando alguien comparte el link en WhatsApp, Facebook, X o Telegram. Si la dejás vacía se usa la imagen destacada. Ideal: 1200×630."
       - label: "Fecha de última actualización"
         name: modificado
         widget: datetime
