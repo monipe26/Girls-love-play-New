@@ -17,7 +17,9 @@ layout: base.njk
   <div class="articulo-trailer">
     <p class="articulo-trailer-titulo">▶️ Mirá el tráiler</p>
     <button type="button" class="comunidad-video" data-youtube-id="{{ trailer }}" aria-label="Reproducir tráiler de {{ title }}">
-      <img src="https://i.ytimg.com/vi/{{ trailer }}/hqdefault.jpg" alt="" loading="lazy">
+      {# Miniatura en alta resolución (maxresdefault = 1280x720). Si a ese video YouTube no le generó
+         esa versión, cae sola a hqdefault (480x360) para que nunca quede una imagen rota. #}
+      <img src="https://i.ytimg.com/vi/{{ trailer }}/maxresdefault.jpg" alt="Tráiler de {{ title }}" width="1280" height="720" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/{{ trailer }}/hqdefault.jpg'" onload="if(this.naturalWidth&&this.naturalWidth<=120){this.onload=null;this.src='https://i.ytimg.com/vi/{{ trailer }}/hqdefault.jpg'}">
       <span class="comunidad-video-play" aria-hidden="true">▶</span>
     </button>
   </div>

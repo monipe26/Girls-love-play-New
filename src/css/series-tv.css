@@ -18,7 +18,7 @@
 }
 
 /* --- Sinopsis DENTRO del cover (capa sobre la imagen) ---
-   De arriba hacia abajo: año/género, sinopsis completa y el botoncito "Ver más".
+   De arriba hacia abajo: año/género, sinopsis completa y el botón "Ver serie".
    Si la sinopsis es muy larga se scrollea solo ese texto: el botón queda siempre a la vista. */
 .tarjeta-serie-tv-overlay {
   justify-content: flex-start;
@@ -38,7 +38,7 @@
   scrollbar-width: thin;
 }
 
-/* Botoncito "Ver más" -> (al tocarlo) "▶ Ver serie" en otro color */
+/* Botón "Ver serie": al tocarlo cambia de color (violeta) justo antes de llevar al reproductor */
 .tarjeta-serie-tv-btn {
   flex-shrink: 0;
   align-self: flex-start;
@@ -54,7 +54,7 @@
 }
 .tarjeta-serie-tv-btn:hover { background: var(--color-primario-hover); }
 .tarjeta-serie-tv-btn:active { transform: scale(0.96); }
-.tarjeta-serie-tv.lista .tarjeta-serie-tv-btn {
+.tarjeta-serie-tv.elegida .tarjeta-serie-tv-btn {
   background: #7c3aed;
   box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.3);
 }

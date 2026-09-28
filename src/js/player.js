@@ -369,22 +369,18 @@ if (reproductorSeriesTv) {
     if (conScroll) reproductorSeriesTv.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  // ----- Sinopsis y botones DENTRO del mismo cover -----
-  // PC: al pasar el mouse por el cover aparece la sinopsis encima de la imagen,
-  //     con un botoncito "Ver más" abajo (el hover lo maneja el CSS).
-  // Celular (no hay hover): un toque en el cover abre esa misma capa.
-  // "Ver más" -> la tarjeta cambia de estado: el botón cambia de color y pasa a
-  // decir "Ver serie". "Ver serie" -> sube al reproductor y reproduce.
-  // No se abre ningún bloque de texto debajo de la tarjeta.
+  // ----- Sinopsis y botón DENTRO del mismo cover -----
+  // Reposo: el cover muestra solo la imagen.
+  // PC: al pasar el mouse por el cover aparece la sinopsis y, debajo, el botón
+  //     "Ver serie" (el hover lo maneja el CSS).
+  // Celular (no hay hover): el primer toque en el cover abre esa misma capa.
+  // Ese primer clic/toque NO abre el reproductor ni mueve la página: se puede leer
+  // tranquilo. Recién al tocar "Ver serie" el botón cambia de color (aviso visual)
+  // y ahí sí se sube al reproductor y se reproduce. No se abre nada debajo de la tarjeta.
   const hayHover = () => window.matchMedia("(hover: hover)").matches;
 
   const resetearTarjeta = (tarjeta) => {
-    tarjeta.classList.remove("abierta", "lista");
-    const boton = tarjeta.querySelector(".tarjeta-serie-tv-btn");
-    if (boton) {
-      boton.textContent = "Ver más";
-      boton.dataset.accion = "mas";
-    }
+    tarjeta.classList.remove("abierta", "elegida");
   };
   const cerrarTodas = (excepto) => {
     tarjetas.forEach((t) => { if (t !== excepto) resetearTarjeta(t); });
@@ -399,17 +395,17 @@ if (reproductorSeriesTv) {
       const boton = evento.target.closest(".tarjeta-serie-tv-btn");
       if (boton) {
         evento.stopPropagation();
-        if (boton.dataset.accion === "mas") {
-          tarjeta.classList.add("abierta", "lista");
-          boton.textContent = "▶ Ver serie";
-          boton.dataset.accion = "ver";
-        } else {
+        if (tarjeta.classList.contains("elegida")) return; // ya se está abriendo
+        // El botón cambia de color como indicación visual y un instante después
+        // lleva al reproductor.
+        tarjeta.classList.add("abierta", "elegida");
+        setTimeout(() => {
           cargarSerie(tarjeta, true, true);
-          resetearTarjeta(tarjeta);
-        }
+          setTimeout(() => resetearTarjeta(tarjeta), 900);
+        }, 380);
         return;
       }
-      // Toque en el resto del cover: abre / cierra la capa de sinopsis
+      // Toque en el resto del cover: abre / cierra la capa de sinopsis (sin reproducir)
       if (tarjeta.classList.contains("abierta")) resetearTarjeta(tarjeta);
       else abrirTarjeta(tarjeta);
     });
@@ -423,9 +419,9 @@ if (reproductorSeriesTv) {
       }
     });
 
-    // Con mouse, al sacar el cursor la tarjeta vuelve a su estado normal
+    // Con mouse, al sacar el cursor la tarjeta vuelve a mostrar solo la imagen
     tarjeta.addEventListener("mouseleave", () => {
-      if (hayHover()) resetearTarjeta(tarjeta);
+      if (hayHover() && !tarjeta.classList.contains("elegida")) resetearTarjeta(tarjeta);
     });
   });
 
