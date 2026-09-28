@@ -1,10 +1,41 @@
 ---
-title: "Juegos"
-description: "Minijuegos interactivos."
+title: "Minijuegos GL"
+description: "Minijuegos GL: sorteá tu próxima serie GL a ver con la lotería de Girls Love Play y descubrí qué mirar hoy."
 layout: base.njk
 ---
-<section class="seccion">
-  <h1>🎮 Juegos</h1>
-  <p class="seccion-sub">Minijuegos interactivos</p>
-  <p class="proximamente-aviso">Esta sección se está preparando. Muy pronto vas a encontrar contenido acá.</p>
+<section class="seccion seccion-juegos">
+  <h1>🎮 Minijuegos GL</h1>
+  <p class="seccion-sub">Divertite un rato mientras esperás el próximo episodio</p>
+
+  <div class="sorteo-gl" id="sorteo-gl">
+    <h2>🎟️ Sorteo GL</h2>
+    <p class="sorteo-sub">¿Aburrida y no sabés qué ver? Probá suerte con la lotería GL: tocá el botón y el sorteo elige una serie del catálogo para vos.</p>
+
+    <div id="ticket" class="ticket-gl">
+      <div class="ticket-gl-header">NO. <span id="ticketNo">000000</span></div>
+
+      <div id="coverBox" class="ticket-gl-cover cover-empty">
+        <img id="coverImg" class="ticket-gl-cover-img" src="" alt="" hidden>
+        <div id="coverTitle" class="ticket-gl-cover-titulo">?</div>
+      </div>
+
+      <div class="ticket-gl-tags">
+        <span id="genreTag" class="ticket-gl-tag">Género</span>
+      </div>
+
+      <div id="tagline" class="ticket-gl-tagline" aria-live="polite">Tocá el botón para descubrir qué ver hoy</div>
+
+      <button type="button" id="drawBtn" class="ticket-gl-boton">🎟️ Empezar sorteo</button>
+
+      <a id="verSerieLink" href="#" class="ticket-gl-trailer" hidden>▶ Ver esta serie</a>
+
+      <div id="stamp" class="ticket-gl-stamp">¡Elegida!</div>
+    </div>
+
+    <noscript><p class="sorteo-sub">El sorteo necesita JavaScript activado. Mientras tanto podés ver todas las series en el <a href="/series/">Catálogo</a>.</p></noscript>
+  </div>
+
+  {# Lista de series para el sorteo: se arma sola con el Catálogo (ver .eleventy.js) #}
+  <script type="application/json" id="sorteo-datos">{{ collections.sorteoSeries | dump | safe }}</script>
+  <script src="/js/sorteo.js" defer></script>
 </section>

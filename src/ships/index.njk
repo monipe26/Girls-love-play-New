@@ -1,10 +1,44 @@
 ---
-title: "Ships"
-description: "Las parejas favoritas de la comunidad."
+title: "Ships GL"
+description: "Las parejas GL que nos robaron el corazón: ships vigentes y finalizados, con sus series juntas y sus redes."
 layout: base.njk
 ---
-<section class="seccion">
-  <h1>💕 Ships</h1>
-  <p class="seccion-sub">Las parejas favoritas de la comunidad</p>
-  <p class="proximamente-aviso">Esta sección se está preparando. Muy pronto vas a encontrar contenido acá.</p>
+<section class="seccion seccion-ships">
+  <h1>💕 Ships GL</h1>
+  <p class="seccion-sub">Las parejas que nos robaron el corazón</p>
+
+  <form class="buscador-ships" role="search" data-buscador-ships onsubmit="return false">
+    <label for="buscar-ships" class="sr-only">Buscar un ship</label>
+    <input type="search" id="buscar-ships" placeholder="🔍 Buscar ship, actriz o serie…" autocomplete="off">
+  </form>
+
+  <div class="filtros-ships" data-filtros-estado role="group" aria-label="Filtrar ships por estado">
+    <button type="button" class="filtro-btn activo" data-estado="todos">Todos</button>
+    <button type="button" class="filtro-btn" data-estado="vigente">✅ Vigentes</button>
+    <button type="button" class="filtro-btn" data-estado="finalizado">❌ Finalizados</button>
+  </div>
+
+  {# Botonera A-Z: la arma ships.js con las letras que existen #}
+  <nav class="letras-filtro letras-ships" data-filtros-letra aria-label="Filtrar ships por letra"></nav>
+
+  <p class="buscador-series-estado" data-ships-estado aria-live="polite"></p>
+
+  {# Todas las tarjetas vienen en el HTML (para que se vea todo aunque falle el JS y lo lea cualquier buscador).
+     ships.js las pagina de a 12 y aplica los filtros. #}
+  <div class="grid-ships" data-grid-ships>
+    {% for ship in shipsGl %}
+      {% include "tarjeta-ship.njk" %}
+    {% endfor %}
+  </div>
+
+  <nav class="paginacion" data-paginacion-ships aria-label="Paginación de Ships" hidden></nav>
+
+  <div class="modal-actriz" id="modal-ship" hidden>
+    <div class="modal-actriz-fondo" data-cerrar-ship></div>
+    <div class="modal-actriz-caja" role="dialog" aria-modal="true" aria-labelledby="modal-ship-titulo" tabindex="-1">
+      <button type="button" class="modal-actriz-cerrar" data-cerrar-ship aria-label="Cerrar ficha">✕</button>
+      <div class="modal-actriz-contenido"></div>
+    </div>
+  </div>
 </section>
+<script src="/js/ships.js" defer></script>

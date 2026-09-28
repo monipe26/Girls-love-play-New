@@ -369,81 +369,79 @@ if (reproductorSeriesTv) {
     if (conScroll) reproductorSeriesTv.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  // ----- Dos pasos (celular y PC) -----
-  // 1er clic en un cover: se muestra un cuadro con el título y la sinopsis justo
-  // debajo de esa fila de covers, SIN mover la página.
-  // 2do clic, en el botón "Ver serie" de ese cuadro: el botón cambia de color
-  // (para que se note que quedó elegido) y recién ahí se sube al reproductor
-  // y empieza a reproducir.
-  let panelInfo = null;
+  // ----- Sinopsis y botones DENTRO del mismo cover -----
+  // PC: al pasar el mouse por el cover aparece la sinopsis encima de la imagen,
+  //     con un botoncito "Ver más" abajo (el hover lo maneja el CSS).
+  // Celular (no hay hover): un toque en el cover abre esa misma capa.
+  // "Ver más" -> la tarjeta cambia de estado: el botón cambia de color y pasa a
+  // decir "Ver serie". "Ver serie" -> sube al reproductor y reproduce.
+  // No se abre ningún bloque de texto debajo de la tarjeta.
+  const hayHover = () => window.matchMedia("(hover: hover)").matches;
 
-  const obtenerPanelInfo = () => {
-    if (panelInfo) return panelInfo;
-    panelInfo = document.createElement("div");
-    panelInfo.className = "serie-info-panel";
-    panelInfo.setAttribute("role", "region");
-    panelInfo.setAttribute("aria-live", "polite");
-    panelInfo.hidden = true;
-    panelInfo.innerHTML =
-      '<p class="serie-info-titulo"></p>' +
-      '<p class="serie-info-sinopsis"></p>' +
-      '<button type="button" class="btn-primario serie-info-ver">▶ Ver serie</button>';
-    const botonVer = panelInfo.querySelector(".serie-info-ver");
-    botonVer.addEventListener("click", () => {
-      const tarjeta = panelInfo._tarjeta;
-      if (!tarjeta || botonVer.classList.contains("elegida")) return;
-      // Efecto visual: cambia de color y de texto un instante antes de subir
-      botonVer.classList.add("elegida");
-      botonVer.textContent = "✓ Abriendo…";
-      setTimeout(() => {
-        cargarSerie(tarjeta, true, true);
-        setTimeout(() => {
-          botonVer.classList.remove("elegida");
-          botonVer.textContent = "▶ Ver serie";
-        }, 900);
-      }, 380);
-    });
-    return panelInfo;
-  };
-
-  const ocultarInfo = () => {
-    if (panelInfo) panelInfo.hidden = true;
-    tarjetas.forEach((t) => t.classList.remove("seleccionada"));
-  };
-
-  const mostrarInfo = (tarjeta) => {
-    const panel = obtenerPanelInfo();
-    // Tocar de nuevo el mismo cover cierra el cuadro
-    if (!panel.hidden && panel._tarjeta === tarjeta) {
-      ocultarInfo();
-      return;
+  const resetearTarjeta = (tarjeta) => {
+    tarjeta.classList.remove("abierta", "lista");
+    const boton = tarjeta.querySelector(".tarjeta-serie-tv-btn");
+    if (boton) {
+      boton.textContent = "Ver más";
+      boton.dataset.accion = "mas";
     }
-    tarjetas.forEach((t) => t.classList.remove("seleccionada"));
-    tarjeta.classList.add("seleccionada");
-    panel._tarjeta = tarjeta;
-    panel.querySelector(".serie-info-titulo").textContent = tarjeta.dataset.titulo || "";
-    panel.querySelector(".serie-info-sinopsis").textContent = tarjeta.dataset.sinopsis || "";
-
-    // El cuadro se pone al final de la fila del cover tocado (ocupa todo el ancho)
-    const grilla = tarjeta.parentElement;
-    const columnas = Math.max(1, getComputedStyle(grilla).gridTemplateColumns.split(" ").length);
-    const indice = tarjetas.indexOf(tarjeta);
-    const ultimoDeLaFila = Math.min((Math.floor(indice / columnas) + 1) * columnas - 1, tarjetas.length - 1);
-    tarjetas[ultimoDeLaFila].after(panel);
-    panel.hidden = false;
+  };
+  const cerrarTodas = (excepto) => {
+    tarjetas.forEach((t) => { if (t !== excepto) resetearTarjeta(t); });
+  };
+  const abrirTarjeta = (tarjeta) => {
+    cerrarTodas(tarjeta);
+    tarjeta.classList.add("abierta");
   };
 
   tarjetas.forEach((tarjeta) => {
-    tarjeta.addEventListener("click", () => mostrarInfo(tarjeta));
+    tarjeta.addEventListener("click", (evento) => {
+      const boton = evento.target.closest(".tarjeta-serie-tv-btn");
+      if (boton) {
+        evento.stopPropagation();
+        if (boton.dataset.accion === "mas") {
+          tarjeta.classList.add("abierta", "lista");
+          boton.textContent = "▶ Ver serie";
+          boton.dataset.accion = "ver";
+        } else {
+          cargarSerie(tarjeta, true, true);
+          resetearTarjeta(tarjeta);
+        }
+        return;
+      }
+      // Toque en el resto del cover: abre / cierra la capa de sinopsis
+      if (tarjeta.classList.contains("abierta")) resetearTarjeta(tarjeta);
+      else abrirTarjeta(tarjeta);
+    });
+
+    tarjeta.addEventListener("keydown", (evento) => {
+      if (evento.key === "Escape") { resetearTarjeta(tarjeta); return; }
+      if ((evento.key === "Enter" || evento.key === " ") && evento.target === tarjeta) {
+        evento.preventDefault();
+        if (tarjeta.classList.contains("abierta")) resetearTarjeta(tarjeta);
+        else abrirTarjeta(tarjeta);
+      }
+    });
+
+    // Con mouse, al sacar el cursor la tarjeta vuelve a su estado normal
+    tarjeta.addEventListener("mouseleave", () => {
+      if (hayHover()) resetearTarjeta(tarjeta);
+    });
   });
 
-  // Venir desde el buscador de Series (/series-tv/#serie-nombre): se marca esa serie
+  // Tocar fuera de las tarjetas cierra la que esté abierta
+  document.addEventListener("click", (evento) => {
+    if (!evento.target.closest(".tarjeta-serie-tv")) cerrarTodas();
+  });
+
+  // Venir desde el buscador de Series (/series-tv/#serie-nombre): se abre esa serie
   const abrirDesdeHash = () => {
     const coincidencia = location.hash.match(/^#serie-(.+)$/);
     if (!coincidencia) return;
     const tarjeta = document.getElementById("serie-" + coincidencia[1]);
     if (!tarjeta || !tarjetas.includes(tarjeta)) return;
-    mostrarInfo(tarjeta);
+    abrirTarjeta(tarjeta);
+    tarjeta.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
   const irASerieVecina = (delta) => {

@@ -17,34 +17,46 @@
   .grid-tarjetas.grid-series-tv { grid-template-columns: repeat(5, minmax(0, 190px)); }
 }
 
-/* --- Sinopsis completa al pasar el mouse (antes se cortaba en 3 líneas / 110 letras) ---
-   El texto queda abajo si es corto y, si es muy largo, se puede scrollear dentro del cover. */
+/* --- Sinopsis DENTRO del cover (capa sobre la imagen) ---
+   De arriba hacia abajo: año/género, sinopsis completa y el botoncito "Ver más".
+   Si la sinopsis es muy larga se scrollea solo ese texto: el botón queda siempre a la vista. */
 .tarjeta-serie-tv-overlay {
   justify-content: flex-start;
   gap: 6px;
-  overflow-y: auto;
+  overflow: hidden;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.94) 0%, rgba(0, 0, 0, 0.86) 70%, rgba(0, 0, 0, 0.6) 100%);
-  scrollbar-width: thin;
 }
-.tarjeta-serie-tv-meta { margin-top: auto; }
+.tarjeta-serie-tv-meta { margin-top: auto; flex-shrink: 0; }
 .tarjeta-serie-tv-sinopsis {
   display: block;
   -webkit-line-clamp: unset;
-  overflow: visible;
+  overflow-y: auto;
+  min-height: 0;
+  flex: 0 1 auto;
   font-size: 0.8rem;
   line-height: 1.35;
+  scrollbar-width: thin;
 }
 
-/* El botón de play pasa a la esquina para no tapar el texto de la sinopsis */
-.tarjeta-serie-tv-play {
-  top: 10px;
-  right: 10px;
-  left: auto;
-  transform: none;
-  width: 34px;
-  height: 34px;
-  font-size: 0.9rem;
-  z-index: 2;
+/* Botoncito "Ver más" -> (al tocarlo) "▶ Ver serie" en otro color */
+.tarjeta-serie-tv-btn {
+  flex-shrink: 0;
+  align-self: flex-start;
+  border: none;
+  cursor: pointer;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--color-primario);
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+.tarjeta-serie-tv-btn:hover { background: var(--color-primario-hover); }
+.tarjeta-serie-tv-btn:active { transform: scale(0.96); }
+.tarjeta-serie-tv.lista .tarjeta-serie-tv-btn {
+  background: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.3);
 }
 
 @media (max-width: 639px) {
@@ -130,26 +142,11 @@
 
 
 
-/* ===== CUADRO DE SINOPSIS EN CELULAR =====
-   Aparece justo debajo de la fila del cover tocado (ver player.js). */
-.serie-info-panel {
-  grid-column: 1 / -1;
-  background: var(--color-fondo-alt);
-  border-radius: var(--radio);
-  padding: var(--espacio-md);
-  box-shadow: var(--sombra-tarjeta);
-}
-.serie-info-panel[hidden] { display: none; }
-.serie-info-titulo { font-weight: 700; font-size: 1.05rem; margin-bottom: var(--espacio-xs); }
-.serie-info-sinopsis { font-size: 0.92rem; line-height: 1.5; margin-bottom: var(--espacio-sm); }
-.serie-info-ver { border: none; cursor: pointer; padding: 8px 18px; font-size: 0.85rem; transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease; }
-.serie-info-ver:active { transform: scale(0.96); }
-.serie-info-ver.elegida { background: #7c3aed; box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.25); }
-.tarjeta-serie-tv.seleccionada .tarjeta-serie-tv-portada { outline: 3px solid var(--color-primario); outline-offset: 2px; }
-
 /* ===== BUSCADOR DE SERIES (/series/ y /series-tv/) ===== */
-.buscador-series { margin: var(--espacio-md) 0; }
+.buscador-series { margin: var(--espacio-md) 0; text-align: center; }
 .buscador-series input {
+  display: block;
+  margin: 0 auto;
   width: 100%;
   max-width: 460px;
   padding: 10px 16px;

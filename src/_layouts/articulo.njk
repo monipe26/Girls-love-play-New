@@ -9,6 +9,10 @@ layout: base.njk
     <span class="articulo-tiempo-lectura">⏱ {{ content | tiempoLectura }}</span>
   </p>
   <h1>{{ title }}</h1>
+  <div class="articulo-cuerpo">
+    {{ content | safe }}
+  </div>
+  {# El tráiler va al FINAL de la noticia, después de todo el texto #}
   {% if trailer %}
   <div class="articulo-trailer">
     <p class="articulo-trailer-titulo">▶️ Mirá el tráiler</p>
@@ -18,9 +22,6 @@ layout: base.njk
     </button>
   </div>
   {% endif %}
-  <div class="articulo-cuerpo">
-    {{ content | safe }}
-  </div>
   <p class="articulo-volver">
     <a href="/" class="btn-primario">🏠 Volver al inicio</a>
   </p>

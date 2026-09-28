@@ -391,23 +391,18 @@ html[data-tema="oscuro"] .btn-modo-oscuro .icono-luna { display: block; }
   box-shadow: var(--sombra-tarjeta);
   transition: transform 0.2s ease;
 }
+.tarjeta-serie-tv { cursor: pointer; }
 .tarjeta-serie-tv:hover,
-.tarjeta-serie-tv:focus-visible { transform: translateY(-4px); }
+.tarjeta-serie-tv:focus-visible,
+.tarjeta-serie-tv.abierta { transform: translateY(-4px); }
+.tarjeta-serie-tv:focus-visible { outline: 2px solid var(--color-primario); outline-offset: 2px; }
 .tarjeta-serie-tv.activo { outline: 2px solid var(--color-primario); }
 .tarjeta-serie-tv-portada { position: relative; display: block; }
 .tarjeta-serie-tv-portada img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; display: block; }
-.tarjeta-serie-tv-play {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  background: var(--color-primario);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
+/* Capa con la sinopsis, encima del cover. Oculta por defecto (y sin captar toques,
+   así en celular un toque en el cover no aprieta un botón invisible). Se muestra:
+   - PC: al pasar el mouse o al enfocar la tarjeta con el teclado,
+   - celular: cuando la tarjeta tiene la clase .abierta (la pone player.js al tocarla). */
 .tarjeta-serie-tv-overlay {
   position: absolute;
   inset: 0;
@@ -418,13 +413,19 @@ html[data-tema="oscuro"] .btn-modo-oscuro .icono-luna { display: block; }
   padding: var(--espacio-sm);
   background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.55) 55%, transparent 100%);
   opacity: 0;
+  pointer-events: none;
   transition: opacity 0.2s ease;
 }
-.tarjeta-serie-tv:hover .tarjeta-serie-tv-play,
-.tarjeta-serie-tv:focus-visible .tarjeta-serie-tv-play,
-.tarjeta-serie-tv:hover .tarjeta-serie-tv-overlay,
-.tarjeta-serie-tv:focus-visible .tarjeta-serie-tv-overlay {
+.tarjeta-serie-tv.abierta .tarjeta-serie-tv-overlay,
+.tarjeta-serie-tv:focus-within .tarjeta-serie-tv-overlay {
   opacity: 1;
+  pointer-events: auto;
+}
+@media (hover: hover) {
+  .tarjeta-serie-tv:hover .tarjeta-serie-tv-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 .tarjeta-serie-tv-meta {
   display: flex;
@@ -747,6 +748,14 @@ html[data-tema="oscuro"] .site-footer {
 }
 
 .footer-redes-aviso { margin-top: var(--espacio-sm); }
+/* Bandera de Argentina en SVG (el emoji 🇦🇷 no se dibuja en Chrome de Windows: se ve solo "AR") */
+.bandera-ar {
+  display: inline-block;
+  vertical-align: -2px;
+  margin-right: 2px;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
+}
 
 .footer-bottom {
   display: flex;

@@ -1,24 +1,27 @@
 {% set _videos = serie.videos or ([serie.youtubeId] if serie.youtubeId else []) %}
-<button
-  type="button"
+{# Tarjeta = <div> (no <button>) porque adentro lleva botones propios: "Ver más" y "Ver serie".
+   Un <button> dentro de otro <button> no es HTML válido. #}
+<div
   id="serie-{{ serie.titulo | slugify }}"
   class="tarjeta-serie-tv {% if loop.first %}activo{% endif %}"
+  tabindex="0"
+  role="group"
   data-videos="{{ _videos | join(',') }}"
   data-playlist="{{ serie.playlist or '' }}"
   data-titulo="{{ serie.titulo }} ({{ serie.anio }})"
   data-sinopsis="{{ serie.sinopsis }}"
-  aria-label="Reproducir {{ serie.titulo }}"
+  aria-label="{{ serie.titulo }}: ver sinopsis"
 >
-  <span class="tarjeta-serie-tv-portada">
+  <div class="tarjeta-serie-tv-portada">
     <img src="{{ serie.portada }}" alt="Portada de {{ serie.titulo }}" width="300" height="450" loading="lazy" decoding="async">
-    <span class="tarjeta-serie-tv-play" aria-hidden="true">▶</span>
-    <span class="tarjeta-serie-tv-overlay">
+    <div class="tarjeta-serie-tv-overlay">
       <span class="tarjeta-serie-tv-meta">
         <span class="tarjeta-serie-tv-anio">{{ serie.anio }}</span>
         <span class="tarjeta-serie-tv-genero">{{ serie.genero }}</span>
       </span>
       <span class="tarjeta-serie-tv-sinopsis">{{ serie.sinopsis }}</span>
-    </span>
-  </span>
+      <button type="button" class="tarjeta-serie-tv-btn" data-accion="mas">Ver más</button>
+    </div>
+  </div>
   <span class="tarjeta-serie-tv-titulo">{{ serie.titulo }}</span>
-</button>
+</div>

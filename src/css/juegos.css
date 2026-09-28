@@ -1,0 +1,92 @@
+/* ===== MINIJUEGOS GL (/minijuegos/) — Sorteo GL =====
+   Mismo diseño del ticket de la página vieja (tarjeta violeta oscura con borde
+   punteado, portada al azar, botón degradado y sello "¡Elegida!"). */
+.seccion-juegos { text-align: center; }
+.seccion-juegos [hidden] { display: none !important; }
+
+.sorteo-gl h2 { color: var(--color-primario); margin-top: var(--espacio-md); }
+.sorteo-sub {
+  color: var(--color-texto-sec);
+  font-size: 0.92rem;
+  max-width: 520px;
+  margin: 0 auto var(--espacio-md);
+  padding: 0 var(--espacio-sm);
+  overflow-wrap: break-word;
+}
+
+.ticket-gl {
+  position: relative;
+  background: #2d1050;
+  border: 2px dashed #8f5cff;
+  border-radius: 18px;
+  padding: 24px 20px;
+  text-align: center;
+  max-width: 360px;
+  margin: 0 auto var(--espacio-lg);
+  color: #fff;
+  box-shadow: var(--sombra-tarjeta);
+}
+.ticket-gl-header { font-family: monospace; font-size: 11px; color: #e8e0ff; margin-bottom: 14px; }
+.ticket-gl-cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  max-height: 45vh;
+  margin: 0 auto 12px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff4fd8, #8f5cff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.ticket-gl-cover-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ticket-gl-cover-titulo { font-size: 18px; font-weight: 600; color: #fff; padding: 0 12px; }
+.ticket-gl-cover.cover-empty { background: radial-gradient(circle at center, #241238 0%, #120a1f 75%); }
+.cover-empty .ticket-gl-cover-titulo {
+  font-size: 84px;
+  font-weight: 800;
+  text-shadow: 0 0 18px rgba(255, 79, 216, 0.85), 0 0 40px rgba(143, 92, 255, 0.55);
+}
+.ticket-gl-tags { display: flex; justify-content: center; gap: 8px; margin-bottom: 10px; }
+.ticket-gl-tag { font-size: 12px; padding: 3px 12px; border-radius: 20px; background: #3d1060; color: #e0c4ff; }
+.ticket-gl-tagline { font-size: 13px; color: #c4aeff; min-height: 20px; margin-bottom: 16px; }
+.ticket-gl-boton {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff4fd8, #8f5cff);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.ticket-gl-boton:disabled { opacity: 0.7; cursor: default; }
+.ticket-gl-trailer {
+  display: block;
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1.5px solid #ff4fd8;
+  color: #ff4fd8;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.ticket-gl-trailer:hover { background: rgba(255, 79, 216, 0.12); }
+.ticket-gl-stamp {
+  position: absolute;
+  top: 44%;
+  right: -8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ff4fd8;
+  border: 2px solid #ff4fd8;
+  border-radius: 6px;
+  padding: 2px 10px;
+  background: #1a0a2e;
+  transform: rotate(-18deg) scale(0);
+  transition: transform 0.25s ease;
+}
+@media (max-width: 480px) { .ticket-gl { max-width: 100%; } }

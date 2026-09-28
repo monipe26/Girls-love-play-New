@@ -1,0 +1,939 @@
+[
+  {
+    "ship": "FreenBecky",
+    "slug": "freenbecky-gl-ship",
+    "nombres": "Sarocha Chankimha & Rebecca Patricia Armstrong",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/freenbecky.jpg",
+    "instagram": [
+      {
+        "nombre": "Freen",
+        "url": "https://www.instagram.com/srchafreen"
+      },
+      {
+        "nombre": "Becky",
+        "url": "https://www.instagram.com/beccca"
+      }
+    ],
+    "series": [
+      "GAP: The Series (2022)",
+      "The Loyal Pin (2024)",
+      "Uranus 2324 (2024)",
+      "4 Elements: The Air (2026)"
+    ],
+    "descripcion": "Una de las parejas GL más icónicas del mundo. Freen y Becky se conocieron trabajando juntas y su química en pantalla conquistó a millones de fans globales. GAP: The Series acumuló más de 900 millones de vistas en YouTube."
+  },
+  {
+    "ship": "LMSY",
+    "slug": "lmsy-gl-ship",
+    "nombres": "Lookmhee Punyapat y Sonya Saranphat",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/LMSY.jpg",
+    "instagram": [
+      {
+        "nombre": "Lookmhee",
+        "url": "https://www.instagram.com/lmlookmhee"
+      },
+      {
+        "nombre": "Sonya",
+        "url": "https://www.instagram.com/sonyasarann"
+      }
+    ],
+    "series": [
+      "Affair (2024)",
+      "Harmony Secret (2025)",
+      "Hometown Romance (2026)"
+    ],
+    "descripcion": "Lookmhee y Sonya debutaron juntas en Affair (2024) y rápidamente se convirtieron en una de las parejas GL más queridas de Tailandia. Su segunda serie Harmony Secret (2025) las catapultó a nivel internacional. En 2026 regresan con Hometown Romance."
+  },
+  {
+    "ship": "LingOrm",
+    "slug": "lingorm-gl-ship",
+    "nombres": "Sirilak 'Lingling' Kwong & Kornnaphat Sethratanapong",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/lingorm1.jpg",
+    "instagram": [
+      {
+        "nombre": "Ling",
+        "url": "https://www.instagram.com/linglingkwong/"
+      },
+      {
+        "nombre": "Orm",
+        "url": "https://www.instagram.com/orm.kornnaphat/"
+      }
+    ],
+    "series": [
+      "The Secret of Us (2024)",
+      "Only You (2025)",
+      "In Love Forever (2026), próximamente"
+    ],
+    "descripcion": "LingOrm debutó con The Secret of Us, el primer GL en horario prime de Channel 3. Su química natural y las historias maduras que protagonizan las convirtieron en un fenómeno global."
+  },
+  {
+    "ship": "Englot",
+    "slug": "englot-gl-ship",
+    "nombres": "Engfa Waraha & Charlotte Austin",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/englot.jpg",
+    "instagram": [
+      {
+        "nombre": "Engfa",
+        "url": "https://www.instagram.com/fa_engfa8"
+      },
+      {
+        "nombre": "Charlotte",
+        "url": "https://www.instagram.com/itscharlotty"
+      }
+    ],
+    "series": [
+      "Show Me Love (2023)",
+      "Love Bully (2024)",
+      "Petrichor (2024)",
+      "Unlimited Love (2025)",
+      "4 Elements: The Water (2026)"
+    ],
+    "descripcion": "Engfa es actriz y exreina de belleza, Charlotte es actriz tailandesa-occidental. Juntas forman una de las parejas GL más estéticas del medio. Son embajadoras de Dior y participan en el mega proyecto 4 Elements."
+  },
+  {
+    "ship": "FayeAtom",
+    "slug": "fayeatom-gl-ship",
+    "nombres": "Peraya Malisorn & Pariya Piyapanopas",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/FayeAtom.jpg",
+    "instagram": [
+      {
+        "nombre": "Faye",
+        "url": "https://www.instagram.com/faye"
+      },
+      {
+        "nombre": "Atom",
+        "url": "https://www.instagram.com/atomprys"
+      }
+    ],
+    "series": [
+      "Broken of Love (2026)"
+    ],
+    "descripcion": "Faye es actriz, exreina de belleza Miss Grand Thailand 2016 y fundadora de Fabel Entertainment. Atom es cantante y ex integrante del grupo idol VIIS. Su primera serie juntas es Broken of Love (2026)."
+  },
+  {
+    "ship": "MilkLove",
+    "slug": "milklove-gl-ship",
+    "nombres": "Pansa Vosbein & Pattranite Limpatiyakorn",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/MilkLove.jpg",
+    "instagram": [
+      {
+        "nombre": "Milk",
+        "url": "https://www.instagram.com/panly.v"
+      },
+      {
+        "nombre": "Love",
+        "url": "https://www.instagram.com/loverrukk"
+      }
+    ],
+    "series": [
+      "23.5 (2024)",
+      "Whale Store xoxo (2025)",
+      "Girl Rules (2026)",
+      "Ditto (2026), próximamente"
+    ],
+    "descripcion": "Milk y Love comenzaron como pareja secundaria en un BL y se convirtieron en las primeras GL leads de GMMTV con 23.5, que debutó simultáneamente en Netflix."
+  },
+  {
+    "ship": "NamtanFilm",
+    "slug": "namtanfilm-gl-ship",
+    "nombres": "Tipnaree Weerawatnodom & Rachanun Mahawan",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/NamtanFilm.jpg",
+    "instagram": [
+      {
+        "nombre": "Namtan",
+        "url": "https://www.instagram.com/namtan.tipnaree/"
+      },
+      {
+        "nombre": "Film",
+        "url": "https://www.instagram.com/fr.racha/"
+      }
+    ],
+    "series": [
+      "Pluto (2024)",
+      "Girl Rules (2026)",
+      "Her (2026), próximamente"
+    ],
+    "descripcion": "Namtan es una de las actrices más reconocidas de GMMTV con una larga trayectoria. Film Rachanun es su contraparte GL. Juntas protagonizan la historia de Prim y Freen en Girl Rules."
+  },
+  {
+    "ship": "AppleMim",
+    "slug": "applemim-gl-ship",
+    "nombres": "Apple Narisa & Mimu Rattanawadee",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/AppleMim.jpg",
+    "instagram": [
+      {
+        "nombre": "Apple",
+        "url": "https://www.instagram.com/applelapisara"
+      },
+      {
+        "nombre": "Mim",
+        "url": "https://www.instagram.com/mimu.p"
+      }
+    ],
+    "series": [
+      "4 Elements: The Earth (2026)"
+    ],
+    "descripcion": "Como protagonistas del arco de Tierra en 4 Elements, Apple y Mimu representan una de las nuevas apuestas GL de GMMTV."
+  },
+  {
+    "ship": "ViewMim",
+    "slug": "viewmim-gl-ship",
+    "nombres": "View Benyapa Janpeng & Mim Rattanawadee",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/ViewMim.jpg",
+    "instagram": [
+      {
+        "nombre": "View",
+        "url": "https://www.instagram.com/view.benyapa/"
+      },
+      {
+        "nombre": "Mim",
+        "url": "https://www.instagram.com/mim.rattanawadee"
+      }
+    ],
+    "series": [
+      "Us (2025)",
+      "Girl Rules (2026)",
+      "Bake Love Feelings (2026), próximamente"
+    ],
+    "descripcion": "View y Mim debutaron en Us (2025) y en Girl Rules (2026) como pareja GL protagonista. Pronto regresan como protagonistas en Bake Love Feelings."
+  },
+  {
+    "ship": "ShellyPundao",
+    "slug": "shellypundao-gl-ship",
+    "nombres": "Phetsai Chanrueang & Pundao Panyabarame",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/ShellyPundao.jpg",
+    "instagram": [
+      {
+        "nombre": "Shelly",
+        "url": "https://www.instagram.com/shellybenda"
+      },
+      {
+        "nombre": "Pundao",
+        "url": "https://www.instagram.com/_pundao"
+      }
+    ],
+    "series": [
+      "Rollercoaster (2025)",
+      "By Your Side (2026), próximamente"
+    ],
+    "descripcion": "Shelly y Pundao debutaron como pareja GL en Rollercoaster (2025) y rápidamente ganaron fans por su química natural. En 2026 regresan juntas con By Your Side."
+  },
+  {
+    "ship": "OrmFolk",
+    "slug": "ormfolk-gl-ship",
+    "nombres": "Ormsin Supitcha Limsommut & Folk Sutima Korkiatvanich",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/OrmFolk.jpg",
+    "instagram": [
+      {
+        "nombre": "Ormsin",
+        "url": "https://www.instagram.com/omeormorm"
+      },
+      {
+        "nombre": "Folk",
+        "url": "https://www.instagram.com/ffolky"
+      }
+    ],
+    "series": [
+      "Apple My Love (2024)",
+      "Your Apple (2025)",
+      "Love Bound (2026) — próximamente",
+      "Crush (2026) — próximamente"
+    ],
+    "descripcion": "OrmFolk es la pareja detrás de Apple My Love, un GL donde Kris recupera la visión y reconoce a Karn como la mujer que veía en sus sueños."
+  },
+  {
+    "ship": "NoonPraewa",
+    "slug": "noonpraewa-gl-ship",
+    "nombres": "Nuttawan Teerapratan y Prawrawee Kitiworrakarn",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/NoonPraewa.jpg",
+    "instagram": [
+      {
+        "nombre": "Noon",
+        "url": ""
+      },
+      {
+        "nombre": "Praewa",
+        "url": "https://www.instagram.com/praewa.era"
+      }
+    ],
+    "series": [
+      "Love Senior (2023)",
+      "Flirt Milk (2025)",
+      "Hidden Heart (2026) — próximamente"
+    ],
+    "descripcion": "Noon y Praewa se conocieron como pareja secundaria en Love Senior (2023). Su popularidad llevó a que les dieran su primera oportunidad como pareja GL protagonista en Hidden Heart."
+  },
+  {
+    "ship": "LillyBelle",
+    "slug": "lillybelle-gl-ship",
+    "nombres": "Lilly Ladapa Thongkham y Belle Jiratchaya Kittavornsakul",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/LillyBelle.jpg",
+    "instagram": [
+      {
+        "nombre": "Belle",
+        "url": "https://www.instagram.com/bellejirat"
+      },
+      {
+        "nombre": "Lilly",
+        "url": "https://www.instagram.com/lilly_nicha"
+      }
+    ],
+    "series": [
+      "Harmony Secret (2025) — pareja secundaria",
+      "I Wanna Be Sup'tar (2026)"
+    ],
+    "descripcion": "Lilly y Belle debutaron juntas como pareja secundaria en Harmony Secret (2025) y conquistaron al fandom. En 2026 protagonizan I Wanna Be Sup'tar."
+  },
+  {
+    "ship": "LenaMiu",
+    "slug": "lenamiu-gl-ship",
+    "nombres": "Lena Lorena Schuett & Miu Natsha Taechamongkalapiwat",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/LenaMiu.jpg",
+    "instagram": [
+      {
+        "nombre": "Lena",
+        "url": "https://www.instagram.com/lalinalena"
+      },
+      {
+        "nombre": "Miu",
+        "url": "https://www.instagram.com/mmiunatshaa"
+      }
+    ],
+    "series": [
+      "My Safe Zone (2025)",
+      "Pls. Love (2026)"
+    ],
+    "descripcion": "Lena y Miu son la segunda pareja GL de Channel 3 tras LingOrm. En My Safe Zone interpretan a Alin y Jane, dos amigas en una zona de amistad que empieza a tambalearse."
+  },
+  {
+    "ship": "GraceOaey",
+    "slug": "graceoaey-gl-ship",
+    "nombres": "Budsarin Wonglelanont y Ponchanok Teerawan",
+    "pais": "Tailandia",
+    "vigente": false,
+    "img": "/assets/images/ships/Grace%20Oaey.jpg",
+    "instagram": [
+      {
+        "nombre": "Grace",
+        "url": "https://www.instagram.com/gracebudsarin"
+      },
+      {
+        "nombre": "Oaey",
+        "url": "https://www.instagram.com/oaey.ponchanok"
+      }
+    ],
+    "series": [
+      "Mate The Series (2024)"
+    ],
+    "descripcion": "Grace y Oaey se conocieron en Mate The Series (2024). En diciembre 2025 confirmaron el fin de sus actividades conjuntas bajo NEZT Media."
+  },
+  {
+    "ship": "FayMay",
+    "slug": "faymay-gl-ship",
+    "nombres": "Kunyaphat Na Nakorn & Yada Watcharamusik",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/FayMay.jpg",
+    "instagram": [
+      {
+        "nombre": "Fay",
+        "url": "https://www.instagram.com/fay_riezz"
+      },
+      {
+        "nombre": "May",
+        "url": "https://www.instagram.com/maywyda"
+      }
+    ],
+    "series": [
+      "My Marvellous Dream Is You (2025)",
+      "Somewhere Somehow (2025)"
+    ],
+    "descripcion": "Fay y May debutaron juntas en My Marvellous Dream Is You y regresaron en Somewhere Somehow (2025), donde son ex novias del colegio que se reencuentran como jefa y empleada."
+  },
+  {
+    "ship": "EnjoyJune",
+    "slug": "enjoyjune-gl-ship",
+    "nombres": "Enjoy Thidarut & June Nannirin",
+    "pais": "Tailandia",
+    "vigente": false,
+    "img": "/assets/images/ships/EnjoyJune.jpg",
+    "instagram": [
+      {
+        "nombre": "Enjoy",
+        "url": "https://www.instagram.com/enjoyyotdr"
+      },
+      {
+        "nombre": "June",
+        "url": "https://www.instagram.com/june_nannirin"
+      }
+    ],
+    "series": [
+      "Denied Love (2025)"
+    ],
+    "descripcion": "Enjoy y June debutaron juntas en Denied Love (2025), una historia de trauma emocional y amor prohibido que conquistó al fandom GL internacional."
+  },
+  {
+    "ship": "EmiBonnie",
+    "slug": "emibonnie-gl-ship",
+    "nombres": "Thasorn Klinnium & Pattraphus Borattasuwan",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/EmiBonnie.jpg",
+    "instagram": [
+      {
+        "nombre": "Emi",
+        "url": "https://www.instagram.com/emiamily"
+      },
+      {
+        "nombre": "Bonnie",
+        "url": "https://www.instagram.com/beonnnie"
+      }
+    ],
+    "series": [
+      "Us (2025)",
+      "Moonshadow (2026)"
+    ],
+    "descripcion": "Emi y Bonnie debutaron en Us (2025). En 2026 debutaron como dúo musical EMIBONNIE y regresan a pantalla con Moonshadow."
+  },
+  {
+    "ship": "ChristineMae",
+    "slug": "christinemae-gl-ship",
+    "nombres": "Gulasatree Michalsky & Methakarn Anektanasuwan",
+    "pais": "Tailandia",
+    "vigente": false,
+    "img": "/assets/images/ships/ChristineMae.jpg",
+    "instagram": [
+      {
+        "nombre": "Christine",
+        "url": "https://www.instagram.com/gulasatree"
+      },
+      {
+        "nombre": "Mae",
+        "url": "https://www.instagram.com/maetk"
+      }
+    ],
+    "series": [
+      "Reverse 4 You (2024)"
+    ],
+    "descripcion": "Christine y Mae protagonizaron Reverse 4 You (2024), disponible en Netflix. Ambas han dejado Kantana Motion Pictures y están trabajando en proyectos separados."
+  },
+  {
+    "ship": "BleJi",
+    "slug": "bleji-gl-ship",
+    "nombres": "Mable Siriwalee Siriwibool & Pangjie Paphavarin Sawasdiwech",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/BleJi.jpg",
+    "instagram": [
+      {
+        "nombre": "Mable",
+        "url": "https://www.instagram.com/mable_siriwalee"
+      },
+      {
+        "nombre": "Pangjie",
+        "url": "https://www.instagram.com/pangjiewr"
+      }
+    ],
+    "series": [
+      "ClaireBell (2025)"
+    ],
+    "descripcion": "Mable y Pangjie protagonizan ClaireBell (2025), un GL de prisión con 9.2/10 en IMDb. Su química intensa las convirtió en una de las parejas más comentadas del año."
+  },
+  {
+    "ship": "AtomMer",
+    "slug": "atommer-gl-ship",
+    "nombres": "Aphichaya Kamnoetsirikun & Siripath Sarakune",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/AtomMer.jpg",
+    "instagram": [
+      {
+        "nombre": "Atom",
+        "url": "https://www.instagram.com/atomapcy_"
+      },
+      {
+        "nombre": "Mersedes",
+        "url": "https://www.instagram.com/mmersedes"
+      }
+    ],
+    "series": [
+      "My Only Sunshine (2026)"
+    ],
+    "descripcion": "Atom y Mersedes protagonizan My Only Sunshine (2026), una de las series GL más esperadas del año bajo Star Hunter Entertainment."
+  },
+  {
+    "ship": "AndaLookkaew",
+    "slug": "andalookkaew-gl-ship",
+    "nombres": "Anunta Teaviratt & Kamollak Sangsubsin",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/AndaLookkaew.jpg",
+    "instagram": [
+      {
+        "nombre": "Anda",
+        "url": "https://www.instagram.com/anda_anunta"
+      },
+      {
+        "nombre": "Lookkaew",
+        "url": "https://www.instagram.com/lookkaeww_k"
+      }
+    ],
+    "series": [
+      "Love Senior (2023)",
+      "Remain (2026), próximamente"
+    ],
+    "descripcion": "Anda y Lookkaew son integrantes del grupo idol COSMOS. Debutaron como pareja GL en Love Senior (2023) y regresan juntas en Remain (2026)."
+  },
+  {
+    "ship": "ginnyjayna",
+    "slug": "ginnyjayna-gl-ship",
+    "nombres": "Natnicha Pratipnatsri & Angelina Stevens",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/ginny-jayna.jpg",
+    "instagram": [
+      {
+        "nombre": "Ginny",
+        "url": "https://www.instagram.com/ginnynatnicha"
+      },
+      {
+        "nombre": "Jayna",
+        "url": "https://www.instagram.com/aangelinaa.ss"
+      }
+    ],
+    "series": [
+      "Poisonous Love (2025)",
+      "Lunar Secret (2026), próximamente"
+    ],
+    "descripcion": "Tras debutar como pareja GL en Poisonous Love (2025), Ginny y Jayna volverán a protagonizar una nueva historia juntas. Se trata de una adaptación de la novela Lunar Secret, de Prajunsee Muang, que llegará en 2026."
+  },
+  {
+    "ship": "MieAya",
+    "slug": "MieAya-gl-ship",
+    "nombres": "Phattharanan Padpai y Orapan Phongmaykin",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/Miraya.jpg",
+    "instagram": [
+      {
+        "nombre": "Mie",
+        "url": "https://www.instagram.com/miephat"
+      },
+      {
+        "nombre": "Aya",
+        "url": "https://www.instagram.com/ayaorapan"
+      }
+    ],
+    "series": [
+      "Love beyond Dreams (2026)"
+    ],
+    "descripcion": "Mie y Aya (MieAya) son una pareja GL emergente que ha ganado gran popularidad por su participación en Love Beyond Dreams. Destacan por la química natural que muestran tanto en pantalla como fuera de ella, lo que ha impulsado una fandom en rápido crecimiento. Su trabajo en esta serie es el principal responsable de su creciente reconocimiento dentro del género y de la consolidación de su base de seguidores."
+  },
+  {
+    "ship": "meenbabe",
+    "slug": "meenbabe-gl-ship",
+    "nombres": "Rina Chatamonchai y Thaweeporn Phingchamrat",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/meenbabe.jpg",
+    "instagram": [
+      {
+        "nombre": "Meena",
+        "url": "https://www.instagram.com/meenaxrina"
+      },
+      {
+        "nombre": "Aoom",
+        "url": "https://www.instagram.com/aoomtwp"
+      }
+    ],
+    "series": [
+      "Delete Your Past (2024)",
+      "Under Her Rules (2026)"
+    ],
+    "descripcion": "Meena y Aoom se consolidaron como una de las nuevas parejas GL más destacadas de Tailandia gracias a su química en pantalla y a la conexión que desarrollaron con el público. Tras compartir su paso por Miss Grand Thailand, protagonizaron juntas la miniserie Delete Your Past (2024), y posteriormente encabezaron la serie GL Under Her Rules (2026), un proyecto que marcó un importante hito en su carrera como dupla. Su creciente popularidad y el apoyo de una activa comunidad de fans las han convertido en uno de los ships emergentes más comentados dentro del género Girls' Love, tanto en Tailandia como a nivel internacional."
+  },
+  {
+    "ship": "janjingjing",
+    "slug": "janjingjing-gl-ship",
+    "nombres": "Ployshompoo Supasap y Prariyapit Yu",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/jan-jing-jing.jpg",
+    "instagram": [
+      {
+        "nombre": "Jan",
+        "url": "https://www.instagram.com/janhae/"
+      },
+      {
+        "nombre": "JingJing",
+        "url": "https://www.instagram.com/jingjingyu36"
+      }
+    ],
+    "series": [
+      "MuTeLuv: Hello, Is This Luck? (2025)",
+      "Enemies with Benefits (2026)"
+    ],
+    "descripcion": "Jan Ployshompoo y JingJing Yu (JanJingJing) son una pareja GL tailandesa conocida por su química natural y su dinámica de igual a igual. Han trabajado juntas en varios proyectos de GMMTV, entre ellos MuTeLuv: Hello, Is This Luck? (2025) y Bake Love Feeling. Pero fue Enemies with Benefits (2026) donde interpretan a dos jefas rivales con un pacto secreto de amigas con derechos la que las consolidó como una de las duplas GL más prometedoras del momento."
+  },
+  {
+    "ship": "kapookciize",
+    "slug": "kapook-ciize-gl-ship",
+    "nombres": "Ploynira Hiruntaveesin y Rutricha Phapakithi",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/Kapook-Ciize.jpg",
+    "instagram": [
+      {
+        "nombre": "Kapook",
+        "url": "https://www.instagram.com/kapookphat"
+      },
+      {
+        "nombre": "Ciize",
+        "url": "https://www.instagram.com/ciizezphr"
+      }
+    ],
+    "series": [
+      "Pluto (2024)",
+      "Enemies with Benefits (2026)"
+    ],
+    "descripcion": "Kapook y Ciize son una prometedora pareja GL de GMMTV, reconocida por su gran química en Pluto (2024) y Enemies with Benefits (2026). Su sólida conexión en pantalla y el constante crecimiento de su fandom internacional las han consolidado como una de las parejas GL más destacadas de la actualidad."
+  },
+  {
+    "ship": "PuyfaiPloy",
+    "slug": "puyfai-ploy-gl-ship",
+    "nombres": "Tharathip Baisaeng y Jhutamas Pakonworrawong",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/PuyfaiPloy.jpg",
+    "instagram": [
+      {
+        "nombre": "Puyfai",
+        "url": "https://www.instagram.com/puyy_faii"
+      },
+      {
+        "nombre": "Ploy",
+        "url": "https://www.instagram.com/jhutaa"
+      }
+    ],
+    "series": [
+      "Shades (2026)"
+    ],
+    "descripcion": "Puyfai y Ploy (PuyfaiPloy) son una de las parejas emergentes más prometedoras del GL tailandés. Alcanzaron reconocimiento al interpretar a Jane y Nano en la serie Shades, donde conquistaron al público con su intensa química y una historia que evoluciona de la rivalidad al amor. Gracias a la naturalidad de sus interpretaciones y la conexión que transmiten en pantalla, se han convertido en una de las duplas favoritas entre los seguidores del género."
+  },
+  {
+    "ship": "PamArhoung",
+    "slug": "Pamy-Arhoung-gl-ship",
+    "nombres": "Tarradee Watancharoen y Nattawadee Pipobpornchai ",
+    "pais": "Tailandia",
+    "vigente": false,
+    "img": "/assets/images/ships/Pamy-Arhoung.jpg",
+    "instagram": [
+      {
+        "nombre": "Pam",
+        "url": "https://www.instagram.com/ppammelar"
+      },
+      {
+        "nombre": "Arhoung",
+        "url": "https://www.instagram.com/arhoungg"
+      }
+    ],
+    "series": [
+      "Queendom (2025)"
+    ],
+    "descripcion": "Pam y Arhoung (PamArhoung) conquistaron a los fans del Girls Love tras protagonizar la exitosa serie Queendom, donde su química en pantalla y sus interpretaciones las convirtieron en una de las parejas más queridas del género. Aunque el final del contrato de Pam con HEADLINER Thailand marcó el cierre de esta etapa como dúo promocional, su trabajo en Queendom dejó una huella importante dentro de la industria GL y en la comunidad de fans a nivel internacional."
+  },
+  {
+    "ship": "YingAom",
+    "slug": "ying-aom-gl-ship",
+    "nombres": "Anada Prakobkit y Punyawee Jungcharoen ",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/YingAom.jpg",
+    "instagram": [
+      {
+        "nombre": "Ying",
+        "url": "https://www.instagram.com/yinganada/"
+      },
+      {
+        "nombre": "Aom",
+        "url": "https://www.instagram.com/aompunyawee"
+      }
+    ],
+    "series": [
+      "Buy My Boss (2026)"
+    ],
+    "descripcion": "Anada Prakobkit y Punyawee Jungcharoen (YingAom) son una de las nuevas parejas del Girls Love tailandés. Desde el anuncio de Buy My Boss, el dúo ha despertado gran expectativa entre los fans gracias a la química que transmiten y a sus constantes apariciones juntas. Su creciente popularidad las posiciona como una de las promesas de la nueva generación del GL."
+  },
+  {
+    "ship": "junemewnich",
+    "slug": "june-mewnich-gl-ship",
+    "nombres": "Wanwimol Jaenasavamethee y Nannaphas Loetnamchoetsakuni ",
+    "pais": "Tailandia",
+    "vigente": false,
+    "img": "/assets/images/ships/june-wanwimol-y-mewnich-nannaphas2.jpg",
+    "instagram": [
+      {
+        "nombre": "June",
+        "url": "https://www.instagram.com/junewanwimol19"
+      },
+      {
+        "nombre": "Mewnich",
+        "url": "https://www.instagram.com/mewnich.nannaphas"
+      }
+    ],
+    "series": [
+      "Whale Store XOXO (2025)"
+    ],
+    "descripcion": "June y Mewnich (JuneMewnich) fueron una de las parejas emergentes del Girls Love tailandés bajo GMMTV. Ganaron popularidad gracias a su participación en Whale Store XOXO, donde su química en pantalla conquistó al público y las llevó a protagonizar el piloto de Love's Echoes. Su imagen, caracterizada por una dinámica hiperfemenina poco habitual en el género, las convirtió en una dupla muy querida por los fans. En julio de 2026, GMMTV anunció el fin de su colaboración profesional de mutuo acuerdo, marcando el cierre oficial de la pareja artística."
+  },
+  {
+    "ship": "NileNamwan",
+    "slug": "nile-namwan-gl-ship",
+    "nombres": "Chanidapa Sommitthanakul y Natchaya Vongbut",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/Nile-Namwan.jpg",
+    "instagram": [
+      {
+        "nombre": "Nile",
+        "url": "https://www.instagram.com/nilechanii"
+      },
+      {
+        "nombre": "Namwan",
+        "url": "https://www.instagram.com/namwantrbl"
+      }
+    ],
+    "series": [
+      "Chasing Love (2026)"
+    ],
+    "descripcion": "Nile y Namwan comienzan a ganar reconocimiento internacional como una nueva dupla del GL tailandés. Su participación en Chasing Love (2026), donde interpretan a Song y Piang, ha despertado el interés de los fans gracias a su química, talento y la conexión que muestran en cada escena. Con este proyecto, ambas actrices se perfilan como nuevos rostros destacados dentro de la expansión del género Girls' Love en Tailandia."
+  },
+  {
+    "ship": "TKNur",
+    "slug": "tk-nur-gl-ship",
+    "nombres": "Phinyanech Aungsuwan y Desoraya Techapaibul",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/dangerous-queen-special-2.jpg",
+    "instagram": [
+      {
+        "nombre": "TK",
+        "url": "https://www.instagram.com/phinyanech.h"
+      },
+      {
+        "nombre": "Nur",
+        "url": "https://www.instagram.com/nurdesoraya"
+      }
+    ],
+    "series": [
+      "Dangerous Queen (2025)"
+    ],
+    "descripcion": "Tangkwa Phinyanech Aungsuwan (TK) y Nur Desoraya Techapaibul alcanzaron gran reconocimiento tras protagonizar la serie tailandesa Dangerous Queen. Su química en pantalla conquistó al público y las convirtió en una de las parejas GL revelación, ganando una sólida base de seguidores tanto en Tailandia como a nivel internacional."
+  },
+  {
+    "ship": "FahsaiSeya",
+    "slug": "fahsai-Seya-gl-ship",
+    "nombres": "Paweensuda Drouin y Nichada Thongchua",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/fahsai-seya.jpg",
+    "instagram": [
+      {
+        "nombre": "Fahsai",
+        "url": "https://www.instagram.com/paweensuda"
+      },
+      {
+        "nombre": "Seya",
+        "url": "https://www.instagram.com/seya_thongchua"
+      }
+    ],
+    "series": [
+      "The Hidden Blood (2026)"
+    ],
+    "descripcion": "FahsaiSeya es una prometedora dupla GL tailandesa formada por Fahsai y Seya. Ambas han comenzado a ganar reconocimiento gracias a su química y conexión en pantalla, generando interés entre las fans del género. Su participación en *The Hidden Blood*, uno de los proyectos GL previstos para 2026, las posiciona como una pareja a seguir dentro de la nueva generación de duplas de la industria tailandesa."
+  },
+  {
+    "ship": "OomBam",
+    "slug": "oombam-gl-ship",
+    "nombres": "Oom Eisaya y Bam Saralee",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/oom-bam.jpg",
+    "instagram": [
+      {
+        "nombre": "Oom",
+        "url": "https://www.instagram.com/oomeisaya"
+      },
+      {
+        "nombre": "Bam",
+        "url": "https://www.instagram.com/bbam_s"
+      }
+    ],
+    "series": [
+      "Fulfill (2026)"
+    ],
+    "descripcion": "OomBam es la dupla GL tailandesa formada por Oom Eisaya y Bam Saralee, que debutaron juntas como pareja protagónica en Fulfill (2026), la serie de Channel 3 en la que interpretan a Aioon y Pafun, una pareja ya casada que aprende a conocerse en el día a día. Su química fue muy elogiada por las fans, consolidándolas como una de las nuevas duplas GL más comentadas del año."
+  },
+  {
+    "ship": "MyChan",
+    "slug": "mychan-gl-ship",
+    "nombres": "Khawisara Singplod y Chanya Amarit Duval",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/mychan.jpg",
+    "instagram": [
+      {
+        "nombre": "Myyu",
+        "url": "https://www.instagram.com/calledmemyyu.k"
+      },
+      {
+        "nombre": "Chanya",
+        "url": "https://www.instagram.com/chanyaduval"
+      }
+    ],
+    "series": [
+      "AI Girl (2026)"
+    ],
+    "descripcion": "MyChan es la dupla GL tailandesa formada por Myyu y Chanya, que ganaron reconocimiento gracias a su trabajo conjunto en AI Girl. Su química en pantalla y la conexión entre sus personajes despertaron el interés del público, consolidándolas como una de las nuevas duplas dentro del creciente panorama del GL tailandés. AI Girl representa uno de sus proyectos más destacados como pareja."
+  },
+  {
+    "ship": "NikyEngland",
+    "slug": "nikyengland-gl-ship",
+    "nombres": "Warinrat Yolprasong y Ladamanee Rattanapornvareesakul",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/nikyengland.jpg",
+    "instagram": [
+      {
+        "nombre": "Niky",
+        "url": "https://www.instagram.com/youknowinever_"
+      },
+      {
+        "nombre": "England",
+        "url": "https://www.instagram.com/eng_lr39"
+      }
+    ],
+    "series": [
+      "Shades (2026)",
+      "Shades 2 (2026)"
+    ],
+    "descripcion": "NikyEngland es una destacada dupla GL tailandesa conocida por interpretar a Belle y Earn en Shades y Shades 2. Su química, la intensidad de sus historias y su conexión en pantalla les han permitido construir una sólida base de fans y consolidarse entre las nuevas parejas del GL tailandés."
+  },
+  {
+    "ship": "TungpangJessie",
+    "slug": "tungpangjessie-gl-ship",
+    "nombres": "Pattaravadee Laosa y Natsiya Prommart",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/tungpangjessie.jpg",
+    "instagram": [
+      {
+        "nombre": "Tungpang",
+        "url": "https://www.instagram.com/tungpangpl"
+      },
+      {
+        "nombre": "Jessie",
+        "url": "https://www.instagram.com/jessienatsiya.p"
+      }
+    ],
+    "series": [
+      "Heart Code (2026)",
+      "Love in Bloom (2026)"
+    ],
+    "descripcion": "TungpangJessie es una destacada dupla GL tailandesa que conquistó al público con su química y conexión en pantalla en Heart Code. Tras el éxito de la serie, regresan juntas en Love in Bloom."
+  },
+  {
+    "ship": "KaoJane",
+    "slug": "kaojane-gl-ship",
+    "nombres": "Supassrathip Akkrathaweepatch y Methika Jiranorraphat",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/kaojane.jpg",
+    "instagram": [
+      {
+        "nombre": "Kao",
+        "url": "https://www.instagram.com/supassra_sp"
+      },
+      {
+        "nombre": "Jane",
+        "url": "https://www.instagram.com/janeeyeh"
+      }
+    ],
+    "series": [
+      "Love Design (2025)"
+    ],
+    "descripcion": "KaoJane es una destacada dupla GL tailandesa que conquistó al público con su química natural y espontánea en Love Design. Su conexión dentro y fuera de pantalla las convirtió rápidamente en una de las parejas emergentes más queridas por los fans."
+  },
+  {
+    "ship": "TanYada",
+    "slug": "tanyada-gl-ship",
+    "nombres": "Tan Duangkaew y Narilya Gulmongkolpech",
+    "pais": "Tailandia",
+    "vigente": false,
+    "img": "/assets/images/ships/tanyada.jpg",
+    "instagram": [
+      {
+        "nombre": "Tan",
+        "url": "https://www.instagram.com/"
+      },
+      {
+        "nombre": "Yada",
+        "url": "https://www.instagram.com/"
+      }
+    ],
+    "series": [
+      "Play Park (2025)"
+    ],
+    "descripcion": "TanYada fue una dupla GL de Channel 3 que destacó por su química natural en Play Park. Su conexión dentro y fuera de pantalla conquistó a los fans, pero ambas finalizaron su colaboración en 2026 y continúan sus carreras por separado."
+  },
+  {
+    "ship": "PlaifahBebell",
+    "slug": "plaifahbebell-gl-ship",
+    "nombres": "Penpat Kairapee y Patthanarat Ketkaew",
+    "pais": "Tailandia",
+    "vigente": true,
+    "img": "/assets/images/ships/plaifahbebell.jpg",
+    "instagram": [
+      {
+        "nombre": "Plaifah",
+        "url": "https://www.instagram.com/praifahkrp"
+      },
+      {
+        "nombre": "Bebell",
+        "url": "https://www.instagram.com/bebell.q"
+      }
+    ],
+    "series": [
+      "Shadow of Love (2026)"
+    ],
+    "descripcion": "Plaifah y Bebell ganaron reconocimiento por su intensa química y conexión emocional en Shadow of Love. Su vínculo en pantalla y fuera de ella conquistó a los fans, y volvieron a compartir pantalla en Apple My Love Series."
+  }
+]
