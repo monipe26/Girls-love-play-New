@@ -1,6 +1,11 @@
 {
   "items": [
     {
+      "tipo": "Serie",
+      "titulo": "Under Her Rules",
+      "fecha": "2026-11-07"
+    },
+    {
       "fecha": "2026-10-21",
       "titulo": "Built in Love",
       "tipo": "Serie",
@@ -9,12 +14,6 @@
     {
       "fecha": "2026-10-22",
       "titulo": "Love on Hire",
-      "tipo": "Serie",
-      "portada": ""
-    },
-    {
-      "fecha": "2026-10-24",
-      "titulo": "My Dear, My Rival",
       "tipo": "Serie",
       "portada": ""
     },
