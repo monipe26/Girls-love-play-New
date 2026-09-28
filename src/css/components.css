@@ -797,6 +797,10 @@ html[data-tema="oscuro"] .site-footer {
   margin-bottom: var(--espacio-md);
 }
 .letra-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
   min-width: 32px;
   height: 32px;
   padding: 0 10px;
@@ -812,6 +816,9 @@ html[data-tema="oscuro"] .site-footer {
   border-color: transparent;
   color: white;
 }
+/* Letras sin actrices cargadas: se pueden tocar igual, pero se ven más tenues */
+.letra-pill.sin-actrices:not(.activo) { opacity: 0.5; }
+.letra-pill:hover:not(.activo) { border-color: var(--color-primario); color: var(--color-primario); }
 
 .grid-actrices {
   display: grid;

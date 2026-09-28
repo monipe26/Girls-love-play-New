@@ -1,0 +1,9 @@
+{# Botonera del abecedario de Actrices. Variable: letraActiva ("" = Todas).
+   Cada letra es un link a su propia página (/actrices/letra/x/), así el filtro
+   busca entre TODAS las actrices, no solo entre las de la página que se ve. #}
+<nav class="letras-filtro" aria-label="Filtrar actrices por letra">
+  <a href="/actrices/" class="letra-pill{% if not letraActiva %} activo{% endif %}"{% if not letraActiva %} aria-current="page"{% endif %}>Todas</a>
+  {% for l in letrasActrices %}
+  <a href="/actrices/letra/{{ l.slug }}/" class="letra-pill{% if l.letra == letraActiva %} activo{% endif %}{% if not l.actrices.length %} sin-actrices{% endif %}"{% if l.letra == letraActiva %} aria-current="page"{% endif %}>{{ l.letra }}</a>
+  {% endfor %}
+</nav>

@@ -1,5 +1,5 @@
 <div class="ticker" aria-label="Últimas noticias">
-  <span class="ticker-etiqueta">🔥 Últimas noticias</span>
+  <span class="ticker-etiqueta"><span aria-hidden="true">🔥</span> <span class="ticker-etiqueta-txt">Últimas <span class="ticker-etiqueta-extra">noticias</span></span></span>
   <button class="ticker-btn ticker-prev" aria-label="Ver noticia anterior">‹</button>
   <ul class="ticker-lista" id="ticker-lista">
     {% for item in collections.ticker | limit(10) %}

@@ -1,0 +1,33 @@
+---
+layout: base.njk
+pagination:
+  data: letrasActrices
+  size: 1
+  alias: item
+  addAllPagesToCollections: true
+permalink: "/actrices/letra/{{ item.slug }}/"
+eleventyComputed:
+  title: "Actrices GL con la letra {{ item.letra }}"
+  description: "Actrices GL cuyo nombre empieza con la letra {{ item.letra }}."
+  noindex: "{{ '' if item.actrices.length else '1' }}"
+  eleventyExcludeFromCollections: "{{ '' if item.actrices.length else 'true' }}"
+---
+{% set letraActiva = item.letra %}
+<section class="seccion">
+  <h1>👑 Actrices GL · {{ item.letra }}</h1>
+  <p class="seccion-sub">Actrices cuyo nombre empieza con la letra {{ item.letra }}</p>
+
+  {% include "filtro-letras-actrices.njk" %}
+
+  {% if item.actrices.length %}
+  <div class="grid-actrices">
+    {% for actriz in item.actrices %}
+      {% include "tarjeta-actriz.njk" %}
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="proximamente-aviso">Todavía no hay actrices con la letra {{ item.letra }}. Probá con otra letra o mirá <a href="/actrices/">todas las actrices</a>.</p>
+  {% endif %}
+
+  {% include "modal-actriz.njk" %}
+</section>

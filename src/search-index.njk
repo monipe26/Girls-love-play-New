@@ -22,7 +22,7 @@ eleventyExcludeFromCollections: true
   {%- set _ = items.push({ "t": n.data.title, "u": n.url, "k": "Mundo GL", "i": n.data.imagen, "x": n.data.resumen }) -%}
 {%- endfor -%}
 {%- for a in actricesGl -%}
-  {%- set _ = items.push({ "t": a.nombre, "u": "/actrices/", "k": "Actrices", "i": a.foto, "x": ((a.apodo or "") + " " + (a.nombreOriginal or "")) | trim }) -%}
+  {%- set _ = items.push({ "t": a.nombre, "u": "/actrices/letra/" + (a.nombre | letraActrizSlug) + "/", "k": "Actrices", "i": a.foto, "x": ((a.apodo or "") + " " + (a.nombreOriginal or "")) | trim }) -%}
 {%- endfor -%}
 {%- for v in ostGl -%}
   {%- set _ = items.push({ "t": v.titulo, "u": "/ost/", "k": "OST", "x": v.canal }) -%}

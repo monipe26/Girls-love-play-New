@@ -25,6 +25,16 @@
    el que está en la barra lateral se oculta acá y vuelve en escritorio. */
 .sidebar .widget-calendario { display: none; }
 
+/* Ticker en móvil: la etiqueta fija queda más corta ("🔥 Últimas") y los
+   botones ‹ › más angostos, para que el texto que corre tenga más lugar.
+   En pantallas de 520px o más se vuelve a ver "Últimas noticias" completo. */
+@media (max-width: 519px) {
+  .ticker { gap: 6px; padding-left: 8px; padding-right: 8px; }
+  .ticker-etiqueta { font-size: 0.72rem; padding: 3px 8px; }
+  .ticker-etiqueta-extra { display: none; }
+  .ticker-btn { padding: 0 2px; font-size: 1.15rem; }
+}
+
 @media (min-width: 900px) {
   .site-header { padding: var(--espacio-sm) var(--espacio-sm); }
 

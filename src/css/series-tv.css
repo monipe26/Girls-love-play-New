@@ -142,6 +142,9 @@
 .serie-info-panel[hidden] { display: none; }
 .serie-info-titulo { font-weight: 700; font-size: 1.05rem; margin-bottom: var(--espacio-xs); }
 .serie-info-sinopsis { font-size: 0.92rem; line-height: 1.5; margin-bottom: var(--espacio-sm); }
+.serie-info-ver { border: none; cursor: pointer; padding: 8px 18px; font-size: 0.85rem; transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease; }
+.serie-info-ver:active { transform: scale(0.96); }
+.serie-info-ver.elegida { background: #7c3aed; box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.25); }
 .tarjeta-serie-tv.seleccionada .tarjeta-serie-tv-portada { outline: 3px solid var(--color-primario); outline-offset: 2px; }
 
 /* ===== BUSCADOR DE SERIES (/series/ y /series-tv/) ===== */

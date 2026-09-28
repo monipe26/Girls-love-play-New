@@ -5,8 +5,11 @@ eleventyExcludeFromCollections: true
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {%- for pagina in collections.all %}
+  {#- Las páginas marcadas noindex (ej. letras de Actrices sin actrices cargadas) no van al sitemap #}
+  {%- if not pagina.data.noindex %}
   <url>
     <loc>{{ site.url }}{{ pagina.url }}</loc>
   </url>
+  {%- endif %}
 {%- endfor %}
 </urlset>

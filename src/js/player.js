@@ -31,6 +31,15 @@ const reproductorPrincipalWrapper = reproductorPrincipalSeccion
 const reproductorPrincipalTitulo = reproductorPrincipalSeccion
   ? reproductorPrincipalSeccion.querySelector(".reproductor-titulo")
   : null;
+// Sinopsis debajo del reproductor (hoy solo la tiene /proximamente/). Si el
+// video elegido no tiene sinopsis cargada, se deja vacía en vez de mostrar la
+// del video anterior.
+const reproductorPrincipalSinopsis = reproductorPrincipalSeccion
+  ? reproductorPrincipalSeccion.querySelector("[data-reproductor-sinopsis]")
+  : null;
+function mostrarSinopsisPrincipal(texto) {
+  if (reproductorPrincipalSinopsis) reproductorPrincipalSinopsis.textContent = texto || "";
+}
 
 // ===== Avance aleatorio al terminar el video (OST / Extra GL / Comunidad) =====
 // Cuando el video que está sonando en el reproductor principal termina, se
@@ -61,6 +70,7 @@ function obtenerListaVideosDeLaGrilla() {
     return {
       id: tarjeta.dataset.youtubeId,
       titulo: tituloEl ? tituloEl.textContent : "Video",
+      sinopsis: tarjeta.dataset.sinopsis || "",
     };
   });
 }
@@ -84,6 +94,7 @@ function alTerminarElVideo(idQueTermino) {
   if (reproductorPrincipalTitulo) {
     reproductorPrincipalTitulo.textContent = `Reproduciendo ahora: ${siguiente.titulo}`;
   }
+  mostrarSinopsisPrincipal(siguiente.sinopsis);
 }
 
 // Carga un video en el reproductor principal. Si la sección tiene grilla de
@@ -149,6 +160,7 @@ document.querySelectorAll(".tarjeta-video").forEach((tarjeta) => {
     if (reproductorPrincipalWrapper) {
       cargarVideoPrincipal(id, titulo, true);
       if (reproductorPrincipalTitulo) reproductorPrincipalTitulo.textContent = `Reproduciendo ahora: ${titulo}`;
+      mostrarSinopsisPrincipal(tarjeta.dataset.sinopsis);
       reproductorPrincipalSeccion.scrollIntoView({ behavior: "smooth", block: "start" });
       return;
     }
@@ -357,14 +369,12 @@ if (reproductorSeriesTv) {
     if (conScroll) reproductorSeriesTv.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  // ----- Celular / pantallas táctiles -----
-  // Antes, tocar un cover te llevaba solo hasta el reproductor (arriba de todo) y
-  // empezaba a reproducir, y así no se podía leer la sinopsis. Ahora, en celular,
-  // tocar un cover solo muestra un cuadro con el título y la sinopsis justo
-  // debajo de esa fila de covers, SIN mover la página. Ahí mismo hay un botón
-  // "▶ Ver ahora" que recién ahí sube al reproductor y reproduce.
-  // En PC (con mouse) todo sigue como antes: un clic reproduce arriba.
-  const modoSeleccion = window.matchMedia("(max-width: 899px), (hover: none)");
+  // ----- Dos pasos (celular y PC) -----
+  // 1er clic en un cover: se muestra un cuadro con el título y la sinopsis justo
+  // debajo de esa fila de covers, SIN mover la página.
+  // 2do clic, en el botón "Ver serie" de ese cuadro: el botón cambia de color
+  // (para que se note que quedó elegido) y recién ahí se sube al reproductor
+  // y empieza a reproducir.
   let panelInfo = null;
 
   const obtenerPanelInfo = () => {
@@ -377,9 +387,21 @@ if (reproductorSeriesTv) {
     panelInfo.innerHTML =
       '<p class="serie-info-titulo"></p>' +
       '<p class="serie-info-sinopsis"></p>' +
-      '<button type="button" class="btn-primario serie-info-ver">▶ Ver ahora</button>';
-    panelInfo.querySelector(".serie-info-ver").addEventListener("click", () => {
-      if (panelInfo._tarjeta) cargarSerie(panelInfo._tarjeta, true, true);
+      '<button type="button" class="btn-primario serie-info-ver">▶ Ver serie</button>';
+    const botonVer = panelInfo.querySelector(".serie-info-ver");
+    botonVer.addEventListener("click", () => {
+      const tarjeta = panelInfo._tarjeta;
+      if (!tarjeta || botonVer.classList.contains("elegida")) return;
+      // Efecto visual: cambia de color y de texto un instante antes de subir
+      botonVer.classList.add("elegida");
+      botonVer.textContent = "✓ Abriendo…";
+      setTimeout(() => {
+        cargarSerie(tarjeta, true, true);
+        setTimeout(() => {
+          botonVer.classList.remove("elegida");
+          botonVer.textContent = "▶ Ver serie";
+        }, 900);
+      }, 380);
     });
     return panelInfo;
   };
@@ -412,10 +434,7 @@ if (reproductorSeriesTv) {
   };
 
   tarjetas.forEach((tarjeta) => {
-    tarjeta.addEventListener("click", () => {
-      if (modoSeleccion.matches) mostrarInfo(tarjeta);
-      else cargarSerie(tarjeta, true, true);
-    });
+    tarjeta.addEventListener("click", () => mostrarInfo(tarjeta));
   });
 
   // Venir desde el buscador de Series (/series-tv/#serie-nombre): se marca esa serie
@@ -424,11 +443,7 @@ if (reproductorSeriesTv) {
     if (!coincidencia) return;
     const tarjeta = document.getElementById("serie-" + coincidencia[1]);
     if (!tarjeta || !tarjetas.includes(tarjeta)) return;
-    if (modoSeleccion.matches) {
-      mostrarInfo(tarjeta);
-    } else {
-      cargarSerie(tarjeta, false, true);
-    }
+    mostrarInfo(tarjeta);
   };
 
   const irASerieVecina = (delta) => {
