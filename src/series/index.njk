@@ -4,7 +4,7 @@ description: Todo el catálogo de series Girls Love (GL) disponibles en Girls Lo
 layout: base.njk
 pagination:
   data: collections.series
-  size: 12
+  size: 10
   alias: seriesPagina
   reverse: true
 permalink: "{{ '/series/' if pagination.pageNumber == 0 else '/series/' + (pagination.pageNumber + 1) + '/' }}"
