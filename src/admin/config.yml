@@ -90,6 +90,31 @@ collections:
         buttons: ["bold", "italic", "link", "heading-two", "heading-three", "quote", "bulleted-list", "numbered-list"]
         editor_components: []
         hint: "Dejá el interruptor en «Texto enriquecido». Usá Título 2 (H2) para las secciones grandes y Título 3 (H3) para subsecciones. El título de la noticia ya es el H1: no lo repitas acá."
+      - { label: "Texto alternativo de la imagen (ALT)", name: imagenAlt, widget: string, required: false, hint: "Opcional. Describí lo que se ve en la imagen. Si lo dejás vacío se usa el título." }
+      - { label: "Pie de foto / crédito", name: imagenPie, widget: string, required: false, hint: "Opcional. Aparece debajo de la imagen destacada. Ejemplo: Foto: GMMTV." }
+      - { label: "Fuente (nombre)", name: fuenteNombre, widget: string, required: false, hint: "Opcional. Ejemplo: Comunicado oficial de Copy A Bangkok." }
+      - { label: "Fuente (enlace)", name: fuenteUrl, widget: string, required: false, hint: "Opcional. Dirección completa (https://...)." }
+      - label: "Serie relacionada"
+        name: serieRelacionada
+        widget: relation
+        collection: series
+        file: series
+        search_fields: ["items.*.titulo"]
+        value_field: "items.*.slug"
+        display_fields: ["items.*.titulo"]
+        required: false
+        hint: "Opcional. Agrega un enlace a la serie al final de la nota."
+      - label: "Notas relacionadas (hasta 3, a elección)"
+        name: relacionadas
+        widget: relation
+        collection: noticias
+        search_fields: ["title"]
+        value_field: "slug"
+        display_fields: ["title"]
+        multiple: true
+        max: 3
+        required: false
+        hint: "Opcional. Si no elegís ninguna, el sitio muestra solas las últimas notas de la sección."
       - label: "Título para Google (SEO)"
         name: seoTitle
         widget: string
@@ -116,6 +141,243 @@ collections:
         required: false
         default: false
         hint: "Dejalo apagado salvo casos especiales."
+
+  - name: mundo-gl
+    label: "🌐 Mundo GL"
+    label_singular: "Nota"
+    folder: src/mundo-gl
+    extension: md
+    format: yaml-frontmatter
+    create: true
+    # El archivo (y por lo tanto la dirección web) sale del campo "Slug"
+    slug: "{{fields.slug}}"
+    media_folder: /src/assets/images/mundo-gl
+    public_folder: /assets/images/mundo-gl
+    summary: "{{title}} · {{date}}"
+    sortable_fields: ["date", "title"]
+    fields:
+      - label: "Título"
+        name: title
+        widget: string
+        hint: "Es el título grande de la noticia (H1). Escribilo claro y con la serie o el tema."
+      - label: "Slug (dirección web)"
+        name: slug
+        widget: string
+        pattern: ["^[a-z0-9]+(-[a-z0-9]+)*$", "Solo minúsculas, números y guiones. Sin espacios, tildes ni ñ."]
+        hint: "Ejemplo: nombre-de-la-nota → girlsloveplay.com/mundo-gl/nombre-de-la-nota/. Cortito, en minúsculas y con guiones. ⚠️ Definilo al crear la noticia: cambiarlo después NO cambia la dirección real y confunde a Google."
+      - label: "Fecha de publicación"
+        name: date
+        widget: datetime
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        format: "YYYY-MM-DD"
+        picker_utc: true
+      - label: "Imagen destacada"
+        name: imagen
+        widget: image
+        choose_url: false
+        hint: "Formato horizontal. Ideal: al menos 1200 px de ancho (JPG o PNG). Las más chicas se ven borrosas al compartir en redes."
+      - label: "Resumen para la tarjeta de la lista"
+        name: resumen
+        widget: text
+        pattern: ["^.{40,180}$", "Entre 40 y 180 caracteres (uno o dos renglones)."]
+        hint: "Uno o dos renglones. Se ve en las tarjetas y listados del sitio. NO es la descripción de Google."
+      - label: "Meta descripción (SEO)"
+        name: description
+        widget: text
+        required: false
+        pattern: ["^.{50,200}$", "Entre 50 y 200 caracteres (ideal 120 a 155)."]
+        hint: "Es lo que Google muestra debajo del título. Opcional: si la dejás vacía se usa el resumen de la tarjeta. Ideal: 120 a 155 caracteres."
+      - label: "Video de YouTube (solo ID)"
+        name: trailer
+        widget: string
+        required: false
+        pattern: ["^[A-Za-z0-9_-]{11}$", "El ID tiene 11 caracteres. Pegá solo el ID, no la dirección completa."]
+        hint: "Opcional. Es lo que va después de v= en la dirección del video. Ejemplo: dQw4w9WgXcQ. Se muestra al final de la noticia."
+      - label: "Contenido"
+        name: body
+        widget: markdown
+        buttons: ["bold", "italic", "link", "heading-two", "heading-three", "quote", "bulleted-list", "numbered-list"]
+        editor_components: []
+        hint: "Dejá el interruptor en «Texto enriquecido». Usá Título 2 (H2) para las secciones grandes y Título 3 (H3) para subsecciones. El título de la noticia ya es el H1: no lo repitas acá."
+      - { label: "Texto alternativo de la imagen (ALT)", name: imagenAlt, widget: string, required: false, hint: "Opcional. Describí lo que se ve en la imagen. Si lo dejás vacío se usa el título." }
+      - { label: "Pie de foto / crédito", name: imagenPie, widget: string, required: false, hint: "Opcional. Aparece debajo de la imagen destacada. Ejemplo: Foto: GMMTV." }
+      - { label: "Fuente (nombre)", name: fuenteNombre, widget: string, required: false, hint: "Opcional. Ejemplo: Comunicado oficial de Copy A Bangkok." }
+      - { label: "Fuente (enlace)", name: fuenteUrl, widget: string, required: false, hint: "Opcional. Dirección completa (https://...)." }
+      - label: "Serie relacionada"
+        name: serieRelacionada
+        widget: relation
+        collection: series
+        file: series
+        search_fields: ["items.*.titulo"]
+        value_field: "items.*.slug"
+        display_fields: ["items.*.titulo"]
+        required: false
+        hint: "Opcional. Agrega un enlace a la serie al final de la nota."
+      - label: "Notas relacionadas (hasta 3, a elección)"
+        name: relacionadas
+        widget: relation
+        collection: mundo-gl
+        search_fields: ["title"]
+        value_field: "slug"
+        display_fields: ["title"]
+        multiple: true
+        max: 3
+        required: false
+        hint: "Opcional. Si no elegís ninguna, el sitio muestra solas las últimas notas de la sección."
+      - label: "Título para Google (SEO)"
+        name: seoTitle
+        widget: string
+        required: false
+        hint: "Es el título azul que Google muestra en los resultados. Si lo dejás vacío se usa el título de la noticia + el nombre del sitio, y está bien así."
+      - label: "Imagen para compartir en redes"
+        name: ogImage
+        widget: image
+        required: false
+        choose_url: false
+        hint: "Es la imagen que se ve cuando alguien comparte el link en WhatsApp, Facebook, X o Telegram. Si la dejás vacía se usa la imagen destacada. Ideal: 1200×630."
+      - label: "Fecha de última actualización"
+        name: modificado
+        widget: datetime
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        format: "YYYY-MM-DD"
+        required: false
+        picker_utc: true
+        hint: "Solo si actualizaste la noticia de forma importante. Si está vacía, Google toma la fecha de publicación."
+      - label: "No mostrar en Google (noindex)"
+        name: noindex
+        widget: boolean
+        required: false
+        default: false
+        hint: "Dejalo apagado salvo casos especiales."
+
+  # ------------------------------------------------------------
+  # ACTRICES (src/_data/cms/actrices.json)
+  # ------------------------------------------------------------
+  - name: actrices
+    label: "💖 Actrices"
+    files:
+      - name: actrices
+        label: "Lista de actrices"
+        file: src/_data/cms/actrices.json
+        media_folder: /src/assets/images/actrices
+        public_folder: /assets/images/actrices
+        fields:
+          - label: "Actrices"
+            name: items
+            widget: list
+            label_singular: "Actriz"
+            summary: "{{fields.nombre}} · {{fields.apodo}}"
+            add_to_top: true
+            fields:
+              - { label: "Nombre", name: nombre, widget: string }
+              - label: "Slug (dirección interna)"
+                name: slug
+                widget: string
+                hint: "Ejemplo: nombre-apellido-gl-actriz. En las actrices que ya existen NO lo cambies."
+              - { label: "Nombre original (en su idioma)", name: nombreOriginal, widget: string, required: false }
+              - { label: "Apodo / Ship", name: apodo, widget: string, required: false }
+              - { label: "Foto", name: foto, widget: image, choose_url: false, hint: "Subí la foto original, el sitio la achica y la comprime solo." }
+              - { label: "Fecha de nacimiento (AAAA-MM-DD)", name: nacimiento, widget: string, required: false, pattern: ["^\\d{4}-\\d{2}-\\d{2}$", "Formato AAAA-MM-DD. Ejemplo: 1998-04-10"] }
+              - { label: "Nacionalidad", name: nacionalidad, widget: string, required: false }
+              - { label: "Ship (slug de la pareja)", name: shipSlug, widget: string, required: false }
+              - { label: "Instagram (dirección completa)", name: instagram, widget: string, required: false }
+              - label: "Series"
+                name: series
+                widget: list
+                required: false
+                label_singular: "Serie"
+                summary: "{{fields.titulo}} ({{fields.anio}})"
+                fields:
+                  - { label: "Título", name: titulo, widget: string }
+                  - { label: "Año", name: anio, widget: string, required: false }
+              - { label: "Biografía", name: biografia, widget: text, required: false, hint: "Opcional. Podés dejarla vacía y completarla más adelante. Se muestra en la ficha de la actriz." }
+
+  # ------------------------------------------------------------
+  # SERIES (reproductor /series-gl/) (src/_data/cms/series.json)
+  # ------------------------------------------------------------
+  - name: series
+    label: "📺 Series"
+    files:
+      - name: series
+        label: "Lista de series"
+        file: src/_data/cms/series.json
+        media_folder: /src/assets/images/series
+        public_folder: /assets/images/series
+        fields:
+          - label: "Series"
+            name: items
+            widget: list
+            label_singular: "Serie"
+            summary: "{{fields.titulo}} ({{fields.anio}})"
+            add_to_top: true
+            fields:
+              - { label: "Título", name: titulo, widget: string }
+              - label: "Slug (dirección web)"
+                name: slug
+                widget: string
+                pattern: ["^[a-z0-9]+(-[a-z0-9]+)*$", "Solo minúsculas, números y guiones."]
+                hint: "⚠️ En las series que ya existen NO lo cambies: cambia la dirección de la página."
+              - { label: "Año", name: anio, widget: number, value_type: int }
+              - { label: "Género", name: genero, widget: string, hint: "Ejemplo: Romance · Drama" }
+              - { label: "Sinopsis", name: sinopsis, widget: text, required: false, hint: "Se muestra en la ficha de la serie y un fragmento en la portada del sitio." }
+              - { label: "Portada", name: portada, widget: image, choose_url: false, hint: "Subí la imagen original; el sitio la achica y la comprime solo." }
+              - label: "Videos de YouTube (solo ID)"
+                name: videos
+                widget: list
+                required: false
+                field: { label: "ID", name: id, widget: string, pattern: ["^[A-Za-z0-9_-]{11}$", "El ID tiene 11 caracteres."] }
+              - { label: "Playlist de YouTube (ID)", name: playlist, widget: string, required: false }
+
+  # ------------------------------------------------------------
+  # CALENDARIO DE ESTRENOS (src/_data/cms/calendario.json)
+  # ------------------------------------------------------------
+  - name: calendario
+    label: "🗓️ Calendario"
+    files:
+      - name: calendario
+        label: "Estrenos"
+        file: src/_data/cms/calendario.json
+        media_folder: /src/assets/images/calendario
+        public_folder: /assets/images/calendario
+        fields:
+          - label: "Estrenos"
+            name: items
+            widget: list
+            label_singular: "Estreno"
+            summary: "{{fields.fecha}} · {{fields.titulo}}"
+            add_to_top: true
+            fields:
+              - { label: "Nombre de la serie", name: titulo, widget: string }
+              - label: "Fecha de estreno"
+                name: fecha
+                widget: datetime
+                date_format: "YYYY-MM-DD"
+                time_format: false
+                format: "YYYY-MM-DD"
+                picker_utc: true
+                hint: "Elegís el día en el calendario: el día, el mes y el año se completan solos."
+              - { label: "Tipo", name: tipo, widget: select, options: ["Serie", "Película", "Especial"], default: "Serie" }
+              - { label: "Miniatura (opcional)", name: portada, widget: image, required: false, choose_url: false, hint: "Subí la foto original; el sitio la achica solo." }
+              - { label: "Enlace (opcional)", name: url, widget: string, required: false, hint: "Página del sitio adonde lleva. Ejemplo: /series-gl/nombre/" }
+
+  # ------------------------------------------------------------
+  # PUBLICIDAD (src/_data/cms/publicidad.json)
+  # ------------------------------------------------------------
+  - name: publicidad
+    label: "📢 Publicidad"
+    files:
+      - name: publicidad
+        label: "Anuncio de la barra lateral (300×250)"
+        file: src/_data/cms/publicidad.json
+        media_folder: /src/assets/images/publicidad
+        public_folder: /assets/images/publicidad
+        fields:
+          - { label: "Mostrar anuncio", name: activa, widget: boolean, default: true }
+          - { label: "Imagen", name: imagen, widget: image, choose_url: false, hint: "Proporción 6:5 (por ejemplo 300×250 o 600×500). El sitio la ajusta solo." }
+          - { label: "Texto alternativo", name: alt, widget: string }
+          - { label: "Enlace (opcional)", name: enlace, widget: string, required: false }
 
   # ------------------------------------------------------------
   # PRUEBA DE CONEXIÓN (se quita en el Paso 6)

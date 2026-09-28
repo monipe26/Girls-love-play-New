@@ -1,7 +1,7 @@
 // Los próximos 4 estrenos para el widget "Calendario de estrenos" del home
 // (barra lateral). Sale de calendario.json: los que todavía no pasaron, y si
 // no queda ninguno, los 4 más recientes. Se actualiza en cada build.
-const eventos = require("./calendario.json");
+const eventos = require("./cms/calendario.json").items;
 const MESES_CORTOS = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"];
 
 module.exports = function () {

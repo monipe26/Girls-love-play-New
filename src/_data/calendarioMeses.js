@@ -5,7 +5,7 @@
 // Se generan los meses desde el primer estreno hasta el último, sin huecos.
 // El mes que abre en /calendario/ es el del día del build (o el más cercano
 // que tenga estrenos); los demás quedan en /calendario/AAAA-MM/.
-const eventos = require("./calendario.json");
+const eventos = require("./cms/calendario.json").items;
 
 const MESES = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 const DIAS = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];

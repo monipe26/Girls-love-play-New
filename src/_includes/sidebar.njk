@@ -2,14 +2,15 @@
 
   {% include "widget-calendario.njk" %}
 
+  {# Publicidad: la imagen y el enlace se cambian desde el panel (Publicidad) #}
+  {% if publicidad.activa and publicidad.imagen %}
   <section class="widget-publicidad">
     <h2>Publicidad</h2>
-    <!-- TODO: reemplazar por el anuncio real (banner/ad-code) cuando lo tengan -->
-    <div class="anuncio-placeholder">
-      <span>Espacio publicitario</span>
-      <span class="anuncio-medida">300 × 250</span>
-    </div>
+    {% if publicidad.enlace %}<a href="{{ publicidad.enlace }}" class="anuncio-imagen" aria-label="{{ publicidad.alt }}">{% else %}<div class="anuncio-imagen">{% endif %}
+      <img src="{{ publicidad.imagen }}" alt="{{ publicidad.alt }}" width="300" height="250" loading="lazy" decoding="async">
+    {% if publicidad.enlace %}</a>{% else %}</div>{% endif %}
   </section>
+  {% endif %}
 
   {# Serie destacada: la más nueva de seriesTv.json (año más alto; si hay empate, la que esté primero en el archivo) #}
   {% set ultimaSerie = seriesTv | sort(true, false, "anio") | first %}
@@ -25,7 +26,8 @@
     <div class="tarjeta-destacada-info">
       <span class="badge badge-rosa">Series</span>
       <h3>{{ ultimaSerie.titulo }} ({{ ultimaSerie.anio }})</h3>
-      <p>{{ ultimaSerie.sinopsis | truncar(110) }}</p>
+      {# Fragmento de la sinopsis; si la serie todavía no la tiene, un texto corto automático #}
+      <p class="tarjeta-destacada-sinopsis">{% if ultimaSerie.sinopsis %}{{ ultimaSerie.sinopsis | truncar(140) }}{% else %}Serie GL de género {{ ultimaSerie.genero | lower }}, estrenada en {{ ultimaSerie.anio }}. Miralo completo en Series GL.{% endif %}</p>
       <a href="/series-gl/{{ (ultimaSerie.slug or ultimaSerie.titulo) | slugify }}/" class="btn-primario">Ver serie →</a>
     </div>
   </div>

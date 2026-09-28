@@ -2,7 +2,7 @@
 // de cumpleaños del home (src/index.njk + js/cumpleanos.js). Se separa del
 // JSON completo (que trae bio, series, etc.) para no mandar al navegador
 // datos de más en una página que ya de por sí tiene bastante contenido.
-const actrices = require("./actricesGl.json");
+const actrices = require("./cms/actrices.json").items;
 
 module.exports = actrices
   .filter((a) => a.nacimiento)

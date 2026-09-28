@@ -2,7 +2,7 @@
 // actrices. Se usa para armar /actrices/letra/a/, /actrices/letra/b/, etc. y
 // para dibujar la botonera de letras. Las letras sin actrices también existen
 // (muestran un aviso), así se puede tocar cualquier letra del abecedario.
-const actrices = require("./actricesGl.json");
+const actrices = require("./cms/actrices.json").items;
 
 const LETRAS = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ".split("");
 

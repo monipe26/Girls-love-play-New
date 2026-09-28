@@ -988,3 +988,17 @@ body.modal-actriz-abierto { overflow: hidden; }
 .catalogo-proximamente-icono { display: block; font-size: 2.4rem; margin-bottom: var(--espacio-xs); }
 .catalogo-proximamente h2 { margin-bottom: var(--espacio-xs); }
 .catalogo-proximamente p { color: var(--color-texto-sec); margin-bottom: var(--espacio-xs); }
+
+/* ===== ARTÍCULO: migas, firma, pie de foto, fuente y relacionadas ===== */
+.migas { font-size: 0.8rem; margin-bottom: var(--espacio-sm); color: var(--color-texto-sec); }
+.migas ol { list-style: none; display: flex; flex-wrap: wrap; gap: 4px; margin: 0; padding: 0; }
+.migas li + li::before { content: "›"; margin-right: 4px; opacity: 0.6; }
+.migas a { color: var(--color-primario-hover); }
+.migas [aria-current="page"] { opacity: 0.85; }
+.articulo-figura { margin: 0; }
+.articulo-pie-foto { font-size: 0.8rem; color: var(--color-texto-sec); margin-top: -4px; margin-bottom: var(--espacio-sm); }
+.articulo-imagen { width: 100%; height: auto; }
+.articulo-autor { font-size: 0.85rem; color: var(--color-texto-sec); margin: 4px 0 0; }
+.articulo-fuente, .articulo-serie-rel { font-size: 0.9rem; margin: var(--espacio-xs) 0; color: var(--color-texto-sec); }
+.articulo-relacionadas { margin: var(--espacio-lg) 0; }
+.articulo-relacionadas h2 { margin-bottom: var(--espacio-sm); }

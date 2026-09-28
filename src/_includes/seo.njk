@@ -10,6 +10,7 @@
       ogImage         -> imagen para compartir (si falta, se usa "imagen" o el logo)
       modificado      -> fecha de última modificación de un artículo (AAAA-MM-DD)
       noindex: true   -> la página no aparece en Google ni en el sitemap
+      imagenAlt       -> texto alternativo de la imagen (si falta, se usa el título)
     ========================================================================== -#}
 {%- set _titulo = seoTitle if seoTitle else (title + " · " + site.nombre) -%}
 {%- set _desc = seoDescription or description or resumen or site.descripcion -%}
@@ -41,7 +42,12 @@
   <meta property="og:description" content="{{ _desc }}">
   <meta property="og:url" content="{{ _url }}">
   <meta property="og:image" content="{{ _img }}">
-  <meta property="og:image:alt" content="{{ title }}">
+  <meta property="og:image:alt" content="{{ imagenAlt or title }}">
+  {%- set _dimOg = (ogImage or imagen or site.imagenDefecto) | imgSize %}
+  {%- if _dimOg %}
+  <meta property="og:image:width" content="{{ _dimOg.w }}">
+  <meta property="og:image:height" content="{{ _dimOg.h }}">
+  {%- endif %}
   {%- if _esArticulo %}
   <meta property="article:published_time" content="{{ page.date | isoDate }}">
   <meta property="article:modified_time" content="{{ (modificado or page.date) | isoDate }}">
@@ -54,6 +60,7 @@
   <meta name="twitter:title" content="{{ _titulo }}">
   <meta name="twitter:description" content="{{ _desc }}">
   <meta name="twitter:image" content="{{ _img }}">
+  <meta name="twitter:image:alt" content="{{ imagenAlt or title }}">
 
   <!-- Datos estructurados (JSON-LD) -->
   {%- if page.url == "/" %}
@@ -87,9 +94,20 @@
     "datePublished": page.date | isoDate,
     "dateModified": (modificado or page.date) | isoDate,
     "inLanguage": "es",
+    "articleSection": "Noticias" if _esNoticia else "Mundo GL",
+    "wordCount": palabras,
     "author": { "@type": "Organization", "name": site.nombre, "url": site.url + "/" },
     "publisher": _org,
     "mainEntityOfPage": { "@type": "WebPage", "@id": _url }
+  } | jsonld | safe }}</script>
+  <script type="application/ld+json">{{ {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": site.url + "/" },
+      { "@type": "ListItem", "position": 2, "name": ("Noticias" if _esNoticia else "Mundo GL"), "item": site.url + ("/noticias/" if _esNoticia else "/mundo-gl/") },
+      { "@type": "ListItem", "position": 3, "name": title, "item": _url }
+    ]
   } | jsonld | safe }}</script>
   {%- elif _esSerie %}
   {%- set _s = serie or { "titulo": titulo, "anio": anio, "genero": genero, "portada": portada, "sinopsis": sinopsis } %}

@@ -8,3 +8,7 @@
 /series /catalogo/ 301
 /series/ /catalogo/ 301
 /series/* /catalogo/:splat 301
+
+# Noticia duplicada de Red Maid: queda una sola
+/noticias/red-maid-presenta-su-primer-teaser-que-esconden-sus-visiones /noticias/red-maid-presenta-primer-teaser-que-esconden-sus-visiones/ 301
+/noticias/red-maid-presenta-su-primer-teaser-que-esconden-sus-visiones/ /noticias/red-maid-presenta-primer-teaser-que-esconden-sus-visiones/ 301

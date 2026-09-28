@@ -7,7 +7,7 @@ resumen: "Lovememory presentó el primer teaser de Red Maid, una nueva producci�
 trailer: "_5ZtWblgQNw"
 ---
 
-Red Maid</em>, la nueva producción <strong>Girls Love coreana</strong> de <strong>Lovememory</strong>, presentó su primer teaser, adelantando una historia que combina romance, misterio y extrañas visiones que parecen estar relacionadas con la llegada de una nueva empleada.
+<em>Red Maid</em>, la nueva producción <strong>Girls Love coreana</strong> de <strong>Lovememory</strong>, presentó su primer teaser, adelantando una historia que combina romance, misterio y extrañas visiones que parecen estar relacionadas con la llegada de una nueva empleada.
 
 La serie sigue a una joven cuya vida comienza a cambiar cuando <strong>Jennie</strong> llega a su casa como nueva empleada. Antes de su llegada, la protagonista ya experimentaba sueños y visiones recurrentes relacionados con una mujer que parece ocupar un lugar cada vez más importante en sus pensamientos.
 

@@ -2,17 +2,40 @@
 layout: base.njk
 ogTipo: articulo
 ---
+{%- set _esNoticia = page.url.startsWith("/noticias/") -%}
+{%- set _seccion = "Noticias" if _esNoticia else "Mundo GL" -%}
+{%- set _seccionUrl = "/noticias/" if _esNoticia else "/mundo-gl/" -%}
+{%- set _dim = imagen | imgSize -%}
 <article class="articulo">
-  <img src="{{ imagen }}" alt="{{ title }}" width="800" height="450" class="articulo-imagen">
+  <nav class="migas" aria-label="Migas de pan">
+    <ol>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="{{ _seccionUrl }}">{{ _seccion }}</a></li>
+      <li aria-current="page">{{ title | truncar(60) }}</li>
+    </ol>
+  </nav>
+  <figure class="articulo-figura">
+    <img src="{{ imagen }}" alt="{{ imagenAlt or title }}" width="{{ _dim.w if _dim else 800 }}" height="{{ _dim.h if _dim else 450 }}" class="articulo-imagen">
+    {% if imagenPie %}<figcaption class="articulo-pie-foto">{{ imagenPie }}</figcaption>{% endif %}
+  </figure>
   <p class="articulo-fecha">
     <time datetime="{{ page.date }}">📅 {{ page.date | readableDate }}</time>
     <span class="articulo-separador">·</span>
     <span class="articulo-tiempo-lectura">⏱ {{ content | tiempoLectura }}</span>
   </p>
   <h1>{{ title }}</h1>
+  <p class="articulo-autor">Redactado por: <strong>Girls Love Play</strong></p>
   <div class="articulo-cuerpo">
     {{ content | safe }}
   </div>
+  {% if fuenteNombre %}
+  <p class="articulo-fuente">Fuente: {% if fuenteUrl %}<a href="{{ fuenteUrl }}" target="_blank" rel="noopener nofollow">{{ fuenteNombre }}</a>{% else %}{{ fuenteNombre }}{% endif %}</p>
+  {% endif %}
+  {% if serieRelacionada %}
+    {% for s in seriesTv %}{% if s.slug == serieRelacionada %}
+  <p class="articulo-serie-rel">🎬 Serie relacionada: <a href="/series-gl/{{ s.slug }}/">{{ s.titulo }} ({{ s.anio }})</a></p>
+    {% endif %}{% endfor %}
+  {% endif %}
   {# El tráiler va al FINAL de la noticia, después de todo el texto #}
   {% if trailer %}
   <div class="articulo-trailer">
@@ -24,6 +47,16 @@ ogTipo: articulo
       <span class="comunidad-video-play" aria-hidden="true">▶</span>
     </button>
   </div>
+  {% endif %}
+  {% set _lista = collections.noticias if _esNoticia else collections.mundoGl %}
+  {% set _rel = _lista | relacionadas(page.url, relacionadas) %}
+  {% if _rel.length %}
+  <section class="articulo-relacionadas" aria-labelledby="tit-relacionadas">
+    <h2 id="tit-relacionadas">Te puede interesar</h2>
+    <div class="grid-tarjetas">
+      {% for nota in _rel %}{% include "tarjeta-noticia.njk" %}{% endfor %}
+    </div>
+  </section>
   {% endif %}
   <p class="articulo-volver">
     <a href="/" class="btn-primario">🏠 Volver al inicio</a>

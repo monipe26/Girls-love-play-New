@@ -40,5 +40,3 @@ La propuesta apuesta por una historia cargada de tensión emocional, misterio y 
 “Third Person The Series” se estrenará el <strong>12 de septiembre de 2026</strong> por Channel 3.
 
 Con una historia construida alrededor de una protagonista que intenta descubrir la verdad sobre su propio pasado, una relación puesta a prueba y una misteriosa doctora que llega para alterar su mundo, la serie se perfila como una de las nuevas propuestas GL cargadas de drama y misterio.
-
-![Third Person The Series ya tiene fecha de estreno: llega el 12 de septiembre](/assets/images/noticias/third-person-the-series.jpg)
