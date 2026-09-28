@@ -9,8 +9,10 @@ backend:
   name: github
   repo: monipe26/Girls-love-play-New
   branch: main
-  # Login propio en Cloudflare (functions/api/auth.js y callback.js)
-  base_url: https://girlsloveplay.com
+  # Login propio en Cloudflare (functions/api/auth.js y callback.js).
+  # TEMPORAL: mientras el .com apunte al sitio viejo se usa la dirección
+  # provisoria. Cuando pasemos el dominio, se vuelve a https://girlsloveplay.com
+  base_url: https://girls-love-play-new.pages.dev
   auth_endpoint: api/auth
 
 # Cada cambio se guarda como borrador (Pull Request), se puede ver
@@ -18,8 +20,8 @@ backend:
 publish_mode: editorial_workflow
 
 locale: es
-site_url: https://girlsloveplay.com
-display_url: https://girlsloveplay.com
+site_url: https://girls-love-play-new.pages.dev
+display_url: https://girls-love-play-new.pages.dev
 
 media_folder: src/assets/images/pruebas
 public_folder: /assets/images/pruebas

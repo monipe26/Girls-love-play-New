@@ -1,4 +1,11 @@
 # Cloudflare Pages: encabezados HTTP
+
+# El panel nunca debe indexarse
 /admin/*
   X-Robots-Tag: noindex, nofollow
   Cache-Control: no-store
+
+# La dirección provisoria *.pages.dev no debe indexarse (evita contenido
+# duplicado con girlsloveplay.com). El dominio .com NO se ve afectado.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
