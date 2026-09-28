@@ -657,12 +657,14 @@ html[data-tema="oscuro"] .btn-modo-oscuro .icono-luna { display: block; }
 .articulo-tiempo-lectura { color: var(--color-texto-sec); }
 .articulo-cuerpo { margin-top: var(--espacio-md); margin-bottom: var(--espacio-lg); color: var(--color-texto-sec); }
 .articulo-cuerpo p { margin-bottom: var(--espacio-sm); }
+.articulo-trailer { margin: var(--espacio-md) 0; }
+.articulo-trailer-titulo { font-weight: 700; margin-bottom: var(--espacio-xs); }
 .articulo-volver { text-align: center; padding-top: var(--espacio-sm); border-top: 1px solid var(--color-borde); }
 
 /* ===== FOOTER ===== */
 .site-footer {
   background: var(--color-fondo-oscuro);
-  padding: var(--espacio-lg) var(--espacio-sm) calc(var(--espacio-lg) + 50px);
+  padding: var(--espacio-lg) var(--espacio-md) calc(var(--espacio-lg) + 50px);
 }
 /* En modo oscuro el fondo general de la página pasa a ser prácticamente el
    mismo color que --color-fondo-oscuro, y el footer (que siempre usa ese
@@ -705,7 +707,7 @@ html[data-tema="oscuro"] .site-footer {
 .footer-enlaces-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0 var(--espacio-md);
+  gap: 0 var(--espacio-lg);
   text-align: left;
 }
 
