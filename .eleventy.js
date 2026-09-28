@@ -1,3 +1,5 @@
+const site = require("./src/_data/site.js");
+
 module.exports = function (eleventyConfig) {
   // Copiar archivos estáticos tal cual, sin procesarlos
   eleventyConfig.addPassthroughCopy("src/css");
@@ -125,6 +127,36 @@ module.exports = function (eleventyConfig) {
     const palabras = texto.trim().split(/\s+/).filter(Boolean).length;
     const minutos = Math.max(1, Math.round(palabras / 200));
     return `${minutos} min de lectura`;
+  });
+
+
+  // ---------- SEO ----------
+  // Convierte una ruta (/assets/...) en dirección completa (https://girlsloveplay.com/assets/...).
+  // Codifica espacios y tildes de los nombres de archivo sin duplicar lo ya codificado.
+  eleventyConfig.addFilter("absoluteUrl", function (ruta) {
+    if (!ruta) return "";
+    const r = String(ruta);
+    if (/^https?:\/\//i.test(r)) return r;
+    let limpia = r;
+    try { limpia = encodeURI(decodeURI(r)); } catch (e) { limpia = r; }
+    return site.url + (limpia.startsWith("/") ? "" : "/") + limpia;
+  });
+
+  // Fecha en formato ISO completo (2026-05-16T00:00:00.000Z), para datos estructurados
+  eleventyConfig.addFilter("isoDate", function (fecha) {
+    const d = new Date(fecha);
+    return isNaN(d) ? "" : d.toISOString();
+  });
+
+  // Fecha corta AAAA-MM-DD, para el sitemap
+  eleventyConfig.addFilter("fechaCorta", function (fecha) {
+    const d = new Date(fecha);
+    return isNaN(d) ? "" : d.toISOString().slice(0, 10);
+  });
+
+  // Convierte un objeto a JSON seguro para pegar dentro de <script type="application/ld+json">
+  eleventyConfig.addFilter("jsonld", function (obj) {
+    return JSON.stringify(obj).replace(/</g, "\\u003c");
   });
 
   return {
