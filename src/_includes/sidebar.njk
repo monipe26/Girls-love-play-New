@@ -56,16 +56,21 @@
     </div>
   </section>
 
+  {# Serie destacada: la más nueva de seriesTv.json (año más alto; si hay empate, la que esté primero en el archivo) #}
+  {% set ultimaSerie = seriesTv | sort(true, false, "anio") | first %}
+  {% if ultimaSerie.videos and ultimaSerie.videos.length %}{% set miniaturaId = ultimaSerie.videos[0] %}
+  {% elif ultimaSerie.youtubeId %}{% set miniaturaId = ultimaSerie.youtubeId %}
+  {% else %}{% set miniaturaId = "" %}{% endif %}
   <div class="tarjeta-destacada">
-    <!-- TODO Paso 6: reemplazar por el video real (tráiler o primer episodio) de la serie que se elija -->
-    <a href="/series-tv/" class="tarjeta-destacada-video" aria-label="Ver Blank: The Series en Series">
-      <img src="https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="" width="420" height="236" loading="lazy">
+    <a href="/series-tv/" class="tarjeta-destacada-video" aria-label="Ver {{ ultimaSerie.titulo }} en Series">
+      {# Las playlists de YouTube no tienen miniatura propia: en ese caso se usa la portada #}
+      <img src="{% if miniaturaId %}https://i.ytimg.com/vi/{{ miniaturaId }}/hqdefault.jpg{% else %}{{ ultimaSerie.portada }}{% endif %}" alt="" width="420" height="236" loading="lazy">
       <span class="comunidad-video-play" aria-hidden="true">▶</span>
     </a>
     <div class="tarjeta-destacada-info">
       <span class="badge badge-rosa">Series</span>
-      <h3>Blank: The Series</h3>
-      <p>La serie que todos están esperando.</p>
+      <h3>{{ ultimaSerie.titulo }} ({{ ultimaSerie.anio }})</h3>
+      <p>{{ ultimaSerie.sinopsis | truncar(110) }}</p>
       <a href="/series-tv/" class="btn-primario">Ver serie →</a>
     </div>
   </div>

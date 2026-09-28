@@ -100,3 +100,20 @@
   .txt-largo { display: none; }
   .btn-nav-episodio { padding: 6px 12px; }
 }
+
+/* ===== LOGO MÁS GRANDE ===== */
+.logo img { height: 52px; }
+.footer-logo img { height: 44px; }
+@media (min-width: 900px) {
+  /* En PC el header va en una sola fila con el menú, por eso queda un poco más chico */
+  .logo img { height: 46px; }
+}
+
+/* ===== MÁS AIRE ENTRE LA BOTONERA (♥) Y LA SINOPSIS ===== */
+.reproductor-principal .reproductor-titulo { padding-bottom: var(--espacio-xs); }
+.reproductor-principal .reproductor-nav { margin-top: var(--espacio-sm); }
+.reproductor-principal .reproductor-sinopsis {
+  margin-top: var(--espacio-md);
+  padding: 0 var(--espacio-sm);
+}
+
