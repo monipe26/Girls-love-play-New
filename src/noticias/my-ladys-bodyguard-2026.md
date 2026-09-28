@@ -1,0 +1,22 @@
+---
+title: "My Lady's Bodyguard (2026): El nuevo GL tailandés que está conquistando al fandom incluso antes de estrenarse"
+slug: "my-ladys-bodyguard-2026"
+date: 2026-05-25
+imagen: "/assets/images/noticias/My-Lady-s-Bodyguard.jpg"
+resumen: "OrmFolk protagoniza una nueva serie donde una guardaespaldas debe proteger a una joven impulsiva. Tensión emocional y romance lento que ya enamoró al fandom."
+description: "My Lady's Bodyguard (2026): El nuevo GL tailandés que está conquistando al fandom incluso antes de estrenarse."
+---
+
+Con una industria GL cada vez más competitiva, My Lady's Bodyguard apareció rápidamente entre las conversaciones del fandom tailandés. El proyecto, protagonizado por Ormsin Supitcha Limsommut y Folk Sutima Korkiatvanich, fue presentado por Kongthup Production y enseguida comenzó a generar expectativa.
+
+La historia sigue a una guardaespaldas que debe proteger a una joven impulsiva mientras ambas intentan ocultar sentimientos que empiezan a crecer demasiado cerca del peligro. Todo apunta a una serie enfocada más en la tensión emocional y el romance lento que en la acción.
+
+Parte del interés también nace de la popularidad de OrmFolk dentro del GL tailandés. La pareja consiguió un fandom muy fiel gracias a la química y naturalidad que transmiten en pantalla.
+
+Visualmente, My Lady's Bodyguard parece apostar por una estética elegante y melancólica, con escenarios clásicos y una atmósfera mucho más íntima que la de otros GL recientes.
+
+Además, el popular "bodyguard trope" atraviesa uno de sus mejores momentos dentro del GL tailandés actual, pero la serie ya comenzó a destacar por su enfoque emocional, construido alrededor de miradas, silencios y sentimientos difíciles de ocultar.
+
+La mezcla entre misterio, tensión romántica y expectativa del fandom convirtió a My Lady's Bodyguard en uno de los GL más observados rumbo a 2026.
+
+**Lanzamiento:** Junio 2026 (tentativo)

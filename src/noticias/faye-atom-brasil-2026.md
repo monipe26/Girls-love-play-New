@@ -1,0 +1,24 @@
+---
+title: "FayeAtom aterriza en Brasil y desata la emoción del fandom GL latinoamericano"
+slug: "faye-atom-brasil-2026"
+date: 2026-06-12
+imagen: "/assets/images/noticias/faye%20atom%20brasil.jpg"
+resumen: "Faye y Atom ya están en Brasil para su esperado fanmeeting, desatando la emoción del fandom GL latinoamericano y fortaleciendo su éxito internacional."
+description: "FayeAtom llega a Brasil para su fanmeeting en São Paulo."
+---
+
+La conexión entre el GL tailandés y Latinoamérica continúa creciendo, y esta semana quedó demostrado una vez más con la llegada de Faye Peraya y Atom Pariya a Brasil. Las actrices, conocidas por protagonizar Broken of Love, ya se encuentran en territorio latinoamericano para participar en una serie de actividades que marcan un nuevo paso en su expansión internacional.
+
+Durante los últimos meses, FayeAtom se convirtió en una de las parejas más comentadas dentro del fandom GL gracias a la química que ambas mostraron en pantalla y al rápido crecimiento de su comunidad de seguidores. Lo que comenzó como una nueva apuesta dentro de la industria tailandesa terminó transformándose en un fenómeno que hoy trasciende fronteras.
+
+Brasil será el escenario de un momento especial para ambas artistas. São Paulo fue elegida para albergar su esperado fanmeeting, un evento que no solo celebra el éxito de Broken of Love, sino también la creciente popularidad del entretenimiento tailandés en Latinoamérica.
+
+La visita refleja además el enorme crecimiento del fandom latinoamericano durante los últimos años. Cada vez son más las productoras y agencias que incluyen países de la región dentro de sus giras internacionales, impulsadas por una comunidad que ha demostrado un apoyo constante tanto en redes sociales como en eventos presenciales.
+
+Para muchos seguidores, la llegada de Faye y Atom representa mucho más que un encuentro con sus actrices favoritas. Es una muestra del alcance global que está alcanzando el GL tailandés y del vínculo cada vez más fuerte entre las artistas y el público latinoamericano.
+
+Y aunque Brasil es la primera parada de este recorrido, la expectativa continúa creciendo entre los fans de toda la región, que siguen con atención cada momento compartido por las actrices durante su paso por Latinoamérica.
+
+**Evento en Brasil:** 13 de junio de 2026
+
+**Lugar:** Carioca Club, São Paulo, Brasil
