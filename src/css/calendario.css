@@ -1,0 +1,98 @@
+/* ===== CALENDARIO DE ESTRENOS (/calendario/) =====
+   PC: grilla de 7 columnas (lunes a domingo).
+   Celular: se convierte en una lista "agenda" con solo los días que tienen estrenos. */
+
+.cal-cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacio-md);
+  margin: var(--espacio-sm) 0 var(--espacio-md);
+}
+.cal-mes { margin: 0; min-width: 11ch; text-align: center; }
+.cal-nav {
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-primario);
+  color: var(--color-primario);
+  font-size: 1.5rem; line-height: 1; font-weight: 700;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+a.cal-nav:hover, a.cal-nav:focus-visible { background: var(--color-primario); color: #fff; }
+.cal-nav--off { opacity: 0.3; }
+.cal-vacio { text-align: center; color: var(--color-texto-sec); margin-bottom: var(--espacio-md); }
+
+/* --- Celular: agenda --- */
+.cal-encabezado { display: none; }
+.cal-grid { display: flex; flex-direction: column; gap: var(--espacio-xs); }
+.cal-dia--otro, .cal-dia--vacio { display: none; }
+.cal-dia {
+  display: flex;
+  gap: var(--espacio-sm);
+  align-items: flex-start;
+  background: var(--color-fondo-alt);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  padding: var(--espacio-sm);
+}
+.cal-num {
+  flex-shrink: 0;
+  width: 52px;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 6px 0;
+  background: var(--color-superficie);
+  border-radius: var(--radio-chico);
+  line-height: 1.1;
+}
+.cal-num strong { font-size: 1.25rem; color: var(--color-primario); }
+.cal-dia-semana { font-size: 0.7rem; color: var(--color-texto-sec); text-transform: uppercase; }
+.cal-eventos { display: flex; flex-direction: column; gap: var(--espacio-xs); flex: 1; min-width: 0; }
+.cal-evento { display: flex; gap: 10px; align-items: center; }
+.cal-portada { width: 44px; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 6px; flex-shrink: 0; box-shadow: var(--sombra-tarjeta); }
+.cal-evento-texto { display: flex; flex-direction: column; min-width: 0; }
+.cal-evento-titulo { font-weight: 700; font-size: 0.95rem; line-height: 1.25; }
+a.cal-evento-titulo:hover { color: var(--color-primario); }
+.cal-evento-tipo { font-size: 0.75rem; color: var(--color-primario-hover); font-weight: 600; }
+.cal-dia--hoy { border-color: var(--color-primario); box-shadow: 0 0 0 2px rgba(236, 31, 127, 0.25); }
+
+/* --- PC / tablet: grilla mensual --- */
+@media (min-width: 760px) {
+  .cal-encabezado {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    margin-bottom: 6px;
+    text-align: center;
+    font-weight: 700;
+    color: var(--color-texto-sec);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+  }
+  .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .cal-dia--otro, .cal-dia--vacio { display: flex; }
+  .cal-dia {
+    flex-direction: column;
+    gap: 6px;
+    min-height: 118px;
+    padding: 8px;
+    border-radius: var(--radio-chico);
+  }
+  .cal-dia--otro { opacity: 0.35; background: transparent; }
+  .cal-num { width: auto; align-self: flex-start; flex-direction: row; background: transparent; padding: 0; }
+  .cal-num strong { font-size: 1rem; }
+  .cal-dia-semana { display: none; }
+  .cal-dia--hoy .cal-num strong {
+    background: var(--color-primario); color: #fff;
+    border-radius: 999px; min-width: 26px; height: 26px;
+    display: inline-flex; align-items: center; justify-content: center; padding: 0 6px;
+  }
+  .cal-evento { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .cal-portada { width: 100%; max-width: 72px; }
+  .cal-evento-titulo { font-size: 0.82rem; }
+  .cal-evento-tipo { font-size: 0.68rem; }
+}

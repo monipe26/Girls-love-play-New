@@ -26,24 +26,17 @@
   </section>
 
   <section class="widget-calendario">
-    <h2>🗓️ Calendario de estrenos</h2>
+    <div class="seccion-cabecera">
+      <h2>🗓️ Calendario de estrenos</h2>
+      <a href="/calendario/" class="ver-mas">Ver todo →</a>
+    </div>
     <ul>
+      {% for e in proximosEstrenos %}
       <li>
-        <span class="fecha-caja"><strong>21</strong>OCT</span>
-        <div><p>Built in Love</p><span>Serie</span></div>
+        <span class="fecha-caja"><strong>{{ e.dia }}</strong>{{ e.mes }}</span>
+        <div><p>{{ e.titulo }}</p><span>{{ e.tipo }}</span></div>
       </li>
-      <li>
-        <span class="fecha-caja"><strong>22</strong>OCT</span>
-        <div><p>Love on Hire</p><span>Serie</span></div>
-      </li>
-      <li>
-        <span class="fecha-caja"><strong>24</strong>OCT</span>
-        <div><p>My Dear, My Rival</p><span>Serie</span></div>
-      </li>
-      <li>
-        <span class="fecha-caja"><strong>28</strong>OCT</span>
-        <div><p>Buy My Boss</p><span>Serie</span></div>
-      </li>
+      {% endfor %}
     </ul>
   </section>
 

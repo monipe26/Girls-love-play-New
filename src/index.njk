@@ -99,7 +99,7 @@ layout: base.njk
           <a href="/mundo-gl/" class="ver-mas">Ver todo →</a>
         </div>
         <ul class="mundo-gl-grid">
-          {% for nota in collections.mundoGl | limit(6) %}
+          {% for nota in collections.mundoGl | limit(8) %}
           <li>
             <a href="{{ nota.url }}">
               <img src="{{ nota.data.imagen }}" alt="{{ nota.data.title }}" width="130" height="130" loading="lazy">

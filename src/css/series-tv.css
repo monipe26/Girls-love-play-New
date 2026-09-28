@@ -117,3 +117,14 @@
   padding: 0 var(--espacio-sm);
 }
 
+/* ===== MENÚ DE ARRIBA (PC): letras un punto más grandes, acordes al logo ===== */
+@media (min-width: 900px) {
+  .menu-principal a { font-size: 0.92rem; }
+  .menu-principal ul { gap: 0.65rem; }
+}
+
+/* ===== Widget "Calendario de estrenos" del home: título + "Ver todo →" ===== */
+.widget-calendario .seccion-cabecera { margin-bottom: var(--espacio-sm); }
+.widget-calendario .seccion-cabecera h2 { font-size: 1.05rem; margin: 0; }
+.widget-calendario .seccion-cabecera .ver-mas { margin-top: 0; font-size: 0.85rem; white-space: nowrap; }
+

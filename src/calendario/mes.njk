@@ -1,0 +1,67 @@
+---
+layout: base.njk
+pagination:
+  data: calendarioMeses
+  size: 1
+  alias: mes
+permalink: "{{ mes.href }}"
+eleventyComputed:
+  title: "Calendario de estrenos · {{ mes.nombre }}"
+  description: "Calendario de estrenos GL de {{ mes.nombre }}: series y fechas de estreno día por día."
+---
+<link rel="stylesheet" href="/css/calendario.css">
+
+<section class="seccion seccion-calendario">
+  <h1>🗓️ Calendario de estrenos</h1>
+  <p class="seccion-sub">Series GL y fechas de estreno, mes a mes</p>
+
+  <div class="cal-cabecera">
+    {% if mes.anterior %}
+      <a class="cal-nav" href="{{ mes.anterior.href }}" aria-label="Mes anterior: {{ mes.anterior.nombre }}">‹</a>
+    {% else %}
+      <span class="cal-nav cal-nav--off" aria-hidden="true">‹</span>
+    {% endif %}
+    <h2 class="cal-mes">{{ mes.nombre }}</h2>
+    {% if mes.siguiente %}
+      <a class="cal-nav" href="{{ mes.siguiente.href }}" aria-label="Mes siguiente: {{ mes.siguiente.nombre }}">›</a>
+    {% else %}
+      <span class="cal-nav cal-nav--off" aria-hidden="true">›</span>
+    {% endif %}
+  </div>
+
+  {% if mes.total == 0 %}
+    <p class="cal-vacio">Todavía no hay estrenos cargados para este mes.</p>
+  {% endif %}
+
+  <div class="cal-encabezado" aria-hidden="true">
+    <span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span>
+  </div>
+
+  <ol class="cal-grid">
+    {% for semana in mes.semanas %}
+      {% for dia in semana %}
+      <li class="cal-dia{% if dia.otroMes %} cal-dia--otro{% elif not dia.eventos.length %} cal-dia--vacio{% endif %}" data-fecha="{{ dia.fecha }}">
+        <time class="cal-num" datetime="{{ dia.fecha }}">
+          <strong>{{ dia.dia }}</strong>
+          <span class="cal-dia-semana">{{ dia.diaSemana }}</span>
+        </time>
+        {% if dia.eventos.length %}
+        <ul class="cal-eventos">
+          {% for e in dia.eventos %}
+          <li class="cal-evento">
+            {% if e.portada %}<img class="cal-portada" src="{{ e.portada }}" alt="Portada de {{ e.titulo }}" width="60" height="90" loading="lazy">{% endif %}
+            <span class="cal-evento-texto">
+              {% if e.url %}<a href="{{ e.url }}" class="cal-evento-titulo">{{ e.titulo }}</a>{% else %}<span class="cal-evento-titulo">{{ e.titulo }}</span>{% endif %}
+              <span class="cal-evento-tipo">{{ e.tipo or "Serie" }}</span>
+            </span>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </li>
+      {% endfor %}
+    {% endfor %}
+  </ol>
+</section>
+
+<script src="/js/calendario.js" defer></script>
