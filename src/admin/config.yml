@@ -1,7 +1,7 @@
 # ============================================================
-# Decap CMS · Girls Love Play · PASO 0 (prueba de conexión)
-# Solo tiene UN archivo de prueba (destacado.json), que no se
-# usa en ninguna página del sitio. Las secciones reales se
+# Decap CMS · Girls Love Play
+# Paso 0: conexión (colección de prueba, se quita en el Paso 6)
+# Paso 2A: colección Noticias (base). Las demás secciones se
 # agregan en los pasos siguientes, de a una.
 # ============================================================
 
@@ -27,6 +27,99 @@ media_folder: src/assets/images/pruebas
 public_folder: /assets/images/pruebas
 
 collections:
+  # ------------------------------------------------------------
+  # NOTICIAS (src/noticias/*.md)
+  # ------------------------------------------------------------
+  - name: noticias
+    label: "📰 Noticias"
+    label_singular: "Noticia"
+    folder: src/noticias
+    extension: md
+    format: yaml-frontmatter
+    create: true
+    # El archivo (y por lo tanto la dirección web) sale del campo "Slug"
+    slug: "{{fields.slug}}"
+    media_folder: /src/assets/images/noticias
+    public_folder: /assets/images/noticias
+    summary: "{{title}} · {{date}}"
+    sortable_fields: ["date", "title"]
+    view_filters:
+      - { label: "Con video", field: trailer, pattern: ".+" }
+    fields:
+      - label: "Título"
+        name: title
+        widget: string
+        hint: "Es el título grande de la noticia (H1). Escribilo claro y con la serie o el tema."
+      - label: "Slug (dirección web)"
+        name: slug
+        widget: string
+        pattern: ["^[a-z0-9]+(-[a-z0-9]+)*$", "Solo minúsculas, números y guiones. Sin espacios, tildes ni ñ."]
+        hint: "Ejemplo: the-air-2026 → girlsloveplay.com/noticias/the-air-2026/. Cortito, en minúsculas y con guiones. ⚠️ Definilo al crear la noticia: cambiarlo después NO cambia la dirección real y confunde a Google."
+      - label: "Fecha de publicación"
+        name: date
+        widget: datetime
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        format: "YYYY-MM-DD"
+        picker_utc: true
+      - label: "Imagen destacada"
+        name: imagen
+        widget: image
+        choose_url: false
+        hint: "Formato horizontal. Ideal: al menos 1200 px de ancho (JPG o PNG). Las más chicas se ven borrosas al compartir en redes."
+      - label: "Resumen para la tarjeta de la lista"
+        name: resumen
+        widget: text
+        pattern: ["^.{40,200}$", "Entre 40 y 200 caracteres (uno o dos renglones)."]
+        hint: "Uno o dos renglones. Se ve en las tarjetas y listados del sitio. NO es la descripción de Google."
+      - label: "Meta descripción (SEO)"
+        name: description
+        widget: text
+        required: false
+        pattern: ["^.{50,200}$", "Entre 50 y 200 caracteres (ideal 120 a 155)."]
+        hint: "Es lo que Google muestra debajo del título. Opcional: si la dejás vacía se usa el resumen de la tarjeta. Ideal: 120 a 155 caracteres."
+      - label: "Video de YouTube (solo ID)"
+        name: trailer
+        widget: string
+        required: false
+        pattern: ["^[A-Za-z0-9_-]{11}$", "El ID tiene 11 caracteres. Pegá solo el ID, no la dirección completa."]
+        hint: "Opcional. Es lo que va después de v= en la dirección del video. Ejemplo: dQw4w9WgXcQ. Se muestra al final de la noticia."
+      - label: "Contenido"
+        name: body
+        widget: markdown
+        buttons: ["bold", "italic", "link", "heading-two", "heading-three", "quote", "bulleted-list", "numbered-list"]
+        editor_components: ["image"]
+        hint: "Usá Título 2 (H2) para las secciones grandes y Título 3 (H3) para subsecciones. El título de la noticia ya es el H1: no lo repitas acá."
+      - label: "SEO avanzado (opcional)"
+        name: seoTitle
+        widget: string
+        required: false
+        hint: "Título para Google, si querés uno distinto al de la noticia. Si lo dejás vacío se usa el título + el nombre del sitio."
+      - label: "Imagen para redes (opcional)"
+        name: ogImage
+        widget: image
+        required: false
+        choose_url: false
+        hint: "Solo si querés una imagen distinta a la destacada para WhatsApp, Facebook, X. Ideal: 1200×630."
+      - label: "Fecha de última actualización"
+        name: modificado
+        widget: datetime
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        format: "YYYY-MM-DD"
+        required: false
+        picker_utc: true
+        hint: "Solo si actualizaste la noticia de forma importante. Si está vacía, Google toma la fecha de publicación."
+      - label: "No mostrar en Google (noindex)"
+        name: noindex
+        widget: boolean
+        required: false
+        default: false
+        hint: "Dejalo apagado salvo casos especiales."
+
+  # ------------------------------------------------------------
+  # PRUEBA DE CONEXIÓN (se quita en el Paso 6)
+  # ------------------------------------------------------------
   - name: prueba
     label: "🧪 Prueba de conexión"
     files:

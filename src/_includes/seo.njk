@@ -12,7 +12,7 @@
       noindex: true   -> la página no aparece en Google ni en el sitemap
     ========================================================================== -#}
 {%- set _titulo = seoTitle if seoTitle else (title + " · " + site.nombre) -%}
-{%- set _desc = seoDescription or description or site.descripcion -%}
+{%- set _desc = seoDescription or description or resumen or site.descripcion -%}
 {%- set _url = site.url + page.url -%}
 {%- set _img = (ogImage or imagen or site.imagenDefecto) | absoluteUrl -%}
 {%- set _esArticulo = (ogTipo == "articulo") -%}

@@ -1,0 +1,20 @@
+---
+title: "Enemies With Benefits (Serie GL): el drama tailandés donde el odio se convierte en deseo"
+slug: "enemies-with-benefits-gl"
+date: 2026-04-10
+imagen: "/assets/images/noticias/Enemies-With-Benefits.jpg"
+resumen: "Dos compañeras de trabajo que no se soportan terminan en una relación secreta. Cuando aparecen sentimientos reales, ocultar lo que sienten se vuelve imposible."
+description: "Enemies With Benefits: el drama GL tailandés donde el odio se convierte en deseo."
+---
+
+Enemies With Benefits es una serie GL tailandesa que gira en torno a una relación marcada por el conflicto, la atracción y las decisiones impulsivas.
+
+La historia sigue a Lanlalin y Wine Vethaka, dos compañeras de trabajo que no logran llevarse bien y mantienen una dinámica llena de roces, competencia y tensión constante. Sin embargo, todo cambia después de una noche inesperada que rompe esa rivalidad y las lleva a iniciar una relación secreta basada en la atracción, donde el odio y el deseo empiezan a mezclarse.
+
+Lo que parecía algo pasajero comienza a complicarse cuando surgen emociones reales, justo en un entorno donde su empresa prohíbe las relaciones entre empleadas. A medida que intentan ocultar lo que ocurre entre ellas, también deben enfrentar secretos que podrían salir a la luz y afectar tanto su trabajo como el vínculo que recién empieza a formarse.
+
+Enemies With Benefits no es solo un romance entre enemigas. Es una historia donde la pasión aparece primero y los sentimientos llegan cuando ya es demasiado tarde para ignorarlos.
+
+**Lanzamiento:** 3 de mayo de 2026 (Tailandia)
+
+**Productora:** GMMTV
