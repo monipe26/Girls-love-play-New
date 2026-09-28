@@ -10,7 +10,8 @@ module.exports = function (eleventyConfig) {
 
   // Colección de Series GL, ordenada por título
   eleventyConfig.addCollection("series", function (collectionApi) {
-    return collectionApi.getFilteredByGlob("src/series/*.njk");
+    return collectionApi.getFilteredByGlob("src/series/*.njk")
+      .filter((serie) => !serie.data.oculta);
   });
 
   // Colección de Noticias GL, más nueva primero
@@ -20,7 +21,7 @@ module.exports = function (eleventyConfig) {
   // con series.json).
   eleventyConfig.addCollection("sorteoSeries", function (collectionApi) {
     return collectionApi.getFilteredByGlob("src/series/*.njk")
-      .filter((serie) => serie.data.slug && serie.data.titulo)
+      .filter((serie) => serie.data.slug && serie.data.titulo && !serie.data.oculta)
       .map((serie) => ({
         titulo: serie.data.titulo,
         genero: serie.data.genero || "GL",
