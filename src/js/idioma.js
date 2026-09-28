@@ -23,7 +23,16 @@ function seleccionarIdiomaGoogle(codigo) {
     var combo = document.querySelector(".goog-te-combo");
     if (!combo) {
       intentos++;
-      if (intentos < 25) setTimeout(intentarAplicar, 200); // reintenta ~5s
+      if (intentos < 25) {
+        setTimeout(intentarAplicar, 200); // reintenta ~5s
+      } else {
+        // Respaldo: si el combo de Google nunca apareció, se guarda el idioma en
+        // la cookie que usa Google Translate y se recarga; al cargar, traduce solo.
+        var valor = "/es/" + codigo;
+        document.cookie = "googtrans=" + valor + "; path=/";
+        document.cookie = "googtrans=" + valor + "; path=/; domain=." + location.hostname;
+        location.reload();
+      }
       return;
     }
     combo.value = codigo;
