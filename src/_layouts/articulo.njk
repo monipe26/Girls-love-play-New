@@ -9,6 +9,15 @@ layout: base.njk
     <span class="articulo-tiempo-lectura">⏱ {{ content | tiempoLectura }}</span>
   </p>
   <h1>{{ title }}</h1>
+  {% if trailer %}
+  <div class="articulo-trailer">
+    <p class="articulo-trailer-titulo">▶️ Mirá el tráiler</p>
+    <button type="button" class="comunidad-video" data-youtube-id="{{ trailer }}" aria-label="Reproducir tráiler de {{ title }}">
+      <img src="https://i.ytimg.com/vi/{{ trailer }}/hqdefault.jpg" alt="" loading="lazy">
+      <span class="comunidad-video-play" aria-hidden="true">▶</span>
+    </button>
+  </div>
+  {% endif %}
   <div class="articulo-cuerpo">
     {{ content | safe }}
   </div>
