@@ -1,0 +1,11 @@
+# Dependencias y resultado del build: se generan solos, no se suben a GitHub
+node_modules/
+_site/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Variables secretas locales (nunca subir)
+.env
+.dev.vars

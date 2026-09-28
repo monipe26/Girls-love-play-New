@@ -7,6 +7,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/manifest.webmanifest");
   eleventyConfig.addPassthroughCopy("src/sw.js");
   eleventyConfig.addPassthroughCopy("src/robots.txt");
+  eleventyConfig.addPassthroughCopy("src/_headers");
+
+  // El panel (/admin/) se copia tal cual, pero NO es una página del sitio:
+  // no debe entrar en colecciones ni en el sitemap.
+  eleventyConfig.ignores.add("src/admin/**");
 
   // Colección de Series GL, ordenada por título
   eleventyConfig.addCollection("series", function (collectionApi) {
