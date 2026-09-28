@@ -2,13 +2,19 @@
    Archivo aparte, cargado al final, para ajustar la sección Series sin tocar
    components.css ni responsive.css. */
 
-/* --- Covers más grandes: 2 columnas en celular, 3 en tablet, 4 en pantallas grandes --- */
-.grid-tarjetas.grid-series-tv { grid-template-columns: repeat(2, 1fr); }
-@media (min-width: 640px) {
-  .grid-tarjetas.grid-series-tv { grid-template-columns: repeat(3, 1fr); }
+/* --- Covers más chicos ---
+   Celular: 2 columnas, cada cover con tope de ancho (antes ocupaban todo el ancho).
+   Tablet: 4 columnas. PC: 5 columnas (con 10 series por página quedan 2 filas parejas).
+   El tope de ancho por cover evita que en pantallas grandes se estiren de más. */
+.grid-tarjetas.grid-series-tv {
+  grid-template-columns: repeat(2, minmax(0, 154px));
+  justify-content: center;
 }
-@media (min-width: 1200px) {
-  .grid-tarjetas.grid-series-tv { grid-template-columns: repeat(4, 1fr); }
+@media (min-width: 640px) {
+  .grid-tarjetas.grid-series-tv { grid-template-columns: repeat(4, minmax(0, 170px)); }
+}
+@media (min-width: 900px) {
+  .grid-tarjetas.grid-series-tv { grid-template-columns: repeat(5, minmax(0, 190px)); }
 }
 
 /* --- Sinopsis completa al pasar el mouse (antes se cortaba en 3 líneas / 110 letras) ---
@@ -45,24 +51,4 @@
   .tarjeta-serie-tv-overlay { padding: var(--espacio-xs); }
   .tarjeta-serie-tv-sinopsis { font-size: 0.72rem; line-height: 1.3; }
   .tarjeta-serie-tv-meta { font-size: 0.68rem; }
-}
-
-/* --- Botones de partes ("Parte 1", "Parte 2"...) debajo del video --- */
-.lista-partes[hidden] { display: none; }
-.lista-partes-series-tv {
-  justify-content: center;
-  max-width: 900px;
-  margin: var(--espacio-xs) auto 0;
-  padding: 0 var(--espacio-sm);
-}
-.lista-partes-series-tv .btn-parte {
-  padding: 6px 12px;
-  font-size: 0.85rem;
-  color: var(--color-texto);
-  border: 1.5px solid var(--color-borde);
-}
-.lista-partes-series-tv .btn-parte.activo {
-  background: var(--color-primario);
-  border-color: var(--color-primario);
-  color: #fff;
 }
