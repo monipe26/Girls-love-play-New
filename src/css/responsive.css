@@ -21,6 +21,10 @@
   .paginacion a { padding: 8px 14px; font-size: 1rem; }
 }
 
+/* Calendario: en móvil vive entre "Últimas noticias" y "Mundo GL" (index.njk);
+   el que está en la barra lateral se oculta acá y vuelve en escritorio. */
+.sidebar .widget-calendario { display: none; }
+
 @media (min-width: 900px) {
   .site-header { padding: var(--espacio-sm) var(--espacio-sm); }
 
@@ -151,6 +155,9 @@
     box-shadow: var(--sombra-tarjeta);
     border: 1px solid var(--color-borde);
   }
+
+  .sidebar .widget-calendario { display: block; }
+  .calendario-movil { display: none; }
 
   .layout-home {
     grid-template-columns: 1fr 340px;

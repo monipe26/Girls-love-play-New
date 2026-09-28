@@ -1,6 +1,7 @@
 {% set _videos = serie.videos or ([serie.youtubeId] if serie.youtubeId else []) %}
 <button
   type="button"
+  id="serie-{{ serie.titulo | slugify }}"
   class="tarjeta-serie-tv {% if loop.first %}activo{% endif %}"
   data-videos="{{ _videos | join(',') }}"
   data-playlist="{{ serie.playlist or '' }}"

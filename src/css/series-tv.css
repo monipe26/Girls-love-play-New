@@ -128,3 +128,60 @@
 .widget-calendario .seccion-cabecera h2 { font-size: 1.05rem; margin: 0; }
 .widget-calendario .seccion-cabecera .ver-mas { margin-top: 0; font-size: 0.85rem; white-space: nowrap; }
 
+
+
+/* ===== CUADRO DE SINOPSIS EN CELULAR =====
+   Aparece justo debajo de la fila del cover tocado (ver player.js). */
+.serie-info-panel {
+  grid-column: 1 / -1;
+  background: var(--color-fondo-alt);
+  border-radius: var(--radio);
+  padding: var(--espacio-md);
+  box-shadow: var(--sombra-tarjeta);
+}
+.serie-info-panel[hidden] { display: none; }
+.serie-info-titulo { font-weight: 700; font-size: 1.05rem; margin-bottom: var(--espacio-xs); }
+.serie-info-sinopsis { font-size: 0.92rem; line-height: 1.5; margin-bottom: var(--espacio-sm); }
+.tarjeta-serie-tv.seleccionada .tarjeta-serie-tv-portada { outline: 3px solid var(--color-primario); outline-offset: 2px; }
+
+/* ===== BUSCADOR DE SERIES (/series/ y /series-tv/) ===== */
+.buscador-series { margin: var(--espacio-md) 0; }
+.buscador-series input {
+  width: 100%;
+  max-width: 460px;
+  padding: 10px 16px;
+  font-size: 1rem;
+  color: var(--color-texto);
+  background: var(--color-fondo-alt);
+  border: 1px solid var(--color-borde);
+  border-radius: 999px;
+}
+.buscador-series input:focus { outline: 2px solid var(--color-primario); outline-offset: 1px; }
+.buscador-series-estado { margin-top: var(--espacio-xs); font-size: 0.9rem; color: var(--color-texto-sec); }
+[data-lista-series][hidden], [data-resultados-series][hidden] { display: none; }
+
+/* ===== PÁGINA /buscar/ ===== */
+.buscador-pagina { display: flex; gap: var(--espacio-xs); margin: var(--espacio-md) 0; max-width: 560px; }
+.buscador-pagina input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 16px;
+  font-size: 1rem;
+  color: var(--color-texto);
+  background: var(--color-fondo-alt);
+  border: 1px solid var(--color-borde);
+  border-radius: 999px;
+}
+.buscador-pagina button { border: none; cursor: pointer; }
+.buscar-estado { color: var(--color-texto-sec); margin-bottom: var(--espacio-sm); }
+.buscar-resultados { display: flex; flex-direction: column; gap: var(--espacio-sm); }
+.buscar-resultados a { display: flex; gap: var(--espacio-sm); align-items: center; color: inherit; text-decoration: none; }
+.buscar-resultados img, .buscar-sin-img {
+  width: 90px; height: 70px; flex-shrink: 0;
+  border-radius: var(--radio-chico); object-fit: cover;
+}
+.buscar-sin-img { display: flex; align-items: center; justify-content: center; background: var(--color-fondo-alt); color: var(--color-primario); }
+.buscar-info { display: flex; flex-direction: column; gap: 2px; min-width: 0; align-items: flex-start; }
+.buscar-titulo { font-weight: 700; line-height: 1.3; }
+.buscar-resultados a:hover .buscar-titulo { color: var(--color-primario); }
+.buscar-texto { font-size: 0.85rem; color: var(--color-texto-sec); }

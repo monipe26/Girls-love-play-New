@@ -200,18 +200,22 @@
 .mundo-gl-grid { display: grid; grid-template-columns: 1fr; gap: var(--espacio-sm); }
 .mundo-gl-grid li a {
   display: flex;
-  gap: var(--espacio-sm);
-  align-items: center;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  align-items: stretch;
   min-width: 0;
 }
 .mundo-gl-grid li a > div { min-width: 0; }
+/* Móvil: la imagen ocupa todo el ancho de la tarjeta y mantiene su
+   proporción real (height:auto, sin object-fit:cover), así se ve entera y
+   no un recorte cuadrado. */
 .mundo-gl-grid img {
-  width: 110px;
-  height: 110px;
-  flex-shrink: 0;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
   border-radius: var(--radio-chico);
-  object-fit: cover;
-  aspect-ratio: 1 / 1;
+  object-fit: contain;
 }
 .mundo-gl-grid h3 {
   font-size: 0.96rem;
@@ -307,6 +311,19 @@
 .comunidad-video-wrapper { aspect-ratio: 16 / 9; border-radius: var(--radio-chico); overflow: hidden; }
 .comunidad-video-wrapper iframe { width: 100%; height: 100%; }
 
+/* ===== CALENDARIO SOLO MÓVIL =====
+   Entre "Últimas noticias" y "Mundo GL" (ver index.njk). Mismo aspecto de
+   panel que los widgets de la barra lateral. En escritorio se oculta (ahí
+   el calendario sigue en el sidebar); en móvil es al revés: se oculta el
+   del sidebar (ver responsive.css). */
+.calendario-movil { padding-top: var(--espacio-xs); padding-bottom: var(--espacio-xs); }
+.calendario-movil .widget-calendario {
+  background: var(--color-fondo-alt);
+  border-radius: var(--radio);
+  padding: var(--espacio-md);
+}
+.calendario-movil h2 { font-size: 1.05rem; margin: 0; }
+
 /* ===== SIDEBAR ===== */
 .sidebar { display: flex; flex-direction: column; gap: var(--espacio-lg); }
 .sidebar h2 { font-size: 1.05rem; margin-bottom: var(--espacio-sm); }
@@ -315,11 +332,6 @@
   border-radius: var(--radio);
   padding: var(--espacio-md);
 }
-
-.radar-item { display: flex; gap: var(--espacio-sm); margin-bottom: var(--espacio-sm); }
-.radar-item:last-child { margin-bottom: 0; }
-.radar-item img { border-radius: var(--radio-chico); object-fit: cover; flex-shrink: 0; }
-.radar-item p { font-size: 0.85rem; font-weight: 600; margin-top: 4px; line-height: 1.3; }
 
 .widget-calendario ul { display: flex; flex-direction: column; gap: var(--espacio-sm); }
 .widget-calendario li { display: flex; align-items: center; gap: var(--espacio-sm); }

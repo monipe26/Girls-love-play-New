@@ -335,7 +335,7 @@ if (reproductorSeriesTv) {
     actualizarNav();
   };
 
-  const cargarSerie = (tarjeta, conAutoplay) => {
+  const cargarSerie = (tarjeta, conAutoplay, conScroll) => {
     const serie = leerSerie(tarjeta);
     if (!serie.playlist && !serie.videos.length) return;
 
@@ -351,17 +351,90 @@ if (reproductorSeriesTv) {
     tarjetas.forEach((t) => t.classList.remove("activo"));
     tarjeta.classList.add("activo");
     actualizarNav();
-    if (conAutoplay) reproductorSeriesTv.scrollIntoView({ behavior: "smooth", block: "start" });
+    // Solo se sube al reproductor cuando se pide explícitamente (botón "Ver ahora"
+    // o clic en escritorio). Los botones anterior/siguiente ya están pegados al
+    // reproductor, así que ahí no hace falta mover la página.
+    if (conScroll) reproductorSeriesTv.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  // ----- Celular / pantallas táctiles -----
+  // Antes, tocar un cover te llevaba solo hasta el reproductor (arriba de todo) y
+  // empezaba a reproducir, y así no se podía leer la sinopsis. Ahora, en celular,
+  // tocar un cover solo muestra un cuadro con el título y la sinopsis justo
+  // debajo de esa fila de covers, SIN mover la página. Ahí mismo hay un botón
+  // "▶ Ver ahora" que recién ahí sube al reproductor y reproduce.
+  // En PC (con mouse) todo sigue como antes: un clic reproduce arriba.
+  const modoSeleccion = window.matchMedia("(max-width: 899px), (hover: none)");
+  let panelInfo = null;
+
+  const obtenerPanelInfo = () => {
+    if (panelInfo) return panelInfo;
+    panelInfo = document.createElement("div");
+    panelInfo.className = "serie-info-panel";
+    panelInfo.setAttribute("role", "region");
+    panelInfo.setAttribute("aria-live", "polite");
+    panelInfo.hidden = true;
+    panelInfo.innerHTML =
+      '<p class="serie-info-titulo"></p>' +
+      '<p class="serie-info-sinopsis"></p>' +
+      '<button type="button" class="btn-primario serie-info-ver">▶ Ver ahora</button>';
+    panelInfo.querySelector(".serie-info-ver").addEventListener("click", () => {
+      if (panelInfo._tarjeta) cargarSerie(panelInfo._tarjeta, true, true);
+    });
+    return panelInfo;
+  };
+
+  const ocultarInfo = () => {
+    if (panelInfo) panelInfo.hidden = true;
+    tarjetas.forEach((t) => t.classList.remove("seleccionada"));
+  };
+
+  const mostrarInfo = (tarjeta) => {
+    const panel = obtenerPanelInfo();
+    // Tocar de nuevo el mismo cover cierra el cuadro
+    if (!panel.hidden && panel._tarjeta === tarjeta) {
+      ocultarInfo();
+      return;
+    }
+    tarjetas.forEach((t) => t.classList.remove("seleccionada"));
+    tarjeta.classList.add("seleccionada");
+    panel._tarjeta = tarjeta;
+    panel.querySelector(".serie-info-titulo").textContent = tarjeta.dataset.titulo || "";
+    panel.querySelector(".serie-info-sinopsis").textContent = tarjeta.dataset.sinopsis || "";
+
+    // El cuadro se pone al final de la fila del cover tocado (ocupa todo el ancho)
+    const grilla = tarjeta.parentElement;
+    const columnas = Math.max(1, getComputedStyle(grilla).gridTemplateColumns.split(" ").length);
+    const indice = tarjetas.indexOf(tarjeta);
+    const ultimoDeLaFila = Math.min((Math.floor(indice / columnas) + 1) * columnas - 1, tarjetas.length - 1);
+    tarjetas[ultimoDeLaFila].after(panel);
+    panel.hidden = false;
   };
 
   tarjetas.forEach((tarjeta) => {
-    tarjeta.addEventListener("click", () => cargarSerie(tarjeta, true));
+    tarjeta.addEventListener("click", () => {
+      if (modoSeleccion.matches) mostrarInfo(tarjeta);
+      else cargarSerie(tarjeta, true, true);
+    });
   });
+
+  // Venir desde el buscador de Series (/series-tv/#serie-nombre): se marca esa serie
+  const abrirDesdeHash = () => {
+    const coincidencia = location.hash.match(/^#serie-(.+)$/);
+    if (!coincidencia) return;
+    const tarjeta = document.getElementById("serie-" + coincidencia[1]);
+    if (!tarjeta || !tarjetas.includes(tarjeta)) return;
+    if (modoSeleccion.matches) {
+      mostrarInfo(tarjeta);
+    } else {
+      cargarSerie(tarjeta, false, true);
+    }
+  };
 
   const irASerieVecina = (delta) => {
     const indice = tarjetas.indexOf(serieActual.tarjeta);
     const vecina = tarjetas[indice + delta];
-    if (vecina) cargarSerie(vecina, true);
+    if (vecina) cargarSerie(vecina, true, false);
   };
 
   if (btnPrev) {
@@ -392,13 +465,15 @@ if (reproductorSeriesTv) {
   if (tarjetaInicial) {
     const inicial = leerSerie(tarjetaInicial);
     if (inicial.playlist || inicial.videos.length > 1) {
-      cargarSerie(tarjetaInicial, false);
+      cargarSerie(tarjetaInicial, false, false);
     } else {
       serieActual = inicial;
       parteActual = 0;
       actualizarNav();
     }
   }
+  abrirDesdeHash();
+  window.addEventListener("hashchange", abrirDesdeHash);
 }
 
 // Ficha de una serie con varias partes (/series/nombre-de-la-serie/): un solo

@@ -1,0 +1,39 @@
+---
+permalink: /search-index.json
+eleventyExcludeFromCollections: true
+---
+{#- Índice del buscador: una lista con TODO lo que se puede encontrar en el
+    sitio. Se regenera solo en cada build (agregar una serie/noticia nueva
+    la suma automáticamente). Campos: t=título, u=link, k=tipo, i=imagen,
+    x=texto corto, a=año. -#}
+{%- set items = [] -%}
+{%- for s in collections.series -%}
+  {%- set _ = items.push({ "t": s.data.titulo, "u": s.url, "k": "Catálogo", "i": s.data.portada, "x": s.data.sinopsis, "a": s.data.anio }) -%}
+{%- endfor -%}
+{%- for s in seriesTv -%}
+  {%- set pag = ((loop.index0 / 10) | int) -%}
+  {%- set base = "/series-tv/" if pag == 0 else "/series-tv/" + (pag + 1) + "/" -%}
+  {%- set _ = items.push({ "t": s.titulo, "u": base + "#serie-" + (s.titulo | slugify), "k": "Series", "i": s.portada, "x": s.sinopsis, "a": s.anio }) -%}
+{%- endfor -%}
+{%- for n in collections.noticias -%}
+  {%- set _ = items.push({ "t": n.data.title, "u": n.url, "k": "Noticias", "i": n.data.imagen, "x": n.data.resumen }) -%}
+{%- endfor -%}
+{%- for n in collections.mundoGl -%}
+  {%- set _ = items.push({ "t": n.data.title, "u": n.url, "k": "Mundo GL", "i": n.data.imagen, "x": n.data.resumen }) -%}
+{%- endfor -%}
+{%- for a in actricesGl -%}
+  {%- set _ = items.push({ "t": a.nombre, "u": "/actrices/", "k": "Actrices", "i": a.foto, "x": ((a.apodo or "") + " " + (a.nombreOriginal or "")) | trim }) -%}
+{%- endfor -%}
+{%- for v in ostGl -%}
+  {%- set _ = items.push({ "t": v.titulo, "u": "/ost/", "k": "OST", "x": v.canal }) -%}
+{%- endfor -%}
+{%- for v in extraGl -%}
+  {%- set _ = items.push({ "t": v.titulo, "u": "/extra/", "k": "Extras", "x": v.canal }) -%}
+{%- endfor -%}
+{%- for v in comunidadGl -%}
+  {%- set _ = items.push({ "t": v.titulo, "u": "/comunidad/", "k": "Comunidad", "x": v.canal }) -%}
+{%- endfor -%}
+{%- for v in proximamenteGl -%}
+  {%- set _ = items.push({ "t": v.titulo, "u": "/proximamente/", "k": "Próximamente", "x": v.sinopsis }) -%}
+{%- endfor -%}
+{{ items | dump | safe }}

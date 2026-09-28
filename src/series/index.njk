@@ -13,6 +13,14 @@ permalink: "{{ '/series/' if pagination.pageNumber == 0 else '/series/' + (pagin
   <h1>📺 Catálogo</h1>
   <p class="seccion-sub">Las mejores series GL</p>
 
+  <form class="buscador-series" role="search" data-buscador-series data-tipo="Catálogo">
+    <label for="buscar-series" class="sr-only">Buscar una serie</label>
+    <input type="search" id="buscar-series" placeholder="🔍 Buscar una serie…" autocomplete="off">
+    <p class="buscador-series-estado" data-series-estado aria-live="polite"></p>
+  </form>
+  <div data-resultados-series hidden></div>
+
+  <div data-lista-series>
   <div class="grid-tarjetas">
     {% for serie in seriesPagina %}
       {% include "tarjeta-serie.njk" %}
@@ -37,4 +45,5 @@ permalink: "{{ '/series/' if pagination.pageNumber == 0 else '/series/' + (pagin
     {% endfor %}
     {% if pagination.href.next %}<a href="{{ pagination.href.next }}">Siguiente ›</a>{% endif %}
   </nav>
+  </div>
 </section>

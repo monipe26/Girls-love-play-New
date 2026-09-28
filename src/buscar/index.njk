@@ -1,0 +1,18 @@
+---
+title: "Buscar"
+description: "Buscador de Girls Love Play: series, noticias, Mundo GL, actrices, OST y más."
+layout: base.njk
+eleventyExcludeFromCollections: true
+noindex: true
+---
+<section class="seccion seccion-buscar" data-buscador-principal>
+  <h1>🔍 Buscar</h1>
+  <form class="buscador-pagina" role="search" action="/buscar/" method="get">
+    <label for="buscar-pagina" class="sr-only">Buscar en Girls Love Play</label>
+    <input type="search" id="buscar-pagina" name="q" placeholder="Series, noticias, actrices…" autocomplete="off">
+    <button type="submit" class="btn-primario">Buscar</button>
+  </form>
+  <p class="buscar-estado" data-buscar-estado aria-live="polite"></p>
+  <ul class="buscar-resultados" data-buscar-resultados></ul>
+  <noscript><p>El buscador necesita JavaScript activado.</p></noscript>
+</section>

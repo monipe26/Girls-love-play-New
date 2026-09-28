@@ -1,0 +1,14 @@
+<section class="widget-calendario">
+  <div class="seccion-cabecera">
+    <h2>🗓️ Calendario de estrenos</h2>
+    <a href="/calendario/" class="ver-mas">Ver todo →</a>
+  </div>
+  <ul>
+    {% for e in proximosEstrenos %}
+    <li>
+      <span class="fecha-caja"><strong>{{ e.dia }}</strong>{{ e.mes }}</span>
+      <div><p>{{ e.titulo }}</p><span>{{ e.tipo }}</span></div>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

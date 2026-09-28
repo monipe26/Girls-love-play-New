@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ title }} · Girls Love Play</title>
   <meta name="description" content="{{ description or 'Series, noticias y todo sobre el mundo Girls Love (GL).' }}">
+  {% if noindex %}<meta name="robots" content="noindex, follow">{% endif %}
   <link rel="canonical" href="https://girlsloveplay.com{{ page.url }}">
 
   <!-- Open Graph -->
@@ -47,6 +48,7 @@
   <script src="/js/actrices.js" defer></script>
   <script src="/js/pwa.js" defer></script>
   <script src="/js/idioma.js" defer></script>
+  <script src="/js/buscador.js" defer></script>
 
   <!-- Selector de idioma (Google Translate): traduce el sitio en el
        navegador de quien visita, sin cambiar el HTML real (que sigue en

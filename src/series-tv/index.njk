@@ -35,6 +35,14 @@ permalink: "{{ '/series-tv/' if pagination.pageNumber == 0 else '/series-tv/' + 
     <p class="reproductor-sinopsis">{{ primera.sinopsis }}</p>
   </section>
 
+  <form class="buscador-series" role="search" data-buscador-series data-tipo="Series">
+    <label for="buscar-series" class="sr-only">Buscar una serie</label>
+    <input type="search" id="buscar-series" placeholder="🔍 Buscar una serie…" autocomplete="off">
+    <p class="buscador-series-estado" data-series-estado aria-live="polite"></p>
+  </form>
+  <div data-resultados-series hidden></div>
+
+  <div data-lista-series>
   <div class="grid-tarjetas grid-series-tv">
     {% for serie in seriesTvPagina %}
       {% include "tarjeta-serie-tv.njk" %}
@@ -59,4 +67,5 @@ permalink: "{{ '/series-tv/' if pagination.pageNumber == 0 else '/series-tv/' + 
     {% endfor %}
     {% if pagination.href.next %}<a href="{{ pagination.href.next }}">Siguiente ›</a>{% endif %}
   </nav>
+  </div>
 </section>

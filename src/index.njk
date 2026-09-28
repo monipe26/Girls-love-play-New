@@ -77,7 +77,7 @@ layout: base.njk
       </div>
       <div class="noticias-destacadas">
         <ul class="noticias-lista">
-          {% for nota in collections.noticias | limit(8) %}
+          {% for nota in collections.noticias | limit(6) %}
           <li>
             <a href="{{ nota.url }}">
               <img src="{{ nota.data.imagen }}" alt="{{ nota.data.title }}" width="90" height="70" loading="lazy">
@@ -92,6 +92,12 @@ layout: base.njk
       </div>
     </section>
 
+    {# Calendario SOLO en móvil: entre "Últimas noticias" y "Mundo GL".
+       En escritorio no se ve acá (sigue en la barra lateral). #}
+    <div class="seccion calendario-movil">
+      {% include "widget-calendario.njk" %}
+    </div>
+
     <section class="seccion seccion-mundo-comunidad">
       <div class="mundo-gl-bloque">
         <div class="seccion-cabecera">
@@ -99,10 +105,10 @@ layout: base.njk
           <a href="/mundo-gl/" class="ver-mas">Ver todo →</a>
         </div>
         <ul class="mundo-gl-grid">
-          {% for nota in collections.mundoGl | limit(8) %}
+          {% for nota in collections.mundoGl | limit(6) %}
           <li>
             <a href="{{ nota.url }}">
-              <img src="{{ nota.data.imagen }}" alt="{{ nota.data.title }}" width="130" height="130" loading="lazy">
+              <img src="{{ nota.data.imagen }}" alt="{{ nota.data.title }}" width="600" height="338" loading="lazy">
               <div>
                 <h3>{{ nota.data.title }}</h3>
                 <p>{{ nota.data.resumen }}</p>
