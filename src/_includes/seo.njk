@@ -1,0 +1,108 @@
+{#- ==========================================================================
+    BLOQUE ÚNICO DE SEO (lo llama base.njk una sola vez, dentro del <head>)
+    Genera: título, descripción, robots, canonical, Open Graph, Twitter Card,
+    fechas de artículo y datos estructurados (JSON-LD).
+
+    Campos que se pueden poner en el front matter de cada página (todos
+    opcionales; si faltan, se usan los de siempre):
+      seoTitle        -> título de Google (si está, se usa tal cual, sin agregar el nombre del sitio)
+      seoDescription  -> descripción de Google y de redes
+      ogImage         -> imagen para compartir (si falta, se usa "imagen" o el logo)
+      modificado      -> fecha de última modificación de un artículo (AAAA-MM-DD)
+      noindex: true   -> la página no aparece en Google ni en el sitemap
+    ========================================================================== -#}
+{%- set _titulo = seoTitle if seoTitle else (title + " · " + site.nombre) -%}
+{%- set _desc = seoDescription or description or site.descripcion -%}
+{%- set _url = site.url + page.url -%}
+{%- set _img = (ogImage or imagen or site.imagenDefecto) | absoluteUrl -%}
+{%- set _esArticulo = (ogTipo == "articulo") -%}
+{%- set _esSerie = (ogTipo == "serie") -%}
+{%- set _esNoticia = _esArticulo and page.url.startsWith("/noticias/") -%}
+{%- set _ogType = "article" if _esArticulo else ("video.tv_show" if _esSerie else "website") -%}
+{%- set _org = {
+  "@type": "Organization",
+  "@id": site.url + "/#organizacion",
+  "name": site.nombre,
+  "url": site.url + "/",
+  "logo": { "@type": "ImageObject", "url": site.logo | absoluteUrl },
+  "email": site.email,
+  "sameAs": site.redes
+} -%}
+  <title>{{ _titulo }}</title>
+  <meta name="description" content="{{ _desc }}">
+  {% if noindex %}<meta name="robots" content="noindex, follow">{% else %}<meta name="robots" content="index, follow, max-image-preview:large">{% endif %}
+  <link rel="canonical" href="{{ _url }}">
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="{{ site.nombre }}">
+  <meta property="og:locale" content="es_LA">
+  <meta property="og:type" content="{{ _ogType }}">
+  <meta property="og:title" content="{{ _titulo }}">
+  <meta property="og:description" content="{{ _desc }}">
+  <meta property="og:url" content="{{ _url }}">
+  <meta property="og:image" content="{{ _img }}">
+  <meta property="og:image:alt" content="{{ title }}">
+  {%- if _esArticulo %}
+  <meta property="article:published_time" content="{{ page.date | isoDate }}">
+  <meta property="article:modified_time" content="{{ (modificado or page.date) | isoDate }}">
+  <meta property="article:section" content="{{ 'Noticias' if _esNoticia else 'Mundo GL' }}">
+  {%- endif %}
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="{{ site.twitter }}">
+  <meta name="twitter:title" content="{{ _titulo }}">
+  <meta name="twitter:description" content="{{ _desc }}">
+  <meta name="twitter:image" content="{{ _img }}">
+
+  <!-- Datos estructurados (JSON-LD) -->
+  {%- if page.url == "/" %}
+  <script type="application/ld+json">{{ {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": site.url + "/#sitio",
+        "url": site.url + "/",
+        "name": site.nombre,
+        "description": site.descripcion,
+        "inLanguage": "es",
+        "publisher": { "@id": site.url + "/#organizacion" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": { "@type": "EntryPoint", "urlTemplate": site.url + "/buscar/?q={search_term_string}" },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      _org
+    ]
+  } | jsonld | safe }}</script>
+  {%- elif _esArticulo %}
+  <script type="application/ld+json">{{ {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle" if _esNoticia else "Article",
+    "headline": title,
+    "description": _desc,
+    "image": [_img],
+    "datePublished": page.date | isoDate,
+    "dateModified": (modificado or page.date) | isoDate,
+    "inLanguage": "es",
+    "author": { "@type": "Organization", "name": site.nombre, "url": site.url + "/" },
+    "publisher": _org,
+    "mainEntityOfPage": { "@type": "WebPage", "@id": _url }
+  } | jsonld | safe }}</script>
+  {%- elif _esSerie %}
+  {%- set _s = serie or { "titulo": titulo, "anio": anio, "genero": genero, "portada": portada, "sinopsis": sinopsis } %}
+  <script type="application/ld+json">{{ {
+    "@context": "https://schema.org",
+    "@type": "TVSeries",
+    "name": _s.titulo,
+    "description": _s.sinopsis,
+    "image": (_s.portada | absoluteUrl),
+    "genre": _s.genero,
+    "startDate": _s.anio | string,
+    "inLanguage": "es",
+    "url": _url,
+    "publisher": _org
+  } | jsonld | safe }}</script>
+  {%- endif %}

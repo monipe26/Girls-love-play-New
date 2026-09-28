@@ -9,6 +9,11 @@ eleventyExcludeFromCollections: true
   {%- if not pagina.data.noindex %}
   <url>
     <loc>{{ site.url }}{{ pagina.url }}</loc>
+    {#- lastmod solo donde hay una fecha real cargada (artículos). Una fecha inventada perjudica más que ayuda. #}
+    {%- set _mod = pagina.data.modificado or pagina.data.date %}
+    {%- if _mod %}
+    <lastmod>{{ _mod | fechaCorta }}</lastmod>
+    {%- endif %}
   </url>
   {%- endif %}
 {%- endfor %}

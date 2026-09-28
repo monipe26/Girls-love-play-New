@@ -11,17 +11,7 @@
     gtag('config', 'G-RPZ4XSDK4N');
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ title }} · Girls Love Play</title>
-  <meta name="description" content="{{ description or 'Series, noticias y todo sobre el mundo Girls Love (GL).' }}">
-  {% if noindex %}<meta name="robots" content="noindex, follow">{% endif %}
-  <link rel="canonical" href="https://girlsloveplay.com{{ page.url }}">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="{{ title }} · Girls Love Play">
-  <meta property="og:description" content="{{ description or 'Series, noticias y todo sobre el mundo Girls Love (GL).' }}">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://girlsloveplay.com{{ page.url }}">
-  {% if imagen %}<meta property="og:image" content="{{ imagen }}">{% endif %}
+  {% include "seo.njk" %}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
