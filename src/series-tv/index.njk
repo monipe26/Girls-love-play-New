@@ -3,16 +3,22 @@ title: "Series"
 description: "Series con temática GL: mirá el capítulo y elegí la próxima serie sin salir de la página."
 layout: base.njk
 ---
+{% set primera = seriesTv[0] %}
+{% if primera.playlist %}{% set srcInicial = "videoseries?list=" + primera.playlist %}
+{% elif primera.videos and primera.videos.length %}{% set srcInicial = primera.videos[0] %}
+{% else %}{% set srcInicial = primera.youtubeId %}{% endif %}
 <section class="seccion seccion-series-tv">
   <h1>📺 Series</h1>
   <p class="seccion-sub seccion-sub-reproductor">Elegí una serie de la grilla y se reproduce acá arriba</p>
 
   <section class="reproductor-principal" data-reproductor-series-tv aria-label="Reproductor de Series">
     <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/{{ seriesTv[0].embed or seriesTv[0].youtubeId }}" title="{{ seriesTv[0].titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/{{ srcInicial }}" title="{{ seriesTv[0].titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>
 
     <p class="reproductor-titulo">Reproduciendo ahora: {{ seriesTv[0].titulo }} ({{ seriesTv[0].anio }})</p>
+
+    <div class="lista-partes lista-partes-series-tv" data-partes-series-tv aria-label="Partes de la serie" hidden></div>
 
     <div class="reproductor-nav" data-nav-series-tv>
       <button type="button" class="btn-nav-episodio" data-nav="prev" disabled>‹ Episodio anterior</button>

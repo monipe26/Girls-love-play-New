@@ -5,7 +5,9 @@
     "genero": "Romance · Comedia",
     "sinopsis": "Gang Seol y su tía Jung One trabajan en un bar exclusivo para mujeres. Aunque comparten orientación sexual, son opuestas y viven historias de amor muy diferentes.",
     "portada": "/assets/images/series/she-makes-my-heart-flutter.jpg",
-    "embed": "2sv4uX1wWRs"
+    "videos": [
+      "2sv4uX1wWRs"
+    ]
   },
   {
     "titulo": "Love of Secret",
@@ -13,7 +15,9 @@
     "genero": "Romance · Familia",
     "sinopsis": "Panpan sueña con ser ídolo, pero oculta su meta y su amor por Aitim a su estricto padre cirujano, quien exige que siga sus pasos y se convierta en una famosa médica.",
     "portada": "/assets/images/series/love-of-secret.jpg",
-    "embed": "g40fx3vnUBw"
+    "videos": [
+      "g40fx3vnUBw"
+    ]
   },
   {
     "titulo": "My Fairy Ghost",
@@ -21,7 +25,7 @@
     "genero": "Romance · Drama",
     "sinopsis": "Riko, una novelista bloqueada, se enamora de Kei, el fantasma de una pintora atrapada entre el amor y la despedida.",
     "portada": "/assets/images/series/my-fairy-ghost.jpg",
-    "embed": "videoseries?list=PLyqngFOTdamAXFE9oFKVflhYaYCM75hRU"
+    "playlist": "PLyqngFOTdamAXFE9oFKVflhYaYCM75hRU"
   },
   {
     "titulo": "Sorry My Friend",
@@ -29,7 +33,10 @@
     "genero": "Romance",
     "sinopsis": "Dos mejores amigas ven cambiar su relación cuando surgen sentimientos románticos, enfrentando una dolorosa separación.",
     "portada": "/assets/images/series/sorry-my-friend.jpg",
-    "embed": "1C_q9XV5GUU?playlist=e4Sreb8Cpw8"
+    "videos": [
+      "1C_q9XV5GUU",
+      "e4Sreb8Cpw8"
+    ]
   },
   {
     "titulo": "Out of Breath",
@@ -37,7 +44,9 @@
     "genero": "Romance · Drama",
     "sinopsis": "Tras una ruptura, Ha Eun conoce a Min Seo en una app de citas. Juntas cumplen sueños pendientes, pero ¿logrará olvidar a su ex?",
     "portada": "/assets/images/series/out-of-breath.jpg",
-    "embed": "DUGblEoORXI"
+    "videos": [
+      "DUGblEoORXI"
+    ]
   },
   {
     "titulo": "Am I The Only One With Butterflies",
@@ -45,7 +54,7 @@
     "genero": "Romance",
     "sinopsis": "El primer día de trabajo la conoció y, desde entonces, siente mariposas por su jefa. ¿Será la única que siente esta emoción?",
     "portada": "/assets/images/series/am-i-the-only-one-with-butterflies.jpg",
-    "embed": "videoseries?list=PLNEeUHmc7hsAGhHF7ej87nzM_egZN7fYR"
+    "playlist": "PLNEeUHmc7hsAGhHF7ej87nzM_egZN7fYR"
   },
   {
     "titulo": "Hello, Stranger",

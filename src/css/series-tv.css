@@ -1,0 +1,68 @@
+/* ===== SERIES (reproductor + grilla de covers) =====
+   Archivo aparte, cargado al final, para ajustar la sección Series sin tocar
+   components.css ni responsive.css. */
+
+/* --- Covers más grandes: 2 columnas en celular, 3 en tablet, 4 en pantallas grandes --- */
+.grid-tarjetas.grid-series-tv { grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 640px) {
+  .grid-tarjetas.grid-series-tv { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1200px) {
+  .grid-tarjetas.grid-series-tv { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* --- Sinopsis completa al pasar el mouse (antes se cortaba en 3 líneas / 110 letras) ---
+   El texto queda abajo si es corto y, si es muy largo, se puede scrollear dentro del cover. */
+.tarjeta-serie-tv-overlay {
+  justify-content: flex-start;
+  gap: 6px;
+  overflow-y: auto;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.94) 0%, rgba(0, 0, 0, 0.86) 70%, rgba(0, 0, 0, 0.6) 100%);
+  scrollbar-width: thin;
+}
+.tarjeta-serie-tv-meta { margin-top: auto; }
+.tarjeta-serie-tv-sinopsis {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+/* El botón de play pasa a la esquina para no tapar el texto de la sinopsis */
+.tarjeta-serie-tv-play {
+  top: 10px;
+  right: 10px;
+  left: auto;
+  transform: none;
+  width: 34px;
+  height: 34px;
+  font-size: 0.9rem;
+  z-index: 2;
+}
+
+@media (max-width: 639px) {
+  .tarjeta-serie-tv-overlay { padding: var(--espacio-xs); }
+  .tarjeta-serie-tv-sinopsis { font-size: 0.72rem; line-height: 1.3; }
+  .tarjeta-serie-tv-meta { font-size: 0.68rem; }
+}
+
+/* --- Botones de partes ("Parte 1", "Parte 2"...) debajo del video --- */
+.lista-partes[hidden] { display: none; }
+.lista-partes-series-tv {
+  justify-content: center;
+  max-width: 900px;
+  margin: var(--espacio-xs) auto 0;
+  padding: 0 var(--espacio-sm);
+}
+.lista-partes-series-tv .btn-parte {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  color: var(--color-texto);
+  border: 1.5px solid var(--color-borde);
+}
+.lista-partes-series-tv .btn-parte.activo {
+  background: var(--color-primario);
+  border-color: var(--color-primario);
+  color: #fff;
+}

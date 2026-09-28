@@ -179,63 +179,251 @@ document.querySelectorAll(".comunidad-video").forEach((boton) => {
 // reproduce acá adentro — ahora es un link directo a /series-tv/, así que
 // no necesita JS.
 
-// Página "Series TV": reproductor principal arriba + grilla de covers abajo.
-// Clic en un cover carga ese video arriba (sin recargar la página) y los
-// botones "Episodio anterior" / "Episodio siguiente" recorren la grilla.
+// Página "Series": reproductor principal arriba + grilla de covers abajo.
+// Cada serie puede ser:
+//   - un solo video (data-videos con un id),
+//   - un video con VARIAS PARTES (data-videos="id1,id2,id3..."): se muestran
+//     botones "Parte 1, Parte 2..." y al terminar una parte arranca la siguiente,
+//   - una PLAYLIST de YouTube (data-playlist="PL..."): YouTube la va pasando solo.
+// Los botones "Episodio anterior / siguiente" recorren primero las partes (o los
+// videos de la playlist) de la serie que se está viendo y, cuando no quedan más,
+// pasan a la serie anterior / siguiente de la grilla.
 const reproductorSeriesTv = document.querySelector("[data-reproductor-series-tv]");
 if (reproductorSeriesTv) {
   const wrapper = reproductorSeriesTv.querySelector(".video-wrapper");
   const tituloEl = reproductorSeriesTv.querySelector(".reproductor-titulo");
   const sinopsisEl = reproductorSeriesTv.querySelector(".reproductor-sinopsis");
+  const listaPartesEl = reproductorSeriesTv.querySelector("[data-partes-series-tv]");
   const tarjetas = Array.from(document.querySelectorAll(".tarjeta-serie-tv"));
   const nav = document.querySelector("[data-nav-series-tv]");
+  const btnPrev = nav ? nav.querySelector('[data-nav="prev"]') : null;
+  const btnNext = nav ? nav.querySelector('[data-nav="next"]') : null;
 
-  let actualizarNavSeriesTv = () => {};
+  let serieActual = null; // { tarjeta, titulo, sinopsis, playlist, videos[] }
+  let parteActual = 0;
+  let ytSeries = null; // reproductor de la API de YouTube conectado al iframe actual
+  let generacion = 0; // para ignorar avisos de un reproductor viejo
 
-  const cargarSerieTv = (tarjeta) => {
-    const id = tarjeta.dataset.embed;
-    const titulo = tarjeta.dataset.titulo;
-    const sinopsis = tarjeta.dataset.sinopsis;
+  const leerSerie = (tarjeta) => ({
+    tarjeta,
+    titulo: tarjeta.dataset.titulo || "",
+    sinopsis: tarjeta.dataset.sinopsis || "",
+    playlist: tarjeta.dataset.playlist || "",
+    videos: (tarjeta.dataset.videos || "").split(",").map((v) => v.trim()).filter(Boolean),
+  });
 
-    const separador = id.includes("?") ? "&" : "?";
-    wrapper.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}${separador}autoplay=1" title="${titulo}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
-    if (tituloEl) tituloEl.textContent = `Reproduciendo ahora: ${titulo}`;
-    if (sinopsisEl) sinopsisEl.textContent = sinopsis || "";
+  const srcDe = (serie, parte, conAutoplay) => {
+    const comunes = `enablejsapi=1&playsinline=1&rel=0${conAutoplay ? "&autoplay=1" : ""}`;
+    if (serie.playlist) {
+      return `https://www.youtube.com/embed/videoseries?list=${serie.playlist}&${comunes}`;
+    }
+    return `https://www.youtube.com/embed/${serie.videos[parte]}?${comunes}`;
+  };
 
+  // Info de la playlist (posición y cantidad) — solo disponible cuando la API ya está lista
+  const infoPlaylist = () => {
+    try {
+      if (!ytSeries || typeof ytSeries.getPlaylist !== "function") return null;
+      const lista = ytSeries.getPlaylist();
+      const indice = ytSeries.getPlaylistIndex();
+      if (!lista || !lista.length || indice < 0) return null;
+      return { indice, total: lista.length };
+    } catch (e) {
+      return null;
+    }
+  };
+
+  const puedeRetroceder = () => {
+    if (!serieActual) return false;
+    if (serieActual.playlist) {
+      const info = infoPlaylist();
+      return !!info && info.indice > 0;
+    }
+    return parteActual > 0;
+  };
+  const puedeAvanzar = () => {
+    if (!serieActual) return false;
+    if (serieActual.playlist) {
+      const info = infoPlaylist();
+      return !!info && info.indice < info.total - 1;
+    }
+    return parteActual < serieActual.videos.length - 1;
+  };
+
+  const actualizarTitulo = () => {
+    if (!tituloEl || !serieActual) return;
+    let extra = "";
+    if (serieActual.playlist) {
+      const info = infoPlaylist();
+      if (info && info.total > 1) extra = ` · Video ${info.indice + 1} de ${info.total}`;
+    } else if (serieActual.videos.length > 1) {
+      extra = ` · Parte ${parteActual + 1} de ${serieActual.videos.length}`;
+    }
+    tituloEl.textContent = `Reproduciendo ahora: ${serieActual.titulo}${extra}`;
+  };
+
+  const actualizarNav = () => {
+    if (!serieActual) return;
+    const indice = tarjetas.indexOf(serieActual.tarjeta);
+    if (btnPrev) btnPrev.disabled = !(puedeRetroceder() || indice > 0);
+    if (btnNext) btnNext.disabled = !(puedeAvanzar() || (indice !== -1 && indice < tarjetas.length - 1));
+    actualizarTitulo();
+  };
+
+  const dibujarPartes = () => {
+    if (!listaPartesEl || !serieActual) return;
+    const total = serieActual.playlist ? 0 : serieActual.videos.length;
+    listaPartesEl.innerHTML = "";
+    listaPartesEl.hidden = total <= 1;
+    if (total <= 1) return;
+    for (let i = 0; i < total; i++) {
+      const boton = document.createElement("button");
+      boton.type = "button";
+      boton.className = "btn-parte" + (i === parteActual ? " activo" : "");
+      boton.textContent = total > 8 ? String(i + 1) : `Parte ${i + 1}`;
+      boton.setAttribute("aria-label", `Ver parte ${i + 1} de ${total}`);
+      boton.addEventListener("click", () => cargarParte(i));
+      listaPartesEl.appendChild(boton);
+    }
+  };
+
+  const marcarParteActiva = () => {
+    if (!listaPartesEl) return;
+    Array.from(listaPartesEl.children).forEach((b, i) => {
+      b.classList.toggle("activo", i === parteActual);
+    });
+  };
+
+  const crearIframe = (serie, parte, conAutoplay) => {
+    const iframe = document.createElement("iframe");
+    iframe.id = "reproductor-series-tv-iframe";
+    iframe.src = srcDe(serie, parte, conAutoplay);
+    iframe.title = serie.titulo;
+    iframe.setAttribute("allow", "autoplay; fullscreen");
+    iframe.setAttribute("allowfullscreen", "");
+    wrapper.innerHTML = "";
+    wrapper.appendChild(iframe);
+    return iframe;
+  };
+
+  // Conecta el iframe a la API de YouTube (para saber cuándo termina una parte
+  // y para mover la playlist con nuestros botones). Si la API no carga, el
+  // video se reproduce igual y solo los botones quedan navegando entre series.
+  const conectarApi = (iframe) => {
+    const miGeneracion = generacion;
+    if (!document.querySelector('script[src="https://www.youtube.com/iframe_api"]')) {
+      const script = document.createElement("script");
+      script.src = "https://www.youtube.com/iframe_api";
+      document.head.appendChild(script);
+    }
+    alEstarListaLaApiDeYoutube(() => {
+      if (miGeneracion !== generacion) return;
+      ytSeries = new YT.Player(iframe, {
+        events: {
+          onReady: () => { if (miGeneracion === generacion) actualizarNav(); },
+          onStateChange: (evento) => {
+            if (miGeneracion !== generacion) return;
+            if (
+              evento.data === YT.PlayerState.ENDED &&
+              !serieActual.playlist &&
+              parteActual < serieActual.videos.length - 1
+            ) {
+              cargarParte(parteActual + 1);
+              return;
+            }
+            actualizarNav();
+          },
+        },
+      });
+    });
+  };
+
+  const cargarParte = (indice) => {
+    if (!serieActual || serieActual.playlist) return;
+    if (indice < 0 || indice >= serieActual.videos.length) return;
+    parteActual = indice;
+    // Si la API ya está lista se cambia el video sin recargar el iframe (esto
+    // además permite que el autoplay entre partes no sea bloqueado por el navegador)
+    if (ytSeries && typeof ytSeries.loadVideoById === "function") {
+      try {
+        ytSeries.loadVideoById(serieActual.videos[indice]);
+      } catch (e) {
+        generacion++;
+        conectarApi(crearIframe(serieActual, indice, true));
+      }
+    } else {
+      generacion++;
+      ytSeries = null;
+      conectarApi(crearIframe(serieActual, indice, true));
+    }
+    marcarParteActiva();
+    actualizarNav();
+  };
+
+  const cargarSerie = (tarjeta, conAutoplay) => {
+    const serie = leerSerie(tarjeta);
+    if (!serie.playlist && !serie.videos.length) return;
+
+    generacion++;
+    serieActual = serie;
+    parteActual = 0;
+    ytSeries = null;
+
+    const iframe = crearIframe(serie, 0, conAutoplay);
+    conectarApi(iframe);
+
+    if (sinopsisEl) sinopsisEl.textContent = serie.sinopsis;
     tarjetas.forEach((t) => t.classList.remove("activo"));
     tarjeta.classList.add("activo");
-    actualizarNavSeriesTv();
-    reproductorSeriesTv.scrollIntoView({ behavior: "smooth", block: "start" });
+    dibujarPartes();
+    actualizarNav();
+    if (conAutoplay) reproductorSeriesTv.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   tarjetas.forEach((tarjeta) => {
-    tarjeta.addEventListener("click", () => cargarSerieTv(tarjeta));
+    tarjeta.addEventListener("click", () => cargarSerie(tarjeta, true));
   });
 
-  if (nav) {
-    const btnPrev = nav.querySelector('[data-nav="prev"]');
-    const btnNext = nav.querySelector('[data-nav="next"]');
+  const irASerieVecina = (delta) => {
+    const indice = tarjetas.indexOf(serieActual.tarjeta);
+    const vecina = tarjetas[indice + delta];
+    if (vecina) cargarSerie(vecina, true);
+  };
 
-    actualizarNavSeriesTv = () => {
-      const indiceActivo = tarjetas.findIndex((t) => t.classList.contains("activo"));
-      if (btnPrev) btnPrev.disabled = indiceActivo <= 0;
-      if (btnNext) btnNext.disabled = indiceActivo === -1 || indiceActivo >= tarjetas.length - 1;
-    };
+  if (btnPrev) {
+    btnPrev.addEventListener("click", () => {
+      if (puedeRetroceder()) {
+        if (serieActual.playlist) ytSeries.previousVideo();
+        else cargarParte(parteActual - 1);
+      } else {
+        irASerieVecina(-1);
+      }
+    });
+  }
+  if (btnNext) {
+    btnNext.addEventListener("click", () => {
+      if (puedeAvanzar()) {
+        if (serieActual.playlist) ytSeries.nextVideo();
+        else cargarParte(parteActual + 1);
+      } else {
+        irASerieVecina(1);
+      }
+    });
+  }
 
-    if (btnPrev) {
-      btnPrev.addEventListener("click", () => {
-        const indiceActivo = tarjetas.findIndex((t) => t.classList.contains("activo"));
-        if (indiceActivo > 0) cargarSerieTv(tarjetas[indiceActivo - 1]);
-      });
+  // Estado inicial: la primera serie ya viene armada desde el servidor. Si es de
+  // un solo video se deja tal cual; si tiene partes o es playlist se re-arma para
+  // mostrar los botones de partes y conectarla a la API (sin autoplay).
+  const tarjetaInicial = tarjetas.find((t) => t.classList.contains("activo")) || tarjetas[0];
+  if (tarjetaInicial) {
+    const inicial = leerSerie(tarjetaInicial);
+    if (inicial.playlist || inicial.videos.length > 1) {
+      cargarSerie(tarjetaInicial, false);
+    } else {
+      serieActual = inicial;
+      parteActual = 0;
+      actualizarNav();
     }
-    if (btnNext) {
-      btnNext.addEventListener("click", () => {
-        const indiceActivo = tarjetas.findIndex((t) => t.classList.contains("activo"));
-        if (indiceActivo !== -1 && indiceActivo < tarjetas.length - 1) cargarSerieTv(tarjetas[indiceActivo + 1]);
-      });
-    }
-
-    actualizarNavSeriesTv();
   }
 }
 

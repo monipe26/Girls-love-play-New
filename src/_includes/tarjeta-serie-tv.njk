@@ -1,7 +1,9 @@
+{% set _videos = serie.videos or ([serie.youtubeId] if serie.youtubeId else []) %}
 <button
   type="button"
   class="tarjeta-serie-tv {% if loop.first %}activo{% endif %}"
-  data-embed="{{ serie.embed or serie.youtubeId }}"
+  data-videos="{{ _videos | join(',') }}"
+  data-playlist="{{ serie.playlist or '' }}"
   data-titulo="{{ serie.titulo }} ({{ serie.anio }})"
   data-sinopsis="{{ serie.sinopsis }}"
   aria-label="Reproducir {{ serie.titulo }}"
@@ -14,7 +16,7 @@
         <span class="tarjeta-serie-tv-anio">{{ serie.anio }}</span>
         <span class="tarjeta-serie-tv-genero">{{ serie.genero }}</span>
       </span>
-      <span class="tarjeta-serie-tv-sinopsis">{{ serie.sinopsis | truncar(110) }}</span>
+      <span class="tarjeta-serie-tv-sinopsis">{{ serie.sinopsis }}</span>
     </span>
   </span>
   <span class="tarjeta-serie-tv-titulo">{{ serie.titulo }}</span>
