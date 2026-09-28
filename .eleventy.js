@@ -62,6 +62,14 @@ module.exports = function (eleventyConfig) {
     return [...new Set(letras)].sort();
   });
 
+  // Slug de la letra inicial de una actriz (para /actrices/letra/x/): "Ñ" -> "enie",
+  // las vocales con tilde pierden la tilde. Mismo criterio que _data/letrasActrices.js
+  eleventyConfig.addFilter("letraActrizSlug", function (nombre) {
+    const primera = String(nombre || "").trim().charAt(0).toUpperCase();
+    if (primera === "Ñ") return "enie";
+    return primera.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  });
+
   // Calcula la edad actual a partir de una fecha de nacimiento (así no queda
   // una edad fija "pegada" en el JSON que se desactualiza con el tiempo).
   // Usa UTC en los dos lados de la resta para que no cambie según el huso
