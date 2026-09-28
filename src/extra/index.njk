@@ -1,22 +1,22 @@
 ---
-title: "Extra"
+title: "Extras"
 description: "Contenido extra de la comunidad."
 layout: base.njk
 pagination:
-  data: extraGl
+  data: extrasGl
   size: 8
   alias: extraPagina
 permalink: "{{ '/extra/' if pagination.pageNumber == 0 else '/extra/' + (pagination.pageNumber + 1) + '/' }}"
 ---
 <section class="seccion">
-  <h1>✨ Extra</h1>
-  <p class="seccion-sub">Contenido extra de la comunidad</p>
+  <h1>✨ Extras</h1>
+  <p class="seccion-sub">Videos extra de la comunidad GL</p>
 
-  <section class="reproductor-principal" aria-label="Reproductor de Extra">
+  <section class="reproductor-principal" aria-label="Reproductor de Extras">
     <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/{{ extraGl[0].youtubeId }}" title="{{ extraGl[0].titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/{{ extrasGl[0].youtubeId }}" title="{{ extrasGl[0].titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>
-    <p class="reproductor-titulo">Reproduciendo ahora: {{ extraGl[0].titulo }}</p>
+    <p class="reproductor-titulo">Reproduciendo ahora: {{ extrasGl[0].titulo }}</p>
   </section>
 
   <div class="grid-tarjetas grid-2">
@@ -27,7 +27,7 @@ permalink: "{{ '/extra/' if pagination.pageNumber == 0 else '/extra/' + (paginat
 
   {% set totalPaginas = pagination.pages.length %}
   {% set paginaActual = pagination.pageNumber + 1 %}
-  <nav class="paginacion" aria-label="Paginación de Extra">
+  <nav class="paginacion" aria-label="Paginación de Extras">
     {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">‹ Anterior</a>{% endif %}
     {% for pageEntry in pagination.pages %}
       {% set numero = loop.index %}

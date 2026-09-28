@@ -25,13 +25,13 @@ eleventyExcludeFromCollections: true
 {%- for v in ostGl -%}
   {%- set _ = items.push({ "t": v.titulo, "u": "/ost/", "k": "OST", "x": v.canal }) -%}
 {%- endfor -%}
-{%- for v in extraGl -%}
+{%- for v in extrasGl -%}
   {%- set _ = items.push({ "t": v.titulo, "u": "/extra/", "k": "Extras", "x": v.canal }) -%}
 {%- endfor -%}
 {%- for v in comunidadGl -%}
   {%- set _ = items.push({ "t": v.titulo, "u": "/comunidad/", "k": "Comunidad", "x": v.canal }) -%}
 {%- endfor -%}
-{%- for v in proximamenteGl -%}
+{%- for v in proximosGl -%}
   {%- set _ = items.push({ "t": v.titulo, "u": "/proximamente/", "k": "Próximamente", "x": v.sinopsis }) -%}
 {%- endfor -%}
 {{ items | dump | safe }}

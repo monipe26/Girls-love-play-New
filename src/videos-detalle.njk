@@ -1,0 +1,48 @@
+---
+layout: base.njk
+ogTipo: video
+pagination:
+  data: videoPaginas
+  size: 1
+  alias: v
+permalink: "/{{ v.base }}/{{ v.slug }}/"
+eleventyExcludeFromCollections: true
+---
+<section class="seccion seccion-video-detalle">
+  <nav class="migas" aria-label="Migas de pan">
+    <ol>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="{{ v.volver }}">{{ v.seccion }}</a></li>
+      <li aria-current="page">{{ v.titulo | truncar(60) }}</li>
+    </ol>
+  </nav>
+
+  <h1>{{ v.titulo }}</h1>
+  <p class="seccion-sub">{{ v.canal }}{% if v.anio %} · {{ v.anio }}{% endif %}</p>
+
+  <div class="video-detalle-player">
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/{{ v.youtubeId }}" title="{{ v.titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  {% set _texto = v.descripcion or v.sinopsis %}
+  {% if _texto %}<p class="video-detalle-texto">{{ _texto }}</p>{% endif %}
+
+  {% set _otros = videoPaginas | mismosVideos(v.clave, v.slug, 4) %}
+  {% if _otros.length %}
+  <section class="video-detalle-mas" aria-labelledby="tit-mas-videos">
+    <h2 id="tit-mas-videos">Más en {{ v.seccion }}</h2>
+    <div class="grid-tarjetas grid-2">
+      {% for o in _otros %}
+      <a class="video-detalle-tarjeta" href="/{{ o.base }}/{{ o.slug }}/">
+        <img src="https://i.ytimg.com/vi/{{ o.youtubeId }}/hqdefault.jpg" alt="" width="340" height="190" loading="lazy" decoding="async">
+        <span class="tarjeta-video-titulo">{{ o.titulo }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <p class="articulo-volver"><a href="{{ v.volver }}" class="btn-primario">← Ver todo en {{ v.seccion }}</a></p>
+</section>

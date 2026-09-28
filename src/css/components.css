@@ -1002,3 +1002,17 @@ body.modal-actriz-abierto { overflow: hidden; }
 .articulo-fuente, .articulo-serie-rel { font-size: 0.9rem; margin: var(--espacio-xs) 0; color: var(--color-texto-sec); }
 .articulo-relacionadas { margin: var(--espacio-lg) 0; }
 .articulo-relacionadas h2 { margin-bottom: var(--espacio-sm); }
+
+/* ===== PÁGINAS DE VIDEO Y DE SHIP (detalle) + tarjeta con enlace + banner con enlace ===== */
+.carrusel-enlace { display: block; }
+.tarjeta-video-caja { display: flex; flex-direction: column; min-width: 0; }
+.tarjeta-video-enlace { font-size: 0.78rem; margin: 4px 2px 0; color: var(--color-primario-hover); text-align: right; }
+.video-detalle-player { max-width: 860px; margin: 0 auto var(--espacio-md); }
+.video-detalle-texto { max-width: 860px; margin: 0 auto var(--espacio-md); line-height: 1.6; }
+.video-detalle-mas { margin: var(--espacio-lg) 0; }
+.video-detalle-mas h2 { margin-bottom: var(--espacio-sm); }
+.video-detalle-tarjeta { display: block; background: #fff; border-radius: var(--radio); box-shadow: var(--sombra-tarjeta); overflow: hidden; color: inherit; }
+.video-detalle-tarjeta img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+.video-detalle-tarjeta .tarjeta-video-titulo { padding: var(--espacio-xs) var(--espacio-sm) var(--espacio-sm); }
+.ficha-ship-pagina { margin: var(--espacio-sm) 0; font-size: 0.9rem; }
+.ficha-ship-pagina a { color: var(--color-primario-hover); }

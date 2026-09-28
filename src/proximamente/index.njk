@@ -3,7 +3,7 @@ title: "Próximamente"
 description: "Series y contenido que se viene."
 layout: base.njk
 pagination:
-  data: proximamenteGl
+  data: proximosGl
   size: 8
   alias: proximamentePagina
 permalink: "{{ '/proximamente/' if pagination.pageNumber == 0 else '/proximamente/' + (pagination.pageNumber + 1) + '/' }}"
@@ -14,10 +14,10 @@ permalink: "{{ '/proximamente/' if pagination.pageNumber == 0 else '/proximament
 
   <section class="reproductor-principal" aria-label="Reproductor de Próximamente">
     <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/{{ proximamenteGl[0].youtubeId }}" title="{{ proximamenteGl[0].titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/{{ proximosGl[0].youtubeId }}" title="{{ proximosGl[0].titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>
-    <p class="reproductor-titulo">Reproduciendo ahora: {{ proximamenteGl[0].titulo }}</p>
-    <p class="reproductor-sinopsis" data-reproductor-sinopsis>{{ proximamenteGl[0].sinopsis }}</p>
+    <p class="reproductor-titulo">Reproduciendo ahora: {{ proximosGl[0].titulo }}</p>
+    <p class="reproductor-sinopsis" data-reproductor-sinopsis>{{ proximosGl[0].sinopsis }}</p>
   </section>
 
   <div class="grid-tarjetas grid-2">

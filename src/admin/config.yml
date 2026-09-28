@@ -380,6 +380,193 @@ collections:
           - { label: "Enlace (opcional)", name: enlace, widget: string, required: false }
 
   # ------------------------------------------------------------
+  # BANNER, EXTRAS, PRÓXIMAMENTE, OST, COMUNIDAD Y SHIPS
+  # (todos con slug y campos de SEO)
+  # ------------------------------------------------------------
+  - name: banner-inicio
+    label: "🖼️ Banner del inicio"
+    files:
+      - name: banner-inicio
+        label: "Banner del carrusel del inicio (primer slide)"
+        file: src/_data/cms/bannerInicio.json
+        media_folder: /src/assets/images
+        public_folder: /assets/images
+        fields:
+          - { label: "Mostrar banner", name: activa, widget: boolean, default: true }
+          - { label: "Imagen", name: imagen, widget: image, choose_url: false, hint: "Proporción 3:1 (ideal 1600×533 o más). Se ve entera en celular y en escritorio." }
+          - { label: "Texto alternativo", name: alt, widget: string, hint: "Describí lo que dice el banner. Ejemplo: Unite a nuestra comunidad en Telegram." }
+          - { label: "Enlace al hacer clic", name: enlace, widget: string, required: false, hint: "Dirección completa (https://...) o interna (/comunidad/). Ejemplo: https://t.me/girlsloveplay" }
+
+  - name: extras
+    label: "✨ Extras"
+    files:
+      - name: extras
+        label: "Lista de Extras"
+        file: src/_data/cms/extras.json
+        media_folder: /src/assets/images/videos
+        public_folder: /assets/images/videos
+        fields:
+          - label: "Extras"
+            name: items
+            widget: list
+            label_singular: "Video extra"
+            summary: "{{fields.titulo}} · {{fields.youtubeId}}"
+            add_to_top: true
+            fields:
+              - { label: "ID del video de YouTube", name: youtubeId, widget: string, pattern: ["^[A-Za-z0-9_-]{11}$", "El ID tiene 11 caracteres. Pegá solo el ID, no la dirección completa."], hint: "Es lo que va después de v= en la dirección del video. Ejemplo: dQw4w9WgXcQ." }
+              - { label: "Título (opcional)", name: titulo, widget: string, required: false, hint: "Dejalo VACÍO y el sitio toma solo el nombre del video desde YouTube. Completalo solo si querés un título distinto." }
+              - label: "Slug (dirección web)"
+                name: slug
+                widget: string
+                pattern: ["^[a-z0-9]+(-[a-z0-9]+)*$", "Solo minúsculas, números y guiones. Sin espacios, tildes ni ñ."]
+                hint: "Ejemplo: entrevista-lina-mew → girlsloveplay.com/extra/entrevista-lina-mew/. ⚠️ Si lo cambiás en un video ya publicado, cambia su dirección web: avisame para agregar la redirección."
+              - { label: "Descripción propia (recomendado para SEO)", name: descripcion, widget: text, required: false, hint: "Un texto tuyo sobre el video (2 o 3 renglones o más). Es lo que hace que su página pueda aparecer en Google: sin texto propio la página existe pero no se indexa." }
+              - { label: "Canal (opcional)", name: canal, widget: string, required: false, hint: "Dejalo vacío: se toma solo de YouTube." }
+              - { label: "Título para Google (SEO)", name: seoTitle, widget: string, required: false, hint: "Opcional. Es el título azul de Google. Si lo dejás vacío se usa el título del video + el nombre del sitio." }
+              - { label: "Descripción para Google (SEO)", name: seoDescription, widget: text, required: false, hint: "Opcional. 120 a 155 caracteres. Si la dejás vacía se usa el comienzo del texto de la página." }
+              - { label: "Imagen para compartir en redes", name: ogImage, widget: image, required: false, choose_url: false, hint: "Opcional. Ideal 1200×630. Si la dejás vacía se usa la miniatura del video de YouTube." }
+              - { label: "No mostrar en Google (noindex)", name: noindex, widget: boolean, required: false, default: false, hint: "Dejalo apagado salvo casos especiales. Igual, la página del video solo aparece en Google si tiene un texto propio de 80 caracteres o más." }
+
+  - name: proximamente
+    label: "🎬 Próximamente"
+    files:
+      - name: proximamente
+        label: "Lista de Próximamente"
+        file: src/_data/cms/proximamente.json
+        media_folder: /src/assets/images/videos
+        public_folder: /assets/images/videos
+        fields:
+          - label: "Próximamente"
+            name: items
+            widget: list
+            label_singular: "Tráiler"
+            summary: "{{fields.titulo}} · {{fields.youtubeId}}"
+            add_to_top: true
+            fields:
+              - { label: "ID del video de YouTube", name: youtubeId, widget: string, pattern: ["^[A-Za-z0-9_-]{11}$", "El ID tiene 11 caracteres. Pegá solo el ID, no la dirección completa."], hint: "Es lo que va después de v= en la dirección del video. Ejemplo: dQw4w9WgXcQ." }
+              - { label: "Título (opcional)", name: titulo, widget: string, required: false, hint: "Dejalo VACÍO y el sitio toma solo el nombre del video desde YouTube. Completalo solo si querés un título distinto." }
+              - label: "Slug (dirección web)"
+                name: slug
+                widget: string
+                pattern: ["^[a-z0-9]+(-[a-z0-9]+)*$", "Solo minúsculas, números y guiones. Sin espacios, tildes ni ñ."]
+                hint: "Ejemplo: love-on-hire-teaser → girlsloveplay.com/proximamente/love-on-hire-teaser/. ⚠️ Si lo cambiás en un video ya publicado, cambia su dirección web: avisame para agregar la redirección."
+              - { label: "Sinopsis", name: sinopsis, widget: text, required: false, hint: "De qué trata la serie. Se muestra debajo del reproductor y en la página del tráiler." }
+              - { label: "Año de lanzamiento", name: anio, widget: number, value_type: int, required: false, min: 2000, max: 2100 }
+              - { label: "Texto extra (opcional)", name: descripcion, widget: text, required: false, hint: "Un texto tuyo sobre el video (2 o 3 renglones o más). Es lo que hace que su página pueda aparecer en Google: sin texto propio la página existe pero no se indexa." }
+              - { label: "Canal (opcional)", name: canal, widget: string, required: false, hint: "Dejalo vacío: se toma solo de YouTube." }
+              - { label: "Título para Google (SEO)", name: seoTitle, widget: string, required: false, hint: "Opcional. Es el título azul de Google. Si lo dejás vacío se usa el título del video + el nombre del sitio." }
+              - { label: "Descripción para Google (SEO)", name: seoDescription, widget: text, required: false, hint: "Opcional. 120 a 155 caracteres. Si la dejás vacía se usa el comienzo del texto de la página." }
+              - { label: "Imagen para compartir en redes", name: ogImage, widget: image, required: false, choose_url: false, hint: "Opcional. Ideal 1200×630. Si la dejás vacía se usa la miniatura del video de YouTube." }
+              - { label: "No mostrar en Google (noindex)", name: noindex, widget: boolean, required: false, default: false, hint: "Dejalo apagado salvo casos especiales. Igual, la página del video solo aparece en Google si tiene un texto propio de 80 caracteres o más." }
+
+  - name: ost
+    label: "🎵 OST"
+    files:
+      - name: ost
+        label: "Lista de OST"
+        file: src/_data/cms/ost.json
+        media_folder: /src/assets/images/videos
+        public_folder: /assets/images/videos
+        fields:
+          - label: "OST"
+            name: items
+            widget: list
+            label_singular: "Canción"
+            summary: "{{fields.titulo}} · {{fields.youtubeId}}"
+            add_to_top: true
+            fields:
+              - { label: "ID del video de YouTube", name: youtubeId, widget: string, pattern: ["^[A-Za-z0-9_-]{11}$", "El ID tiene 11 caracteres. Pegá solo el ID, no la dirección completa."], hint: "Es lo que va después de v= en la dirección del video. Ejemplo: dQw4w9WgXcQ." }
+              - { label: "Título (opcional)", name: titulo, widget: string, required: false, hint: "Dejalo VACÍO y el sitio toma solo el nombre del video desde YouTube. Completalo solo si querés un título distinto." }
+              - label: "Slug (dirección web)"
+                name: slug
+                widget: string
+                pattern: ["^[a-z0-9]+(-[a-z0-9]+)*$", "Solo minúsculas, números y guiones. Sin espacios, tildes ni ñ."]
+                hint: "Ejemplo: nombre-de-la-cancion → girlsloveplay.com/ost/nombre-de-la-cancion/. ⚠️ Si lo cambiás en un video ya publicado, cambia su dirección web: avisame para agregar la redirección."
+              - { label: "Descripción propia (recomendado para SEO)", name: descripcion, widget: text, required: false, hint: "Un texto tuyo sobre el video (2 o 3 renglones o más). Es lo que hace que su página pueda aparecer en Google: sin texto propio la página existe pero no se indexa." }
+              - { label: "Canal (opcional)", name: canal, widget: string, required: false, hint: "Dejalo vacío: se toma solo de YouTube." }
+              - { label: "Título para Google (SEO)", name: seoTitle, widget: string, required: false, hint: "Opcional. Es el título azul de Google. Si lo dejás vacío se usa el título del video + el nombre del sitio." }
+              - { label: "Descripción para Google (SEO)", name: seoDescription, widget: text, required: false, hint: "Opcional. 120 a 155 caracteres. Si la dejás vacía se usa el comienzo del texto de la página." }
+              - { label: "Imagen para compartir en redes", name: ogImage, widget: image, required: false, choose_url: false, hint: "Opcional. Ideal 1200×630. Si la dejás vacía se usa la miniatura del video de YouTube." }
+              - { label: "No mostrar en Google (noindex)", name: noindex, widget: boolean, required: false, default: false, hint: "Dejalo apagado salvo casos especiales. Igual, la página del video solo aparece en Google si tiene un texto propio de 80 caracteres o más." }
+
+  - name: comunidad
+    label: "💬 Comunidad"
+    files:
+      - name: comunidad
+        label: "Lista de Comunidad"
+        file: src/_data/cms/comunidad.json
+        media_folder: /src/assets/images/videos
+        public_folder: /assets/images/videos
+        fields:
+          - label: "Comunidad"
+            name: items
+            widget: list
+            label_singular: "Video"
+            summary: "{{fields.titulo}} · {{fields.youtubeId}}"
+            add_to_top: true
+            fields:
+              - { label: "ID del video de YouTube", name: youtubeId, widget: string, pattern: ["^[A-Za-z0-9_-]{11}$", "El ID tiene 11 caracteres. Pegá solo el ID, no la dirección completa."], hint: "Es lo que va después de v= en la dirección del video. Ejemplo: dQw4w9WgXcQ." }
+              - { label: "Título (opcional)", name: titulo, widget: string, required: false, hint: "Dejalo VACÍO y el sitio toma solo el nombre del video desde YouTube. Completalo solo si querés un título distinto." }
+              - label: "Slug (dirección web)"
+                name: slug
+                widget: string
+                pattern: ["^[a-z0-9]+(-[a-z0-9]+)*$", "Solo minúsculas, números y guiones. Sin espacios, tildes ni ñ."]
+                hint: "Ejemplo: entrevista-youtuber → girlsloveplay.com/comunidad/entrevista-youtuber/. ⚠️ Si lo cambiás en un video ya publicado, cambia su dirección web: avisame para agregar la redirección."
+              - { label: "Descripción propia (recomendado para SEO)", name: descripcion, widget: text, required: false, hint: "Un texto tuyo sobre el video (2 o 3 renglones o más). Es lo que hace que su página pueda aparecer en Google: sin texto propio la página existe pero no se indexa." }
+              - { label: "Canal (opcional)", name: canal, widget: string, required: false, hint: "Dejalo vacío: se toma solo de YouTube." }
+              - { label: "Título para Google (SEO)", name: seoTitle, widget: string, required: false, hint: "Opcional. Es el título azul de Google. Si lo dejás vacío se usa el título del video + el nombre del sitio." }
+              - { label: "Descripción para Google (SEO)", name: seoDescription, widget: text, required: false, hint: "Opcional. 120 a 155 caracteres. Si la dejás vacía se usa el comienzo del texto de la página." }
+              - { label: "Imagen para compartir en redes", name: ogImage, widget: image, required: false, choose_url: false, hint: "Opcional. Ideal 1200×630. Si la dejás vacía se usa la miniatura del video de YouTube." }
+              - { label: "No mostrar en Google (noindex)", name: noindex, widget: boolean, required: false, default: false, hint: "Dejalo apagado salvo casos especiales. Igual, la página del video solo aparece en Google si tiene un texto propio de 80 caracteres o más." }
+
+  - name: ships
+    label: "💕 Ships"
+    files:
+      - name: ships
+        label: "Lista de ships"
+        file: src/_data/cms/ships.json
+        media_folder: /src/assets/images/ships
+        public_folder: /assets/images/ships
+        fields:
+          - label: "Ships"
+            name: items
+            widget: list
+            label_singular: "Ship"
+            summary: "{{fields.ship}} · {{fields.nombres}}"
+            add_to_top: true
+            fields:
+              - { label: "Nombre del ship", name: ship, widget: string, hint: "Ejemplo: FreenBecky." }
+              - label: "Slug (dirección web)"
+                name: slug
+                widget: string
+                pattern: ["^[a-z0-9]+(-[a-z0-9]+)*$", "Solo minúsculas, números y guiones. Sin espacios, tildes ni ñ."]
+                hint: "Ejemplo: freenbecky-gl-ship → girlsloveplay.com/ships/freenbecky-gl-ship/. ⚠️ En los ships que ya existen NO lo cambies."
+              - { label: "Nombres de las actrices", name: nombres, widget: string, hint: "Ejemplo: Sarocha Chankimha & Rebecca Patricia Armstrong." }
+              - { label: "País", name: pais, widget: string, default: "Tailandia" }
+              - { label: "Ship vigente", name: vigente, widget: boolean, default: true, hint: "Encendido = ✅ Vigente. Apagado = ❌ Ship finalizado." }
+              - { label: "Foto", name: img, widget: image, choose_url: false, hint: "Formato vertical (3:4). El ship solo se muestra en la web si tiene foto." }
+              - { label: "Descripción", name: descripcion, widget: text, hint: "Sobre el ship. Es el texto principal de su página en Google (mínimo 80 caracteres para que se indexe)." }
+              - label: "Series juntas"
+                name: series
+                widget: list
+                required: false
+                label_singular: "Serie"
+                field: { label: "Serie", name: serie, widget: string, hint: "Ejemplo: GAP: The Series (2022)" }
+              - label: "Instagram"
+                name: instagram
+                widget: list
+                required: false
+                label_singular: "Cuenta"
+                summary: "{{fields.nombre}}"
+                fields:
+                  - { label: "Nombre", name: nombre, widget: string }
+                  - { label: "Dirección completa", name: url, widget: string, hint: "https://www.instagram.com/..." }
+              - { label: "Título para Google (SEO)", name: seoTitle, widget: string, required: false, hint: "Opcional. Es el título azul de Google. Si lo dejás vacío se usa el título del video + el nombre del sitio." }
+              - { label: "Descripción para Google (SEO)", name: seoDescription, widget: text, required: false, hint: "Opcional. 120 a 155 caracteres. Si la dejás vacía se usa el comienzo del texto de la página." }
+              - { label: "Imagen para compartir en redes", name: ogImage, widget: image, required: false, choose_url: false, hint: "Opcional. Ideal 1200×630. Si la dejás vacía se usa la miniatura del video de YouTube." }
+              - { label: "No mostrar en Google (noindex)", name: noindex, widget: boolean, required: false, default: false, hint: "Dejalo apagado salvo casos especiales. Igual, la página del video solo aparece en Google si tiene un texto propio de 80 caracteres o más." }
+
+  # ------------------------------------------------------------
   # PRUEBA DE CONEXIÓN (se quita en el Paso 6)
   # ------------------------------------------------------------
   - name: prueba

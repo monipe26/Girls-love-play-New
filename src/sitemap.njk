@@ -23,4 +23,20 @@ eleventyExcludeFromCollections: true
     <loc>{{ site.url }}/series-gl/{{ (s.slug or s.titulo) | slugify }}/</loc>
   </url>
 {%- endfor %}
+{#- Página de cada video (Extras, OST, Comunidad, Próximamente): solo las que tienen texto propio y no están en noindex #}
+{%- for v in videoPaginas %}
+  {%- if v.noindexFinal == false %}
+  <url>
+    <loc>{{ site.url }}/{{ v.base }}/{{ v.slug }}/</loc>
+  </url>
+  {%- endif %}
+{%- endfor %}
+{#- Página de cada ship #}
+{%- for s in shipsWeb %}
+  {%- if s.noindexFinal == false %}
+  <url>
+    <loc>{{ site.url }}/ships/{{ s.slug }}/</loc>
+  </url>
+  {%- endif %}
+{%- endfor %}
 </urlset>

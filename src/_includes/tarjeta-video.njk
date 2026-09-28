@@ -1,3 +1,4 @@
+<div class="tarjeta-video-caja">
 <button type="button" class="tarjeta-video" data-youtube-id="{{ video.youtubeId }}" data-sinopsis="{{ video.sinopsis }}" aria-label="Reproducir {{ video.titulo }}">
   <span class="tarjeta-video-thumb">
     <img src="https://i.ytimg.com/vi/{{ video.youtubeId }}/hqdefault.jpg" alt="{{ video.titulo }}" width="340" height="190" loading="lazy" decoding="async">
@@ -9,3 +10,5 @@
     {% if video.sinopsis %}<span class="tarjeta-video-sinopsis">{{ video.sinopsis }}</span>{% endif %}
   </span>
 </button>
+{% if video.base and video.slug %}<a class="tarjeta-video-enlace" href="/{{ video.base }}/{{ video.slug }}/">Ver detalle →</a>{% endif %}
+</div>

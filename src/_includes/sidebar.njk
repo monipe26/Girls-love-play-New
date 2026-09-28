@@ -38,7 +38,7 @@
       <a href="/extra/" class="ver-mas">Ver más →</a>
     </div>
     <ul class="comunidad-lista">
-      {% for video in extraGl | limit(1) %}
+      {% for video in extrasGl | limit(1) %}
       <li>
         <button type="button" class="comunidad-video" data-youtube-id="{{ video.youtubeId }}" aria-label="Reproducir {{ video.titulo }}">
           <img src="https://i.ytimg.com/vi/{{ video.youtubeId }}/hqdefault.jpg" alt="" width="200" height="112" loading="lazy">
@@ -56,7 +56,7 @@
       <a href="/proximamente/" class="ver-mas">Ver más →</a>
     </div>
     <ul class="comunidad-lista">
-      {% for video in proximamenteGl | limit(1) %}
+      {% for video in proximosGl | limit(1) %}
       <li>
         <button type="button" class="comunidad-video" data-youtube-id="{{ video.youtubeId }}" aria-label="Reproducir {{ video.titulo }}">
           <img src="https://i.ytimg.com/vi/{{ video.youtubeId }}/hqdefault.jpg" alt="" width="200" height="112" loading="lazy">

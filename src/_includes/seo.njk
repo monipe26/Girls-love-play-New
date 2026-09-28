@@ -109,6 +109,16 @@
       { "@type": "ListItem", "position": 3, "name": title, "item": _url }
     ]
   } | jsonld | safe }}</script>
+  {%- elif ogTipo == "video" or ogTipo == "ship" %}
+  <script type="application/ld+json">{{ {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": site.url + "/" },
+      { "@type": "ListItem", "position": 2, "name": seccionNombre, "item": site.url + seccionUrl },
+      { "@type": "ListItem", "position": 3, "name": title, "item": _url }
+    ]
+  } | jsonld | safe }}</script>
   {%- elif _esSerie %}
   {%- set _s = serie or { "titulo": titulo, "anio": anio, "genero": genero, "portada": portada, "sinopsis": sinopsis } %}
   <script type="application/ld+json">{{ {

@@ -7,11 +7,14 @@ seoTitle: "Girls Love Play · Series GL, noticias y Mundo GL en español"
 <section class="hero carrusel" aria-label="Destacados">
   <div class="carrusel-track">
 
-    <!-- Banner 1: publicidad -->
-    <!-- TODO: reemplazar "imagen" por el banner publicitario real cuando lo tengan -->
+    <!-- Banner 1: banner propio (se edita desde el panel: Banner del inicio) -->
+    {% if bannerInicio.activa %}
     <div class="carrusel-slide">
-      <img src="/assets/images/banner-1.jpg" alt="Publicidad" width="1200" height="500">
+      {% if bannerInicio.enlace %}<a href="{{ bannerInicio.enlace }}"{% if bannerInicio.enlace.startsWith("http") %} target="_blank" rel="noopener noreferrer"{% endif %} class="carrusel-enlace">{% endif %}
+      <img src="{{ bannerInicio.imagen }}" alt="{{ bannerInicio.alt }}" width="1600" height="533">
+      {% if bannerInicio.enlace %}</a>{% endif %}
     </div>
+    {% endif %}
 
     <!-- Banner 2: última nota de Mundo GL -->
     {% set ultimoMundoGl = collections.mundoGl | first %}

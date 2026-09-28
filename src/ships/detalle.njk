@@ -1,0 +1,56 @@
+---
+layout: base.njk
+ogTipo: ship
+pagination:
+  data: shipsWeb
+  size: 1
+  alias: ship
+permalink: "/ships/{{ ship.slug }}/"
+eleventyExcludeFromCollections: true
+---
+<section class="seccion seccion-ships">
+  <nav class="migas" aria-label="Migas de pan">
+    <ol>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/ships/">Ships GL</a></li>
+      <li aria-current="page">{{ ship.ship }}</li>
+    </ol>
+  </nav>
+
+  <div class="ficha-actriz-cabecera">
+    <img src="{{ ship.img }}" alt="Ship {{ ship.ship }}" class="ficha-actriz-foto" width="300" height="400">
+    <div class="ficha-actriz-texto">
+      <h1>{{ ship.ship }}</h1>
+      <p class="ficha-actriz-original">{{ ship.nombres }}</p>
+      <ul class="ficha-actriz-datos">
+        <li class="{{ 'es-vigente' if ship.vigente else 'es-finalizado' }}">{{ '✅ Vigente' if ship.vigente else '❌ Ship finalizado' }}</li>
+        <li>{% include "bandera-th.njk" %} {{ ship.pais }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="ficha-actriz-seccion">
+    <h2>📝 Sobre este ship</h2>
+    <p>{{ ship.descripcion }}</p>
+  </div>
+
+  {% if ship.series and ship.series.length %}
+  <div class="ficha-actriz-seccion">
+    <h2>🎬 Series juntas</h2>
+    <div class="ficha-actriz-badges">
+      {% for s in ship.series %}<span class="badge-serie">🎬 {{ s }}</span>{% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if ship.instagram and ship.instagram.length %}
+  <div class="ficha-actriz-seccion">
+    <h2>📸 Instagram</h2>
+    <div class="ficha-ship-instagram">
+      {% for i in ship.instagram %}<a href="{{ i.url }}" class="btn-instagram" target="_blank" rel="noopener">📸 {{ i.nombre }}</a>{% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  <p class="articulo-volver"><a href="/ships/" class="btn-primario">💕 Ver todos los ships</a></p>
+</section>

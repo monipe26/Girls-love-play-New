@@ -26,7 +26,7 @@ layout: base.njk
   {# Todas las tarjetas vienen en el HTML (para que se vea todo aunque falle el JS y lo lea cualquier buscador).
      ships.js las pagina de a 12 y aplica los filtros. #}
   <div class="grid-ships" data-grid-ships>
-    {% for ship in shipsGl %}
+    {% for ship in shipsWeb %}
       {% include "tarjeta-ship.njk" %}
     {% endfor %}
   </div>
