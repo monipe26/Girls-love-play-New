@@ -401,51 +401,78 @@ if (reproductorSeriesTv) {
   }
 }
 
-// Fichas de serie con varias partes/episodios: cambia el video activo sin recargar la página
-const reproductorPartes = document.querySelector("[data-reproductor-partes]");
-if (reproductorPartes) {
-  const botones = Array.from(document.querySelectorAll(".btn-parte"));
+// Ficha de una serie con varias partes (/series/nombre-de-la-serie/): un solo
+// reproductor y botones "Episodio anterior / siguiente" (no se lista cada parte,
+// hay series con 20 o más). Al terminar una parte arranca la siguiente sola.
+const fichaPartes = document.querySelector("[data-ficha-partes]");
+if (fichaPartes) {
+  const ids = (fichaPartes.dataset.videos || "").split(",").map((v) => v.trim()).filter(Boolean);
+  const wrapper = fichaPartes.querySelector(".video-wrapper");
+  const etiqueta = fichaPartes.querySelector("[data-ficha-parte-label]");
+  const btnPrev = fichaPartes.querySelector('[data-nav="prev"]');
+  const btnNext = fichaPartes.querySelector('[data-nav="next"]');
+  const tituloSerie = (fichaPartes.querySelector("iframe") || {}).title || "";
 
-  const cargarParte = (boton) => {
-    const id = boton.dataset.youtubeId;
-    reproductorPartes.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" title="${boton.textContent.trim()}" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
-    botones.forEach((b) => b.classList.remove("activo"));
-    boton.classList.add("activo");
-    actualizarNav();
-    boton.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+  let parte = 0;
+  let ytFicha = null;
+  let generacionFicha = 0;
+
+  const actualizarFicha = () => {
+    if (etiqueta) etiqueta.textContent = `Parte ${parte + 1} de ${ids.length}`;
+    if (btnPrev) btnPrev.disabled = parte <= 0;
+    if (btnNext) btnNext.disabled = parte >= ids.length - 1;
   };
 
-  botones.forEach((boton) => {
-    boton.addEventListener("click", () => cargarParte(boton));
-  });
-
-  // Navegación "Episodio anterior" / "Episodio siguiente"
-  const nav = document.querySelector("[data-nav-episodios]");
-  let actualizarNav = () => {};
-
-  if (nav) {
-    const btnPrev = nav.querySelector('[data-nav="prev"]');
-    const btnNext = nav.querySelector('[data-nav="next"]');
-
-    actualizarNav = () => {
-      const indiceActivo = botones.findIndex((b) => b.classList.contains("activo"));
-      if (btnPrev) btnPrev.disabled = indiceActivo <= 0;
-      if (btnNext) btnNext.disabled = indiceActivo === -1 || indiceActivo >= botones.length - 1;
-    };
-
-    if (btnPrev) {
-      btnPrev.addEventListener("click", () => {
-        const indiceActivo = botones.findIndex((b) => b.classList.contains("activo"));
-        if (indiceActivo > 0) cargarParte(botones[indiceActivo - 1]);
-      });
+  const conectarFicha = (iframe) => {
+    const miGeneracion = generacionFicha;
+    if (!document.querySelector('script[src="https://www.youtube.com/iframe_api"]')) {
+      const script = document.createElement("script");
+      script.src = "https://www.youtube.com/iframe_api";
+      document.head.appendChild(script);
     }
-    if (btnNext) {
-      btnNext.addEventListener("click", () => {
-        const indiceActivo = botones.findIndex((b) => b.classList.contains("activo"));
-        if (indiceActivo !== -1 && indiceActivo < botones.length - 1) cargarParte(botones[indiceActivo + 1]);
+    alEstarListaLaApiDeYoutube(() => {
+      if (miGeneracion !== generacionFicha) return;
+      ytFicha = new YT.Player(iframe, {
+        events: {
+          onStateChange: (evento) => {
+            if (miGeneracion !== generacionFicha) return;
+            if (evento.data === YT.PlayerState.ENDED && parte < ids.length - 1) irAParte(parte + 1);
+          },
+        },
       });
-    }
+    });
+  };
 
-    actualizarNav();
-  }
+  const irAParte = (indice) => {
+    if (indice < 0 || indice >= ids.length) return;
+    parte = indice;
+    if (ytFicha && typeof ytFicha.loadVideoById === "function") {
+      try {
+        ytFicha.loadVideoById(ids[indice]);
+        actualizarFicha();
+        return;
+      } catch (e) {
+        /* si falla, se recrea el iframe más abajo */
+      }
+    }
+    generacionFicha++;
+    ytFicha = null;
+    const iframe = document.createElement("iframe");
+    iframe.id = "ficha-partes-iframe";
+    iframe.src = `https://www.youtube.com/embed/${ids[indice]}?enablejsapi=1&playsinline=1&rel=0&autoplay=1`;
+    iframe.title = `${tituloSerie} - Parte ${indice + 1}`;
+    iframe.setAttribute("allow", "autoplay; fullscreen");
+    iframe.setAttribute("allowfullscreen", "");
+    wrapper.innerHTML = "";
+    wrapper.appendChild(iframe);
+    conectarFicha(iframe);
+    actualizarFicha();
+  };
+
+  if (btnPrev) btnPrev.addEventListener("click", () => irAParte(parte - 1));
+  if (btnNext) btnNext.addEventListener("click", () => irAParte(parte + 1));
+
+  const iframeInicial = document.getElementById("ficha-partes-iframe");
+  if (iframeInicial) conectarFicha(iframeInicial);
+  actualizarFicha();
 }
