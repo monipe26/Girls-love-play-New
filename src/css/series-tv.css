@@ -202,3 +202,24 @@ a.tarjeta-serie-tv-btn { display: inline-block; text-decoration: none; }
   .cat-ficha-cabecera { flex-direction: row; align-items: flex-start; }
   .cat-ficha-portada { flex: 0 0 220px; }
 }
+
+/* ===== BARRA DE INSTALACIÓN (fija abajo) ===== */
+.barra-instalar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 900;
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+  background: #1a0e2e; color: #fff;
+  border-top: 3px solid var(--color-primario);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.35);
+}
+.barra-instalar[hidden] { display: none; }
+.barra-instalar-icono { border-radius: 10px; flex: 0 0 auto; }
+.barra-instalar-texto { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; line-height: 1.25; }
+.barra-instalar-texto strong { font-size: 0.95rem; }
+.barra-instalar-texto small { font-size: 0.72rem; opacity: 0.8; }
+.barra-instalar-btn {
+  flex: 0 0 auto; padding: 9px 16px; border-radius: 8px;
+  background: var(--color-primario); color: #fff; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.03em;
+}
+.barra-instalar-cerrar { flex: 0 0 auto; color: #fff; font-size: 1.5rem; line-height: 1; padding: 4px 6px; opacity: 0.8; }
+body.con-barra-instalar { padding-bottom: 72px; }
