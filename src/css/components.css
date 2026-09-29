@@ -1016,3 +1016,12 @@ body.modal-actriz-abierto { overflow: hidden; }
 .video-detalle-tarjeta .tarjeta-video-titulo { padding: var(--espacio-xs) var(--espacio-sm) var(--espacio-sm); }
 .ficha-ship-pagina { margin: var(--espacio-sm) 0; font-size: 0.9rem; }
 .ficha-ship-pagina a { color: var(--color-primario-hover); }
+
+/* ===== Botón para instalar la app (PWA) ===== */
+.btn-instalar-app {
+  display: inline-block; margin-top: var(--espacio-xs); padding: 8px 16px;
+  border-radius: 999px; border: 1px solid rgba(255,255,255,0.5);
+  background: transparent; color: #fff; font: inherit; font-size: 0.85rem; cursor: pointer;
+}
+.btn-instalar-app[hidden], .aviso-instalar-ios[hidden] { display: none; }
+.aviso-instalar-ios { margin-top: var(--espacio-xs); font-size: 0.8rem; color: rgba(255,255,255,0.85); }

@@ -9,3 +9,10 @@
 # duplicado con girlsloveplay.com). El dominio .com NO se ve afectado.
 https://:project.pages.dev/*
   X-Robots-Tag: noindex
+
+# Instalación como app (PWA)
+/manifest.webmanifest
+  Content-Type: application/manifest+json
+/sw.js
+  Cache-Control: no-cache
+  Service-Worker-Allowed: /

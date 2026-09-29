@@ -370,5 +370,8 @@
 }
 .anuncio-imagen { display: block; max-width: 300px; margin: 0 auto; border-radius: var(--radio-chico); overflow: hidden; }
 .anuncio-imagen img { display: block; width: 100%; height: auto; aspect-ratio: 300 / 250; object-fit: cover; }
-.tarjeta-destacada-sinopsis { line-height: 1.45; }
+.tarjeta-destacada-sinopsis {
+  line-height: 1.45;
+  display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden;
+}
 .anuncio-medida { font-size: 0.75rem; opacity: 0.75; }

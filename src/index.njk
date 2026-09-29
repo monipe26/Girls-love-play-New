@@ -9,7 +9,7 @@ seoTitle: "Girls Love Play · Series GL, noticias y Mundo GL en español"
 
     <!-- Banner 1: banner propio (se edita desde el panel: Banner del inicio) -->
     {% if bannerInicio.activa %}
-    <div class="carrusel-slide">
+    <div class="carrusel-slide" style="--bg:url('{{ bannerInicio.imagen }}')">
       {% if bannerInicio.enlace %}<a href="{{ bannerInicio.enlace }}"{% if bannerInicio.enlace.startsWith("http") %} target="_blank" rel="noopener noreferrer"{% endif %} class="carrusel-enlace">{% endif %}
       <img src="{{ bannerInicio.imagen }}" alt="{{ bannerInicio.alt }}" width="1600" height="533">
       {% if bannerInicio.enlace %}</a>{% endif %}
@@ -18,7 +18,7 @@ seoTitle: "Girls Love Play · Series GL, noticias y Mundo GL en español"
 
     <!-- Banner 2: última nota de Mundo GL -->
     {% set ultimoMundoGl = collections.mundoGl | first %}
-    <div class="carrusel-slide">
+    <div class="carrusel-slide" style="--bg:url('{{ ultimoMundoGl.data.imagen }}')">
       <span class="badge badge-rosa hero-badge">Mundo GL</span>
       <img src="{{ ultimoMundoGl.data.imagen }}" alt="{{ ultimoMundoGl.data.title }}" width="1200" height="500">
       <div class="hero-texto">
@@ -33,7 +33,7 @@ seoTitle: "Girls Love Play · Series GL, noticias y Mundo GL en español"
 
     <!-- Banner 3: última noticia -->
     {% set ultimaNoticia = collections.noticias | first %}
-    <div class="carrusel-slide">
+    <div class="carrusel-slide" style="--bg:url('{{ ultimaNoticia.data.imagen }}')">
       <span class="badge badge-rosa hero-badge">Última noticia</span>
       <img src="{{ ultimaNoticia.data.imagen }}" alt="{{ ultimaNoticia.data.title }}" width="1200" height="500">
       <div class="hero-texto">

@@ -13,21 +13,23 @@
   {% endif %}
 
   {# Serie destacada: la más nueva de seriesTv.json (año más alto; si hay empate, la que esté primero en el archivo) #}
-  {% set ultimaSerie = seriesTv | sort(true, false, "anio") | first %}
+  {# Se elige la serie más nueva QUE TENGA sinopsis, para mostrar su texto real; si ninguna la tiene, la más nueva. #}
+  {% set _conSinopsis = seriesTv | selectattr("sinopsis") | sort(true, false, "anio") %}
+  {% set ultimaSerie = (_conSinopsis | first) or (seriesTv | sort(true, false, "anio") | first) %}
   {% if ultimaSerie.videos and ultimaSerie.videos.length %}{% set miniaturaId = ultimaSerie.videos[0] %}
   {% elif ultimaSerie.youtubeId %}{% set miniaturaId = ultimaSerie.youtubeId %}
   {% else %}{% set miniaturaId = "" %}{% endif %}
   <div class="tarjeta-destacada">
     <a href="/series-gl/{{ (ultimaSerie.slug or ultimaSerie.titulo) | slugify }}/" class="tarjeta-destacada-video" aria-label="Ver {{ ultimaSerie.titulo }} en Series">
       {# Las playlists de YouTube no tienen miniatura propia: en ese caso se usa la portada #}
-      <img src="{% if miniaturaId %}https://i.ytimg.com/vi/{{ miniaturaId }}/hqdefault.jpg{% else %}{{ ultimaSerie.portada }}{% endif %}" alt="" width="420" height="236" loading="lazy">
+      <img src="{% if miniaturaId %}https://i.ytimg.com/vi/{{ miniaturaId }}/maxresdefault.jpg{% else %}{{ ultimaSerie.portada }}{% endif %}" alt="" width="640" height="360" loading="lazy"{% if miniaturaId %} onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/{{ miniaturaId }}/hqdefault.jpg'" onload="if(this.naturalWidth&&this.naturalWidth<=120){this.onload=null;this.src='https://i.ytimg.com/vi/{{ miniaturaId }}/hqdefault.jpg'}"{% endif %}>
       <span class="comunidad-video-play" aria-hidden="true">▶</span>
     </a>
     <div class="tarjeta-destacada-info">
       <span class="badge badge-rosa">Series</span>
       <h3>{{ ultimaSerie.titulo }} ({{ ultimaSerie.anio }})</h3>
       {# Fragmento de la sinopsis; si la serie todavía no la tiene, un texto corto automático #}
-      <p class="tarjeta-destacada-sinopsis">{% if ultimaSerie.sinopsis %}{{ ultimaSerie.sinopsis | truncar(140) }}{% else %}Serie GL de género {{ ultimaSerie.genero | lower }}, estrenada en {{ ultimaSerie.anio }}. Miralo completo en Series GL.{% endif %}</p>
+      <p class="tarjeta-destacada-sinopsis">{% if ultimaSerie.sinopsis %}{{ ultimaSerie.sinopsis | truncar(260) }}{% else %}Serie GL de género {{ ultimaSerie.genero | lower }}, estrenada en {{ ultimaSerie.anio }}. Miralo completo en Series GL.{% endif %}</p>
       <a href="/series-gl/{{ (ultimaSerie.slug or ultimaSerie.titulo) | slugify }}/" class="btn-primario">Ver serie →</a>
     </div>
   </div>

@@ -36,7 +36,7 @@ eleventyExcludeFromCollections: true
     <div class="grid-tarjetas grid-2">
       {% for o in _otros %}
       <a class="video-detalle-tarjeta" href="/{{ o.base }}/{{ o.slug }}/">
-        <img src="https://i.ytimg.com/vi/{{ o.youtubeId }}/hqdefault.jpg" alt="" width="340" height="190" loading="lazy" decoding="async">
+        <img src="https://i.ytimg.com/vi/{{ o.youtubeId }}/maxresdefault.jpg" alt="" width="640" height="360" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/{{ o.youtubeId }}/hqdefault.jpg'" onload="if(this.naturalWidth&&this.naturalWidth<=120){this.onload=null;this.src='https://i.ytimg.com/vi/{{ o.youtubeId }}/hqdefault.jpg'}" loading="lazy" decoding="async">
         <span class="tarjeta-video-titulo">{{ o.titulo }}</span>
       </a>
       {% endfor %}

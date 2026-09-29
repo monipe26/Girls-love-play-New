@@ -32,3 +32,12 @@ window.addEventListener("appinstalled", () => {
   const btnInstalar = document.querySelector("#btn-instalar-app");
   if (btnInstalar) btnInstalar.hidden = true;
 });
+
+// iPhone / iPad (Safari): no existe el aviso automático de instalación, así que
+// mostramos una pista para instalarla a mano desde el menú Compartir.
+(function () {
+  const esIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  const yaInstalada = window.navigator.standalone === true || window.matchMedia("(display-mode: standalone)").matches;
+  const aviso = document.querySelector("#aviso-instalar-ios");
+  if (esIos && !yaInstalada && aviso) aviso.hidden = false;
+})();
