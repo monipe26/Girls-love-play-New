@@ -70,3 +70,14 @@
     if (evento.key === "Escape" && !modal.hidden) cerrarFicha();
   });
 })();
+
+// Letras de Actrices en el celular: botón "Letra: A ▾" que abre y cierra la lista de letras.
+(function () {
+  const caja = document.querySelector(".letras-desplegable");
+  const boton = caja && caja.querySelector(".letras-toggle");
+  if (!boton) return;
+  boton.addEventListener("click", function () {
+    const abierto = caja.classList.toggle("abierto");
+    boton.setAttribute("aria-expanded", abierto ? "true" : "false");
+  });
+})();

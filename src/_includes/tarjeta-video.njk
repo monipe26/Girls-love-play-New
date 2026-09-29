@@ -10,5 +10,5 @@
     {% if video.sinopsis %}<span class="tarjeta-video-sinopsis">{{ video.sinopsis }}</span>{% endif %}
   </span>
 </button>
-{% if video.base and video.slug %}<a class="tarjeta-video-enlace" href="/{{ video.base }}/{{ video.slug }}/">Ver detalle →</a>{% endif %}
+{% if video.base and video.slug and not video.noindexFinal %}<a class="tarjeta-video-enlace" href="/{{ video.base }}/{{ video.slug }}/">Ver detalle →</a>{% endif %}
 </div>

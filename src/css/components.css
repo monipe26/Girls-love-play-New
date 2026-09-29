@@ -1044,3 +1044,29 @@ html[data-tema="oscuro"] .footer-logo img {
 @media (max-width: 767px) {
   .letras-filtro { justify-content: center; }
 }
+
+/* ===== Actrices: en el celular las letras van en un desplegable ===== */
+.letras-toggle { display: none; }
+@media (max-width: 767px) {
+  .letras-desplegable { margin-bottom: var(--espacio-md); text-align: center; }
+  .letras-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 40px;
+    padding: 0 18px;
+    border-radius: var(--radio-pill);
+    border: 1px solid var(--color-borde);
+    background: var(--color-superficie);
+    color: var(--color-texto);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .letras-toggle strong { color: var(--color-primario-hover); }
+  .letras-flecha { transition: transform 0.2s ease; }
+  .letras-desplegable.abierto .letras-flecha { transform: rotate(180deg); }
+  .letras-desplegable .letras-filtro { display: none; margin: var(--espacio-sm) 0 0; }
+  .letras-desplegable.abierto .letras-filtro { display: flex; }
+}
