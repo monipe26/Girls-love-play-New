@@ -39,5 +39,9 @@ permalink: "{{ '/actrices/' if pagination.pageNumber == 0 else '/actrices/' + (p
     {% if pagination.href.next %}<a href="{{ pagination.href.next }}">Siguiente ›</a>{% endif %}
   </nav>
 
+  <p class="articulo-volver">
+    <a href="/" class="btn-primario">🏠 Volver a Inicio</a>
+  </p>
+
   {% include "modal-actriz.njk" %}
 </section>

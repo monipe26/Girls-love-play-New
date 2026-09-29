@@ -629,11 +629,10 @@ if (reproductorSeriesTv) {
         .slice(0, 6);
       const formulario = document.querySelector("[data-buscador-series]");
       if (recientes.length && formulario) {
-        const tira = document.createElement("section");
+        const tira = document.createElement("details");
         tira.className = "seguir-viendo";
-        tira.setAttribute("aria-label", "Seguir viendo");
-        const titulo = document.createElement("h2");
-        titulo.textContent = "▶ Seguir viendo";
+        const resumen = document.createElement("summary");
+        resumen.textContent = `▶ Seguir viendo (${recientes.length})`;
         const lista = document.createElement("ul");
         recientes.forEach((k) => {
           const li = document.createElement("li");
@@ -643,7 +642,7 @@ if (reproductorSeriesTv) {
           li.appendChild(a);
           lista.appendChild(li);
         });
-        tira.appendChild(titulo);
+        tira.appendChild(resumen);
         tira.appendChild(lista);
         formulario.parentNode.insertBefore(tira, formulario);
       }
