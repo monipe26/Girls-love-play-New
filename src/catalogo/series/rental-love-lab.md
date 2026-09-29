@@ -33,5 +33,6 @@ reparto:
     apodo: B Mine
     personaje: Cher
 compania: K11D House / VibeBerry Studio
+trailer: https://www.youtube.com/watch?v=NFG46a_EMVU
 agregada: 2026-09-01T11:40:00.000Z
 ---
