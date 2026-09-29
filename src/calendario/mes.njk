@@ -12,6 +12,12 @@ eleventyComputed:
 <link rel="stylesheet" href="/css/calendario.css">
 
 <section class="seccion seccion-calendario">
+  <nav class="migas" aria-label="Migas de pan">
+    <ol>
+      <li><a href="/">Inicio</a></li>
+      <li aria-current="page">Calendario de estrenos</li>
+    </ol>
+  </nav>
   <h1>🗓️ Calendario de estrenos</h1>
   <p class="seccion-sub">Series GL y fechas de estreno, mes a mes</p>
 
@@ -62,6 +68,8 @@ eleventyComputed:
       {% endfor %}
     {% endfor %}
   </ol>
+
+  <p class="cat-ficha-volver"><a href="/">← Volver al inicio</a></p>
 </section>
 
 <script src="/js/calendario.js" defer></script>

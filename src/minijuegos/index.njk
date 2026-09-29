@@ -1,15 +1,15 @@
 ---
-title: "Minijuegos GL"
-description: "Minijuegos GL: sorteá tu próxima serie GL a ver con la lotería de Girls Love Play y descubrí qué mirar hoy."
+title: "Juegos GL"
+description: "Juegos GL: sorteá tu próxima serie GL a ver con la lotería de Girls Love Play y descubrí qué mirar hoy."
 layout: base.njk
 ---
 <section class="seccion seccion-juegos">
-  <h1>🎮 Minijuegos GL</h1>
+  <h1>🎮 Juegos</h1>
   <p class="seccion-sub">Divertite un rato mientras esperás el próximo episodio</p>
 
   <div class="sorteo-gl" id="sorteo-gl">
     <h2>🎟️ Sorteo GL</h2>
-    <p class="sorteo-sub">¿Aburrida y no sabés qué ver? Probá suerte con la lotería GL: tocá el botón y el sorteo elige una serie del catálogo para vos.</p>
+    <p class="sorteo-sub">¿Aburrida y no sabés qué ver? Probá suerte con la lotería GL: tocá el botón y el sorteo elige una serie para vos.</p>
 
     <div id="ticket" class="ticket-gl">
       <div class="ticket-gl-header">NO. <span id="ticketNo">000000</span></div>
@@ -32,10 +32,14 @@ layout: base.njk
       <div id="stamp" class="ticket-gl-stamp">¡Elegida!</div>
     </div>
 
-    <noscript><p class="sorteo-sub">El sorteo necesita JavaScript activado. Mientras tanto podés ver todas las series en el <a href="/catalogo/">Catálogo</a>.</p></noscript>
+    <noscript><p class="sorteo-sub">El sorteo necesita JavaScript activado. Mientras tanto podés ver todas las series en <a href="/series-gl/">Series</a>.</p></noscript>
   </div>
 
-  {# Lista de series para el sorteo: se arma sola con el Catálogo (ver .eleventy.js) #}
-  <script type="application/json" id="sorteo-datos">{{ collections.sorteoSeries | dump | safe }}</script>
+  {# Lista de series para el sorteo: sale de Series GL. Al elegir una, el botón lleva directo al reproductor (/series-gl/nombre/). #}
+  {%- set sorteo = [] -%}
+  {%- for s in seriesTv -%}
+    {%- set _ = sorteo.push({ "titulo": s.titulo, "genero": (s.genero or "GL"), "img": s.portada, "url": "/series-gl/" + ((s.slug or s.titulo) | slugify) + "/" }) -%}
+  {%- endfor -%}
+  <script type="application/json" id="sorteo-datos">{{ sorteo | dump | safe }}</script>
   <script src="/js/sorteo.js" defer></script>
 </section>

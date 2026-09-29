@@ -1,6 +1,5 @@
 # ============================================================
 # Decap CMS · Girls Love Play
-# Paso 0: conexión (colección de prueba, se quita en el Paso 6)
 # Paso 2A: colección Noticias (base). Las demás secciones se
 # agregan en los pasos siguientes, de a una.
 # ============================================================
@@ -115,6 +114,17 @@ collections:
         max: 3
         required: false
         hint: "Opcional. Si no elegís ninguna, el sitio muestra solas las últimas notas de la sección."
+      - label: "Encuadre de la imagen en el carrusel del inicio"
+        name: focoCarrusel
+        widget: select
+        required: false
+        default: "center 30%"
+        options:
+          - { label: "Normal (un poco hacia arriba)", value: "center 30%" }
+          - { label: "Centrado", value: "center center" }
+          - { label: "Arriba (para no cortar las cabezas)", value: "center top" }
+          - { label: "Abajo", value: "center bottom" }
+        hint: "Solo importa cuando esta nota sale en el carrusel del inicio. Si se corta la cabeza de las personas, elegí «Arriba»."
       - label: "Título para Google (SEO)"
         name: seoTitle
         widget: string
@@ -225,6 +235,17 @@ collections:
         max: 3
         required: false
         hint: "Opcional. Si no elegís ninguna, el sitio muestra solas las últimas notas de la sección."
+      - label: "Encuadre de la imagen en el carrusel del inicio"
+        name: focoCarrusel
+        widget: select
+        required: false
+        default: "center 30%"
+        options:
+          - { label: "Normal (un poco hacia arriba)", value: "center 30%" }
+          - { label: "Centrado", value: "center center" }
+          - { label: "Arriba (para no cortar las cabezas)", value: "center top" }
+          - { label: "Abajo", value: "center bottom" }
+        hint: "Solo importa cuando esta nota sale en el carrusel del inicio. Si se corta la cabeza de las personas, elegí «Arriba»."
       - label: "Título para Google (SEO)"
         name: seoTitle
         widget: string
@@ -618,16 +639,3 @@ collections:
               - { label: "Descripción para Google (SEO)", name: seoDescription, widget: text, required: false, hint: "Opcional. 120 a 155 caracteres. Si la dejás vacía se usa el comienzo del texto de la página." }
               - { label: "Imagen para compartir en redes", name: ogImage, widget: image, required: false, choose_url: false, hint: "Opcional. Ideal 1200×630. Si la dejás vacía se usa la miniatura del video de YouTube." }
               - { label: "No mostrar en Google (noindex)", name: noindex, widget: boolean, required: false, default: false, hint: "Dejalo apagado salvo casos especiales. Igual, la página del video solo aparece en Google si tiene un texto propio de 80 caracteres o más." }
-
-  # ------------------------------------------------------------
-  # PRUEBA DE CONEXIÓN (se quita en el Paso 6)
-  # ------------------------------------------------------------
-  - name: prueba
-    label: "🧪 Prueba de conexión"
-    files:
-      - name: destacado
-        label: "Video destacado (prueba)"
-        file: src/_data/destacado.json
-        fields:
-          - { label: "Título", name: titulo, widget: string }
-          - { label: "ID de YouTube", name: youtubeId, widget: string, hint: "Lo que va después de v= en la URL del video" }
