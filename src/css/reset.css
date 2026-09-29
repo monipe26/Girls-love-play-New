@@ -18,3 +18,8 @@ input { font: inherit; }
   outline: 3px solid var(--color-primario-hover);
   outline-offset: 2px;
 }
+
+/* Sin destello al tocar (celular): el navegador pinta por defecto un resaltado
+   claro sobre lo que se toca, y en modo oscuro se ve como un flash blanco. */
+html { -webkit-tap-highlight-color: transparent; }
+a, button, [role="button"], label, summary { -webkit-tap-highlight-color: transparent; }

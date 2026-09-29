@@ -62,6 +62,62 @@ window.onYouTubeIframeAPIReady = function () {
   ytApiPendientes = [];
 };
 
+// ===== Progreso de reproducción (sin cuenta ni contraseña) =====
+// Se guarda en ESTE navegador (localStorage): en qué serie, qué parte y en qué
+// minuto quedó cada persona. No viaja a ningún servidor. Si el navegador bloquea
+// el almacenamiento (modo privado, etc.) simplemente no recuerda, sin romper nada.
+const CLAVE_PROGRESO = "gl-progreso";
+function leerTodoProgreso() {
+  try { return JSON.parse(localStorage.getItem(CLAVE_PROGRESO)) || {}; } catch (e) { return {}; }
+}
+function leerProgreso(clave) { return leerTodoProgreso()[clave] || null; }
+function escribirTodoProgreso(todo) {
+  try {
+    const claves = Object.keys(todo).sort((a, b) => todo[b].ts - todo[a].ts).slice(0, 30);
+    const recortado = {};
+    claves.forEach((k) => { recortado[k] = todo[k]; });
+    localStorage.setItem(CLAVE_PROGRESO, JSON.stringify(recortado));
+  } catch (e) { /* sin almacenamiento: no pasa nada */ }
+}
+function guardarProgreso(clave, datos) {
+  const todo = leerTodoProgreso();
+  todo[clave] = Object.assign({}, datos, { ts: Date.now() });
+  escribirTodoProgreso(todo);
+}
+function borrarProgreso(clave) {
+  const todo = leerTodoProgreso();
+  if (todo[clave]) { delete todo[clave]; escribirTodoProgreso(todo); }
+}
+function textoTiempo(seg) {
+  seg = Math.max(0, Math.floor(seg || 0));
+  const h = Math.floor(seg / 3600), m = Math.floor((seg % 3600) / 60), r = seg % 60;
+  const rr = String(r).padStart(2, "0");
+  return h ? `${h}:${String(m).padStart(2, "0")}:${rr}` : `${m}:${rr}`;
+}
+// Cartelito "Seguí donde lo dejaste" debajo del video.
+function mostrarAvisoContinuar(despuesDe, etiqueta, alContinuar, alEmpezar) {
+  if (!despuesDe || !despuesDe.parentNode) return;
+  const aviso = document.createElement("div");
+  aviso.className = "aviso-continuar";
+  aviso.innerHTML =
+    '<span class="aviso-continuar-texto">▶ Seguí donde lo dejaste: <strong></strong></span>' +
+    '<span class="aviso-continuar-botones">' +
+    '<button type="button" class="btn-primario aviso-continuar-si">Continuar</button>' +
+    '<button type="button" class="aviso-continuar-no">Empezar de cero</button></span>';
+  aviso.querySelector("strong").textContent = etiqueta;
+  aviso.querySelector(".aviso-continuar-si").addEventListener("click", () => { aviso.remove(); alContinuar(); });
+  aviso.querySelector(".aviso-continuar-no").addEventListener("click", () => { aviso.remove(); alEmpezar(); });
+  despuesDe.parentNode.insertBefore(aviso, despuesDe.nextSibling);
+}
+// Al terminar el ÚLTIMO episodio: el video queda quieto y pausado (no salta a otra cosa).
+function dejarPausado(reproductor) {
+  try {
+    reproductor.seekTo(0, true);
+    reproductor.pauseVideo();
+    setTimeout(() => { try { reproductor.pauseVideo(); } catch (e) {} }, 400);
+  } catch (e) { /* si la API no responde, no se toca nada */ }
+}
+
 let reproductorYtActivo = null;
 
 function obtenerListaVideosDeLaGrilla() {
@@ -215,6 +271,11 @@ if (reproductorSeriesTv) {
   let parteActual = 0;
   let ytSeries = null; // reproductor de la API de YouTube conectado al iframe actual
   let generacion = 0; // para ignorar avisos de un reproductor viejo
+  // Solo la página propia de cada serie (/series-gl/nombre/) recuerda el avance.
+  const esPaginaSerie = reproductorSeriesTv.hasAttribute("data-autoplay");
+  const claveSerie = esPaginaSerie ? location.pathname : null;
+  let temporizador = null;
+  let sinGuardarHasta = 0;
 
   const leerSerie = (tarjeta) => ({
     tarjeta,
@@ -224,8 +285,8 @@ if (reproductorSeriesTv) {
     videos: (tarjeta.dataset.videos || "").split(",").map((v) => v.trim()).filter(Boolean),
   });
 
-  const srcDe = (serie, parte, conAutoplay) => {
-    const comunes = `enablejsapi=1&playsinline=1&rel=0${conAutoplay ? "&autoplay=1" : ""}`;
+  const srcDe = (serie, parte, conAutoplay, inicioSeg) => {
+    const comunes = `enablejsapi=1&playsinline=1&rel=0${conAutoplay ? "&autoplay=1" : ""}${inicioSeg ? "&start=" + Math.floor(inicioSeg) : ""}`;
     if (serie.playlist) {
       return `https://www.youtube.com/embed/videoseries?list=${serie.playlist}&${comunes}`;
     }
@@ -282,10 +343,10 @@ if (reproductorSeriesTv) {
     actualizarTitulo();
   };
 
-  const crearIframe = (serie, parte, conAutoplay) => {
+  const crearIframe = (serie, parte, conAutoplay, inicioSeg) => {
     const iframe = document.createElement("iframe");
     iframe.id = "reproductor-series-tv-iframe";
-    iframe.src = srcDe(serie, parte, conAutoplay);
+    iframe.src = srcDe(serie, parte, conAutoplay, inicioSeg);
     iframe.title = serie.titulo;
     iframe.setAttribute("allow", "autoplay; fullscreen");
     iframe.setAttribute("allowfullscreen", "");
@@ -293,6 +354,34 @@ if (reproductorSeriesTv) {
     wrapper.appendChild(iframe);
     return iframe;
   };
+
+  const guardarAvance = () => {
+    if (!claveSerie || !serieActual || !ytSeries || typeof ytSeries.getCurrentTime !== "function") return;
+    if (Date.now() < sinGuardarHasta) return;
+    try {
+      const t = ytSeries.getCurrentTime();
+      if (!(t >= 3)) return;
+      let indice = parteActual;
+      if (serieActual.playlist) {
+        const info = infoPlaylist();
+        if (!info) return;
+        indice = info.indice;
+      }
+      guardarProgreso(claveSerie, { i: indice, t: Math.floor(t), titulo: serieActual.titulo });
+    } catch (e) { /* nada */ }
+  };
+
+  const detenerAlFinal = () => {
+    sinGuardarHasta = Date.now() + 2500;
+    if (claveSerie) borrarProgreso(claveSerie);
+    dejarPausado(ytSeries);
+    actualizarNav();
+  };
+
+  if (claveSerie) {
+    document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") guardarAvance(); });
+    window.addEventListener("pagehide", guardarAvance);
+  }
 
   // Conecta el iframe a la API de YouTube (para saber cuándo termina una parte
   // y para mover la playlist con nuestros botones). Si la API no carga, el
@@ -311,13 +400,25 @@ if (reproductorSeriesTv) {
           onReady: () => { if (miGeneracion === generacion) actualizarNav(); },
           onStateChange: (evento) => {
             if (miGeneracion !== generacion) return;
-            if (
-              evento.data === YT.PlayerState.ENDED &&
-              !serieActual.playlist &&
-              parteActual < serieActual.videos.length - 1
-            ) {
-              cargarParte(parteActual + 1);
-              return;
+            clearInterval(temporizador);
+            temporizador = null;
+            if (evento.data === YT.PlayerState.PLAYING) {
+              temporizador = setInterval(guardarAvance, 5000);
+            } else if (evento.data === YT.PlayerState.PAUSED) {
+              guardarAvance();
+            }
+            if (evento.data === YT.PlayerState.ENDED) {
+              // Quedan partes: arranca la siguiente sola
+              if (!serieActual.playlist && parteActual < serieActual.videos.length - 1) {
+                cargarParte(parteActual + 1);
+                return;
+              }
+              // Era el último episodio: se queda pausado, no salta a otra serie
+              const info = serieActual.playlist ? infoPlaylist() : null;
+              if (!serieActual.playlist || (info && info.indice >= info.total - 1)) {
+                detenerAlFinal();
+                return;
+              }
             }
             actualizarNav();
           },
@@ -330,6 +431,7 @@ if (reproductorSeriesTv) {
     if (!serieActual || serieActual.playlist) return;
     if (indice < 0 || indice >= serieActual.videos.length) return;
     parteActual = indice;
+    if (claveSerie) guardarProgreso(claveSerie, { i: indice, t: 0, titulo: serieActual.titulo });
     // Si la API ya está lista se cambia el video sin recargar el iframe (esto
     // además permite que el autoplay entre partes no sea bloqueado por el navegador)
     if (ytSeries && typeof ytSeries.loadVideoById === "function") {
@@ -464,13 +566,87 @@ if (reproductorSeriesTv) {
   if (tarjetaInicial) {
     const inicial = leerSerie(tarjetaInicial);
     // En la página propia de una serie (data-autoplay) el video arranca solo.
-    const conAutoplayInicial = reproductorSeriesTv.hasAttribute("data-autoplay");
-    if (inicial.playlist || inicial.videos.length > 1) {
-      cargarSerie(tarjetaInicial, conAutoplayInicial, false);
+    const conAutoplayInicial = esPaginaSerie;
+    // ¿Quedó a medio ver en este navegador? Entonces no arranca solo: ofrece continuar.
+    let guardado = esPaginaSerie ? leerProgreso(claveSerie) : null;
+    if (guardado && !inicial.playlist && guardado.i >= inicial.videos.length) guardado = null;
+    const hayProgreso = !!guardado && (guardado.t >= 5 || guardado.i > 0);
+
+    if (inicial.playlist || inicial.videos.length > 1 || esPaginaSerie) {
+      cargarSerie(tarjetaInicial, conAutoplayInicial && !hayProgreso, false);
     } else {
       serieActual = inicial;
       parteActual = 0;
       actualizarNav();
+    }
+
+    if (hayProgreso) {
+      let etiqueta = textoTiempo(guardado.t);
+      if (inicial.playlist) etiqueta = `Video ${guardado.i + 1} · ${etiqueta}`;
+      else if (inicial.videos.length > 1) etiqueta = `Parte ${guardado.i + 1} de ${inicial.videos.length} · ${etiqueta}`;
+
+      const continuarDesde = () => {
+        if (serieActual.playlist) {
+          if (ytSeries && typeof ytSeries.loadPlaylist === "function") {
+            try {
+              ytSeries.loadPlaylist({ list: serieActual.playlist, listType: "playlist", index: guardado.i, startSeconds: guardado.t });
+              actualizarNav();
+              return;
+            } catch (e) { /* sigue abajo */ }
+          }
+          generacion++;
+          ytSeries = null;
+          conectarApi(crearIframe(serieActual, 0, true));
+          return;
+        }
+        const indice = Math.min(guardado.i, serieActual.videos.length - 1);
+        parteActual = indice;
+        if (ytSeries && typeof ytSeries.loadVideoById === "function") {
+          try {
+            ytSeries.loadVideoById({ videoId: serieActual.videos[indice], startSeconds: guardado.t });
+            actualizarNav();
+            return;
+          } catch (e) { /* sigue abajo */ }
+        }
+        generacion++;
+        ytSeries = null;
+        conectarApi(crearIframe(serieActual, indice, true, guardado.t));
+        actualizarNav();
+      };
+      const empezarDeCero = () => {
+        borrarProgreso(claveSerie);
+        try { if (ytSeries && ytSeries.playVideo) ytSeries.playVideo(); } catch (e) { /* nada */ }
+      };
+      mostrarAvisoContinuar(wrapper, etiqueta, continuarDesde, empezarDeCero);
+    }
+
+    // Página de la lista de series: tira "Seguir viendo" con lo que quedó a medias
+    if (!esPaginaSerie) {
+      const todo = leerTodoProgreso();
+      const recientes = Object.keys(todo)
+        .filter((k) => k.charAt(0) === "/" && todo[k].titulo)
+        .sort((a, b) => todo[b].ts - todo[a].ts)
+        .slice(0, 6);
+      const formulario = document.querySelector("[data-buscador-series]");
+      if (recientes.length && formulario) {
+        const tira = document.createElement("section");
+        tira.className = "seguir-viendo";
+        tira.setAttribute("aria-label", "Seguir viendo");
+        const titulo = document.createElement("h2");
+        titulo.textContent = "▶ Seguir viendo";
+        const lista = document.createElement("ul");
+        recientes.forEach((k) => {
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.href = k;
+          a.textContent = `${todo[k].titulo} · ${textoTiempo(todo[k].t)}`;
+          li.appendChild(a);
+          lista.appendChild(li);
+        });
+        tira.appendChild(titulo);
+        tira.appendChild(lista);
+        formulario.parentNode.insertBefore(tira, formulario);
+      }
     }
   }
   abrirDesdeHash();
@@ -492,6 +668,21 @@ if (fichaPartes) {
   let parte = 0;
   let ytFicha = null;
   let generacionFicha = 0;
+  const claveFicha = location.pathname;
+  let temporizadorFicha = null;
+  let sinGuardarFichaHasta = 0;
+
+  const guardarFicha = () => {
+    if (!ytFicha || typeof ytFicha.getCurrentTime !== "function") return;
+    if (Date.now() < sinGuardarFichaHasta) return;
+    try {
+      const t = ytFicha.getCurrentTime();
+      if (!(t >= 3)) return;
+      guardarProgreso(claveFicha, { i: parte, t: Math.floor(t), titulo: tituloSerie });
+    } catch (e) { /* nada */ }
+  };
+  document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") guardarFicha(); });
+  window.addEventListener("pagehide", guardarFicha);
 
   const actualizarFicha = () => {
     if (etiqueta) etiqueta.textContent = `Parte ${parte + 1} de ${ids.length}`;
@@ -512,19 +703,33 @@ if (fichaPartes) {
         events: {
           onStateChange: (evento) => {
             if (miGeneracion !== generacionFicha) return;
-            if (evento.data === YT.PlayerState.ENDED && parte < ids.length - 1) irAParte(parte + 1);
+            clearInterval(temporizadorFicha);
+            temporizadorFicha = null;
+            if (evento.data === YT.PlayerState.PLAYING) temporizadorFicha = setInterval(guardarFicha, 5000);
+            else if (evento.data === YT.PlayerState.PAUSED) guardarFicha();
+            if (evento.data === YT.PlayerState.ENDED) {
+              if (parte < ids.length - 1) {
+                irAParte(parte + 1);
+              } else {
+                // Último episodio: queda pausado y se borra el avance guardado
+                sinGuardarFichaHasta = Date.now() + 2500;
+                borrarProgreso(claveFicha);
+                dejarPausado(ytFicha);
+              }
+            }
           },
         },
       });
     });
   };
 
-  const irAParte = (indice) => {
+  const irAParte = (indice, inicioSeg) => {
     if (indice < 0 || indice >= ids.length) return;
     parte = indice;
+    guardarProgreso(claveFicha, { i: indice, t: Math.floor(inicioSeg || 0), titulo: tituloSerie });
     if (ytFicha && typeof ytFicha.loadVideoById === "function") {
       try {
-        ytFicha.loadVideoById(ids[indice]);
+        ytFicha.loadVideoById(inicioSeg ? { videoId: ids[indice], startSeconds: inicioSeg } : ids[indice]);
         actualizarFicha();
         return;
       } catch (e) {
@@ -535,7 +740,7 @@ if (fichaPartes) {
     ytFicha = null;
     const iframe = document.createElement("iframe");
     iframe.id = "ficha-partes-iframe";
-    iframe.src = `https://www.youtube.com/embed/${ids[indice]}?enablejsapi=1&playsinline=1&rel=0&autoplay=1`;
+    iframe.src = `https://www.youtube.com/embed/${ids[indice]}?enablejsapi=1&playsinline=1&rel=0&autoplay=1${inicioSeg ? "&start=" + Math.floor(inicioSeg) : ""}`;
     iframe.title = `${tituloSerie} - Parte ${indice + 1}`;
     iframe.setAttribute("allow", "autoplay; fullscreen");
     iframe.setAttribute("allowfullscreen", "");
@@ -551,4 +756,102 @@ if (fichaPartes) {
   const iframeInicial = document.getElementById("ficha-partes-iframe");
   if (iframeInicial) conectarFicha(iframeInicial);
   actualizarFicha();
+
+  // ¿Quedó a medio ver en este navegador? Ofrece continuar desde ahí.
+  const guardadoFicha = leerProgreso(claveFicha);
+  if (guardadoFicha && guardadoFicha.i < ids.length && (guardadoFicha.t >= 5 || guardadoFicha.i > 0)) {
+    mostrarAvisoContinuar(
+      wrapper,
+      `Parte ${guardadoFicha.i + 1} de ${ids.length} · ${textoTiempo(guardadoFicha.t)}`,
+      () => irAParte(guardadoFicha.i, guardadoFicha.t),
+      () => { borrarProgreso(claveFicha); }
+    );
+  }
+}
+
+// Ficha de Catálogo con UN solo video o una PLAYLIST de YouTube: también recuerda
+// el minuto y se queda pausada al terminar (el tráiler no se toca).
+const fichaSimple = document.querySelector('.ficha-reproductor[aria-label="Ver serie"]:not([data-ficha-partes])');
+if (fichaSimple) {
+  const iframeSimple = fichaSimple.querySelector("iframe");
+  const wrapperSimple = fichaSimple.querySelector(".video-wrapper");
+  const srcSimple = iframeSimple ? iframeSimple.getAttribute("src") || "" : "";
+  const listaMatch = srcSimple.match(/[?&]list=([^&]+)/);
+  const videoMatch = srcSimple.match(/embed\/([^?&]+)/);
+  const idLista = listaMatch ? listaMatch[1] : "";
+  const idVideo = !idLista && videoMatch ? videoMatch[1] : "";
+  if (iframeSimple && srcSimple.indexOf("enablejsapi=1") !== -1 && (idLista || idVideo)) {
+    const claveSimple = location.pathname;
+    const tituloSimple = iframeSimple.title || "Serie";
+    let ytSimple = null;
+    let temporizadorSimple = null;
+    let sinGuardarSimpleHasta = 0;
+
+    const indiceLista = () => {
+      try { return ytSimple.getPlaylistIndex(); } catch (e) { return -1; }
+    };
+    const guardarSimple = () => {
+      if (!ytSimple || typeof ytSimple.getCurrentTime !== "function") return;
+      if (Date.now() < sinGuardarSimpleHasta) return;
+      try {
+        const t = ytSimple.getCurrentTime();
+        if (!(t >= 3)) return;
+        const i = idLista ? indiceLista() : 0;
+        if (i < 0) return;
+        guardarProgreso(claveSimple, { i: i, t: Math.floor(t), titulo: tituloSimple });
+      } catch (e) { /* nada */ }
+    };
+    document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") guardarSimple(); });
+    window.addEventListener("pagehide", guardarSimple);
+
+    alEstarListaLaApiDeYoutube(() => {
+      ytSimple = new YT.Player(iframeSimple, {
+        events: {
+          onStateChange: (evento) => {
+            clearInterval(temporizadorSimple);
+            temporizadorSimple = null;
+            if (evento.data === YT.PlayerState.PLAYING) temporizadorSimple = setInterval(guardarSimple, 5000);
+            else if (evento.data === YT.PlayerState.PAUSED) guardarSimple();
+            if (evento.data === YT.PlayerState.ENDED) {
+              let esUltimo = !idLista;
+              if (idLista) {
+                try { esUltimo = indiceLista() >= ytSimple.getPlaylist().length - 1; } catch (e) { esUltimo = false; }
+              }
+              if (esUltimo) {
+                sinGuardarSimpleHasta = Date.now() + 2500;
+                borrarProgreso(claveSimple);
+                dejarPausado(ytSimple);
+              }
+            }
+          },
+        },
+      });
+    });
+    if (!document.querySelector('script[src="https://www.youtube.com/iframe_api"]')) {
+      const scriptApi = document.createElement("script");
+      scriptApi.src = "https://www.youtube.com/iframe_api";
+      document.head.appendChild(scriptApi);
+    }
+
+    const guardadoSimple = leerProgreso(claveSimple);
+    if (guardadoSimple && (guardadoSimple.t >= 5 || guardadoSimple.i > 0)) {
+      const etiquetaSimple = (idLista ? `Video ${guardadoSimple.i + 1} · ` : "") + textoTiempo(guardadoSimple.t);
+      mostrarAvisoContinuar(
+        wrapperSimple,
+        etiquetaSimple,
+        () => {
+          try {
+            if (idLista) ytSimple.loadPlaylist({ list: idLista, listType: "playlist", index: guardadoSimple.i, startSeconds: guardadoSimple.t });
+            else ytSimple.loadVideoById({ videoId: idVideo, startSeconds: guardadoSimple.t });
+          } catch (e) {
+            // La API todavía no estaba lista: se recarga el video con el minuto puesto
+            iframeSimple.src = idLista
+              ? `https://www.youtube.com/embed/videoseries?list=${idLista}&enablejsapi=1&playsinline=1&autoplay=1`
+              : `https://www.youtube.com/embed/${idVideo}?enablejsapi=1&playsinline=1&autoplay=1&start=${guardadoSimple.t}`;
+          }
+        },
+        () => { borrarProgreso(claveSimple); }
+      );
+    }
+  }
 }

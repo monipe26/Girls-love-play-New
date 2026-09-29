@@ -24,16 +24,9 @@ eleventyExcludeFromCollections: true
 {%- for a in actricesGl -%}
   {%- set _ = items.push({ "t": a.nombre, "u": "/actrices/letra/" + (a.nombre | letraActrizSlug) + "/", "k": "Actrices", "i": a.foto, "x": ((a.apodo or "") + " " + (a.nombreOriginal or "")) | trim }) -%}
 {%- endfor -%}
-{%- for v in ostGl -%}
-  {%- set _ = items.push({ "t": v.titulo, "u": "/ost/", "k": "OST", "x": v.canal }) -%}
-{%- endfor -%}
-{%- for v in extrasGl -%}
-  {%- set _ = items.push({ "t": v.titulo, "u": "/extra/", "k": "Extras", "x": v.canal }) -%}
-{%- endfor -%}
-{%- for v in comunidadGl -%}
-  {%- set _ = items.push({ "t": v.titulo, "u": "/comunidad/", "k": "Comunidad", "x": v.canal }) -%}
-{%- endfor -%}
-{%- for v in proximosGl -%}
-  {%- set _ = items.push({ "t": v.titulo, "u": "/proximamente/", "k": "Próximamente", "x": v.sinopsis }) -%}
+{#- Videos de OST, Extras, Comunidad y Próximamente: cada uno apunta a SU propia
+    página (/ost/slug/, /extra/slug/, etc.), no a la lista de la sección. -#}
+{%- for v in videoPaginas -%}
+  {%- set _ = items.push({ "t": v.titulo, "u": "/" + v.base + "/" + v.slug + "/", "k": v.seccion, "i": "https://i.ytimg.com/vi/" + v.youtubeId + "/hqdefault.jpg", "x": ((v.descripcion or v.sinopsis or v.canal) | trim) }) -%}
 {%- endfor -%}
 {{ items | dump | safe }}

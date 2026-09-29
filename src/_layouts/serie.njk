@@ -38,7 +38,7 @@ ogTipo: serie
   <section class="ficha-reproductor" aria-label="Ver serie">
     <p class="ficha-reproductor-titulo">Ver serie</p>
     <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/videoseries?list={{ playlist }}" title="{{ titulo }}" loading="lazy" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/videoseries?list={{ playlist }}&enablejsapi=1&playsinline=1" title="{{ titulo }}" loading="lazy" allowfullscreen></iframe>
     </div>
   </section>
   {% elif videos and videos.length > 1 %}
@@ -61,7 +61,7 @@ ogTipo: serie
   <section class="ficha-reproductor" aria-label="Ver serie">
     <p class="ficha-reproductor-titulo">Ver serie</p>
     <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/{{ videos[0] }}" title="{{ titulo }}" loading="lazy" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/{{ videos[0] }}?enablejsapi=1&playsinline=1" title="{{ titulo }}" loading="lazy" allowfullscreen></iframe>
     </div>
   </section>
   {% else %}

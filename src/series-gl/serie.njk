@@ -22,7 +22,7 @@ eleventyComputed:
 
   <section class="reproductor-principal" data-reproductor-series-tv data-autoplay aria-label="Reproductor de {{ serie.titulo }}">
     <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/{{ srcInicial }}{{ "&" if "?" in srcInicial else "?" }}autoplay=1&playsinline=1" title="{{ serie.titulo }}" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/{{ srcInicial }}{{ "&" if "?" in srcInicial else "?" }}playsinline=1" title="{{ serie.titulo }}" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>
 
     <p class="reproductor-titulo">Reproduciendo ahora: {{ serie.titulo }} ({{ serie.anio }})</p>

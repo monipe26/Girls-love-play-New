@@ -19,7 +19,11 @@ layout: base.njk
   </div>
 
   {# Botonera A-Z: la arma ships.js con las letras que existen #}
-  <nav class="letras-filtro letras-ships" data-filtros-letra aria-label="Filtrar ships por letra"></nav>
+  {# En celular las letras van dentro de un botón desplegable (igual que en Actrices) #}
+  <div class="letras-desplegable">
+    <button type="button" class="letras-toggle" aria-expanded="false" aria-controls="letras-ships-lista">Letra: <strong>Todas</strong> <span class="letras-flecha" aria-hidden="true">▾</span></button>
+    <nav class="letras-filtro letras-ships" id="letras-ships-lista" data-filtros-letra aria-label="Filtrar ships por letra"></nav>
+  </div>
 
   <p class="buscador-series-estado" data-ships-estado aria-live="polite"></p>
 

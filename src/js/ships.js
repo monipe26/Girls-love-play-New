@@ -103,6 +103,15 @@
       if (!b) return;
       letraActiva = b.dataset.letra;
       contLetras.querySelectorAll(".letra-pill").forEach((x) => x.classList.toggle("activo", x === b));
+      // Celular: el botón desplegable muestra la letra elegida y se cierra solo
+      const caja = contLetras.closest(".letras-desplegable");
+      if (caja) {
+        const rotulo = caja.querySelector(".letras-toggle strong");
+        if (rotulo) rotulo.textContent = b.textContent.trim();
+        caja.classList.remove("abierto");
+        const disparador = caja.querySelector(".letras-toggle");
+        if (disparador) disparador.setAttribute("aria-expanded", "false");
+      }
       pagina = 1;
       render();
     });

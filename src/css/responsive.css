@@ -39,6 +39,7 @@
   .site-header { padding: var(--espacio-sm) var(--espacio-sm); }
 
   .menu-toggle { display: none; }
+  .btn-inicio-movil { display: none; }
 
   .logo { flex-basis: auto; justify-content: flex-start; }
 
