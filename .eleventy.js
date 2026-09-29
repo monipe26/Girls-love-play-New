@@ -35,20 +35,14 @@ module.exports = function (eleventyConfig) {
   // nueva al catálogo el sorteo la suma automáticamente (igual que hacía el viejo
   // con series.json).
   eleventyConfig.addCollection("sorteoSeries", function (collectionApi) {
-    return collectionApi.getFilteredByGlob("src/catalogo/*.njk")
-      .filter((serie) => serie.data.slug && serie.data.titulo && !serie.data.oculta)
+    return collectionApi.getFilteredByGlob("src/catalogo/series/*.md")
+      .filter((serie) => serie.data.slug && serie.data.titulo)
       .map((serie) => ({
         titulo: serie.data.titulo,
         genero: serie.data.genero || "GL",
         img: serie.data.portada || "",
         url: "/catalogo/" + serie.data.slug + "/",
       }));
-  });
-
-  // Catálogo (fichas de src/catalogo/series/*.md): la más nueva cargada primero
-  eleventyConfig.addCollection("catalogoSeries", function (collectionApi) {
-    return collectionApi.getFilteredByGlob("src/catalogo/series/*.md")
-      .sort((a, b) => new Date(b.data.agregada || 0) - new Date(a.data.agregada || 0));
   });
 
   eleventyConfig.addCollection("noticias", function (collectionApi) {
