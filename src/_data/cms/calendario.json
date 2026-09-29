@@ -10,19 +10,19 @@
       "fecha": "2026-10-21",
       "titulo": "Built in Love",
       "tipo": "Serie",
-      "portada": ""
+      "portada": "/assets/images/calendario/built-in-love-cd.jpg"
     },
     {
       "fecha": "2026-10-22",
       "titulo": "Love on Hire",
       "tipo": "Serie",
-      "portada": ""
+      "portada": "/assets/images/calendario/love-on-hire-cd.jpg"
     },
     {
       "fecha": "2026-10-28",
       "titulo": "Buy My Boss",
       "tipo": "Serie",
-      "portada": ""
+      "portada": "/assets/images/calendario/buy-my-boss-cd.jpg"
     }
   ]
 }
