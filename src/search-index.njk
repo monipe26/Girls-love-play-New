@@ -7,8 +7,10 @@ eleventyExcludeFromCollections: true
     la suma automáticamente). Campos: t=título, u=link, k=tipo, i=imagen,
     x=texto corto, a=año. -#}
 {%- set items = [] -%}
-{%- for s in collections.series -%}
-  {%- set _ = items.push({ "t": s.data.titulo, "u": s.url, "k": "Catálogo", "i": s.data.portada, "x": s.data.sinopsis, "a": s.data.anio }) -%}
+{%- for s in collections.catalogoSeries -%}
+  {%- set _reparto = [] -%}
+  {%- for r in s.data.reparto -%}{%- set _ = _reparto.push(r.actriz + " " + (r.apodo or "")) -%}{%- endfor -%}
+  {%- set _ = items.push({ "t": s.data.titulo, "u": s.url, "k": "Catálogo", "i": s.data.portada, "x": ((s.data.sinopsis or "") + " " + (_reparto | join(" ")) + " " + (s.data.genero or "") + " " + (s.data.pais or "")) | trim }) -%}
 {%- endfor -%}
 {%- for s in seriesTv -%}
   {%- set _ = items.push({ "t": s.titulo, "u": "/series-gl/" + ((s.slug or s.titulo) | slugify) + "/", "k": "Series", "i": s.portada, "x": s.sinopsis, "a": s.anio }) -%}

@@ -1,0 +1,75 @@
+---
+layout: base.njk
+---
+<article class="cat-ficha">
+  <nav class="migas" aria-label="Migas de pan">
+    <ol>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/catalogo/">Catálogo</a></li>
+      <li aria-current="page">{{ titulo }}</li>
+    </ol>
+  </nav>
+
+  <h1>{{ titulo }}</h1>
+
+  <div class="cat-ficha-cabecera">
+    <img src="{{ portada }}" alt="Portada de {{ titulo }}" width="300" height="450" class="cat-ficha-portada">
+    <div class="cat-ficha-detalles">
+      <h2>Detalles</h2>
+      <ul>
+        <li><strong>Título:</strong> {{ titulo }}</li>
+        {% if genero %}<li><strong>Género:</strong> {{ genero }}</li>{% endif %}
+        {% if pais %}<li><strong>País:</strong> {{ pais }}</li>{% endif %}
+        {% if episodios %}<li><strong>Episodios:</strong> {{ episodios }}</li>{% endif %}
+        {% if cadena %}<li><strong>Cadena:</strong> {{ cadena }}</li>{% endif %}
+        {% if fechaEmision %}<li><strong>Fecha de emisión:</strong> {{ fechaEmision }}</li>{% endif %}
+      </ul>
+    </div>
+  </div>
+
+  {% if sinopsis %}
+  <section class="cat-ficha-bloque">
+    <h2>Sinopsis</h2>
+    <p>{{ sinopsis }}</p>
+  </section>
+  {% endif %}
+
+  {% if libro %}
+  <section class="cat-ficha-bloque">
+    <h2>Libro en el que se basa</h2>
+    <p>{{ libro }}</p>
+  </section>
+  {% endif %}
+
+  {% if reparto and reparto.length %}
+  <section class="cat-ficha-bloque">
+    <h2>Reparto</h2>
+    <ul>
+      {% for r in reparto %}
+      <li>{{ r.actriz }}{% if r.apodo %} (<strong>{{ r.apodo }}</strong>){% endif %}{% if r.personaje %} como <strong>{{ r.personaje }}</strong>{% endif %}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if director or compania %}
+  <section class="cat-ficha-bloque">
+    <h2>Producción</h2>
+    <ul>
+      {% if director %}<li><strong>Director:</strong> {{ director }}</li>{% endif %}
+      {% if compania %}<li><strong>Compañía:</strong> {{ compania }}</li>{% endif %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if trailerId %}
+  <section class="cat-ficha-bloque">
+    <h2>Tráiler</h2>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/{{ trailerId }}" title="Tráiler de {{ titulo }}" loading="lazy" allowfullscreen></iframe>
+    </div>
+  </section>
+  {% endif %}
+
+  <p class="cat-ficha-volver"><a href="/catalogo/">← Volver al Catálogo</a></p>
+</article>

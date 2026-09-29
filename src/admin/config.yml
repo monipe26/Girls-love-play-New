@@ -295,6 +295,59 @@ collections:
               - { label: "Biografía", name: biografia, widget: text, required: false, hint: "Opcional. Podés dejarla vacía y completarla más adelante. Se muestra en la ficha de la actriz." }
 
   # ------------------------------------------------------------
+  # CATÁLOGO (fichas de src/catalogo/series/*.md)
+  # ------------------------------------------------------------
+  - name: catalogo
+    label: "📺 Catálogo"
+    label_singular: "Serie del Catálogo"
+    folder: src/catalogo/series
+    extension: md
+    format: yaml-frontmatter
+    create: true
+    slug: "{{fields.slug}}"
+    media_folder: /src/assets/images/series
+    public_folder: /assets/images/series
+    summary: "{{titulo}}"
+    sortable_fields: ["agregada", "titulo"]
+    fields:
+      - { label: "Detalles · Título", name: titulo, widget: string }
+      - label: "Slug (dirección web)"
+        name: slug
+        widget: string
+        pattern: ["^[a-z0-9]+(-[a-z0-9]+)*$", "Solo minúsculas, números y guiones. Sin espacios, tildes ni ñ."]
+        hint: "Ejemplo: yes-maybe-no → girlsloveplay.com/catalogo/yes-maybe-no/. ⚠️ En las series ya cargadas NO lo cambies."
+      - { label: "Portada", name: portada, widget: image, choose_url: false, hint: "Formato vertical. Subí la imagen original, el sitio la achica solo. En la lista solo se ve el título, sin año." }
+      - { label: "Detalles · Género", name: genero, widget: string, required: false, hint: "Ejemplo: GL, Romance" }
+      - { label: "Detalles · País", name: pais, widget: string, required: false }
+      - { label: "Detalles · Cantidad de episodios", name: episodios, widget: string, required: false, hint: "Ejemplo: 8" }
+      - { label: "Detalles · Cadena", name: cadena, widget: string, required: false, hint: "Ejemplo: YouTube" }
+      - { label: "Detalles · Fecha de emisión", name: fechaEmision, widget: string, required: false, hint: "Ejemplo: 2026" }
+      - { label: "Sinopsis", name: sinopsis, widget: text, required: false }
+      - { label: "Libro en el que se basa", name: libro, widget: string, required: false, hint: "Ejemplo: Adaptado de la novela “Título”, escrita por Autora." }
+      - label: "Reparto"
+        name: reparto
+        widget: list
+        required: false
+        label_singular: "Integrante"
+        summary: "{{fields.actriz}} · {{fields.personaje}}"
+        fields:
+          - { label: "Actriz", name: actriz, widget: string }
+          - { label: "Apodo", name: apodo, widget: string, required: false }
+          - { label: "Personaje", name: personaje, widget: string, required: false }
+      - { label: "Director", name: director, widget: string, required: false }
+      - { label: "Compañía", name: compania, widget: string, required: false }
+      - { label: "Tráiler (ID o dirección de YouTube)", name: trailer, widget: string, required: false, hint: "Podés pegar la dirección completa o solo el ID de 11 caracteres. Se muestra al final de la ficha." }
+      - label: "Fecha de carga (ordena la lista)"
+        name: agregada
+        widget: datetime
+        default: "{{now}}"
+        hint: "Se completa sola. Las series más nuevas salen primero en el Catálogo."
+      - { label: "Título para Google (SEO)", name: seoTitle, widget: string, required: false, hint: "Opcional. Si está vacío se usa el título + el nombre del sitio." }
+      - { label: "Descripción para Google (SEO)", name: seoDescription, widget: text, required: false, hint: "Opcional. Si está vacía se usa el comienzo de la sinopsis." }
+      - { label: "Imagen para compartir en redes", name: ogImage, widget: image, required: false, choose_url: false, hint: "Opcional. Si está vacía se usa la portada." }
+      - { label: "No mostrar en Google (noindex)", name: noindex, widget: boolean, required: false, default: false, hint: "Dejalo apagado. La ficha se oculta sola de Google mientras le falte sinopsis, país, episodios o reparto." }
+
+  # ------------------------------------------------------------
   # SERIES (reproductor /series-gl/) (src/_data/cms/series.json)
   # ------------------------------------------------------------
   - name: series

@@ -103,7 +103,7 @@
     var cajaResultados = document.querySelector("[data-resultados-series]");
     var listado = document.querySelector("[data-lista-series]");
     var mensaje = buscadorSeries.querySelector("[data-series-estado]");
-    var esSeriesTv = tipo === "Series";
+    var esSeriesTv = tipo === "Series" || tipo === "Catálogo";
 
     buscadorSeries.addEventListener("submit", function (e) { e.preventDefault(); });
 
