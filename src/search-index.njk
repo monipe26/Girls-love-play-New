@@ -21,8 +21,8 @@ eleventyExcludeFromCollections: true
 {%- for n in collections.mundoGl -%}
   {%- set _ = items.push({ "t": n.data.title, "u": n.url, "k": "Mundo GL", "i": n.data.imagen, "x": n.data.resumen }) -%}
 {%- endfor -%}
-{%- for a in actricesGl -%}
-  {%- set _ = items.push({ "t": a.nombre, "u": "/actrices/letra/" + (a.nombre | letraActrizSlug) + "/", "k": "Actrices", "i": a.foto, "x": ((a.apodo or "") + " " + (a.nombreOriginal or "")) | trim }) -%}
+{%- for a in actricesWeb -%}
+  {%- set _ = items.push({ "t": a.nombre, "u": "/actrices/" + a.slug + "/", "k": "Actrices", "i": a.foto, "x": ((a.apodo or "") + " " + (a.nombreOriginal or "")) | trim }) -%}
 {%- endfor -%}
 {#- Videos de OST, Extras, Comunidad y Próximamente: cada uno apunta a SU propia
     página (/ost/slug/, /extra/slug/, etc.), no a la lista de la sección. -#}

@@ -639,7 +639,21 @@ if (reproductorSeriesTv) {
           const a = document.createElement("a");
           a.href = k;
           a.textContent = `${todo[k].titulo} · ${textoTiempo(todo[k].t)}`;
+          const quitar = document.createElement("button");
+          quitar.type = "button";
+          quitar.className = "seguir-viendo-quitar";
+          quitar.textContent = "✕";
+          quitar.setAttribute("aria-label", `Quitar ${todo[k].titulo} de Seguir viendo`);
+          quitar.title = "Quitar (empieza de cero si la volvés a ver)";
+          quitar.addEventListener("click", () => {
+            borrarProgreso(k);
+            li.remove();
+            const quedan = lista.children.length;
+            if (!quedan) tira.remove();
+            else resumen.textContent = `▶ Seguir viendo (${quedan})`;
+          });
           li.appendChild(a);
+          li.appendChild(quitar);
           lista.appendChild(li);
         });
         tira.appendChild(resumen);

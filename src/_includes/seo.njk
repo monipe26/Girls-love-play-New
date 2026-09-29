@@ -109,7 +109,7 @@
       { "@type": "ListItem", "position": 3, "name": title, "item": _url }
     ]
   } | jsonld | safe }}</script>
-  {%- elif ogTipo == "video" or ogTipo == "ship" %}
+  {%- elif ogTipo == "video" or ogTipo == "ship" or ogTipo == "actriz" %}
   <script type="application/ld+json">{{ {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",

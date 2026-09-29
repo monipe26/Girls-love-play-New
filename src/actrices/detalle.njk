@@ -1,21 +1,31 @@
-<button type="button" class="tarjeta-actriz" data-letra="{{ actriz.nombre[0] | upper }}" data-abrir-ficha="ficha-actriz-{{ loop.index0 }}" aria-haspopup="dialog">
-  <img src="{{ actriz.foto }}" alt="Foto de {{ actriz.nombre }}" width="300" height="400" loading="lazy" decoding="async">
-  <span class="tarjeta-actriz-overlay">
-    <span class="tarjeta-actriz-nombre">{{ actriz.nombre }}</span>
-    <span class="tarjeta-actriz-apodo">💕 {{ actriz.apodo }}</span>
-  </span>
-</button>
+---
+layout: base.njk
+ogTipo: actriz
+pagination:
+  data: actricesWeb
+  size: 1
+  alias: actriz
+permalink: "/actrices/{{ actriz.slug }}/"
+eleventyExcludeFromCollections: true
+---
+<section class="seccion seccion-actrices">
+  <nav class="migas" aria-label="Migas de pan">
+    <ol>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/actrices/">Actrices GL</a></li>
+      <li aria-current="page">{{ actriz.nombre }}</li>
+    </ol>
+  </nav>
 
-<template id="ficha-actriz-{{ loop.index0 }}">
   <div class="ficha-actriz-cabecera">
-    <img src="{{ actriz.foto }}" alt="Foto de {{ actriz.nombre }}" class="ficha-actriz-foto">
+    <img src="{{ actriz.foto }}" alt="Foto de {{ actriz.nombre }}" class="ficha-actriz-foto" width="300" height="400">
     <div class="ficha-actriz-texto">
-      <h2 id="modal-actriz-titulo">{{ actriz.nombre }}</h2>
+      <h1>{{ actriz.nombre }}</h1>
       {% if actriz.nombreOriginal %}<p class="ficha-actriz-original">{{ actriz.nombreOriginal }}</p>{% endif %}
       <ul class="ficha-actriz-datos">
+        {% if actriz.apodo %}<li>💕 {{ actriz.apodo }}</li>{% endif %}
         {% if actriz.nacimiento %}<li>🎂 {{ actriz.nacimiento | fechaLarga }}</li>{% endif %}
         {% if actriz.nacimiento %}<li>🎈 {{ actriz.nacimiento | edad }} años</li>{% endif %}
-        {% if actriz.signo %}<li>♈ {{ actriz.signo }}</li>{% endif %}
         {% if actriz.nacionalidad %}<li>🌏 {{ actriz.nacionalidad }}</li>{% endif %}
       </ul>
     </div>
@@ -23,14 +33,14 @@
 
   {% if actriz.biografia %}
   <div class="ficha-actriz-seccion">
-    <h3>📝 Biografía</h3>
+    <h2>📝 Biografía</h2>
     <p>{{ actriz.biografia }}</p>
   </div>
   {% endif %}
 
   {% if actriz.series and actriz.series.length %}
   <div class="ficha-actriz-seccion">
-    <h3>🎬 Series</h3>
+    <h2>🎬 Series</h2>
     <div class="ficha-actriz-badges">
       {% for serie in actriz.series %}
       <span class="badge-serie">🎬 {{ serie.titulo }}{% if serie.anio %} ({{ serie.anio }}){% endif %}</span>
@@ -39,21 +49,21 @@
   </div>
   {% endif %}
 
-  {% if actriz.apodo %}
+  {% if actriz.shipSlug %}
+  {% for s in shipsWeb %}{% if s.slug == actriz.shipSlug %}
   <div class="ficha-actriz-seccion">
-    <h3>💕 Ship</h3>
-    <span class="badge-ship">💕 {{ actriz.apodo }}</span>
+    <h2>💕 Ship</h2>
+    <a href="/ships/{{ s.slug }}/" class="badge-ship">💕 {{ s.ship }}</a>
   </div>
+  {% endif %}{% endfor %}
   {% endif %}
 
   {% if actriz.instagram %}
   <div class="ficha-actriz-seccion">
-    <h3>📷 Instagram</h3>
+    <h2>📷 Instagram</h2>
     <a href="{{ actriz.instagram }}" class="btn-primario" target="_blank" rel="noopener">📷 Ver perfil</a>
   </div>
   {% endif %}
 
-  <div class="ficha-actriz-seccion">
-    <a href="/actrices/{{ actriz.slug }}/" class="ficha-actriz-pagina">Ver página completa →</a>
-  </div>
-</template>
+  <p class="articulo-volver"><a href="/actrices/" class="btn-primario">💖 Ver todas las actrices</a></p>
+</section>

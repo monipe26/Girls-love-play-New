@@ -1102,10 +1102,29 @@ html[data-tema="oscuro"] .footer-logo img {
 .seguir-viendo summary::-webkit-details-marker { display: none; }
 .seguir-viendo[open] summary { margin-bottom: var(--espacio-xs); }
 .seguir-viendo ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--espacio-xs); justify-content: center; }
-.seguir-viendo a {
-  display: inline-block; padding: 8px 14px;
-  border-radius: var(--radio-pill);
+.seguir-viendo li {
+  display: inline-flex; align-items: center; gap: 2px;
   border: 1px solid var(--color-borde);
-  background: var(--color-superficie); color: var(--color-texto);
+  border-radius: var(--radio-pill);
+  background: var(--color-superficie);
+}
+.seguir-viendo a {
+  display: inline-block; padding: 8px 6px 8px 14px;
+  color: var(--color-texto);
   text-decoration: none;
 }
+.seguir-viendo-quitar {
+  width: 26px; height: 26px; margin-right: 6px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: none; border-radius: 50%;
+  background: transparent; color: var(--color-texto);
+  font-size: 0.8rem; line-height: 1; cursor: pointer; opacity: 0.6;
+}
+.seguir-viendo-quitar:hover, .seguir-viendo-quitar:focus-visible { opacity: 1; background: var(--color-borde); }
+
+/* Enlace a la página propia de la actriz (dentro de la ficha) y ship como enlace */
+.ficha-actriz-pagina {
+  display: inline-block; font-size: 0.95rem;
+  color: var(--color-texto); text-decoration: underline; text-underline-offset: 3px;
+}
+a.badge-ship { text-decoration: none; }

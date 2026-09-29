@@ -31,6 +31,14 @@ eleventyExcludeFromCollections: true
   </url>
   {%- endif %}
 {%- endfor %}
+{#- Página de cada actriz: solo las que tienen biografía propia (80+ caracteres) y no están en noindex #}
+{%- for a in actricesWeb %}
+  {%- if a.noindexFinal == false %}
+  <url>
+    <loc>{{ site.url }}/actrices/{{ a.slug }}/</loc>
+  </url>
+  {%- endif %}
+{%- endfor %}
 {#- Página de cada ship #}
 {%- for s in shipsWeb %}
   {%- if s.noindexFinal == false %}
