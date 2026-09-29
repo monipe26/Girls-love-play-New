@@ -489,6 +489,7 @@ html[data-tema="oscuro"] .btn-modo-oscuro .icono-luna { display: block; }
 /* Tarjeta de video (OST / Comunidad) */
 .tarjeta-video {
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
   text-align: left;
   background: var(--color-superficie);
@@ -512,7 +513,14 @@ html[data-tema="oscuro"] .btn-modo-oscuro .icono-luna { display: block; }
   font-size: 1.1rem;
 }
 .tarjeta-video-info { padding: var(--espacio-xs) var(--espacio-sm) var(--espacio-sm); }
-.tarjeta-video-titulo { display: block; font-size: 0.9rem; font-weight: 600; }
+.tarjeta-video-titulo {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
 .tarjeta-video-autor { display: block; color: var(--color-primario-hover); font-size: 0.8rem; }
 .tarjeta-video-sinopsis {
   display: -webkit-box;
@@ -1005,7 +1013,7 @@ body.modal-actriz-abierto { overflow: hidden; }
 
 /* ===== PÁGINAS DE VIDEO Y DE SHIP (detalle) + tarjeta con enlace + banner con enlace ===== */
 .carrusel-enlace { display: block; }
-.tarjeta-video-caja { display: flex; flex-direction: column; min-width: 0; }
+.tarjeta-video-caja { display: flex; flex-direction: column; min-width: 0; height: 100%; }
 .tarjeta-video-enlace { font-size: 0.78rem; margin: 4px 2px 0; color: var(--color-primario-hover); text-align: right; }
 .video-detalle-player { max-width: 860px; margin: 0 auto var(--espacio-md); }
 .video-detalle-texto { max-width: 860px; margin: 0 auto var(--espacio-md); line-height: 1.6; }
@@ -1025,3 +1033,14 @@ body.modal-actriz-abierto { overflow: hidden; }
 }
 .btn-instalar-app[hidden], .aviso-instalar-ios[hidden] { display: none; }
 .aviso-instalar-ios { margin-top: var(--espacio-xs); font-size: 0.8rem; color: rgba(255,255,255,0.85); }
+
+/* ===== Modo oscuro: el logo se ilumina un poquito ===== */
+html[data-tema="oscuro"] .logo img,
+html[data-tema="oscuro"] .footer-logo img {
+  filter: drop-shadow(0 0 5px rgba(255, 79, 168, 0.55)) drop-shadow(0 0 14px rgba(190, 130, 255, 0.35));
+}
+
+/* ===== Actrices: letras centradas en el celular ===== */
+@media (max-width: 767px) {
+  .letras-filtro { justify-content: center; }
+}

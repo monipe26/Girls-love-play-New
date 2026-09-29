@@ -16,6 +16,7 @@
   {# Se elige la serie más nueva QUE TENGA sinopsis, para mostrar su texto real; si ninguna la tiene, la más nueva. #}
   {% set _conSinopsis = seriesTv | selectattr("sinopsis") | sort(true, false, "anio") %}
   {% set ultimaSerie = (_conSinopsis | first) or (seriesTv | sort(true, false, "anio") | first) %}
+  {% for _s in seriesTv %}{% if _s.slug == site.serieDestacada %}{% set ultimaSerie = _s %}{% endif %}{% endfor %}
   {% if ultimaSerie.videos and ultimaSerie.videos.length %}{% set miniaturaId = ultimaSerie.videos[0] %}
   {% elif ultimaSerie.youtubeId %}{% set miniaturaId = ultimaSerie.youtubeId %}
   {% else %}{% set miniaturaId = "" %}{% endif %}

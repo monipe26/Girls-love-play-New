@@ -41,6 +41,8 @@ collections:
     media_folder: /src/assets/images/noticias
     public_folder: /assets/images/noticias
     summary: "{{title}} · {{date}}"
+    # Buscador del panel: busca por título, dirección web y resumen
+    search_fields: ["title", "slug", "resumen"]
     sortable_fields: ["date", "title"]
     view_filters:
       - { label: "Con video", field: trailer, pattern: ".+" }
@@ -164,6 +166,8 @@ collections:
     media_folder: /src/assets/images/mundo-gl
     public_folder: /assets/images/mundo-gl
     summary: "{{title}} · {{date}}"
+    # Buscador del panel: busca por título, dirección web y resumen
+    search_fields: ["title", "slug", "resumen"]
     sortable_fields: ["date", "title"]
     fields:
       - label: "Título"
@@ -329,7 +333,18 @@ collections:
     media_folder: /src/assets/images/series
     public_folder: /assets/images/series
     summary: "{{titulo}}"
-    sortable_fields: ["agregada", "titulo"]
+    # Buscador y orden de la lista: se busca por título, dirección y género; sale ordenada de la A a la Z
+    search_fields: ["titulo", "slug", "genero"]
+    sortable_fields:
+      fields: ["titulo", "agregada"]
+      default:
+        field: titulo
+        direction: Ascending
+    # Botón "Agrupar": muestra la lista por letra inicial (A, B, C...)
+    view_groups:
+      - { label: "Letra inicial", field: titulo, pattern: "^[A-Za-z0-9]" }
+    view_filters:
+      - { label: "Con sinopsis", field: sinopsis, pattern: ".+" }
     fields:
       - { label: "Detalles · Título", name: titulo, widget: string }
       - label: "Slug (dirección web)"

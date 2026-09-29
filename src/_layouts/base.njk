@@ -11,6 +11,8 @@
     gtag('config', 'G-RPZ4XSDK4N');
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Modo oscuro: se aplica ANTES de dibujar la página para que no haya destello blanco al cambiar de sección -->
+  <script>try{if(localStorage.getItem("gl-tema")==="oscuro"){document.documentElement.setAttribute("data-tema","oscuro")}}catch(e){}</script>
   {% include "seo.njk" %}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
