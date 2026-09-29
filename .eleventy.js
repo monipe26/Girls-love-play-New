@@ -45,6 +45,12 @@ module.exports = function (eleventyConfig) {
       }));
   });
 
+  // Catálogo (fichas de src/catalogo/series/*.md): la más nueva cargada primero
+  eleventyConfig.addCollection("catalogoSeries", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("src/catalogo/series/*.md")
+      .sort((a, b) => new Date(b.data.agregada || 0) - new Date(a.data.agregada || 0));
+  });
+
   eleventyConfig.addCollection("noticias", function (collectionApi) {
     return collectionApi.getFilteredByGlob("src/noticias/*.md").sort((a, b) => b.date - a.date);
   });
