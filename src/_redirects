@@ -16,3 +16,47 @@
 # Catálogo: la ficha vieja cambió de dirección
 /catalogo/am-i-the-only-one-with-butterflies-2018 /catalogo/am-i-the-only-one-with-butterflies/ 301
 /catalogo/am-i-the-only-one-with-butterflies-2018/ /catalogo/am-i-the-only-one-with-butterflies/ 301
+
+# ---------------------------------------------------------------
+# Sitio viejo (gl-web) -> sitio nuevo. Direcciones que cambiaron.
+# ---------------------------------------------------------------
+
+# Notas que cambiaron de nombre o tenían mayúsculas (van primero)
+/noticia/Mew-Thanthip-y-Renee-Veronica-Pagano-2026 /noticias/mew-thanthip-y-renee-veronica-pagano-2026/ 301
+/noticia/Pam-y-Arhoung-2026 /noticias/pam-y-arhoung-2026/ 301
+/noticia/red-maid-presenta-su-primer-teaser-que-esconden-sus-visiones /noticias/red-maid-presenta-primer-teaser-que-esconden-sus-visiones/ 301
+
+# Notas individuales: /noticia/nombre -> /noticias/nombre/
+/noticia/* /noticias/:splat/ 301
+
+# Actrices y ships: /actriz/nombre -> /actrices/nombre/ y /ship/nombre -> /ships/nombre/
+/actriz/* /actrices/:splat/ 301
+/ship/* /ships/:splat/ 301
+
+# Páginas principales: el sitio viejo usaba .html
+/noticias.html /noticias/ 301
+/mundo-gl.html /mundo-gl/ 301
+/actrices-gl.html /actrices/ 301
+/ships-gl.html /ships/ 301
+/proximamente-gl.html /proximamente/ 301
+/extras-gl.html /extra/ 301
+/minijuegos-gl.html /minijuegos/ 301
+/sobre-nosotras.html /sobre-nosotras/ 301
+/avisolegal.html /aviso-legal/ 301
+/privacidad.html /privacidad/ 301
+/cookies.html /cookies/ 301
+
+# Novelas: la sección ya no existe, va al inicio
+/novelas.html / 301
+/novelas /  301
+
+# Novela vieja (episodios sueltos): la sección ya no existe, van al inicio
+/novela-el-amor-que-trasciende.html / 301
+/novela-el-amor-que-trasciende-ep1-parte1.html / 301
+/novela-el-amor-que-trasciende-ep1-parte2.html / 301
+/novela-el-amor-que-trasciende-ep1-parte3.html / 301
+/novela-el-amor-que-trasciende-ep2-parte1.html / 301
+/novela-el-amor-que-trasciende-ep2-parte2.html / 301
+/novela-el-amor-que-trasciende-ep2-parte3.html / 301
+/novela-el-amor-que-trasciende-ep3-parte1.html / 301
+/novela-el-amor-que-trasciende-ep3-parte2.html / 301
