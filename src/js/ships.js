@@ -5,7 +5,7 @@
 //   - filtro por estado (Todos / Vigentes / Finalizados),
 //   - filtro por letra (A-Z, solo las letras que existen),
 //   - paginación de a 12,
-//   - ficha en ventana (modal) al tocar una tarjeta.
+//   - (al tocar una tarjeta se abre la página propia del ship, /ships/slug/).
 (function () {
   const grilla = document.querySelector("[data-grid-ships]");
   if (!grilla) return;
@@ -120,34 +120,4 @@
     inputBuscar.addEventListener("input", () => { pagina = 1; render(); });
   }
   render();
-
-  // ----- Ficha en ventana (modal) -----
-  const modal = document.getElementById("modal-ship");
-  if (!modal) return;
-  const contenido = modal.querySelector(".modal-actriz-contenido");
-  const caja = modal.querySelector(".modal-actriz-caja");
-  let disparador = null;
-
-  const abrir = (tarjeta) => {
-    const plantilla = document.getElementById(tarjeta.dataset.abrirShip);
-    if (!plantilla) return;
-    contenido.innerHTML = "";
-    contenido.appendChild(plantilla.content.cloneNode(true));
-    disparador = tarjeta;
-    modal.hidden = false;
-    document.body.classList.add("modal-actriz-abierto");
-    caja.focus();
-  };
-  const cerrar = () => {
-    modal.hidden = true;
-    document.body.classList.remove("modal-actriz-abierto");
-    contenido.innerHTML = "";
-    if (disparador) { disparador.focus(); disparador = null; }
-  };
-
-  tarjetas.forEach((t) => t.addEventListener("click", () => abrir(t)));
-  modal.querySelectorAll("[data-cerrar-ship]").forEach((el) => el.addEventListener("click", cerrar));
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !modal.hidden) cerrar();
-  });
 })();

@@ -1,5 +1,5 @@
 {# Variables: ship (un item de shipsGl); usa loop.index0 del for que lo incluye #}
-<button type="button" class="tarjeta-ship" data-abrir-ship="ficha-ship-{{ loop.index0 }}" data-estado="{{ 'vigente' if ship.vigente else 'finalizado' }}" data-letra="{{ ship.ship[0] | upper }}" data-busqueda="{{ ship.ship }} {{ ship.nombres }} {{ ship.series | join(' ') }}" aria-haspopup="dialog">
+<a href="/ships/{{ ship.slug }}/" class="tarjeta-ship" data-estado="{{ 'vigente' if ship.vigente else 'finalizado' }}" data-letra="{{ ship.ship[0] | upper }}" data-busqueda="{{ ship.ship }} {{ ship.nombres }} {{ ship.series | join(' ') }}">
   <span class="tarjeta-ship-img">
     <img src="{{ ship.img }}" alt="Ship {{ ship.ship }}" width="300" height="400" loading="lazy" decoding="async">
   </span>
@@ -9,43 +9,4 @@
     <span class="tarjeta-ship-actrices">{{ ship.nombres }}</span>
     <span class="tarjeta-ship-series">🎬 {% for s in ship.series %}{% if loop.index0 < 2 %}{% if loop.index0 > 0 %}, {% endif %}{{ s }}{% endif %}{% endfor %}{% if ship.series.length > 2 %}...{% endif %}</span>
   </span>
-</button>
-
-<template id="ficha-ship-{{ loop.index0 }}">
-  <div class="ficha-actriz-cabecera">
-    <img src="{{ ship.img }}" alt="Ship {{ ship.ship }}" class="ficha-actriz-foto">
-    <div class="ficha-actriz-texto">
-      <h2 id="modal-ship-titulo">{{ ship.ship }}</h2>
-      <p class="ficha-actriz-original">{{ ship.nombres }}</p>
-      <ul class="ficha-actriz-datos">
-        <li class="{{ 'es-vigente' if ship.vigente else 'es-finalizado' }}">{{ '✅ Vigente' if ship.vigente else '❌ Ship finalizado' }}</li>
-        <li>{% include "bandera-th.njk" %} {{ ship.pais }}</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="ficha-actriz-seccion">
-    <h3>📝 Sobre este ship</h3>
-    <p>{{ ship.descripcion }}</p>
-  </div>
-
-  {% if ship.series and ship.series.length %}
-  <div class="ficha-actriz-seccion">
-    <h3>🎬 Series juntas</h3>
-    <div class="ficha-actriz-badges">
-      {% for s in ship.series %}<span class="badge-serie">🎬 {{ s }}</span>{% endfor %}
-    </div>
-  </div>
-  {% endif %}
-
-  <p class="ficha-ship-pagina"><a href="/ships/{{ ship.slug }}/">Ver la página completa del ship →</a></p>
-
-  {% if ship.instagram and ship.instagram.length %}
-  <div class="ficha-actriz-seccion">
-    <h3>📸 Instagram</h3>
-    <div class="ficha-ship-instagram">
-      {% for i in ship.instagram %}<a href="{{ i.url }}" class="btn-instagram" target="_blank" rel="noopener">📸 {{ i.nombre }}</a>{% endfor %}
-    </div>
-  </div>
-  {% endif %}
-</template>
+</a>
