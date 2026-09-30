@@ -38,7 +38,7 @@ Lo que sí está claro es que *Who Knows Girls' L* no termina con su primera tem
 
 Si todavía no conoces *Who Knows Girls' L*, puedes ver la primera temporada completa y descubrir la historia de **Gu Yi y Cheng Zhijin** antes de la llegada de la segunda temporada.
 
-👉 **[[Ver Who Knows Girls' L](https://girlsloveplay.com/series-gl/who-knows-girls-l)]**
+👉 **[Ver Who Knows Girls' L](https://girlsloveplay.com/series-gl/who-knows-girls-l)**
 
 La serie está disponible para ver online, y desde **Girls Love Play** puedes acceder directamente a los episodios.
 
