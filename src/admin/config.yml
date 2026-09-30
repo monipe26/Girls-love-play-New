@@ -329,12 +329,14 @@ collections:
     media_folder: /src/assets/images/series
     public_folder: /assets/images/series
     summary: "{{titulo}}"
-    # Orden de la lista: de la A a la Z
+    # Orden de la lista: de la A a la Z (dentro de cada grupo)
     sortable_fields:
       - { field: titulo, label: "Título (A-Z)", default_sort: asc }
+      - { field: fechaEmision, label: "Fecha de emisión" }
       - agregada
-    # Botón "Agrupar": muestra la lista por letra inicial (A, B, C...)
+    # Botón "Agrupar": por AÑO de emisión (queda abierto por defecto) o por letra inicial
     view_groups:
+      - { label: "Año de emisión", field: fechaEmision, pattern: "\\d{4}", default: true }
       - { label: "Letra inicial", field: titulo, pattern: "^[A-Za-z0-9]" }
     view_filters:
       - { label: "Con sinopsis", field: sinopsis, pattern: ".+" }
@@ -350,7 +352,7 @@ collections:
       - { label: "Detalles · País", name: pais, widget: string, required: false }
       - { label: "Detalles · Cantidad de episodios", name: episodios, widget: string, required: false, hint: "Ejemplo: 8" }
       - { label: "Detalles · Cadena", name: cadena, widget: string, required: false, hint: "Ejemplo: YouTube" }
-      - { label: "Detalles · Fecha de emisión", name: fechaEmision, widget: string, required: false, hint: "Ejemplo: 2026" }
+      - { label: "Detalles · Fecha de emisión", name: fechaEmision, widget: string, required: false, hint: "Ejemplo: 2026 o 21-05-2026. Escribí siempre el AÑO: con eso el Catálogo se ordena solo (2026 arriba, después 2025, 2024...)." }
       - { label: "Sinopsis", name: sinopsis, widget: text, required: false }
       - { label: "Libro en el que se basa", name: libro, widget: string, required: false, hint: "Ejemplo: Adaptado de la novela “Título”, escrita por Autora." }
       - label: "Reparto"
@@ -370,7 +372,7 @@ collections:
         name: agregada
         widget: datetime
         default: "{{now}}"
-        hint: "Se completa sola. Las series más nuevas salen primero en el Catálogo."
+        hint: "Se completa sola. El Catálogo se ordena por la Fecha de emisión; esta fecha solo desempata entre series del mismo año (la última que cargaste va primero)."
       - { label: "Título para Google (SEO)", name: seoTitle, widget: string, required: false, hint: "Opcional. Si está vacío se usa el título + el nombre del sitio." }
       - { label: "Descripción para Google (SEO)", name: seoDescription, widget: text, required: false, hint: "Opcional. Si está vacía se usa el comienzo de la sinopsis." }
       - { label: "Imagen para compartir en redes", name: ogImage, widget: image, required: false, choose_url: false, hint: "Opcional. Si está vacía se usa la portada." }
