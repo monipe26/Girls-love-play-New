@@ -2,6 +2,12 @@
   "items": [
     {
       "tipo": "Serie",
+      "fecha": "2026-11-28",
+      "titulo": "Hak Na My Boss (I Love You)",
+      "portada": "/assets/images/calendario/hak-na-my-boss-i-love-you-.jpg"
+    },
+    {
+      "tipo": "Serie",
       "titulo": "Under Her Rules",
       "fecha": "2026-11-07",
       "portada": "/assets/images/calendario/under-her-rules-cd.jpg"
