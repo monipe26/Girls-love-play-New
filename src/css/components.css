@@ -671,23 +671,24 @@ html[data-tema="oscuro"] .btn-modo-oscuro .icono-luna { display: block; }
 .articulo-trailer-titulo { font-weight: 700; margin-bottom: var(--espacio-xs); }
 /* ===== Compartir la nota (WhatsApp, Facebook, X, Telegram, copiar link) ===== */
 .articulo-compartir { margin: var(--espacio-lg) 0; text-align: center; }
-.articulo-compartir-titulo { font-weight: 700; margin-bottom: var(--espacio-xs); }
-.compartir-botones { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.articulo-compartir-titulo { font-weight: 700; font-size: 0.9rem; margin-bottom: 6px; }
+.compartir-botones { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
 .compartir-btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  min-height: 44px; padding: 0 16px;
-  border: 0; border-radius: 999px;
-  font: inherit; font-size: 0.9rem; font-weight: 600;
+  display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+  min-height: 34px; padding: 0 12px;
+  border: 0; border-radius: 4px;
+  font: inherit; font-size: 0.78rem; font-weight: 600; line-height: 1;
   color: #fff; cursor: pointer; text-decoration: none;
 }
 .compartir-btn:hover, .compartir-btn:focus-visible { opacity: 0.88; text-decoration: none; }
 .compartir-btn[hidden] { display: none; }
 .compartir-whatsapp { background: #1fa855; }
 .compartir-facebook { background: #1877f2; }
-.compartir-x { background: #111; }
+.compartir-x { background: #111; padding: 0 14px; }
+.compartir-x svg { display: block; }
 .compartir-telegram { background: #229ed9; }
 .compartir-copiar, .compartir-mas { background: var(--color-primario); }
-.compartir-estado { min-height: 1.4em; margin: var(--espacio-xs) 0 0; font-size: 0.85rem; color: var(--color-texto-sec); }
+.compartir-estado { min-height: 1.3em; margin: 6px 0 0; font-size: 0.8rem; color: var(--color-texto-sec); }
 
 .articulo-volver {
   text-align: center;
