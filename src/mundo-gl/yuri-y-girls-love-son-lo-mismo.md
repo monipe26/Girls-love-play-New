@@ -7,7 +7,9 @@ resumen: Yuri, Girls’ Love, GL y shōjo-ai pueden parecer términos equivalent
   pero no siempre se usan igual. Descubre su origen, diferencias y relación.
 description: ¿Yuri y Girls’ Love son lo mismo? Te explicamos qué significa cada
   término, cómo se relacionan y qué ocurre con GL y shōjo-ai según el contexto.
-imagenPie: ""
+imagenAlt: ""
+imagenPie: Yuri, Girls’ Love y GL son términos que pueden compartir un mismo
+  territorio, aunque su uso depende del contexto.
 serieRelacionada: ""
 relacionadas:
   - que-gl-te-hizo-entrar-al-mundo-thai
@@ -58,3 +60,5 @@ No hace falta elegir entre “son exactamente lo mismo” y “son géneros comp
 La diferencia está más relacionada con la historia y el contexto de cada palabra que con una frontera fija entre contenidos. Por eso, si una serie, manga o anime aparece descrito como yuri o como GL, lo importante es mirar qué obra se está describiendo y cómo utiliza esa etiqueta la publicación o comunidad correspondiente.
 
 Entender esta diferencia también ayuda a leer mejor el vocabulario del género. Yuri, Girls’ Love, GL y otros términos relacionados no siempre tienen exactamente el mismo recorrido, pero forman parte de una conversación mucho más amplia sobre cómo se nombran las historias de amor entre mujeres.
+
+![Ilustración sobre yuri, Girls’ Love y GL con una pareja de mujeres y lirios](/assets/images/mundo-gl/yuri-girls-love-gl-terminologia.jpg "Yuri, Girls’ Love y GL")
