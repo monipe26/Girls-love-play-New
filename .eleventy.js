@@ -45,10 +45,52 @@ module.exports = function (eleventyConfig) {
       }));
   });
 
-  // Catálogo (fichas de src/catalogo/series/*.md): la más nueva cargada primero
+  // Catálogo (fichas de src/catalogo/series/*.md): ordenado por FECHA DE EMISIÓN,
+  // la más nueva primero (2026 arriba, después 2025, 2024...).
+  // La fecha de emisión se escribe a mano, así que se entienden estos formatos:
+  //   "2026"  ·  "09-2026" (mes-año)  ·  "21-05-2026" o "21/05/2026" (día-mes-año)
+  //   "2026-05-21"  ·  "21 de mayo de 2026"  ·  "mayo 2026"  ·  "11-09" (día-mes, sin año)
+  // Dentro del mismo año va primero la de fecha más reciente; las que solo dicen el año
+  // van después de las que tienen mes, y si empatan va primero la última que cargaste.
+  // Si una ficha no tiene año, se usa el año en que fue cargada.
+  const MESES_CATALOGO = {
+    enero: 1, ene: 1, january: 1, jan: 1, febrero: 2, feb: 2, february: 2, marzo: 3, mar: 3, march: 3,
+    abril: 4, abr: 4, april: 4, apr: 4, mayo: 5, may: 5, junio: 6, jun: 6, june: 6, julio: 7, jul: 7, july: 7,
+    agosto: 8, ago: 8, august: 8, aug: 8, septiembre: 9, setiembre: 9, sep: 9, sept: 9, september: 9,
+    octubre: 10, oct: 10, october: 10, noviembre: 11, nov: 11, november: 11, diciembre: 12, dic: 12, december: 12, dec: 12,
+  };
+  function claveFechaEmision(data) {
+    const texto = String(data.fechaEmision || "").trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    const cargada = new Date(data.agregada || 0);
+    let anio = 0, mes = 0, dia = 0, m;
+    if ((m = texto.match(/(\d{4})[-\/.](\d{1,2})[-\/.](\d{1,2})/))) {          // 2026-05-21
+      anio = +m[1]; mes = +m[2]; dia = +m[3];
+    } else if ((m = texto.match(/(\d{1,2})[-\/.](\d{1,2})[-\/.](\d{4})/))) {     // 21-05-2026
+      dia = +m[1]; mes = +m[2]; anio = +m[3];
+    } else if ((m = texto.match(/(\d{4})[-\/.](\d{1,2})(?!\d)/))) {              // 2026-05
+      anio = +m[1]; mes = +m[2];
+    } else if ((m = texto.match(/(\d{1,2})[-\/.](\d{4})/))) {                     // 05-2026
+      mes = +m[1]; anio = +m[2];
+    } else if ((m = texto.match(/(\d{4})/))) {                                     // 2026 o "21 de mayo de 2026"
+      anio = +m[1];
+      const palabra = (texto.match(/[a-z]+/g) || []).find((w) => MESES_CATALOGO[w]);
+      if (palabra) mes = MESES_CATALOGO[palabra];
+      const numeroDia = texto.replace(m[1], " ").match(/(?:^|\D)(\d{1,2})(?!\d)/);
+      if (mes && numeroDia && +numeroDia[1] <= 31) dia = +numeroDia[1];
+    } else if ((m = texto.match(/^(\d{1,2})[-\/.](\d{1,2})$/))) {                  // 11-09 (sin año)
+      dia = +m[1]; mes = +m[2];
+    }
+    if (!anio) anio = isNaN(cargada) ? 0 : cargada.getFullYear();
+    if (mes > 12 && dia >= 1 && dia <= 12) { const t = mes; mes = dia; dia = t; } // por si escribieron mes-día
+    if (mes > 12) mes = 0;
+    return anio * 10000 + mes * 100 + dia;
+  }
   eleventyConfig.addCollection("catalogoSeries", function (collectionApi) {
     return collectionApi.getFilteredByGlob("src/catalogo/series/*.md")
-      .sort((a, b) => new Date(b.data.agregada || 0) - new Date(a.data.agregada || 0));
+      .sort((a, b) =>
+        (claveFechaEmision(b.data) - claveFechaEmision(a.data)) ||
+        (new Date(b.data.agregada || 0) - new Date(a.data.agregada || 0)) ||
+        String(a.data.titulo || "").localeCompare(String(b.data.titulo || ""), "es"));
   });
 
   eleventyConfig.addCollection("noticias", function (collectionApi) {
