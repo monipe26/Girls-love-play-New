@@ -48,6 +48,22 @@ ogTipo: articulo
     </button>
   </div>
   {% endif %}
+  {# Botones para compartir la nota (WhatsApp, Facebook, X, Telegram, copiar link) #}
+  {%- set _urlNota = page.url | absoluteUrl -%}
+  {%- set _textoNota = title + " - " + site.nombre -%}
+  <div class="articulo-compartir" data-compartir data-url="{{ _urlNota }}" data-titulo="{{ title }}">
+    <p class="articulo-compartir-titulo">📣 Compartí esta nota</p>
+    <div class="compartir-botones">
+      <a class="compartir-btn compartir-whatsapp" href="https://wa.me/?text={{ (_textoNota + ' ' + _urlNota) | urlencode }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a class="compartir-btn compartir-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ _urlNota | urlencode }}" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a class="compartir-btn compartir-x" href="https://x.com/intent/post?text={{ title | urlencode }}&amp;url={{ _urlNota | urlencode }}" target="_blank" rel="noopener noreferrer">X</a>
+      <a class="compartir-btn compartir-telegram" href="https://t.me/share/url?url={{ _urlNota | urlencode }}&amp;text={{ title | urlencode }}" target="_blank" rel="noopener noreferrer">Telegram</a>
+      <button type="button" class="compartir-btn compartir-copiar" data-compartir-copiar>🔗 Copiar link</button>
+      <button type="button" class="compartir-btn compartir-mas" data-compartir-nativo hidden>📤 Más opciones</button>
+    </div>
+    <p class="compartir-estado" data-compartir-estado role="status" aria-live="polite"></p>
+  </div>
+  <script src="/js/compartir.js" defer></script>
   {% set _lista = collections.noticias if _esNoticia else collections.mundoGl %}
   {% set _rel = _lista | relacionadas(page.url, relacionadas) %}
   {% if _rel.length %}
