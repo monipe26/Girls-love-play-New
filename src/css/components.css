@@ -669,7 +669,13 @@ html[data-tema="oscuro"] .btn-modo-oscuro .icono-luna { display: block; }
 .articulo-cuerpo img { display: block; max-width: 100%; height: auto; margin: var(--espacio-sm) auto; border-radius: var(--radio-md, 12px); }
 .articulo-trailer { margin: var(--espacio-md) 0; }
 .articulo-trailer-titulo { font-weight: 700; margin-bottom: var(--espacio-xs); }
-.articulo-volver { text-align: center; padding-top: var(--espacio-sm); border-top: 1px solid var(--color-borde); }
+.articulo-volver {
+  text-align: center;
+  margin-top: var(--espacio-xl);
+  padding-top: var(--espacio-lg);
+  padding-bottom: var(--espacio-xl);
+  border-top: 1px solid var(--color-borde);
+}
 
 /* ===== FOOTER ===== */
 .site-footer {

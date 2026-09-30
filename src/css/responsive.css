@@ -219,5 +219,24 @@
   .grid-tarjetas { grid-template-columns: repeat(8, 1fr); }
 }
 
-/* ===== "Te puede interesar": tarjetas un poco más bajas ===== */
-.articulo-relacionadas .tarjeta-noticia img { aspect-ratio: 16 / 7.5; }
+/* ===== "Te puede interesar": tarjetas más anchas y bajas ===== */
+/* En celular: una debajo de otra, en formato horizontal (foto a la izquierda, texto a la derecha) */
+.articulo-relacionadas .grid-tarjetas { grid-template-columns: 1fr; gap: var(--espacio-sm); }
+.articulo-relacionadas .tarjeta-noticia a { display: flex; align-items: center; gap: var(--espacio-sm); padding: var(--espacio-xs); }
+.articulo-relacionadas .tarjeta-noticia img { width: 38%; flex-shrink: 0; aspect-ratio: 16 / 9; border-radius: var(--radio-chico); }
+.articulo-relacionadas .tarjeta-noticia .tarjeta-fecha,
+.articulo-relacionadas .tarjeta-noticia h3 { padding-left: 0; padding-right: 0; }
+.articulo-relacionadas .tarjeta-noticia time { display: none; }
+.articulo-relacionadas .tarjeta-noticia p { display: none; }
+.articulo-relacionadas .tarjeta-noticia h3 { -webkit-line-clamp: 3; }
+
+/* En pantallas más grandes: 3 tarjetas en fila, anchas y poco altas */
+@media (min-width: 640px) {
+  .articulo-relacionadas .grid-tarjetas { grid-template-columns: repeat(3, 1fr); }
+  .articulo-relacionadas .tarjeta-noticia a { display: block; padding: 0; }
+  .articulo-relacionadas .tarjeta-noticia img { width: 100%; aspect-ratio: 16 / 6; border-radius: 0; }
+  .articulo-relacionadas .tarjeta-noticia time { display: block; }
+  .articulo-relacionadas .tarjeta-noticia .tarjeta-fecha,
+  .articulo-relacionadas .tarjeta-noticia h3 { padding-left: var(--espacio-sm); padding-right: var(--espacio-sm); }
+  .articulo-relacionadas .tarjeta-noticia h3 { padding-bottom: var(--espacio-sm); -webkit-line-clamp: 2; }
+}
