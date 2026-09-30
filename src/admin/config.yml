@@ -87,8 +87,8 @@ collections:
         name: body
         widget: markdown
         buttons: ["bold", "italic", "link", "heading-two", "heading-three", "quote", "bulleted-list", "numbered-list"]
-        editor_components: []
-        hint: "Dejá el interruptor en «Texto enriquecido». Usá Título 2 (H2) para las secciones grandes y Título 3 (H3) para subsecciones. El título de la noticia ya es el H1: no lo repitas acá."
+        editor_components: ["image"]
+        hint: "Dejá el interruptor en «Texto enriquecido». Usá Título 2 (H2) para las secciones grandes y Título 3 (H3) para subsecciones. El título de la noticia ya es el H1: no lo repitas acá. Para poner una imagen dentro del texto: tocá el «+» que aparece en una línea vacía y elegí «Image»."
       - { label: "Texto alternativo de la imagen (ALT)", name: imagenAlt, widget: string, required: false, hint: "Opcional. Describí lo que se ve en la imagen. Si lo dejás vacío se usa el título." }
       - { label: "Pie de foto / crédito", name: imagenPie, widget: string, required: false, hint: "Opcional. Aparece debajo de la imagen destacada. Ejemplo: Foto: GMMTV." }
       - { label: "Fuente (nombre)", name: fuenteNombre, widget: string, required: false, hint: "Opcional. Ejemplo: Comunicado oficial de Copy A Bangkok." }
@@ -208,8 +208,8 @@ collections:
         name: body
         widget: markdown
         buttons: ["bold", "italic", "link", "heading-two", "heading-three", "quote", "bulleted-list", "numbered-list"]
-        editor_components: []
-        hint: "Dejá el interruptor en «Texto enriquecido». Usá Título 2 (H2) para las secciones grandes y Título 3 (H3) para subsecciones. El título de la noticia ya es el H1: no lo repitas acá."
+        editor_components: ["image"]
+        hint: "Dejá el interruptor en «Texto enriquecido». Usá Título 2 (H2) para las secciones grandes y Título 3 (H3) para subsecciones. El título de la noticia ya es el H1: no lo repitas acá. Para poner una imagen dentro del texto: tocá el «+» que aparece en una línea vacía y elegí «Image»."
       - { label: "Texto alternativo de la imagen (ALT)", name: imagenAlt, widget: string, required: false, hint: "Opcional. Describí lo que se ve en la imagen. Si lo dejás vacío se usa el título." }
       - { label: "Pie de foto / crédito", name: imagenPie, widget: string, required: false, hint: "Opcional. Aparece debajo de la imagen destacada. Ejemplo: Foto: GMMTV." }
       - { label: "Fuente (nombre)", name: fuenteNombre, widget: string, required: false, hint: "Opcional. Ejemplo: Comunicado oficial de Copy A Bangkok." }

@@ -666,6 +666,7 @@ html[data-tema="oscuro"] .btn-modo-oscuro .icono-luna { display: block; }
 .articulo-tiempo-lectura { color: var(--color-texto-sec); }
 .articulo-cuerpo { margin-top: var(--espacio-md); margin-bottom: var(--espacio-lg); color: var(--color-texto-sec); }
 .articulo-cuerpo p { margin-bottom: var(--espacio-sm); }
+.articulo-cuerpo img { display: block; max-width: 100%; height: auto; margin: var(--espacio-sm) auto; border-radius: var(--radio-md, 12px); }
 .articulo-trailer { margin: var(--espacio-md) 0; }
 .articulo-trailer-titulo { font-weight: 700; margin-bottom: var(--espacio-xs); }
 .articulo-volver { text-align: center; padding-top: var(--espacio-sm); border-top: 1px solid var(--color-borde); }
@@ -1094,7 +1095,7 @@ html[data-tema="oscuro"] .footer-logo img {
 .seguir-viendo { max-width: 340px; margin: var(--espacio-xs) auto; text-align: center; }
 .seguir-viendo summary {
   display: inline-block; cursor: pointer; list-style: none;
-  padding: 2px 10px; font-size: 0.78rem;
+  padding: 4px 14px; font-size: 0.9rem;
   border-radius: var(--radio-pill);
   border: 1px solid var(--color-borde);
   color: var(--color-texto); opacity: 0.85;
