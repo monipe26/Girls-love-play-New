@@ -669,6 +669,26 @@ html[data-tema="oscuro"] .btn-modo-oscuro .icono-luna { display: block; }
 .articulo-cuerpo img { display: block; max-width: 100%; height: auto; margin: var(--espacio-sm) auto; border-radius: var(--radio-md, 12px); }
 .articulo-trailer { margin: var(--espacio-md) 0; }
 .articulo-trailer-titulo { font-weight: 700; margin-bottom: var(--espacio-xs); }
+/* ===== Compartir la nota (WhatsApp, Facebook, X, Telegram, copiar link) ===== */
+.articulo-compartir { margin: var(--espacio-lg) 0; text-align: center; }
+.articulo-compartir-titulo { font-weight: 700; margin-bottom: var(--espacio-xs); }
+.compartir-botones { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.compartir-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: 0 16px;
+  border: 0; border-radius: 999px;
+  font: inherit; font-size: 0.9rem; font-weight: 600;
+  color: #fff; cursor: pointer; text-decoration: none;
+}
+.compartir-btn:hover, .compartir-btn:focus-visible { opacity: 0.88; text-decoration: none; }
+.compartir-btn[hidden] { display: none; }
+.compartir-whatsapp { background: #1fa855; }
+.compartir-facebook { background: #1877f2; }
+.compartir-x { background: #111; }
+.compartir-telegram { background: #229ed9; }
+.compartir-copiar, .compartir-mas { background: var(--color-primario); }
+.compartir-estado { min-height: 1.4em; margin: var(--espacio-xs) 0 0; font-size: 0.85rem; color: var(--color-texto-sec); }
+
 .articulo-volver {
   text-align: center;
   margin-top: var(--espacio-xl);
