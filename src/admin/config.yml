@@ -334,9 +334,9 @@ collections:
       - { field: titulo, label: "Título (A-Z)", default_sort: asc }
       - { field: fechaEmision, label: "Fecha de emisión" }
       - agregada
-    # Botón "Agrupar": por AÑO de emisión (queda abierto por defecto) o por letra inicial
+    # Botón "Agrupar": por AÑO de emisión o por letra inicial
     view_groups:
-      - { label: "Año de emisión", field: fechaEmision, pattern: "\\d{4}", default: true }
+      - { label: "Año de emisión", field: fechaEmision, pattern: "\\d{4}" }
       - { label: "Letra inicial", field: titulo, pattern: "^[A-Za-z0-9]" }
     view_filters:
       - { label: "Con sinopsis", field: sinopsis, pattern: ".+" }
