@@ -2,7 +2,7 @@
 // - HTML: primero internet; si no hay conexión, muestra la última versión guardada (o el inicio).
 // - CSS, JS, imágenes e íconos propios: se sirven rápido desde la memoria y se actualizan solos.
 // - No toca /admin/, /api/, pedidos que no sean GET ni contenido de otros sitios (YouTube, etc.).
-const VERSION = "glp-v3";
+const VERSION = "glp-v4";
 const PRECARGA = ["/", "/manifest.webmanifest", "/assets/icons/icon-192.png", "/assets/icons/icon-512.png", "/css/base.css", "/css/components.css", "/css/home.css", "/css/responsive.css"];
 
 self.addEventListener("install", (evento) => {
