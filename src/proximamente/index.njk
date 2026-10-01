@@ -16,7 +16,7 @@ permalink: "{{ '/proximamente/' if pagination.pageNumber == 0 else '/proximament
     <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/{{ proximosGl[0].youtubeId }}" title="{{ proximosGl[0].titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>
-    <p class="reproductor-titulo">Reproduciendo ahora: {{ proximosGl[0].titulo }}</p>
+    <p class="reproductor-titulo">Reproduciendo ahora: {{ proximosGl[0].titulo }}{% if proximosGl[0].canal %} · {{ proximosGl[0].canal }}{% endif %}</p>
     <p class="reproductor-sinopsis" data-reproductor-sinopsis>{{ proximosGl[0].sinopsis }}</p>
   </section>
 

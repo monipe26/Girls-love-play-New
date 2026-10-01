@@ -1,5 +1,5 @@
 <div class="tarjeta-video-caja">
-<button type="button" class="tarjeta-video" data-youtube-id="{{ video.youtubeId }}" data-sinopsis="{{ video.sinopsis }}"{% if video.base == "extra" %} data-canal="{{ video.canal }}"{% endif %} aria-label="Reproducir {{ video.titulo }}">
+<button type="button" class="tarjeta-video" data-youtube-id="{{ video.youtubeId }}" data-sinopsis="{{ video.sinopsis }}"{% if video.base == "extra" or video.base == "proximamente" %} data-canal="{{ video.canal }}"{% endif %} aria-label="Reproducir {{ video.titulo }}">
   <span class="tarjeta-video-thumb">
     <img src="https://i.ytimg.com/vi/{{ video.youtubeId }}/maxresdefault.jpg" alt="{{ video.titulo }}" width="640" height="360" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/{{ video.youtubeId }}/hqdefault.jpg'" onload="if(this.naturalWidth&&this.naturalWidth<=120){this.onload=null;this.src='https://i.ytimg.com/vi/{{ video.youtubeId }}/hqdefault.jpg'}" loading="lazy" decoding="async">
     <span class="tarjeta-video-play">▶</span>

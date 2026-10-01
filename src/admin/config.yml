@@ -569,7 +569,7 @@ collections:
               - { label: "Sinopsis", name: sinopsis, widget: text, required: false, hint: "De qué trata la serie. Se muestra debajo del reproductor y en la página del tráiler." }
               - { label: "Año de lanzamiento", name: anio, widget: number, value_type: int, required: false, min: 2000, max: 2100 }
               - { label: "Texto extra (opcional)", name: descripcion, widget: text, required: false, hint: "Un texto tuyo sobre el video (2 o 3 renglones o más). Es lo que hace que su página pueda aparecer en Google: sin texto propio la página existe pero no se indexa." }
-              - { label: "Canal (opcional)", name: canal, widget: string, required: false, hint: "Dejalo vacío: se toma solo de YouTube." }
+              - { label: "Canal o usuario de YouTube (opcional)", name: canal, widget: string, required: false, hint: "Dejalo VACÍO: el sitio toma solo el canal o usuario real del video desde YouTube y lo muestra junto al título. Completalo solo si querés un nombre distinto." }
               - { label: "Título para Google (SEO)", name: seoTitle, widget: string, required: false, hint: "Opcional. Es el título azul de Google. Si lo dejás vacío se usa el título del video + el nombre del sitio." }
               - { label: "Descripción para Google (SEO)", name: seoDescription, widget: text, required: false, hint: "Opcional. 120 a 155 caracteres. Si la dejás vacía se usa el comienzo del texto de la página." }
               - { label: "Imagen para compartir en redes", name: ogImage, widget: image, required: false, choose_url: false, hint: "Opcional. Ideal 1200×630. Si la dejás vacía se usa la miniatura del video de YouTube." }
