@@ -3,7 +3,7 @@ title: Shelly y Pundao terminan su asociación profesional tras un comunicado de
   Motion Minds
 slug: shelly-pundao-terminan-asociacion-profesional-motion-minds
 date: 2026-10-01
-imagen: /assets/images/noticias/shelly-pundao-motion-minds-comunicado-oficial.jpg
+imagen: /assets/images/noticias/shelly-motion-mindsoficial1.jpg
 resumen: Motion Minds Entertainment publicó un comunicado sobre un
   incumplimiento de acuerdo profesional relacionado con Shelly Phetsai y su
   relación laboral con Pundao Punyabarame
