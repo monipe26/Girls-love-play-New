@@ -1,7 +1,7 @@
 ---
 titulo: Fulfill
 slug: fulfill
-portada: /assets/images/series/Fulfill.jpg
+portada: /assets/images/series/fulfill-1.jpg
 genero: Comedia · Romance
 pais: Tailandia
 episodios: "8"
