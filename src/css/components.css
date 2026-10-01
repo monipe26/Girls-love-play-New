@@ -1035,6 +1035,10 @@ body.modal-actriz-abierto { overflow: hidden; }
 .articulo-pie-foto { font-size: 0.8rem; color: var(--color-texto-sec); margin-top: -4px; margin-bottom: var(--espacio-sm); }
 .articulo-imagen { width: 100%; height: auto; }
 .articulo-autor { font-size: 0.85rem; color: var(--color-texto-sec); margin: 4px 0 0; }
+.articulo-etiquetas { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: var(--espacio-xs) 0 var(--espacio-sm); padding: 0; }
+.articulo-etiqueta { font-size: 0.78rem; padding: 3px 10px; border-radius: var(--radio-pill); background: var(--color-fondo-alt); color: var(--color-primario); border: 1px solid var(--color-borde); }
+.articulo-figura-2 { margin: var(--espacio-md) 0; }
+.articulo-imagen2 { width: 100%; height: auto; border-radius: var(--radio); display: block; margin-bottom: var(--espacio-xs); }
 .articulo-fuente, .articulo-serie-rel { font-size: 0.9rem; margin: var(--espacio-xs) 0; color: var(--color-texto-sec); }
 .articulo-relacionadas { margin: var(--espacio-lg) 0; }
 .articulo-relacionadas h2 { margin-bottom: var(--espacio-sm); }

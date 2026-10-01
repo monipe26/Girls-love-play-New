@@ -18,7 +18,7 @@ eleventyExcludeFromCollections: true
   </nav>
 
   <h1>{{ v.titulo }}</h1>
-  <p class="seccion-sub">{{ v.canal }}{% if v.anio %} · {{ v.anio }}{% endif %}</p>
+  <p class="seccion-sub">{{ v.canal }}{% if v.canal and v.anio %} · {% endif %}{% if v.anio %}{{ v.anio }}{% endif %}</p>
 
   <div class="video-detalle-player">
     <div class="video-wrapper">

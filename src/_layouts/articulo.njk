@@ -25,18 +25,22 @@ ogTipo: articulo
   </p>
   <h1>{{ title }}</h1>
   <p class="articulo-autor">Redactado por: <strong>Girls Love Play</strong></p>
+  {% if etiquetas and etiquetas.length %}
+  <ul class="articulo-etiquetas" aria-label="Etiquetas">
+    {% for e in etiquetas %}{% if e %}<li class="articulo-etiqueta">{{ e }}</li>{% endif %}{% endfor %}
+  </ul>
+  {% endif %}
   <div class="articulo-cuerpo">
     {{ content | safe }}
   </div>
-  {% if fuenteNombre %}
-  <p class="articulo-fuente">Fuente: {% if fuenteUrl %}<a href="{{ fuenteUrl }}" target="_blank" rel="noopener nofollow">{{ fuenteNombre }}</a>{% else %}{{ fuenteNombre }}{% endif %}</p>
+  {% if imagen2 %}
+  {%- set _dim2 = imagen2 | imgSize -%}
+  <figure class="articulo-figura articulo-figura-2">
+    <img src="{{ imagen2 }}" alt="{{ imagen2Alt or title }}" width="{{ _dim2.w if _dim2 else 800 }}" height="{{ _dim2.h if _dim2 else 450 }}" class="articulo-imagen2" loading="lazy" decoding="async">
+    {% if imagen2Pie %}<figcaption class="articulo-pie-foto">{{ imagen2Pie }}</figcaption>{% endif %}
+  </figure>
   {% endif %}
-  {% if serieRelacionada %}
-    {% for s in seriesTv %}{% if s.slug == serieRelacionada %}
-  <p class="articulo-serie-rel">🎬 Serie relacionada: <a href="/series-gl/{{ s.slug }}/">{{ s.titulo }} ({{ s.anio }})</a></p>
-    {% endif %}{% endfor %}
-  {% endif %}
-  {# El tráiler va al FINAL de la noticia, después de todo el texto #}
+  {# Orden: texto → segunda imagen → video → fuente y serie relacionada #}
   {% if trailer %}
   <div class="articulo-trailer">
     <p class="articulo-trailer-titulo">▶️ Mirá el tráiler</p>
@@ -47,6 +51,14 @@ ogTipo: articulo
       <span class="comunidad-video-play" aria-hidden="true">▶</span>
     </button>
   </div>
+  {% endif %}
+  {% if fuenteNombre %}
+  <p class="articulo-fuente">Fuente: {% if fuenteUrl %}<a href="{{ fuenteUrl }}" target="_blank" rel="noopener nofollow">{{ fuenteNombre }}</a>{% else %}{{ fuenteNombre }}{% endif %}</p>
+  {% endif %}
+  {% if serieRelacionada %}
+    {% for s in seriesTv %}{% if s.slug == serieRelacionada %}
+  <p class="articulo-serie-rel">🎬 Serie relacionada: <a href="/series-gl/{{ s.slug }}/">{{ s.titulo }} ({{ s.anio }})</a></p>
+    {% endif %}{% endfor %}
   {% endif %}
   {# Botones para compartir la nota (WhatsApp, Facebook, X, Telegram, copiar link) #}
   {%- set _urlNota = page.url | absoluteUrl -%}

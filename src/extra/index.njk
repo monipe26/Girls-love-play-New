@@ -16,7 +16,7 @@ permalink: "{{ '/extra/' if pagination.pageNumber == 0 else '/extra/' + (paginat
     <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/{{ extrasGl[0].youtubeId }}" title="{{ extrasGl[0].titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>
-    <p class="reproductor-titulo">Reproduciendo ahora: {{ extrasGl[0].titulo }}</p>
+    <p class="reproductor-titulo">Reproduciendo ahora: {{ extrasGl[0].titulo }}{% if extrasGl[0].canal %} · {{ extrasGl[0].canal }}{% endif %}</p>
   </section>
 
   <div class="grid-tarjetas grid-2">

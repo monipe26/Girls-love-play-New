@@ -126,6 +126,7 @@ function obtenerListaVideosDeLaGrilla() {
     return {
       id: tarjeta.dataset.youtubeId,
       titulo: tituloEl ? tituloEl.textContent : "Video",
+      canal: tarjeta.dataset.canal || "",
       sinopsis: tarjeta.dataset.sinopsis || "",
     };
   });
@@ -148,7 +149,7 @@ function alTerminarElVideo(idQueTermino) {
   if (!siguiente || !reproductorYtActivo) return;
   reproductorYtActivo.loadVideoById(siguiente.id);
   if (reproductorPrincipalTitulo) {
-    reproductorPrincipalTitulo.textContent = `Reproduciendo ahora: ${siguiente.titulo}`;
+    reproductorPrincipalTitulo.textContent = `Reproduciendo ahora: ${siguiente.titulo}${siguiente.canal ? " · " + siguiente.canal : ""}`;
   }
   mostrarSinopsisPrincipal(siguiente.sinopsis);
 }
@@ -215,7 +216,7 @@ document.querySelectorAll(".tarjeta-video").forEach((tarjeta) => {
 
     if (reproductorPrincipalWrapper) {
       cargarVideoPrincipal(id, titulo, true);
-      if (reproductorPrincipalTitulo) reproductorPrincipalTitulo.textContent = `Reproduciendo ahora: ${titulo}`;
+      if (reproductorPrincipalTitulo) reproductorPrincipalTitulo.textContent = `Reproduciendo ahora: ${titulo}${tarjeta.dataset.canal ? " · " + tarjeta.dataset.canal : ""}`;
       mostrarSinopsisPrincipal(tarjeta.dataset.sinopsis);
       reproductorPrincipalSeccion.scrollIntoView({ behavior: "smooth", block: "start" });
       return;

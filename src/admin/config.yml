@@ -77,6 +77,14 @@ collections:
         required: false
         pattern: ["^.{50,200}$", "Entre 50 y 200 caracteres (ideal 120 a 155)."]
         hint: "Es lo que Google muestra debajo del título. Opcional: si la dejás vacía se usa el resumen de la tarjeta. Ideal: 120 a 155 caracteres."
+      - label: "Etiquetas (hasta 3)"
+        name: etiquetas
+        widget: list
+        required: false
+        max: 3
+        add_to_top: false
+        field: { label: "Etiqueta", name: etiqueta, widget: string }
+        hint: "Opcional. Hasta 3 palabras o frases cortas. Ejemplo: Lingling, GMMTV, Estreno. Se ven debajo del título de la nota."
       - label: "Video de YouTube (solo ID)"
         name: trailer
         widget: string
@@ -89,6 +97,14 @@ collections:
         buttons: ["bold", "italic", "link", "heading-two", "heading-three", "quote", "bulleted-list", "numbered-list"]
         editor_components: ["image"]
         hint: "Dejá el interruptor en «Texto enriquecido». Usá Título 2 (H2) para las secciones grandes y Título 3 (H3) para subsecciones. El título de la noticia ya es el H1: no lo repitas acá. Para poner una imagen dentro del texto: tocá el «+» que aparece en una línea vacía y elegí «Image»."
+      - label: "Segunda imagen (al final del texto)"
+        name: imagen2
+        widget: image
+        required: false
+        choose_url: false
+        hint: "Opcional. Se muestra justo después del texto de la nota y antes del video. Formato horizontal, ideal 1200 px de ancho."
+      - { label: "Texto alternativo de la segunda imagen (ALT)", name: imagen2Alt, widget: string, required: false, hint: "Opcional. Describí lo que se ve en la segunda imagen. Si lo dejás vacío se usa el título de la nota." }
+      - { label: "Pie de foto / crédito de la segunda imagen", name: imagen2Pie, widget: string, required: false, hint: "Opcional. Aparece debajo de la segunda imagen. Ejemplo: Foto: GMMTV." }
       - { label: "Texto alternativo de la imagen (ALT)", name: imagenAlt, widget: string, required: false, hint: "Opcional. Describí lo que se ve en la imagen. Si lo dejás vacío se usa el título." }
       - { label: "Pie de foto / crédito", name: imagenPie, widget: string, required: false, hint: "Opcional. Aparece debajo de la imagen destacada. Ejemplo: Foto: GMMTV." }
       - { label: "Fuente (nombre)", name: fuenteNombre, widget: string, required: false, hint: "Opcional. Ejemplo: Comunicado oficial de Copy A Bangkok." }
@@ -198,6 +214,14 @@ collections:
         required: false
         pattern: ["^.{50,200}$", "Entre 50 y 200 caracteres (ideal 120 a 155)."]
         hint: "Es lo que Google muestra debajo del título. Opcional: si la dejás vacía se usa el resumen de la tarjeta. Ideal: 120 a 155 caracteres."
+      - label: "Etiquetas (hasta 3)"
+        name: etiquetas
+        widget: list
+        required: false
+        max: 3
+        add_to_top: false
+        field: { label: "Etiqueta", name: etiqueta, widget: string }
+        hint: "Opcional. Hasta 3 palabras o frases cortas. Ejemplo: Lingling, GMMTV, Estreno. Se ven debajo del título de la nota."
       - label: "Video de YouTube (solo ID)"
         name: trailer
         widget: string
@@ -210,6 +234,14 @@ collections:
         buttons: ["bold", "italic", "link", "heading-two", "heading-three", "quote", "bulleted-list", "numbered-list"]
         editor_components: ["image"]
         hint: "Dejá el interruptor en «Texto enriquecido». Usá Título 2 (H2) para las secciones grandes y Título 3 (H3) para subsecciones. El título de la noticia ya es el H1: no lo repitas acá. Para poner una imagen dentro del texto: tocá el «+» que aparece en una línea vacía y elegí «Image»."
+      - label: "Segunda imagen (al final del texto)"
+        name: imagen2
+        widget: image
+        required: false
+        choose_url: false
+        hint: "Opcional. Se muestra justo después del texto de la nota y antes del video. Formato horizontal, ideal 1200 px de ancho."
+      - { label: "Texto alternativo de la segunda imagen (ALT)", name: imagen2Alt, widget: string, required: false, hint: "Opcional. Describí lo que se ve en la segunda imagen. Si lo dejás vacío se usa el título de la nota." }
+      - { label: "Pie de foto / crédito de la segunda imagen", name: imagen2Pie, widget: string, required: false, hint: "Opcional. Aparece debajo de la segunda imagen. Ejemplo: Foto: GMMTV." }
       - { label: "Texto alternativo de la imagen (ALT)", name: imagenAlt, widget: string, required: false, hint: "Opcional. Describí lo que se ve en la imagen. Si lo dejás vacío se usa el título." }
       - { label: "Pie de foto / crédito", name: imagenPie, widget: string, required: false, hint: "Opcional. Aparece debajo de la imagen destacada. Ejemplo: Foto: GMMTV." }
       - { label: "Fuente (nombre)", name: fuenteNombre, widget: string, required: false, hint: "Opcional. Ejemplo: Comunicado oficial de Copy A Bangkok." }
@@ -505,7 +537,7 @@ collections:
                 pattern: ["^[a-z0-9]+(-[a-z0-9]+)*$", "Solo minúsculas, números y guiones. Sin espacios, tildes ni ñ."]
                 hint: "Ejemplo: entrevista-lina-mew → girlsloveplay.com/extra/entrevista-lina-mew/. ⚠️ Si lo cambiás en un video ya publicado, cambia su dirección web: avisame para agregar la redirección."
               - { label: "Descripción propia (recomendado para SEO)", name: descripcion, widget: text, required: false, hint: "Un texto tuyo sobre el video (2 o 3 renglones o más). Es lo que hace que su página pueda aparecer en Google: sin texto propio la página existe pero no se indexa." }
-              - { label: "Canal (opcional)", name: canal, widget: string, required: false, hint: "Dejalo vacío: se toma solo de YouTube." }
+              - { label: "Canal o usuario de YouTube (opcional)", name: canal, widget: string, required: false, hint: "Dejalo VACÍO: el sitio toma solo el canal o usuario real del video desde YouTube y lo muestra junto al título. Completalo solo si querés un nombre distinto." }
               - { label: "Título para Google (SEO)", name: seoTitle, widget: string, required: false, hint: "Opcional. Es el título azul de Google. Si lo dejás vacío se usa el título del video + el nombre del sitio." }
               - { label: "Descripción para Google (SEO)", name: seoDescription, widget: text, required: false, hint: "Opcional. 120 a 155 caracteres. Si la dejás vacía se usa el comienzo del texto de la página." }
               - { label: "Imagen para compartir en redes", name: ogImage, widget: image, required: false, choose_url: false, hint: "Opcional. Ideal 1200×630. Si la dejás vacía se usa la miniatura del video de YouTube." }
