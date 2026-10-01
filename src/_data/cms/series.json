@@ -1,6 +1,18 @@
 {
   "items": [
     {
+      "titulo": "The Only Light (2026)",
+      "anio": 2026,
+      "genero": "Romance",
+      "portada": "/assets/images/series/the-only-light.png",
+      "videos": [
+        "pztzodmZUv8",
+        "evFRKeh_3eg"
+      ],
+      "sinopsis": "La historia sigue a Fah, una joven que atrae la atención de quienes la rodean, aunque las personas de su entorno terminan complicando su camino en el amor.",
+      "slug": "the-only-light"
+    },
+    {
       "titulo": "The Secret Of Girls",
       "slug": "the-secret-of-girls-luminat",
       "anio": 2026,
