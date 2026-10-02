@@ -17,6 +17,6 @@ module.exports = {
     "https://ko-fi.com/girlsloveplay"
   ],
   // Serie que se muestra en "Serie destacada" del sidebar (slug). Si está vacío o no existe, se usa la más nueva con sinopsis.
-  serieDestacada: "third-person",
+  serieDestacada: "",
   anioActual: new Date().getFullYear()
 };
