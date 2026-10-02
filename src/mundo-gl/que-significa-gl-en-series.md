@@ -1,20 +1,23 @@
 ---
-title: "¿Qué significa GL en series? Qué es Girls Love y cómo se usa el término"
+title: ¿Qué significa GL en series? Qué es Girls Love y cómo se usa el término
 slug: que-significa-gl-en-series
 date: 2026-10-02
 imagen: /assets/images/mundo-gl/que-significa-gl-en-series-girls-love.jpg
-resumen: "GL significa Girls’ Love y es una expresión utilizada para hablar de historias centradas en relaciones entre mujeres. Te explicamos qué significa la sigla, qué tipo de series engloba, cómo se relaciona con yuri y BL y por qué el término aparece cada vez más en el mundo de las series asiáticas."
-description: "¿Qué significa GL en series? Descubre qué es Girls Love, qué historias engloba, cómo se relaciona con yuri y BL y por qué el término es tan usado."
-imagenAlt: "Escena de una serie Girls Love protagonizada por dos mujeres"
-imagenPie: ""
+resumen: ¿Qué significa GL? Te explicamos qué es Girls’ Love, qué historias
+  engloba, su relación con el yuri y el BL y por qué el término gana presencia
+  en las series asiáticas.
+description: ¿Qué significa GL en series? Descubre qué es Girls Love, qué
+  historias engloba, cómo se relaciona con yuri y BL y por qué el término es tan
+  usado.
 etiquetas:
   - GL
   - Girls Love
   - Mundo GL
+imagenAlt: Escena de una serie Girls Love protagonizada por dos mujeres
+imagenPie: ""
 serieRelacionada: ""
 focoCarrusel: center 30%
 ---
-
 Si alguna vez buscaste una serie asiática y encontraste las siglas GL, probablemente te preguntaste qué significan. GL es la abreviatura de Girls’ Love, una expresión utilizada para identificar historias de ficción centradas en relaciones románticas o afectivas entre mujeres.
 
 El término aparece actualmente en series, dramas, anime, manga y otras producciones, especialmente dentro de la cultura pop asiática. Y aunque Tailandia se convirtió en uno de los grandes referentes del GL contemporáneo, el fenómeno no nació allí ni se limita a un solo país.
@@ -25,7 +28,7 @@ GL significa Girls’ Love, que puede traducirse como “amor entre chicas” o 
 
 En el contexto de las series, se utiliza principalmente para hablar de historias en las que la relación entre personajes femeninos ocupa un lugar central en la trama. Puede tratarse de un romance, de una historia de descubrimiento de sentimientos o de una relación que se desarrolla a lo largo de la serie.
 
-Por eso, que una producción sea etiquetada como GL no significa que simplemente tenga un personaje lesbiano o bisexual. En general, el vínculo entre las protagonistas forma parte importante de la historia.
+Por eso, que una producción sea etiquetada como GL no significa simplemente que incluya representación lésbica o bisexual. En general, el vínculo entre las protagonistas forma parte importante de la historia.
 
 El término también puede aparecer escrito como Girls Love o Girls’ Love, mientras que GL funciona como su abreviatura.
 
@@ -81,7 +84,7 @@ No existe una frontera universal que obligue a clasificar cada obra exclusivamen
 
 Por eso, una misma serie puede aparecer descrita como GL en un sitio y como yuri en otro sin que necesariamente exista una contradicción.
 
-En Girls Love Play explicamos con más detalle cómo se relacionan ambos términos y por qué su diferencia depende en buena medida del contexto: puedes leer [la diferencia entre yuri y Girls’ Love](/mundo-gl/yuri-y-girls-love-son-lo-mismo/).
+En Girls Love Play explicamos con más detalle cómo se relacionan ambos términos y por qué su diferencia depende en buena medida del contexto: puedes leer** [la diferencia entre yuri y Girls’ Love](/mundo-gl/yuri-y-girls-love-son-lo-mismo/).**
 
 ## ¿Cuál es la diferencia entre GL y BL?
 
