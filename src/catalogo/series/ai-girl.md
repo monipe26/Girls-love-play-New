@@ -17,7 +17,31 @@ sinopsis: >-
 
 
   Ahora, con este hermoso robot a su lado, divertido, coqueto, juguetón y sensual, Gen termina completamente cautivada por ella. Incapaz de separarse de su nueva compañía, decide quedársela y le da un nombre: Ai.
-director: " James Thanpisit Jiradechakul"
+director: "Thanpisit Jiradechakul (James)"
+reparto:
+  - actriz: "Khawisara Singplod"
+    apodo: "Myyu"
+    personaje: "Gen"
+  - actriz: "Duval Amarit"
+    apodo: "Chanya"
+    personaje: "Ai"
+  - actriz: "Thitipong Sangngey"
+    apodo: "Fort"
+    personaje: "Phukhao"
+  - actriz: "Nuttharinpon Prommin"
+    apodo: "In"
+    personaje: "Kai"
+  - actriz: "Satida Pinsinchai"
+    apodo: "Aim"
+    personaje: "Ploy"
+  - actriz: "Namthip Siamthong"
+    personaje: "madre de Gen"
+  - actriz: "Thanathip Srithongsuk"
+    apodo: "Bank"
+    personaje: "investigador"
+  - actriz: "Chonlathorn Tangamornrat"
+    apodo: "Warm"
+    personaje: "investigador"
 compania: Me Mind Y
 trailer: https://www.youtube.com/watch?v=HBi2dQGsuJw
 agregada: 2026-09-01T11:50:00.000Z

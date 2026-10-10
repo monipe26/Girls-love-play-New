@@ -1,0 +1,62 @@
+---
+titulo: "Like a Palette"
+slug: "like-a-palette"
+agregada: "2026-10-11T12:00:00.000-03:00"
+portada: "/assets/images/series/Like-a-Palette.jpg"
+genero: "Comedia · Romance"
+pais: "Tailandia"
+episodios: "8"
+cadena: "Channel 3, WeTV"
+fechaEmision: "29-11-2025"
+sinopsis: >-
+  Jane llega a la universidad sin imaginar que terminará acaparando todas las
+  miradas en la Facultad de Bellas Artes. Su inesperada popularidad la acerca a
+  Dai, la antigua estrella del campus, quien ahora tiene la tarea de guiarla
+  como mentora. Sin embargo, las miradas insistentes de Dai y una cercanía cada
+  vez más especial empiezan a despertar algo entre ellas. Lo que al principio
+  parece una relación llena de situaciones incómodas pronto se transforma en una
+  conexión que ninguna de las dos sabe cómo explicar.
+libro: "Adaptado de la novela \"Like a Palette: All Eyes on Jane\", escrita por Zezeho."
+reparto:
+  - actriz: "Alicha Sripratak"
+    apodo: "Thongfah"
+    personaje: "Jane"
+  - actriz: "Sureeyares Yakares"
+    apodo: "Prigkhing"
+    personaje: "Dai"
+  - actriz: "Chanyapuk Numprasop"
+    apodo: "New"
+    personaje: "Cake"
+  - actriz: "Pim Khajonvekin"
+    personaje: "Wai"
+  - actriz: "Manipa Roopanya"
+    apodo: "Khamin"
+    personaje: "King"
+  - actriz: "Teerasak Puntujariya"
+    apodo: "Ko"
+    personaje: "Erika"
+  - actriz: "Sethanun Pornvoravanich"
+    apodo: "Mic"
+    personaje: "Jimmy"
+  - actriz: "Supanut Pornvoravanich"
+    apodo: "Mac"
+    personaje: "Junior"
+  - actriz: "Nitigorn Leearamwat"
+    apodo: "Pok"
+    personaje: "Tim"
+  - actriz: "Kittawat Chaodee"
+    apodo: "Llouis"
+    personaje: "Rong"
+  - actriz: "Natthavat Trisomboon"
+    apodo: "Tango"
+    personaje: "Champ"
+  - actriz: "Amornrat Charoenpornrungsakul"
+    apodo: "Kunying"
+    personaje: "Yuphin"
+  - actriz: "Vimpolphan Chaleejunghran"
+    apodo: "Jubjang"
+    personaje: "Nongnaphat"
+director: "Adsajun Sattagovit"
+compania: "WonderLife Entertainment"
+trailer: "_c1nRLiUaJU"
+---
