@@ -1,6 +1,17 @@
 {
   "items": [
     {
+      "titulo": "Fairway of Love",
+      "slug": "fairway-of-love",
+      "anio": 2026,
+      "genero": "Romance",
+      "sinopsis": "Nana regresa de Europa para salvar el campo de golf de su padre. Allí conoce a Pro Vee, un instructor exigente con quien surgirá una inesperada conexión.",
+      "portada": "/assets/images/series/fairway-of-love.jpg",
+      "videos": [
+        "G5wvt3vFprE"
+      ]
+    },
+    {
       "titulo": "The Only Light",
       "anio": 2026,
       "genero": "Romance",
@@ -137,17 +148,6 @@
         "umM5nOLlY2s",
         "tv-FbcKn5GU",
         "DHTjBWPRdjw"
-      ]
-    },
-    {
-      "titulo": "Deep Secret",
-      "slug": "deep-secret",
-      "anio": 2026,
-      "genero": "Romance",
-      "sinopsis": "La pareja de streamers Yeong Heun y Lee Jeong emprende una emocionante, intensa e inolvidable aventura juntas.",
-      "portada": "/assets/images/series/deep-secret-1.jpg",
-      "videos": [
-        "QkhIgFWFBNY"
       ]
     },
     {
