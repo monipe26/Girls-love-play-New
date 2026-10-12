@@ -1,10 +1,13 @@
 ---
 title: "OXYTOXIN: la serie GL de GMMTV termina su rodaje"
-slug: "oxytoxin-serie-gl-gmmtv-finaliza-rodaje"
-date: 2026-10-13
-imagen: "/assets/images/noticias/oxytoxin-serie-gl-gmmtv-finaliza-rodaje.jpg"
-resumen: "OXYTOXIN, la nueva serie GL de GMMTV protagonizada por Waifha, Tonkhaw, Benz, Yogurt y Pang, completó su rodaje. Conocé de qué trata y qué se sabe sobre su estreno."
-seoDescription: "OXYTOXIN, la nueva serie GL tailandesa de GMMTV, finalizó su rodaje. Conocé a sus protagonistas, la trama y las novedades sobre su estreno."
+slug: oxytoxin-serie-gl-gmmtv-finaliza-rodaje
+date: 2026-10-12
+imagen: /assets/images/noticias/oxytoxin-serie-gl-gmmtv-finaliza-rodaje.jpg
+resumen: OXYTOXIN, la nueva serie GL de GMMTV protagonizada por Waifha, Tonkhaw,
+  Benz, Yogurt y Pang, completó su rodaje. Conocé de qué trata y qué se sabe
+  sobre su estreno.
+seoDescription: OXYTOXIN, la nueva serie GL tailandesa de GMMTV, finalizó su
+  rodaje. Conocé a sus protagonistas, la trama y las novedades sobre su estreno.
 ---
 
 La próxima producción Girls’ Love de Tailandia concluyó su etapa de grabaciones. Con cinco protagonistas y una trama que explora las apariencias y los conflictos personales, la serie comienza a acercarse a su lanzamiento.
