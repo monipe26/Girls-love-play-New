@@ -1,3 +1,26 @@
+// ---- Estadísticas de la app instalada (Google Analytics) ----
+// Manda eventos a GA4 para saber cuánta gente instala la app y cuánta la abre desde el ícono.
+function rastrear(nombre, datos) {
+  try { if (typeof gtag === "function") gtag("event", nombre, datos || {}); } catch (e) {}
+}
+
+(function () {
+  const abiertaComoApp = window.navigator.standalone === true || window.matchMedia("(display-mode: standalone)").matches;
+  try {
+    if (typeof gtag === "function") {
+      // Propiedad de usuario: permite separar en GA4 a quienes usan la app instalada
+      gtag("set", "user_properties", { modo_visita: abiertaComoApp ? "app_instalada" : "navegador" });
+    }
+  } catch (e) {}
+  if (!abiertaComoApp) return;
+  // Un solo evento por sesión (no uno por cada página que abre)
+  let yaContada = false;
+  try { yaContada = sessionStorage.getItem("glp-app-contada") === "1"; } catch (e) {}
+  if (yaContada) return;
+  try { sessionStorage.setItem("glp-app-contada", "1"); } catch (e) {}
+  rastrear("pwa_abierta_como_app", { modo: "standalone" });
+})();
+
 // Registrar el Service Worker
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
@@ -20,7 +43,8 @@ window.addEventListener("beforeinstallprompt", (evento) => {
     btnInstalar.addEventListener("click", async () => {
       if (!eventoInstalacion) return;
       eventoInstalacion.prompt();
-      await eventoInstalacion.userChoice;
+      const eleccion = await eventoInstalacion.userChoice;
+      rastrear(eleccion && eleccion.outcome === "accepted" ? "pwa_instalar_aceptado" : "pwa_instalar_rechazado", { origen: "boton" });
       eventoInstalacion = null;
       btnInstalar.hidden = true;
     });
@@ -29,6 +53,7 @@ window.addEventListener("beforeinstallprompt", (evento) => {
 
 // Si ya está instalada, ocultamos cualquier aviso de instalación
 window.addEventListener("appinstalled", () => {
+  rastrear("pwa_instalada");
   const btnInstalar = document.querySelector("#btn-instalar-app");
   if (btnInstalar) btnInstalar.hidden = true;
 });
@@ -77,7 +102,8 @@ window.addEventListener("appinstalled", () => {
     evento.preventDefault();
     btn.onclick = async () => {
       evento.prompt();
-      await evento.userChoice;
+      const eleccion = await evento.userChoice;
+      rastrear(eleccion && eleccion.outcome === "accepted" ? "pwa_instalar_aceptado" : "pwa_instalar_rechazado", { origen: "barra" });
       ocultar();
     };
     mostrar();

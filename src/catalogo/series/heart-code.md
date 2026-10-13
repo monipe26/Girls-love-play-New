@@ -16,7 +16,37 @@ sinopsis: >-
 
 
   Mientras se acercan, una serie de secretos y un asesinato que permanecía oculto salen a la luz. La situación se complica aún más al descubrir que sus familias están vinculadas por una tragedia que podría poner a prueba el amor que ha nacido entre ellas.
-director: " Nui Suttasit Dechinthanarak"
+reparto:
+  - actriz: "Pattaravadee Laosa"
+    apodo: "Tungpang"
+    personaje: "Thara"
+  - actriz: "Natsiya Prommart"
+    apodo: "Jessie"
+    personaje: "Vicky"
+  - actriz: "Surat Rungputtikul"
+    apodo: "Boy"
+    personaje: "Bawornthat"
+  - actriz: "Trin Settachoke"
+    personaje: "Phakphum"
+  - actriz: "Phatthara Cheaujamporn"
+    apodo: "Fluke"
+    personaje: "X"
+  - actriz: "Paythai Ploymeeka"
+    apodo: "Phe"
+    personaje: "Ken"
+  - actriz: "Thanut Jiraratchakit"
+    apodo: "Boom"
+    personaje: "Pete"
+  - actriz: "Weerachai Hattakovit"
+    apodo: "Ae"
+    personaje: "Padre de Thara"
+  - actriz: "Kwanrudee Klomklorm"
+    apodo: "Kwan"
+    personaje: "Madre de Thara"
+  - actriz: "Athiwad Sanidwong Na Ayoodthayaa"
+    apodo: "Ton"
+    personaje: "Burin"
+director: "Nui Suttasit Dechinthanarak"
 compania: Monomax
 trailer: e_7FfaztBEE
 agregada: 2026-10-01T16:17:00.000-03:00
