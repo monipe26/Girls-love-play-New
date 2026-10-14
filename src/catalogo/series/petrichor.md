@@ -1,0 +1,83 @@
+---
+titulo: "Petrichor"
+slug: "petrichor"
+agregada: "2026-10-14T12:02:00.000-03:00"
+portada: "/assets/images/series/Petrichor.jpg"
+genero: "Misterio · Romance"
+pais: "Tailandia"
+episodios: "10"
+cadena: "iQIYI, One 31"
+fechaEmision: "23-11-2024"
+sinopsis: >-
+  Tul, una joven teniente que acaba de incorporarse al Departamento de
+  Investigación Criminal, se enfrenta a los desafíos de su primera misión de
+  campo cuando conoce a la doctora Cherran, médica del Instituto de Ciencias
+  Forenses. Sus diferentes métodos de trabajo generan tensiones entre ambas,
+  pero el análisis conjunto de las pruebas las lleva poco a poco a construir una
+  relación de confianza.
+
+  En una sociedad marcada por las presiones sociales y un sistema que favorece a
+  los poderosos, Tul se mantiene firme en su compromiso con la justicia. Junto a
+  Cherran, trabaja para identificar a los responsables, proteger a los inocentes
+  y conseguir que las familias de las víctimas obtengan la justicia que merecen.
+libro: "Adaptado de la novela \"Petrichor: Rust in the Rain\", escrita por SixTeenSeven."
+reparto:
+  - actriz: "Charlotte Austin"
+    personaje: "Cherran"
+  - actriz: "Engfa Waraha"
+    personaje: "Tul"
+  - actriz: "Malin Sae-lim"
+    apodo: "Lin"
+    personaje: "May"
+  - actriz: "Rina Chatamonchai"
+    apodo: "Meena"
+    personaje: "Jiu"
+  - actriz: "Naphat Vikairungroj"
+    apodo: "Na"
+    personaje: "Tin"
+  - actriz: "Nattapol Diloknawarit"
+    apodo: "Max"
+    personaje: "Kawan"
+  - actriz: "Kawiyanat Herrmann"
+    apodo: "Nachad"
+    personaje: "Thiwa"
+  - actriz: "Khomkrit Duangsuwan"
+    apodo: "Parn"
+    personaje: "Daensiam"
+  - actriz: "Jackrin Kungwankiatichai"
+    apodo: "Jackie"
+    personaje: "Rueangrit"
+  - actriz: "Rathavit Kijworalak"
+    apodo: "Plan"
+    personaje: "Jay"
+  - actriz: "Akarin Akaranithimetrad"
+    apodo: "Joke"
+    personaje: "Wisut"
+  - actriz: "Tha Thep Chaichanbutr"
+    apodo: "Dave"
+    personaje: "Phichet"
+  - actriz: "Kittiphong Dumaviphat"
+    apodo: "Kroi"
+    personaje: "Rak"
+  - actriz: "Athiwad Sanidwong Na Ayoodthayaa"
+    apodo: "Ton"
+    personaje: "Tech"
+  - actriz: "Naphat Chalermphonphakdee"
+    apodo: "Inntouch"
+    personaje: "Athit"
+  - actriz: "Pruet Nakprad"
+    apodo: "Pluto"
+    personaje: "Phu"
+  - actriz: "Thakrit Patthanaworakit"
+    apodo: "Aomstin"
+    personaje: "Techin"
+  - actriz: "Jirayu Aungvanich"
+    apodo: "Film"
+    personaje: "Wasan"
+  - actriz: "Nathaphop Kanjanteak"
+    apodo: "Atom"
+    personaje: "Pokpong"
+director: "Pannares Ruchirananta (Poy) / Pongsatorn Thongjaroen (Not)"
+compania: "TV Thunder"
+trailer: "8_2YiYGvkR8"
+---
