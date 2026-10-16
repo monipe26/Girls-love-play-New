@@ -4,7 +4,7 @@
       "portada": "/assets/images/series/chasing-llove.jpg",
       "sinopsis": "Song, una científica reservada, vive un romance inesperado con la hija de su jefe. Una serie sobre tres mujeres que huyen del amor y otras tres que luchan por él.",
       "genero": "Romance / Drama",
-      "anio": 2024,
+      "anio": 2026,
       "titulo": " Chasing Love ",
       "slug": "chasing-love",
       "videos": [
@@ -2585,7 +2585,8 @@
       "portada": "/assets/images/series/she-makes-my-heart-flutter.jpg",
       "videos": [
         "2sv4uX1wWRs"
-      ]
+      ],
+      "slug": "she-makes-my-heart-flutter"
     },
     {
       "titulo": "Love of Secret",
@@ -2595,7 +2596,8 @@
       "portada": "/assets/images/series/love-of-secret.jpg",
       "videos": [
         "g40fx3vnUBw"
-      ]
+      ],
+      "slug": "love-of-secret"
     },
     {
       "titulo": "My Fairy Ghost",
@@ -2603,7 +2605,8 @@
       "genero": "Romance · Drama",
       "sinopsis": "Riko, una novelista bloqueada, se enamora de Kei, el fantasma de una pintora atrapada entre el amor y la despedida.",
       "portada": "/assets/images/series/my-fairy-ghost.jpg",
-      "playlist": "PLyqngFOTdamAXFE9oFKVflhYaYCM75hRU"
+      "playlist": "PLyqngFOTdamAXFE9oFKVflhYaYCM75hRU",
+      "slug": "my-fairy-ghost"
     },
     {
       "titulo": "Sorry My Friend",
@@ -2614,7 +2617,8 @@
       "videos": [
         "1C_q9XV5GUU",
         "e4Sreb8Cpw8"
-      ]
+      ],
+      "slug": "sorry-my-friend"
     },
     {
       "titulo": "Out of Breath",
@@ -2624,7 +2628,8 @@
       "portada": "/assets/images/series/out-of-breath.jpg",
       "videos": [
         "DUGblEoORXI"
-      ]
+      ],
+      "slug": "out-of-breath"
     },
     {
       "titulo": "Am I The Only One With Butterflies",
@@ -2632,7 +2637,8 @@
       "genero": "Romance",
       "sinopsis": "El primer día de trabajo la conoció y, desde entonces, siente mariposas por su jefa. ¿Será la única que siente esta emoción?",
       "portada": "/assets/images/series/am-i-the-only-one-with-butterflies.jpg",
-      "playlist": "PLNEeUHmc7hsAGhHF7ej87nzM_egZN7fYR"
+      "playlist": "PLNEeUHmc7hsAGhHF7ej87nzM_egZN7fYR",
+      "slug": "am-i-the-only-one-with-butterflies"
     }
   ]
 }
