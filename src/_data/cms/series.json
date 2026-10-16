@@ -1,6 +1,17 @@
 {
   "items": [
     {
+      "portada": "/assets/images/series/chasing-llove.jpg",
+      "sinopsis": "Song, una científica reservada, vive un romance inesperado con la hija de su jefe. Una serie sobre tres mujeres que huyen del amor y otras tres que luchan por él.",
+      "genero": "Romance / Drama",
+      "anio": 2024,
+      "titulo": " Chasing Love ",
+      "slug": "chasing-love",
+      "videos": [
+        "VIll6OZKxwQ"
+      ]
+    },
+    {
       "titulo": "Fairway of Love",
       "slug": "fairway-of-love",
       "anio": 2026,
