@@ -1,0 +1,92 @@
+<aside class="sidebar" aria-label="Barra lateral">
+
+  {% include "widget-calendario.njk" %}
+
+  {# Publicidad: la imagen y el enlace se cambian desde el panel (Publicidad) #}
+  {% if publicidad.activa and publicidad.imagen %}
+  <section class="widget-publicidad">
+    <h2>Publicidad</h2>
+    {% if publicidad.enlace %}<a href="{{ publicidad.enlace }}" class="anuncio-imagen" aria-label="{{ publicidad.alt }}">{% else %}<div class="anuncio-imagen">{% endif %}
+      <img src="{{ publicidad.imagen }}" alt="{{ publicidad.alt }}" width="300" height="250" loading="lazy" decoding="async">
+    {% if publicidad.enlace %}</a>{% else %}</div>{% endif %}
+  </section>
+  {% endif %}
+
+  {# Serie destacada: la ÚLTIMA que subiste a series.json. El panel agrega las series nuevas arriba de todo,
+     así que se toma la primera de la lista (la primera que tenga sinopsis). Ya no depende del año. #}
+  {% set _conSinopsis = seriesTv | selectattr("sinopsis") %}
+  {% set ultimaSerie = (_conSinopsis | first) or (seriesTv | first) %}
+  {% for _s in seriesTv %}{% if _s.slug == site.serieDestacada %}{% set ultimaSerie = _s %}{% endif %}{% endfor %}
+  {% if ultimaSerie.videos and ultimaSerie.videos.length %}{% set miniaturaId = ultimaSerie.videos[0] %}
+  {% elif ultimaSerie.youtubeId %}{% set miniaturaId = ultimaSerie.youtubeId %}
+  {% else %}{% set miniaturaId = "" %}{% endif %}
+  <div class="tarjeta-destacada">
+    <a href="/series-gl/{{ (ultimaSerie.slug or ultimaSerie.titulo) | slugify }}/" class="tarjeta-destacada-video" aria-label="Ver {{ ultimaSerie.titulo }} en Series">
+      {# Las playlists de YouTube no tienen miniatura propia: en ese caso se usa la portada #}
+      <img src="{% if miniaturaId %}https://i.ytimg.com/vi/{{ miniaturaId }}/maxresdefault.jpg{% else %}{{ ultimaSerie.portada }}{% endif %}" alt="" width="640" height="360" loading="lazy"{% if miniaturaId %} onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/{{ miniaturaId }}/hqdefault.jpg'" onload="if(this.naturalWidth&&this.naturalWidth<=120){this.onload=null;this.src='https://i.ytimg.com/vi/{{ miniaturaId }}/hqdefault.jpg'}"{% endif %}>
+      <span class="comunidad-video-play" aria-hidden="true">▶</span>
+    </a>
+    <div class="tarjeta-destacada-info">
+      <span class="badge badge-rosa">Series</span>
+      <h3>{{ ultimaSerie.titulo }} ({{ ultimaSerie.anio }})</h3>
+      {# Fragmento de la sinopsis; si la serie todavía no la tiene, un texto corto automático #}
+      <p class="tarjeta-destacada-sinopsis">{% if ultimaSerie.sinopsis %}{{ ultimaSerie.sinopsis | truncar(260) }}{% else %}Serie GL de género {{ ultimaSerie.genero | lower }}, estrenada en {{ ultimaSerie.anio }}. Miralo completo en Series GL.{% endif %}</p>
+      <a href="/series-gl/{{ (ultimaSerie.slug or ultimaSerie.titulo) | slugify }}/" class="btn-primario">Ver serie →</a>
+    </div>
+  </div>
+
+  <div class="comunidad-bloque">
+    <div class="seccion-cabecera">
+      <h2>⭐ Extras</h2>
+      <a href="/extra/" class="ver-mas">Ver más →</a>
+    </div>
+    <ul class="comunidad-lista">
+      {% for video in extrasGl | limit(1) %}
+      <li>
+        <button type="button" class="comunidad-video" data-youtube-id="{{ video.youtubeId }}" aria-label="Reproducir {{ video.titulo }}">
+          <img src="https://i.ytimg.com/vi/{{ video.youtubeId }}/hqdefault.jpg" alt="" width="200" height="112" loading="lazy">
+          <span class="comunidad-video-play" aria-hidden="true">▶</span>
+        </button>
+        <p class="comunidad-video-titulo">{{ video.titulo | truncar(80) }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="comunidad-bloque">
+    <div class="seccion-cabecera">
+      <h2>✨ Próximamente</h2>
+      <a href="/proximamente/" class="ver-mas">Ver más →</a>
+    </div>
+    <ul class="comunidad-lista">
+      {% for video in proximosGl | limit(1) %}
+      <li>
+        <button type="button" class="comunidad-video" data-youtube-id="{{ video.youtubeId }}" aria-label="Reproducir {{ video.titulo }}">
+          <img src="https://i.ytimg.com/vi/{{ video.youtubeId }}/hqdefault.jpg" alt="" width="200" height="112" loading="lazy">
+          <span class="comunidad-video-play" aria-hidden="true">▶</span>
+        </button>
+        <p class="comunidad-video-titulo">{{ video.titulo | truncar(80) }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="comunidad-bloque">
+    <div class="seccion-cabecera">
+      <h2>🎵 OST</h2>
+      <a href="/ost/" class="ver-mas">Ver más →</a>
+    </div>
+    <ul class="comunidad-lista">
+      {% for video in ostGl | limit(1) %}
+      <li>
+        <button type="button" class="comunidad-video" data-youtube-id="{{ video.youtubeId }}" aria-label="Reproducir {{ video.titulo }}">
+          <img src="https://i.ytimg.com/vi/{{ video.youtubeId }}/hqdefault.jpg" alt="" width="200" height="112" loading="lazy">
+          <span class="comunidad-video-play" aria-hidden="true">▶</span>
+        </button>
+        <p class="comunidad-video-titulo">{{ video.titulo | truncar(80) }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+</aside>
