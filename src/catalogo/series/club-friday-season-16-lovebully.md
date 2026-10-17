@@ -1,9 +1,25 @@
 ---
 titulo: "Club Friday Season 16: Love Bully"
 slug: "club-friday-season-16-lovebully"
-agregada: 2026-09-01T09:50:00.000Z
+agregada: "2026-09-01T09:50:00.000Z"
 portada: "/assets/images/series/Club-Friday-Season-16-Love-Bully.jpg"
 genero: "Drama · Romance"
-fechaEmision: "2024"
-sinopsis: "Dos amantes ven su relación expuesta. Una teme el qué dirán; la otra ignora críticas. Su amor se pone a prueba ante toda la nación."
+pais: "Tailandia"
+episodios: "4"
+cadena: "One 31, ViuTV"
+fechaEmision: "07-06-2024"
+sinopsis: "En la era de las redes sociales, cualquiera puede opinar sobre los demás sin pensar en las consecuencias ni comprobar la veracidad de lo que dice. En esta historia de amor entre dos mujeres, una de ellas se preocupa demasiado por las opiniones ajenas, lo que la vuelve vulnerable y termina haciéndole daño. La otra, en cambio, no se deja afectar por los juicios de los demás y vive bajo la filosofía de «cada uno con lo suyo», aunque a veces le cuesta percibir los sentimientos de quienes la rodean.\n\nCon su relación bajo la mirada pública, ambas deberán afrontar las críticas y las expectativas de todo un país mientras luchan por mantener su amor a flote."
+reparto:
+  - actriz: "Engfa Waraha"
+    personaje: "Night"
+  - actriz: "Charlotte Austin"
+    personaje: "Irene"
+  - actriz: "Meenay Jutai"
+  - actriz: "Sirinart Sugandharat"
+    apodo: "Gift"
+  - actriz: "Thanapat Phiukham"
+    apodo: "Namo"
+director: "Golf Tanwarin Sukkhapisit"
+compania: "CHANGE 2561"
+trailer: "IrlTr9GljhY"
 ---

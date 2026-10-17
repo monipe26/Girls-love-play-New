@@ -1,6 +1,48 @@
 {
   "items": [
     {
+      "portada": "/assets/images/series/chasing-llove.jpg",
+      "sinopsis": "Song, una científica reservada, vive un romance inesperado con la hija de su jefe. Una serie sobre tres mujeres que huyen del amor y otras tres que luchan por él.",
+      "genero": "Romance / Drama",
+      "anio": 2026,
+      "titulo": "Chasing Love",
+      "slug": "chasing-love",
+      "videos": [
+        "VIll6OZKxwQ",
+        "M2pXSATov18",
+        "RisEQPaMw_U",
+        "INEwS9iHCtw",
+        "-Bz7het8gnY",
+        "CybgjPbqiHw",
+        "F0hK46LnMMg",
+        "GrAxySJVDi8",
+        "HyB1GRPiosQ",
+        "iEU_td1lYiI",
+        "mE3hgIhjbVc",
+        "t-VYq1XU05Y",
+        "WsAd4DbTJXM",
+        "8jIUgxTGRXA",
+        "vEOYJMVkDJQ",
+        "efbn7GisuaE",
+        "J_jc6QxQVBA",
+        "DYTZEfk5_KU",
+        "vBRp9fitd6U",
+        "XI9w2C3rVbw",
+        "xwiIw12J4Ok",
+        "Xo_JDYWg-EA",
+        "0wqnzOY3u5A",
+        "97pAWmztXBI",
+        "5um9SgJ5hd8",
+        "WFAcI2gtJZs",
+        "M3il-iffC9o",
+        "otNQm3khz00",
+        "ewe7Mu6A650",
+        "Ob7tHMPbE8w",
+        "d2viYxOOyT8",
+        "CDu3LYXS4TI"
+      ]
+    },
+    {
       "titulo": "Fairway of Love",
       "slug": "fairway-of-love",
       "anio": 2026,
@@ -8,7 +50,8 @@
       "sinopsis": "Nana regresa de Europa para salvar el campo de golf de su padre. Allí conoce a Pro Vee, un instructor exigente con quien surgirá una inesperada conexión.",
       "portada": "/assets/images/series/fairway-of-love.jpg",
       "videos": [
-        "G5wvt3vFprE"
+        "G5wvt3vFprE",
+        "h4QN85Op-lw"
       ]
     },
     {
@@ -22,7 +65,8 @@
         "CXnCYeit0aY",
         "x2jYp0SKLQM",
         "9AxFLj_4mYo",
-        "HouIeWoUREE"
+        "HouIeWoUREE",
+        "9fpW7MTOxuo"
       ],
       "sinopsis": "La historia sigue a Fah, una joven que atrae la atención de quienes la rodean, aunque las personas de su entorno terminan complicando su camino en el amor.",
       "slug": "the-only-light"
@@ -84,7 +128,11 @@
         "LrHdzfQ2pSE",
         "tLFqKIr2qEc",
         "BrvDp9ApJSo",
-        "VX2j5JM-Q1A"
+        "VX2j5JM-Q1A",
+        "lCiOBiG59qw",
+        "TIBFE3Y0UnU",
+        "MjzyzoiZIpY",
+        "d0AYolyaONg"
       ]
     },
     {
@@ -435,48 +483,6 @@
         "8kKXlanUbGE",
         "4Je_9bjEryU",
         "X3fsk7DtBu4"
-      ]
-    },
-    {
-      "portada": "/assets/images/series/chasing-llove.jpg",
-      "sinopsis": "Song, una científica reservada, vive un romance inesperado con la hija de su jefe. Una serie sobre tres mujeres que huyen del amor y otras tres que luchan por él.",
-      "genero": "Romance / Drama",
-      "anio": 2026,
-      "titulo": "Chasing Love",
-      "slug": "chasing-love",
-      "videos": [
-        "VIll6OZKxwQ",
-        "M2pXSATov18",
-        "RisEQPaMw_U",
-        "INEwS9iHCtw",
-        "-Bz7het8gnY",
-        "CybgjPbqiHw",
-        "F0hK46LnMMg",
-        "GrAxySJVDi8",
-        "HyB1GRPiosQ",
-        "iEU_td1lYiI",
-        "mE3hgIhjbVc",
-        "t-VYq1XU05Y",
-        "WsAd4DbTJXM",
-        "8jIUgxTGRXA",
-        "vEOYJMVkDJQ",
-        "efbn7GisuaE",
-        "J_jc6QxQVBA",
-        "DYTZEfk5_KU",
-        "vBRp9fitd6U",
-        "XI9w2C3rVbw",
-        "xwiIw12J4Ok",
-        "Xo_JDYWg-EA",
-        "0wqnzOY3u5A",
-        "97pAWmztXBI",
-        "5um9SgJ5hd8",
-        "WFAcI2gtJZs",
-        "M3il-iffC9o",
-        "otNQm3khz00",
-        "ewe7Mu6A650",
-        "Ob7tHMPbE8w",
-        "d2viYxOOyT8",
-        "CDu3LYXS4TI"
       ]
     },
     {
