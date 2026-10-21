@@ -1,9 +1,22 @@
 ---
 titulo: "Broken of Love"
 slug: "broken-of-love"
-agregada: 2026-09-01T11:32:00.000Z
+agregada: "2026-09-01T11:32:00.000Z"
 portada: "/assets/images/series/Broken-of-Love-(2026).jpg"
 genero: "Drama · Psicologico"
-fechaEmision: "2026"
-sinopsis: "Alisa busca vengar el asesinato de sus padres, pero termina enamorándose de la hija de su enemigo."
+pais: "Tailandia"
+episodios: "8"
+cadena: "YouTube"
+fechaEmision: "28-03-2026"
+sinopsis: "Alisa está decidida a vengar la muerte de su madre, pero su camino toma un giro inesperado cuando conoce a una joven de la que termina enamorándose, sin imaginar que es la hija de su enemigo. Atrapada entre el deseo de venganza y un amor que nunca esperó encontrar, Alisa deberá enfrentarse a sus propios sentimientos, mientras su corazón y su sed de justicia la llevan por caminos opuestos.\n\nUn amor inesperado que pondrá a prueba sus convicciones y cambiará su vida para siempre."
+reparto:
+  - actriz: "Peraya Malisorn"
+    apodo: "Faye"
+    personaje: "Alisa"
+  - actriz: "Pariya Piyapanopas"
+    apodo: "Atom"
+  - actriz: "Yarinda Bunnag"
+    apodo: "Nina"
+compania: "Fabel Entertainment"
+trailer: "ILVAJdF1gVU"
 ---

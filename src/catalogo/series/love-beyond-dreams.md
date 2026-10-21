@@ -1,9 +1,22 @@
 ---
 titulo: "Love beyond Dreams"
 slug: "love-beyond-dreams"
-agregada: 2026-09-01T11:36:00.000Z
+agregada: "2026-09-01T11:36:00.000Z"
 portada: "/assets/images/series/Love-beyond-Dreams-2026.jpg"
 genero: "Romance · Fantasy"
-fechaEmision: "2026"
-sinopsis: "Aran vuelve a Tailandia y descubre que Lene murió. Tras despertar cinco años en el pasado, intentará cambiar su destino y salvarla."
+pais: "Tailandia"
+episodios: "7"
+cadena: "iQIYI, YouTube"
+fechaEmision: "06-05-2026"
+sinopsis: "Aran, una joven de veintiún años recién graduada, siempre creyó que su relación con Lene, dos años mayor que ella, era mucho más que un simple vínculo fraternal. Sin embargo, todo cambia cuando recibe el rechazo más cruel que jamás habría imaginado. Incapaz de hacer otra cosa que aceptar su dolor, Aran decide marcharse al extranjero para continuar sus estudios, con la esperanza de que algún día pueda olvidar a Lene.\n\nUn día, recibe un misterioso paquete acompañado de una carta escrita a mano. Aunque no lleva ningún nombre, Aran reconoce la letra al instante. Decidida a cerrar de una vez por todas ese capítulo inconcluso de su vida, regresa a Tailandia. Pero, al llegar, se enfrenta a una noticia devastadora: Lene ha muerto. Con el corazón destrozado, Aran asiste a su funeral, donde se ve obligada a enfrentar una verdad que termina de quebrarla por completo.\n\nJusto cuando está a punto de despedirse de ella para siempre, escucha una conversación que sugiere que la muerte de Lene podría haber sido causada por alguien cercano. Entonces, despierta cinco años en el pasado, justo después de aquel rechazo, todavía con el hilo rojo del funeral entre sus manos. Ante esta inesperada segunda oportunidad, Aran se hace una promesa: esta vez todo será diferente. Esta vez, será ella quien proteja a Lene."
+reparto:
+  - actriz: "Phattaranan Padpai"
+    apodo: "Mie"
+    personaje: "Lené"
+  - actriz: "Orapan Phongmaykin"
+    apodo: "Aya"
+    personaje: "Rann"
+director: "Thanpisit Jiradechakul (James)"
+compania: "Me Mind Y"
+trailer: "YXBdhxza8Es"
 ---
