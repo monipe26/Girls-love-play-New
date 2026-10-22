@@ -34,5 +34,3 @@ La serie contará con 10 episodios y estrenará su primer capítulo el 7 de novi
 ## ¡Ya podés ver el tráiler oficial!
 
 El adelanto permite conocer un primer vistazo de este universo de rivalidades, vínculos y secretos que rodean a las cinco protagonistas.
-
-¿Qué les pareció el tráiler? ¿Tienen ganas de ver esta nueva historia GL de GMMTV? ¡Las leemos!
