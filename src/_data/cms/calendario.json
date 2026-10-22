@@ -47,6 +47,12 @@
       "titulo": "Buy My Boss",
       "tipo": "Serie",
       "portada": "/assets/images/calendario/buy-my-boss-cd.jpg"
+    },
+    {
+      "fecha": "2026-11-07",
+      "titulo": "Oxytoxin",
+      "tipo": "Serie",
+      "portada": "/assets/images/calendario/oxytoxin-cd.jpg"
     }
   ]
 }
