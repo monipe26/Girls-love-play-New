@@ -23,7 +23,7 @@ Aidao decide acercarla a su grupo, ayudarla a renovar su imagen y animarla a per
 
 ## Un elenco que promete dar que hablar
 
-La serie está protagonizada por Waifha Chanitsiri Ratananimit y Tonkhaw Nonthakarn Kaewobchoey, quienes interpretan a Aidao y Junjai. Junto a ellas participan Benz Jittanan Sirisamrit, Yoghurt Yosita Wasuphiruk y Pang Sabsima Payakharn.
+La serie está protagonizada por Waifha Chanitsiri Ratananimit y Tonkhaw Nonthakarn Kaewobchoey, quienes interpretan a Junjai y Aidao, respectivamente. Junto a ellas participan Benz Jittanan Sirisamrit, Yoghurt Yosita Wasuphiruk y Pang Sabsima Payakharn.
 
 Con una historia que combina amistad, romance, ambición y conflictos de poder, Oxytoxin se suma a los nuevos proyectos GL de GMMTV para 2026.
 

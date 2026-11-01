@@ -16,7 +16,7 @@ reparto:
   - actriz: "Nonthakarn Kaewobchoey"
     apodo: "Tonkhaw"
     personaje: "Aidao"
-  - actriz: "Jittanan Sirisamlid"
+  - actriz: "Jittanan Sirisamrit"
     apodo: "Benz"
     personaje: "Gale"
   - actriz: "Yosita Wasuphiruk"
