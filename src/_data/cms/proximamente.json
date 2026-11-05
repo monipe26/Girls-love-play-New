@@ -1,6 +1,17 @@
 {
   "items": [
     {
+      "youtubeId": "fm6Vdcvu8Yw",
+      "titulo": "OFFICIAL PILOT | Starlight Girls Series",
+      "slug": "starlight-girls-series"
+    },
+    {
+      "youtubeId": "lCMS7IAfNMU",
+      "titulo": "[OFFICIAL PILOT] บรรณาธิการรัก ฉบับ Middle Aged | The Editor's Midlife Love",
+      "slug": "the-editors-midlife-love",
+      "sinopsis": "Una profesora de cuarenta años acepta trabajar como editora de una escritora que perdió su inspiración. Un encuentro inesperado despertará nuevamente la pasión y el amor entre ambas."
+    },
+    {
       "youtubeId": "cPnGKTB1go0",
       "titulo": "NIGHTLY",
       "slug": "nightly"
