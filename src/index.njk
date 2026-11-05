@@ -22,7 +22,7 @@ seoTitle: "Girls Love Play · Series GL, noticias y Mundo GL en español"
       <span class="badge badge-rosa hero-badge">Mundo GL</span>
       <img src="{{ ultimoMundoGl.data.imagen }}" alt="{{ ultimoMundoGl.data.title }}" width="1200" height="500">
       <div class="hero-texto">
-        <h2>{{ ultimoMundoGl.data.title }}</h2>
+        <h1>{{ ultimoMundoGl.data.title }}</h1>
         <p>{{ ultimoMundoGl.data.resumen }}</p>
         <div class="hero-pie">
           <time datetime="{{ ultimoMundoGl.date }}">{{ ultimoMundoGl.date | readableDate | upper }}</time>
@@ -37,7 +37,7 @@ seoTitle: "Girls Love Play · Series GL, noticias y Mundo GL en español"
       <span class="badge badge-rosa hero-badge">Última noticia</span>
       <img src="{{ ultimaNoticia.data.imagen }}" alt="{{ ultimaNoticia.data.title }}" width="1200" height="500">
       <div class="hero-texto">
-        <h2>{{ ultimaNoticia.data.title }}</h2>
+        <h1>{{ ultimaNoticia.data.title }}</h1>
         <p>{{ ultimaNoticia.data.resumen }}</p>
         <div class="hero-pie">
           <time datetime="{{ ultimaNoticia.date }}">{{ ultimaNoticia.date | readableDate | upper }}</time>
@@ -52,11 +52,6 @@ seoTitle: "Girls Love Play · Series GL, noticias y Mundo GL en español"
 </section>
 
 {% include "iconos-nav.njk" %}
-
-<section class="intro-sitio" aria-labelledby="tit-intro">
-  <h1 id="tit-intro">Girls Love Play</h1>
-  <p>Tu portal GL en español: enterate de los estrenos, conocé a las actrices y a los ships, seguí las noticias del mundo Girls Love y encontrá tu próxima serie en el <a href="/catalogo/">catálogo</a>.</p>
-</section>
 
 <div class="layout-home">
   <div class="columna-principal">

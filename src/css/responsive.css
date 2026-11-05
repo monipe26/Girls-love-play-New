@@ -8,8 +8,7 @@
   /* A partir de acá la imagen del hero ya es bastante más alta, así que el
      bloque de texto vuelve a su tamaño completo (ver el achique en home.css). */
   .hero-texto { padding: var(--espacio-lg) var(--espacio-md) var(--espacio-md); }
-  .hero-texto h1,
-  .hero-texto h2 { font-size: 1.6rem; margin-bottom: 6px; white-space: normal; }
+  .hero-texto h1 { font-size: 1.6rem; margin-bottom: 6px; white-space: normal; }
   .hero-texto p {
     font-size: 1rem;
     margin-bottom: var(--espacio-sm);

@@ -61,8 +61,7 @@
    la bajada y el botón se achican para que el bloque no supere la altura de la
    imagen y termine tapándola entera. A partir de 640px (ver responsive.css) se
    restauran los tamaños completos, porque ahí la imagen ya es mucho más alta. */
-.hero-texto h1,
-.hero-texto h2 {
+.hero-texto h1 {
   color: #fff;
   font-size: 1rem;
   margin-bottom: 4px;
@@ -376,28 +375,3 @@
   display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden;
 }
 .anuncio-medida { font-size: 0.75rem; opacity: 0.75; }
-
-/* ===== PRESENTACIÓN DEL SITIO (h1 fijo del inicio) ===== */
-.intro-sitio {
-  max-width: 820px;
-  margin: 0 auto;
-  padding: var(--espacio-md) var(--espacio-sm) var(--espacio-xs);
-  text-align: center;
-}
-.intro-sitio h1 {
-  margin: 0 0 6px;
-  font-family: var(--fuente-titulos);
-  font-size: 1.6rem;
-  background: var(--color-degradado);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: var(--color-primario);
-}
-.intro-sitio p {
-  margin: 0;
-  color: var(--color-texto-sec);
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-.intro-sitio a { color: var(--color-primario); font-weight: 600; }
