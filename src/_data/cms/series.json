@@ -1,6 +1,17 @@
 {
   "items": [
     {
+      "titulo": "NIGHTLY",
+      "slug": "nightly",
+      "anio": 2026,
+      "genero": "Romance",
+      "portada": "/assets/images/series/NIGHTLY.jpg",
+      "videos": [
+        "QypDBROaCnY"
+      ],
+      "sinopsis": "Un año después de perder a Ai, Ray encuentra el amor en Meen, pero el fantasma vengativo de su antigua pareja regresa para reclamarla y revelar oscuros secretos."
+    },
+    {
       "titulo": "Fairway of Love",
       "slug": "fairway-of-love",
       "anio": 2026,

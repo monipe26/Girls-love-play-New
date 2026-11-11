@@ -19,6 +19,14 @@ permalink: "{{ '/ost/' if pagination.pageNumber == 0 else '/ost/' + (pagination.
     <p class="reproductor-titulo">Reproduciendo ahora: {{ ostGl[0].titulo }}</p>
   </section>
 
+  <form class="buscador-series" role="search" data-buscador-ost onsubmit="return false">
+    <label for="buscar-ost" class="sr-only">Buscar en OST</label>
+    <input type="search" id="buscar-ost" placeholder="🔍 Buscar canción, artista o serie…" autocomplete="off">
+    <p class="buscador-series-estado" data-ost-estado aria-live="polite"></p>
+  </form>
+  <div data-resultados-ost hidden></div>
+
+  <div data-lista-ost>
   <div class="grid-tarjetas grid-2">
     {% for video in ostPagina %}
       {% include "tarjeta-video.njk" %}
@@ -43,4 +51,5 @@ permalink: "{{ '/ost/' if pagination.pageNumber == 0 else '/ost/' + (pagination.
     {% endfor %}
     {% if pagination.href.next %}<a href="{{ pagination.href.next }}">Siguiente ›</a>{% endif %}
   </nav>
+  </div>
 </section>

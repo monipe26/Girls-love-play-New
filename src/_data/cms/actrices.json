@@ -2110,6 +2110,128 @@
         }
       ],
       "instagram": "https://www.instagram.com/linnmashannoad"
+    },
+    {
+      "nombre": "Namneung Milin Watinthanakit",
+      "slug": "namneung-milin-watinthanakit-gl-actriz",
+      "nombreOriginal": "น้ำหนึ่ง มิลิญ วาทินธนะกิจ",
+      "apodo": "NamneungNoey",
+      "foto": "/assets/images/actrices/namneung-milin-watinthanakit.jpg",
+      "nacimiento": "1996-11-11",
+      "nacionalidad": "Tailandesa",
+      "series": [
+        {
+          "titulo": "The Fire",
+          "anio": "2026"
+        },
+        {
+          "titulo": "The Water",
+          "anio": "2026"
+        },
+        {
+          "titulo": "The Air",
+          "anio": "2026"
+        },
+        {
+          "titulo": "The Earth",
+          "anio": "2026"
+        },
+        {
+          "titulo": "Somewhere Somehow",
+          "anio": "2025"
+        }
+      ],
+      "instagram": "https://www.instagram.com/milinnn.d"
+    },
+    {
+      "nombre": "P.amp Tarradee Watancharoen",
+      "slug": "pamp-tarradee-watancharoen-gl-actriz",
+      "nombreOriginal": "พี.แอมป์ ธารดี วัฒนเจริญ",
+      "foto": "/assets/images/actrices/pamp-tarradee-watancharoen.jpg",
+      "nacimiento": "2002-01-08",
+      "nacionalidad": "Tailandesa",
+      "series": [
+        {
+          "titulo": "Queendom",
+          "anio": "2025"
+        },
+        {
+          "titulo": "Did You Know",
+          "anio": "2027"
+        }
+      ],
+      "instagram": "https://www.instagram.com/ppammelar"
+    },
+    {
+      "nombre": "Ormsin Supitcha Limsommut",
+      "slug": "ormsin-supitcha-limsommut-gl-actriz",
+      "nombreOriginal": "ออมสิน สุพิทชา ลิ้มสมมุติ",
+      "apodo": "OrmFolk",
+      "foto": "/assets/images/actrices/ormsin-supitcha-limsommut.jpg",
+      "nacimiento": "1995-05-30",
+      "nacionalidad": "Tailandesa",
+      "series": [
+        {
+          "titulo": "Apple My Love",
+          "anio": "2024"
+        },
+        {
+          "titulo": "(Your) Apple",
+          "anio": "2025"
+        },
+        {
+          "titulo": "My Lady's Bodyguard",
+          "anio": "2026"
+        },
+        {
+          "titulo": "Love Bound",
+          "anio": "2026"
+        }
+      ],
+      "instagram": "https://www.instagram.com/omeormorm",
+      "shipSlug": "ormfolk-gl-ship"
+    },
+    {
+      "nombre": "Orm Kornnaphat Sethratanapong",
+      "slug": "orm-kornnaphat-sethratanapong-gl-actriz",
+      "nombreOriginal": "ออม กรณ์นภัส เศรษฐรัตนพงศ์",
+      "apodo": "LingOrm",
+      "foto": "/assets/images/actrices/orm-kornnaphat-sethratanapong.jpg",
+      "nacimiento": "2002-05-27",
+      "nacionalidad": "Tailandesa",
+      "series": [
+        {
+          "titulo": "The Secret of Us",
+          "anio": "2024"
+        },
+        {
+          "titulo": "Only You",
+          "anio": "2025"
+        },
+        {
+          "titulo": "In Love Forever",
+          "anio": "2026"
+        }
+      ],
+      "instagram": "https://www.instagram.com/orm.kornnaphat",
+      "shipSlug": "lingorm-gl-ship"
+    },
+    {
+      "nombre": "Opal Kulwipa Ngamsukkasemsri",
+      "slug": "opal-kulwipa-ngamsukkasemsri-gl-actriz",
+      "nombreOriginal": "โอปอล กุลวิภา งามสุขเกษมศรี",
+      "apodo": "OpalMint",
+      "foto": "/assets/images/actrices/opal-kulwipa-ngamsukkasemsri.jpg",
+      "nacimiento": "2003-04-24",
+      "nacionalidad": "Tailandesa",
+      "series": [
+        {
+          "titulo": "Shades",
+          "anio": "2026"
+        }
+      ],
+      "instagram": "https://www.instagram.com/thepigwipa",
+      "shipSlug": "opalmint-gl-ship"
     }
   ]
 }

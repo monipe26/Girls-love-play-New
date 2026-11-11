@@ -141,4 +141,50 @@
       });
     });
   }
+
+  // ---------- 3) Buscador de dentro de OST (/ost/) ----------
+  // Busca en TODAS las canciones (no solo en la página que se está viendo):
+  // por nombre de la canción, de la serie o del artista/actriz que aparezca en el título.
+  var buscadorOst = document.querySelector("[data-buscador-ost]");
+  if (buscadorOst) {
+    var campoOst = buscadorOst.querySelector("input");
+    var cajaOst = document.querySelector("[data-resultados-ost]");
+    var listadoOst = document.querySelector("[data-lista-ost]");
+    var mensajeOst = buscadorOst.querySelector("[data-ost-estado]");
+
+    buscadorOst.addEventListener("submit", function (e) { e.preventDefault(); });
+
+    campoOst.addEventListener("input", function () {
+      var consulta = campoOst.value;
+      if (!consulta.trim()) {
+        cajaOst.hidden = true;
+        cajaOst.innerHTML = "";
+        listadoOst.hidden = false;
+        mensajeOst.textContent = "";
+        return;
+      }
+      cargarIndice().then(function (indice) {
+        if (campoOst.value !== consulta) return;
+        var encontrados = buscar(indice, consulta, ["OST"]);
+        listadoOst.hidden = true;
+        cajaOst.hidden = false;
+        if (!encontrados.length) {
+          mensajeOst.textContent = "No hay canciones que coincidan con “" + consulta + "”.";
+          cajaOst.innerHTML = "";
+          return;
+        }
+        mensajeOst.textContent = encontrados.length + (encontrados.length === 1 ? " canción encontrada" : " canciones encontradas");
+        cajaOst.innerHTML =
+          '<div class="grid-tarjetas grid-2">' +
+          encontrados.map(function (r) {
+            return '<div class="tarjeta-video-caja"><a href="' + escapar(r.u) + '" class="tarjeta-video" style="text-decoration:none;color:inherit">' +
+              '<span class="tarjeta-video-thumb"><img src="' + escapar(r.i) + '" alt="' + escapar(r.t) + '" width="640" height="360" loading="lazy" decoding="async">' +
+              '<span class="tarjeta-video-play">▶</span></span>' +
+              '<span class="tarjeta-video-info"><span class="tarjeta-video-titulo">' + escapar(r.t) + "</span></span></a></div>";
+          }).join("") + "</div>";
+      }).catch(function () {
+        mensajeOst.textContent = "No se pudo cargar el buscador. Probá recargar la página.";
+      });
+    });
+  }
 })();
