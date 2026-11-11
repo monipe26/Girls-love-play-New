@@ -53,7 +53,8 @@ eleventyExcludeFromCollections: true
   {% for s in shipsWeb %}{% if s.slug == actriz.shipSlug %}
   <div class="ficha-actriz-seccion">
     <h2>💕 Ship</h2>
-    <a href="/ships/{{ s.slug }}/" class="badge-ship">💕 {{ s.ship }}</a>
+    {# El chip se ve pero ya NO es un enlace (a pedido). Para que vuelva a llevar a la página del ship: <a href="/ships/{{ s.slug }}/" class="badge-ship">💕 {{ s.ship }}</a> #}
+    <span class="badge-ship">💕 {{ s.ship }}</span>
   </div>
   {% endif %}{% endfor %}
   {% endif %}
