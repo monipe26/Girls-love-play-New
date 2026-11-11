@@ -12,8 +12,7 @@ layout: base.njk
     <input type="search" id="buscar-ships" placeholder="🔍 Buscar ship, actriz o serie…" autocomplete="off">
   </form>
 
-  {# OCULTO a pedido: chips Todos / Vigentes / Finalizados. Para volver a mostrarlos, borrá hidden y style="display:none". #}
-  <div class="filtros-ships" data-filtros-estado role="group" aria-label="Filtrar ships por estado" hidden style="display:none">
+  <div class="filtros-ships" data-filtros-estado role="group" aria-label="Filtrar ships por estado">
     <button type="button" class="filtro-btn activo" data-estado="todos">Todos</button>
     <button type="button" class="filtro-btn" data-estado="vigente">✅ Vigentes</button>
     <button type="button" class="filtro-btn" data-estado="finalizado">❌ Finalizados</button>

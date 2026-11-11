@@ -15,10 +15,11 @@
       <li><a href="/mundo-gl/">Mundo GL</a></li>
       <li class="tiene-submenu">
         <a href="/actrices/">Actrices</a>
-        <button type="button" class="submenu-toggle" aria-label="Mostrar opciones de Actrices" aria-expanded="false">
+        {# OCULTO a pedido: la opción "Ships" del menú. Para mostrarla de nuevo, borrá hidden y style="display:none" de estas dos partes. #}
+        <button type="button" class="submenu-toggle" aria-label="Mostrar opciones de Actrices" aria-expanded="false" hidden style="display:none">
           <span aria-hidden="true">▾</span>
         </button>
-        <ul class="submenu">
+        <ul class="submenu" hidden style="display:none">
           <li><a href="/ships/">💕 Ships</a></li>
         </ul>
       </li>
