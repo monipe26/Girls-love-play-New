@@ -52,8 +52,13 @@ document.addEventListener("DOMContentLoaded", function () {
       .sort()
       .join(",");
 
-  if (localStorage.getItem(claveHoy)) return;
-  localStorage.setItem(claveHoy, "1");
+  // Solo se considera "visto" cuando la persona cierra el aviso con la X.
+  // Si entra y no lo mira, o se cierra solo a los 15s, vuelve a aparecer.
+  var yaVisto = false;
+  try {
+    yaVisto = !!localStorage.getItem(claveHoy);
+  } catch (e) {}
+  if (yaVisto) return;
 
   var contenedor = document.getElementById("aviso-cumple-index");
   if (!contenedor) return;
@@ -75,7 +80,12 @@ document.addEventListener("DOMContentLoaded", function () {
     function cerrarCard() {
       card.remove();
     }
-    card.querySelector(".aviso-cumple-cerrar").addEventListener("click", cerrarCard);
+    card.querySelector(".aviso-cumple-cerrar").addEventListener("click", function () {
+      try {
+        localStorage.setItem(claveHoy, "1");
+      } catch (e) {}
+      cerrarCard();
+    });
 
     contenedor.appendChild(card);
     setTimeout(cerrarCard, DURACION_AVISO_MS);

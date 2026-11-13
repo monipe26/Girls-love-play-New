@@ -22,7 +22,7 @@
       "nombreOriginal": "อันดา อนันตา เตียวิรัตน์",
       "apodo": "AndaLookkaew",
       "foto": "/assets/images/actrices/anda-anunta-teavirat.jpg",
-      "nacimiento": "1998-04-10",
+      "nacimiento": "1998-04-11",
       "nacionalidad": "Tailandesa",
       "series": [
         {
@@ -2232,6 +2232,22 @@
       ],
       "instagram": "https://www.instagram.com/thepigwipa",
       "shipSlug": "opalmint-gl-ship"
+    },
+    {
+      "nombre": "Tangkwa Phinyanech Aungsuwan",
+      "slug": "tangkwa-phinyanech-aungsuwan-gl-actriz",
+      "nombreOriginal": "แตงกวา พิญญาเนศวร์ อั้งสุวรรณ",
+      "foto": "/assets/images/actrices/tangkwa-phinyanech-aungsuwan.jpg",
+      "nacimiento": "2003-11-13",
+      "nacionalidad": "Tailandesa",
+      "series": [
+        {
+          "titulo": "Dangerous Queen",
+          "anio": "2025"
+        }
+      ],
+      "instagram": "https://www.instagram.com/phinyanech.h",
+      "shipSlug": "tk-nur-gl-ship"
     }
   ]
 }
