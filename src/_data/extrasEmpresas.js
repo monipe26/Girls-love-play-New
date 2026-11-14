@@ -15,12 +15,12 @@ module.exports = async () => {
     grupos.get(nombre).push(v);
   });
 
-  // Más videos primero; "Otros" siempre al final.
+  // De la A a la Z (más fácil de encontrar en el desplegable); "Otros" siempre al final.
   const lista = [...grupos].map(([nombre, videos]) => ({ nombre, videos }));
   lista.sort((a, b) => {
     if (a.nombre === NOMBRE_OTROS) return 1;
     if (b.nombre === NOMBRE_OTROS) return -1;
-    return b.videos.length - a.videos.length || a.nombre.localeCompare(b.nombre);
+    return a.nombre.localeCompare(b.nombre, "es", { sensitivity: "base" });
   });
 
   // Dirección de cada empresa: única y solo con letras/números/guiones.

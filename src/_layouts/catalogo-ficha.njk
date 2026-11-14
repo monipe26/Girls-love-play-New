@@ -45,8 +45,8 @@ layout: base.njk
   <section class="cat-ficha-bloque">
     <h2>Reparto</h2>
     <ul>
-      {% for r in reparto %}
-      <li>{{ r.actriz }}{% if r.apodo %} (<strong>{{ r.apodo }}</strong>){% endif %}{% if r.personaje %} como <strong>{{ r.personaje }}</strong>{% endif %}</li>
+      {% for r in repartoFicha %}
+      <li>{% if r.enlace %}<a href="{{ r.enlace }}" target="_blank" rel="noopener nofollow">{{ r.actriz }}</a>{% else %}{{ r.actriz }}{% endif %}{% if r.apodo %} (<strong>{{ r.apodo }}</strong>){% endif %}{% if r.personaje %} como <strong>{{ r.personaje }}</strong>{% endif %}</li>
       {% endfor %}
     </ul>
   </section>

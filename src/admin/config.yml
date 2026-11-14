@@ -397,6 +397,7 @@ collections:
           - { label: "Actriz", name: actriz, widget: string }
           - { label: "Apodo", name: apodo, widget: string, required: false }
           - { label: "Personaje", name: personaje, widget: string, required: false }
+          - { label: "Enlace (opcional)", name: enlace, widget: string, required: false, hint: "Si lo completás, el nombre se muestra como link. Ejemplo: https://mydramalist.com/people/121817-lee-soo-ha" }
       - { label: "Director", name: director, widget: string, required: false }
       - { label: "Compañía", name: compania, widget: string, required: false }
       - { label: "Tráiler (ID o dirección de YouTube)", name: trailer, widget: string, required: false, hint: "Podés pegar la dirección completa o solo el ID de 11 caracteres. Se muestra al final de la ficha." }

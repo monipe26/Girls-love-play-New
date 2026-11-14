@@ -15,6 +15,24 @@ function estaCompleta(d) {
   return !!(d.sinopsis && d.pais && d.episodios && Array.isArray(d.reparto) && d.reparto.length);
 }
 
+// Reparto listo para mostrar. Acepta que el nombre se escriba con link al estilo
+// [Lee Soo Ha](https://mydramalist.com/...) (Juyeon): separa nombre, link y apodo.
+function repartoFicha(d) {
+  return (Array.isArray(d.reparto) ? d.reparto : []).map((r) => {
+    let actriz = String(r.actriz || "").trim();
+    let enlace = String(r.enlace || "").trim();
+    let apodo = r.apodo ? String(r.apodo).trim() : "";
+    const m = actriz.match(/^\[(.+?)\]\((https?:\/\/[^)\s]+)\)\s*(?:\(([^)]+)\))?$/);
+    if (m) {
+      actriz = m[1].trim();
+      if (!enlace) enlace = m[2];
+      if (m[3] && !apodo) apodo = m[3].trim();
+    }
+    if (!/^https?:\/\//i.test(enlace)) enlace = "";
+    return { actriz, apodo, personaje: r.personaje || "", enlace };
+  });
+}
+
 module.exports = {
   layout: "catalogo-ficha.njk",
   ogTipo: "serie",
@@ -27,6 +45,7 @@ module.exports = {
       return m ? m[0] : "";
     },
     completa: (d) => estaCompleta(d),
+    repartoFicha: (d) => repartoFicha(d),
     noindex: (d) => d.noindex === true || !estaCompleta(d),
     description: (d) => {
       if (d.seoDescription) return d.seoDescription;

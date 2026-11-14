@@ -10,5 +10,6 @@ fechaEmision: 04-12-2022
 sinopsis: "En el momento más intenso del día, seguimos a mujeres de 20 enfrentando dudas, deseos y realidades de su generación."
 reparto:
   - actriz: Lee Soo Ha
-  - actriz: Juyeon
+    apodo: Juyeon
+    enlace: https://mydramalist.com/people/121817-lee-soo-ha
 ---

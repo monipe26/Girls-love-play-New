@@ -14,15 +14,16 @@ eleventyComputed:
   <h1>✨ Extras · {{ ep.empresa }}</h1>
   <p class="seccion-sub">Videos extra de la comunidad GL · {{ ep.empresa }}</p>
 
-  {% set empresaActiva = ep.slug %}
-  {% include "extra-filtros.njk" %}
-
   <section class="reproductor-principal" aria-label="Reproductor de Extras">
     <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/{{ ep.videos[0].youtubeId }}" title="{{ ep.videos[0].titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>
     <p class="reproductor-titulo">Reproduciendo ahora: {{ ep.videos[0].titulo }}{% if ep.videos[0].canal %} · {{ ep.videos[0].canal }}{% endif %}</p>
   </section>
+
+  {% set empresaActiva = ep.slug %}
+  {% set empresaNombre = ep.empresa %}
+  {% include "extra-filtros.njk" %}
 
   <div class="grid-tarjetas grid-2">
     {% for video in ep.items %}

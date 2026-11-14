@@ -1,9 +1,30 @@
-{#- Botones para filtrar Extras por empresa. Necesita la variable empresaActiva ("todos" o el slug de la empresa).
-    Si hay menos de 2 empresas no se muestra nada (no tendría sentido filtrar). -#}
+{#- Desplegable "Productoras" de Extras (debajo del reproductor, centrado).
+    Variables: empresaActiva ("todos" o el slug de la productora) y empresaNombre (nombre de la activa, vacío en "Todas").
+    Si hay menos de 2 productoras no se muestra nada (no tendría sentido filtrar).
+    Funciona también sin JavaScript (es un <details>); js/productoras.js agrega el buscador y el cierre al hacer clic afuera. -#}
 {% if extrasEmpresas.filtros.length > 2 %}
-<nav class="filtros-empresa" aria-label="Filtrar Extras por empresa">
-  {% for f in extrasEmpresas.filtros %}
-  <a href="{{ f.url }}" class="filtro-empresa{% if f.slug == empresaActiva %} activo{% endif %}"{% if f.slug == empresaActiva %} aria-current="page"{% endif %}>{{ f.nombre }} <span class="filtro-empresa-total">{{ f.total }}</span></a>
-  {% endfor %}
-</nav>
+<div class="productoras-caja">
+  <details class="productoras" data-productoras>
+    <summary class="productoras-boton">
+      <span class="productoras-icono" aria-hidden="true">🎬</span>
+      <span class="productoras-texto">Productoras{% if empresaNombre %} · <strong>{{ empresaNombre }}</strong>{% endif %}</span>
+      <span class="productoras-flecha" aria-hidden="true">▾</span>
+    </summary>
+    <div class="productoras-panel">
+      <input type="search" class="productoras-buscar" placeholder="Buscar productora o empresa…" aria-label="Buscar productora o empresa" autocomplete="off">
+      <ul class="productoras-lista">
+        {% for f in extrasEmpresas.filtros %}
+        <li class="productoras-item" data-nombre="{% if f.slug == 'todos' %}Todas{% else %}{{ f.nombre }}{% endif %}">
+          <a href="{{ f.url }}"{% if f.slug == empresaActiva %} class="activo" aria-current="page"{% endif %}>
+            <span>{% if f.slug == "todos" %}Todas las productoras{% else %}{{ f.nombre }}{% endif %}</span>
+            <span class="productoras-total">{{ f.total }}</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+      <p class="productoras-vacio" hidden>No encontramos esa productora.</p>
+    </div>
+  </details>
+</div>
+<script src="/js/productoras.js" defer></script>
 {% endif %}
