@@ -1,0 +1,9 @@
+{#- Botones para filtrar Extras por empresa. Necesita la variable empresaActiva ("todos" o el slug de la empresa).
+    Si hay menos de 2 empresas no se muestra nada (no tendría sentido filtrar). -#}
+{% if extrasEmpresas.filtros.length > 2 %}
+<nav class="filtros-empresa" aria-label="Filtrar Extras por empresa">
+  {% for f in extrasEmpresas.filtros %}
+  <a href="{{ f.url }}" class="filtro-empresa{% if f.slug == empresaActiva %} activo{% endif %}"{% if f.slug == empresaActiva %} aria-current="page"{% endif %}>{{ f.nombre }} <span class="filtro-empresa-total">{{ f.total }}</span></a>
+  {% endfor %}
+</nav>
+{% endif %}

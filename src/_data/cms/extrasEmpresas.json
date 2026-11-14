@@ -1,0 +1,12 @@
+{
+  "minimo": 3,
+  "empresas": [
+    { "nombre": "Northstar", "canales": ["northstar", "north star"] },
+    { "nombre": "GMMTV", "canales": ["gmmtv"] },
+    { "nombre": "WeTV", "canales": ["wetv"] },
+    { "nombre": "iQIYI", "canales": ["iqiyi"] },
+    { "nombre": "3Plus", "canales": ["3plus"] },
+    { "nombre": "Xebis", "canales": ["xebis"] },
+    { "nombre": "Girls Love Play", "canales": ["girls love play"] }
+  ]
+}

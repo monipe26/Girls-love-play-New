@@ -12,6 +12,9 @@ permalink: "{{ '/extra/' if pagination.pageNumber == 0 else '/extra/' + (paginat
   <h1>✨ Extras</h1>
   <p class="seccion-sub">Videos extra de la comunidad GL</p>
 
+  {% set empresaActiva = "todos" %}
+  {% include "extra-filtros.njk" %}
+
   <section class="reproductor-principal" aria-label="Reproductor de Extras">
     <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/{{ extrasGl[0].youtubeId }}" title="{{ extrasGl[0].titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
