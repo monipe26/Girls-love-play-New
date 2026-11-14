@@ -28,6 +28,11 @@
     // En el celular no se enfoca solo, para que no salte el teclado.
     if (!(window.matchMedia && window.matchMedia("(pointer: coarse)").matches)) input.focus();
   });
+  // Al tocar una productora cambia de color al instante, antes de cargar la página.
+  cont.addEventListener("click", function (e) {
+    var a = e.target.closest ? e.target.closest(".productoras-item a") : null;
+    if (a) a.classList.add("pulsado");
+  });
   document.addEventListener("click", function (e) {
     if (cont.open && !cont.contains(e.target)) cont.open = false;
   });
