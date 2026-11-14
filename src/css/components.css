@@ -1168,64 +1168,70 @@ a.tarjeta-actriz { text-decoration: none; }
 a.tarjeta-ship { text-decoration: none; }
 
 /* ===== EXTRAS: DESPLEGABLE DE PRODUCTORAS ===== */
-/* Mismo estilo que los buscadores del sitio: píldora rosita con bordecito suave. */
+/* Misma línea que los buscadores del sitio (píldora rosita, bordecito suave), pero más compacto.
+   Medidas pensadas como las de los "chips" de filtro: ~32 px de alto, letra chica en negrita,
+   8 px entre chips. */
 .productoras-caja {
   display: flex;
   justify-content: center;
-  margin: var(--espacio-md) 0;
+  margin: 22px 0 30px;
 }
 .productoras {
   position: relative;
-  width: min(460px, 100%);
+  width: min(320px, 100%);
+  margin-left: auto;
+  margin-right: auto;
 }
 .productoras-boton {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 10px 52px;
+  gap: 8px;
+  padding: 9px 46px;
   background: var(--color-fondo-alt);
   border: 1.5px solid var(--color-borde);
   border-radius: 999px;
   color: var(--color-texto);
-  font-family: var(--fuente-titulos);
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-family: var(--fuente-base);
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-align: center;
   cursor: pointer;
   list-style: none;
   user-select: none;
-  transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
 }
 .productoras-boton::-webkit-details-marker { display: none; }
+.productoras-boton::marker { content: ""; }
 .productoras-boton:hover,
 .productoras[open] .productoras-boton {
   border-color: var(--color-primario);
-  box-shadow: 0 0 0 4px rgba(236, 31, 127, 0.12);
+  box-shadow: 0 0 0 3px rgba(236, 31, 127, 0.12);
 }
 .productoras-boton:focus-visible { outline: 2px solid var(--color-primario); outline-offset: 2px; }
-.productoras-icono { font-size: 1.15rem; }
+.productoras-icono { font-size: 1rem; }
 .productoras-texto {
-  flex: 0 1 auto;
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.productoras-texto strong { color: var(--color-primario); }
+.productoras-texto strong { color: var(--color-primario); font-weight: 800; }
 .productoras-flecha {
   position: absolute;
-  right: 12px;
+  right: 8px;
   top: 50%;
-  margin-top: -14px;
+  margin-top: -12px;
   display: grid;
   place-items: center;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background: var(--color-degradado);
   color: #fff;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   transition: transform 0.25s ease;
 }
 .productoras[open] .productoras-flecha { transform: rotate(180deg); }
@@ -1234,12 +1240,13 @@ a.tarjeta-ship { text-decoration: none; }
   position: absolute;
   z-index: 30;
   top: calc(100% + 10px);
-  left: 0;
-  right: 0;
-  padding: 14px;
+  left: 50%;
+  width: min(440px, 92vw);
+  margin-left: calc(min(440px, 92vw) / -2);
+  padding: 16px;
   background: var(--color-superficie);
   border: 1.5px solid var(--color-borde);
-  border-radius: 22px;
+  border-radius: 20px;
   box-shadow: 0 18px 44px rgba(122, 43, 190, 0.2);
   animation: productoras-abrir 0.18s ease-out;
 }
@@ -1250,9 +1257,9 @@ a.tarjeta-ship { text-decoration: none; }
 .productoras-buscar {
   display: block;
   width: 100%;
-  padding: 10px 16px;
+  padding: 8px 16px;
   font: inherit;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--color-texto);
   background: var(--color-fondo-alt);
   border: 1px solid var(--color-borde);
@@ -1266,23 +1273,27 @@ a.tarjeta-ship { text-decoration: none; }
   justify-content: center;
   gap: 8px;
   list-style: none;
-  margin: 12px 0 0;
+  margin: 14px 0 0;
   padding: 2px;
-  max-height: min(50vh, 300px);
+  max-height: min(44vh, 280px);
   overflow-y: auto;
 }
 .productoras-item a {
-  display: inline-block;
-  padding: 7px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 32px;
+  padding: 5px 14px;
   background: var(--color-superficie);
-  border: 1px solid var(--color-borde);
+  border: 1.5px solid var(--color-borde);
   border-radius: 999px;
   color: var(--color-texto);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 700;
+  line-height: 1.2;
   transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
 }
-.productoras-total { margin-left: 2px; font-weight: 600; opacity: 0.65; }
+.productoras-total { font-weight: 600; opacity: 0.6; }
 .productoras-item a:hover,
 .productoras-item a:focus-visible {
   border-color: var(--color-primario);
@@ -1296,6 +1307,8 @@ a.tarjeta-ship { text-decoration: none; }
   color: #fff;
 }
 .productoras-item a:active { transform: scale(0.96); }
+.productoras-item a.activo::before,
+.productoras-item a.pulsado::before { content: "✓"; font-size: 0.75rem; }
 .productoras-item a.activo .productoras-total,
 .productoras-item a.pulsado .productoras-total { opacity: 0.9; }
-.productoras-vacio { margin: 12px 4px 2px; text-align: center; color: var(--color-texto-sec); font-size: 0.9rem; }
+.productoras-vacio { margin: 12px 4px 2px; text-align: center; color: var(--color-texto-sec); font-size: 0.88rem; }
