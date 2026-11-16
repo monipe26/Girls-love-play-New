@@ -20,6 +20,11 @@ permalink: "{{ '/proximamente/' if pagination.pageNumber == 0 else '/proximament
     <p class="reproductor-sinopsis" data-reproductor-sinopsis>{{ proximosGl[0].sinopsis }}</p>
   </section>
 
+  {% set productoras = proximosEmpresas %}
+  {% set empresaActiva = "todos" %}
+  {% set empresaNombre = "" %}
+  {% include "extra-filtros.njk" %}
+
   <div class="grid-tarjetas grid-2">
     {% for video in proximamentePagina %}
       {% include "tarjeta-video.njk" %}

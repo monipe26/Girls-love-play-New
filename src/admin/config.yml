@@ -556,7 +556,7 @@ collections:
               - { label: "No mostrar en Google (noindex)", name: noindex, widget: boolean, required: false, default: false, hint: "Dejalo apagado salvo casos especiales. Igual, la página del video solo aparece en Google si tiene un texto propio de 80 caracteres o más." }
 
       - name: empresas
-        label: "Empresas (botones de filtro de Extras)"
+        label: "Empresas (botones de filtro de Extras y Próximamente)"
         file: src/_data/cms/extrasEmpresas.json
         fields:
           - { label: "Mínimo de videos para tener botón propio", name: minimo, widget: number, value_type: int, min: 1, default: 3, hint: "Los canales que no están en la lista de abajo y tienen menos videos que este número se juntan en el botón “Otros”." }
@@ -601,6 +601,16 @@ collections:
               - { label: "Año de lanzamiento", name: anio, widget: number, value_type: int, required: false, min: 2000, max: 2100 }
               - { label: "Texto extra (opcional)", name: descripcion, widget: text, required: false, hint: "Un texto tuyo sobre el video (2 o 3 renglones o más). Es lo que hace que su página pueda aparecer en Google: sin texto propio la página existe pero no se indexa." }
               - { label: "Canal o usuario de YouTube (opcional)", name: canal, widget: string, required: false, hint: "Dejalo VACÍO: el sitio toma solo el canal o usuario real del video desde YouTube y lo muestra junto al título. Completalo solo si querés un nombre distinto." }
+              - label: "Empresa (opcional)"
+                name: empresa
+                widget: relation
+                collection: extras
+                file: empresas
+                search_fields: ["empresas.*.nombre"]
+                display_fields: ["empresas.*.nombre"]
+                value_field: "empresas.*.nombre"
+                required: false
+                hint: "Dejalo VACÍO: el sitio detecta la empresa solo por el canal de YouTube. Elegila acá solo si querés forzar este video en un botón puntual. Las empresas se editan en Extras > Empresas (son las mismas para Extras y Próximamente)."
               - { label: "Título para Google (SEO)", name: seoTitle, widget: string, required: false, hint: "Opcional. Es el título azul de Google. Si lo dejás vacío se usa el título del video + el nombre del sitio." }
               - { label: "Descripción para Google (SEO)", name: seoDescription, widget: text, required: false, hint: "Opcional. 120 a 155 caracteres. Si la dejás vacía se usa el comienzo del texto de la página." }
               - { label: "Imagen para compartir en redes", name: ogImage, widget: image, required: false, choose_url: false, hint: "Opcional. Ideal 1200×630. Si la dejás vacía se usa la miniatura del video de YouTube." }

@@ -21,6 +21,7 @@ permalink: "{{ '/extra/' if pagination.pageNumber == 0 else '/extra/' + (paginat
 
   {% set empresaActiva = "todos" %}
   {% set empresaNombre = "" %}
+  {% set productoras = extrasEmpresas %}
   {% include "extra-filtros.njk" %}
 
   <div class="grid-tarjetas grid-2">

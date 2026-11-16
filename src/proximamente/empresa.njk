@@ -1,0 +1,46 @@
+---
+layout: base.njk
+pagination:
+  data: proximosEmpresas.paginas
+  size: 1
+  alias: ep
+permalink: "{{ ep.url }}"
+noindex: true
+eleventyComputed:
+  title: "Próximamente de {{ ep.empresa }}"
+  description: "Series y contenido que se viene de {{ ep.empresa }} en Girls Love Play."
+---
+<section class="seccion">
+  <h1>🎬 Próximamente · {{ ep.empresa }}</h1>
+  <p class="seccion-sub">Series y contenido que se viene · {{ ep.empresa }}</p>
+
+  <section class="reproductor-principal" aria-label="Reproductor de Próximamente">
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/{{ ep.videos[0].youtubeId }}" title="{{ ep.videos[0].titulo }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+    <p class="reproductor-titulo">Reproduciendo ahora: {{ ep.videos[0].titulo }}{% if ep.videos[0].canal %} · {{ ep.videos[0].canal }}{% endif %}</p>
+    <p class="reproductor-sinopsis" data-reproductor-sinopsis>{{ ep.videos[0].sinopsis }}</p>
+  </section>
+
+  {% set productoras = proximosEmpresas %}
+  {% set empresaActiva = ep.slug %}
+  {% set empresaNombre = ep.empresa %}
+  {% include "extra-filtros.njk" %}
+
+  <div class="grid-tarjetas grid-2">
+    {% for video in ep.items %}
+      {% include "tarjeta-video.njk" %}
+    {% endfor %}
+  </div>
+
+  {% if ep.total > 1 %}
+  <nav class="paginacion" aria-label="Paginación de Próximamente de {{ ep.empresa }}">
+    {% if ep.anterior %}<a href="{{ ep.anterior }}">‹ Anterior</a>{% endif %}
+    {% for u in ep.urls %}
+      {% set numero = loop.index %}
+      <a href="{{ u }}" class="{% if numero == ep.numero %}activo{% endif %}">{{ numero }}</a>
+    {% endfor %}
+    {% if ep.siguiente %}<a href="{{ ep.siguiente }}">Siguiente ›</a>{% endif %}
+  </nav>
+  {% endif %}
+</section>

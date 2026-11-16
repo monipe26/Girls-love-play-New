@@ -1,8 +1,8 @@
-{#- Desplegable "Productoras" de Extras (debajo del reproductor, centrado).
-    Variables: empresaActiva ("todos" o el slug de la productora) y empresaNombre (nombre de la activa, vacío en "Todas").
+{#- Desplegable "Productoras" de Extras y Próximamente (debajo del reproductor, centrado).
+    Variables: productoras (extrasEmpresas o proximosEmpresas), empresaActiva ("todos" o el slug de la productora) y empresaNombre (nombre de la activa, vacío en "Todas").
     Si hay menos de 2 productoras no se muestra nada (no tendría sentido filtrar).
     Funciona también sin JavaScript (es un <details>); js/productoras.js agrega el buscador y el cierre al hacer clic afuera. -#}
-{% if extrasEmpresas.filtros.length > 2 %}
+{% if productoras.filtros.length > 2 %}
 <div class="productoras-caja">
   <details class="productoras" data-productoras>
     <summary class="productoras-boton">
@@ -13,7 +13,7 @@
     <div class="productoras-panel">
       <input type="search" class="productoras-buscar" placeholder="🔍 Buscar productora o empresa…" aria-label="Buscar productora o empresa" autocomplete="off">
       <ul class="productoras-lista">
-        {% for f in extrasEmpresas.filtros %}
+        {% for f in productoras.filtros %}
         <li class="productoras-item" data-nombre="{% if f.slug == 'todos' %}Todas{% else %}{{ f.nombre }}{% endif %}">
           <a href="{{ f.url }}"{% if f.slug == empresaActiva %} class="activo" aria-current="page"{% endif %}>{% if f.slug == "todos" %}Todas{% else %}{{ f.nombre }}{% endif %} <span class="productoras-total">({{ f.total }})</span></a>
         </li>
