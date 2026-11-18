@@ -2248,6 +2248,29 @@
       ],
       "instagram": "https://www.instagram.com/phinyanech.h",
       "shipSlug": "tk-nur-gl-ship"
+    },
+    {
+      "nombre": "Natty Natthamon Jantraviphart",
+      "slug": "natty-natthamon-jantraviphart-gl-actriz",
+      "nombreOriginal": "นัทตี้ ณฐมน จันทราวิภาต",
+      "foto": "/assets/images/actrices/natty-natthamon-jantraviphart.jpg",
+      "nacimiento": "2002-11-18",
+      "nacionalidad": "Tailandesa",
+      "series": [
+        {
+          "titulo": "Denied Love",
+          "anio": "2025"
+        },
+        {
+          "titulo": "Frozen Valentine",
+          "anio": "2026"
+        },
+        {
+          "titulo": "Love On Hire",
+          "anio": "2026"
+        }
+      ],
+      "instagram": "https://www.instagram.com/natty_ntm"
     }
   ]
 }
