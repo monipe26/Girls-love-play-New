@@ -33,7 +33,7 @@ reparto:
   - actriz: "Natthapong Thonguthaisiri"
     apodo: "Kenji"
     personaje: "Tata"
-   - actriz: "Kim Yo Hwan"
+  - actriz: "Kim Yo Hwan"
     personaje: "North"
 compania: "XEBIS Entertainment"
 trailer: "JDT2I-VZlVk"
