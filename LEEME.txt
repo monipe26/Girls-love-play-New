@@ -1,0 +1,20 @@
+GIRLS LOVE PLAY — CORRECCIONES EN RUTAS DEL REPOSITORIO
+
+Este ZIP contiene los archivos en sus rutas reales dentro del proyecto. No hay carpeta
+"adiciones-json" ni archivos para copiar manualmente.
+
+Archivos nuevos:
+- src/catalogo/series/debut-my-beat.md
+- src/noticias/becky-armstrong-nueva-embajadora-miu-miu.md
+- Las imágenes nuevas dentro de src/assets/images/...
+
+Archivos JSON:
+- src/_data/cms/actrices.json
+- src/_data/cms/extras.json
+
+Los dos JSON están completos, con todos los registros originales conservados y las
+nuevas entradas agregadas al principio. Al copiarlos a GitHub, reemplazá esos dos
+archivos por estas versiones fusionadas; no se elimina ninguna actriz ni ningún extra
+existente.
+
+No contiene el resto del sitio ni modifica configuraciones.
