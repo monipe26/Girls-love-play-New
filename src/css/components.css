@@ -1010,6 +1010,7 @@ body.modal-actriz-abierto { overflow: hidden; }
   font-weight: 600;
 }
 .badge-ship { background: var(--color-degradado); color: #fff; }
+.ficha-actriz-ship { vertical-align: middle; margin-left: 0.35rem; white-space: nowrap; }
 
 /* ===== CATÁLOGO: aviso "Próximamente" (temporal, hasta cargar el catálogo definitivo) ===== */
 .catalogo-proximamente {

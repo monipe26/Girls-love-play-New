@@ -1,6 +1,5 @@
 {
   "items": [
-   
     {
       "nombre": "Alisa Khemnak",
       "slug": "alisa-khemnak-gl-actriz",
@@ -2164,6 +2163,33 @@
       "instagram": "https://www.instagram.com/ppammelar"
     },
     {
+      "nombre": "Prigkhing Sureeyares Yakares",
+      "slug": "prigkhing-sureeyares-yakares-gl-actriz",
+      "nombreOriginal": "พริกขิง สุรีย์ญะเรศ ยะคะเรศ",
+      "foto": "/assets/placeholder/proximamente.jpg",
+      "nacimiento": "2002-11-24",
+      "nacionalidad": "Tailandesa",
+      "series": [
+        {
+          "titulo": "Like a Palette",
+          "anio": "2025"
+        },
+        {
+          "titulo": "Pls Love",
+          "anio": "2026"
+        },
+        {
+          "titulo": "The Secret of Us",
+          "anio": "2024"
+        },
+        {
+          "titulo": "The Secret of Work",
+          "anio": "2024"
+        }
+      ],
+      "instagram": "https://www.instagram.com/prigkhing_"
+    },
+    {
       "nombre": "Ormsin Supitcha Limsommut",
       "slug": "ormsin-supitcha-limsommut-gl-actriz",
       "nombreOriginal": "ออมสิน สุพิทชา ลิ้มสมมุติ",
@@ -2250,8 +2276,7 @@
       "instagram": "https://www.instagram.com/phinyanech.h",
       "shipSlug": "tk-nur-gl-ship"
     },
-
-     {
+    {
       "nombre": "Tonkhaw Nonthakarn Kaewobchoey",
       "slug": "tonkhaw-nonthakarn-kaewobchoey-gl-actriz",
       "apodo": "WaifhaTonkhaw",
@@ -2269,7 +2294,7 @@
         }
       ],
       "instagram": "https://www.instagram.com/tonnkhaw",
-        "shipSlug": "waifhatonkhaw-gl-ship"
+      "shipSlug": "waifhatonkhaw-gl-ship"
     },
     {
       "nombre": "Natty Natthamon Jantraviphart",

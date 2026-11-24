@@ -20,10 +20,9 @@ eleventyExcludeFromCollections: true
   <div class="ficha-actriz-cabecera">
     <img src="{{ actriz.foto }}" alt="Foto de {{ actriz.nombre }}" class="ficha-actriz-foto" width="300" height="400">
     <div class="ficha-actriz-texto">
-      <h1>{{ actriz.nombre }}</h1>
+      <h1>{{ actriz.nombre }}{% if actriz.apodo %} <span class="badge-ship ficha-actriz-ship">💕 {{ actriz.apodo }}</span>{% endif %}</h1>
       {% if actriz.nombreOriginal %}<p class="ficha-actriz-original">{{ actriz.nombreOriginal }}</p>{% endif %}
       <ul class="ficha-actriz-datos">
-        {% if actriz.apodo %}<li>💕 {{ actriz.apodo }}</li>{% endif %}
         {% if actriz.nacimiento %}<li>🎂 {{ actriz.nacimiento | fechaLarga }}</li>{% endif %}
         {% if actriz.nacimiento %}<li>🎈 {{ actriz.nacimiento | edad }} años</li>{% endif %}
         {% if actriz.nacionalidad %}<li>🌏 {{ actriz.nacionalidad }}</li>{% endif %}
@@ -49,15 +48,6 @@ eleventyExcludeFromCollections: true
   </div>
   {% endif %}
 
-  {% if actriz.shipSlug %}
-  {% for s in shipsWeb %}{% if s.slug == actriz.shipSlug %}
-  <div class="ficha-actriz-seccion">
-    <h2>💕 Ship</h2>
-    {# El chip se ve pero ya NO es un enlace (a pedido). Para que vuelva a llevar a la página del ship: <a href="/ships/{{ s.slug }}/" class="badge-ship">💕 {{ s.ship }}</a> #}
-    <span class="badge-ship">💕 {{ s.ship }}</span>
-  </div>
-  {% endif %}{% endfor %}
-  {% endif %}
 
   {% if actriz.instagram %}
   <div class="ficha-actriz-seccion">
