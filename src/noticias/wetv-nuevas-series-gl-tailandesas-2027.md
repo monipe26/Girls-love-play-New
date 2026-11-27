@@ -15,7 +15,6 @@ etiquetas:
 
 El Girls Love tailandés continúa ampliando sus horizontes y WeTV ya comenzó a mostrar algunas de las historias que formarán parte de su próxima etapa. Durante el evento **WeTV Always More 2027**, la plataforma presentó una programación que combina romances, adaptaciones de novelas y producciones con propuestas muy diferentes entre sí.
 
-![WeTV Always More 2027: presentación de las nuevas series GL](/assets/images/noticias/wetv-series-gl-tailandesas-2027.jpg)
 
 La nueva selección reúne tanto a parejas que volverán a compartir pantalla como a actrices que se incorporan al género con nuevos proyectos. También habrá historias que se alejan de los escenarios románticos habituales para explorar el espionaje, los secretos familiares, la magia negra y los fenómenos sobrenaturales.
 
@@ -127,4 +126,4 @@ También se destaca la participación de distintas compañías de producción, c
 
 Con nuevas parejas protagonistas y el regreso de dúos que ya cuentan con seguidores, WeTV prepara una programación que reunirá distintas propuestas para quienes siguen de cerca las series Girls Love de Tailandia.
 
-Los tráileres y pilotos oficiales de las producciones anunciadas se pueden ver en la sección [Próximamente](/proximamente/).
+Los tráileres y pilotos oficiales de las producciones anunciadas se pueden ver en la sección [Próximamente](https://girlsloveplay.com/proximamente/).
