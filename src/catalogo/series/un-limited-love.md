@@ -7,7 +7,7 @@ genero: "Comedia · Romance"
 pais: Tailandia
 episodios: "10"
 cadena: YouTube
-fechaEmision: 11-10-2026
+fechaEmision: "11-10-2025"
 sinopsis: >-
   Tras perder su trabajo por enfrentarse a un jefe acosador, Plu debe hacerse
   cargo de su familia. Su vida cambia cuando conoce a Ray, una mujer adinerada
