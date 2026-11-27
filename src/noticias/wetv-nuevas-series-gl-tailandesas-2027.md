@@ -126,4 +126,4 @@ También se destaca la participación de distintas compañías de producción, c
 
 Con nuevas parejas protagonistas y el regreso de dúos que ya cuentan con seguidores, WeTV prepara una programación que reunirá distintas propuestas para quienes siguen de cerca las series Girls Love de Tailandia.
 
-Los tráileres y pilotos oficiales de las producciones anunciadas se pueden ver en la sección [Próximamente](https://girlsloveplay.com/proximamente/).
+Los tráileres y pilotos oficiales de las producciones anunciadas se pueden ver en: [https://girlsloveplay.com/proximamente/](https://girlsloveplay.com/proximamente/)
